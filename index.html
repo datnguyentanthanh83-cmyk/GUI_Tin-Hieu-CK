@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Bảng Tín Hiệu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,6 +101,18 @@ header.top h1 .accent { color: var(--accent); }
   background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
   padding: 2px 9px; color: var(--ink); font-weight: 500;
 }
+.refresh-btn {
+  display: inline-flex; align-items: center; gap: 5px; margin-left: 4px;
+  font-family: "Be Vietnam Pro", sans-serif; font-size: 0.78rem; font-weight: 600;
+  color: var(--accent-ink); background: var(--neutral-bg); border: 1px solid var(--border);
+  border-radius: 999px; padding: 4px 11px 4px 9px; cursor: pointer;
+}
+.refresh-btn:hover { filter: brightness(0.97); }
+.refresh-btn:active { transform: scale(0.97); }
+.rf-icon { display: inline-block; font-size: 0.95rem; line-height: 1; }
+.rf-icon.spin { animation: spin 0.7s linear; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.rf-countdown { font-size: 0.74rem; color: var(--ink-dim); }
 
 .summary {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 26px;
@@ -197,7 +212,13 @@ footer.disclaimer {
 <div class="wrap">
   <header class="top">
     <h1>Bảng <span class="accent">Tín Hiệu</span></h1>
-    <div class="sync-tag">Quét lúc <b class="mono">13:36 28/08/2026</b> · <span class="src">nguồn: Mac</span></div>
+    <div class="sync-tag">
+      Quét lúc <b class="mono">13:36 28/08/2026</b> · <span class="src">nguồn: Mac</span>
+      <button class="refresh-btn" onclick="lamMoi()" title="Tải lại trang ngay, bỏ qua cache">
+        <span class="rf-icon">↻</span> Làm mới
+      </button>
+      <span class="rf-countdown mono" id="rfCountdown"></span>
+    </div>
   </header>
 
   <section class="summary">
@@ -402,7 +423,7 @@ footer.disclaimer {
     <div class="status-row">
       <span class="sd ok"></span>
       <span class="k">Kiểm thử logic (self_test)</span>
-      <span class="v">15/15 PASS (08:08:00 28/08/2026)</span>
+      <span class="v">20/20 PASS (13:38:28 28/08/2026)</span>
     </div>
     
   </div>
@@ -410,8 +431,45 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 7 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">13:36:09 28/08/2026</span>
+    Sinh trang lúc <span class="mono">13:38:28 28/08/2026</span>
   </footer>
 </div>
+<script>
+// Tự làm mới trang định kỳ + nút "Làm mới" thủ công.
+// Dùng query string ngẫu nhiên để buộc trình duyệt VÀ CDN của GitHub Pages
+// phải lấy bản mới nhất, tránh hiện tượng cache giữ bản cũ.
+(function () {
+  var AUTO_REFRESH_SEC = 180; // 3 phút — nhanh hơn chu kỳ quét (10 phút) để không bỏ lỡ lần cập nhật nào
+  var remaining = AUTO_REFRESH_SEC;
+  var el = document.getElementById('rfCountdown');
+
+  function lamMoiUrl() {
+    var url = new URL(window.location.href);
+    url.searchParams.set('_r', Date.now());
+    return url.toString();
+  }
+
+  window.lamMoi = function () {
+    var icon = document.querySelector('.rf-icon');
+    if (icon) icon.classList.add('spin');
+    window.location.href = lamMoiUrl();
+  };
+
+  function tick() {
+    remaining -= 1;
+    if (remaining <= 0) {
+      window.location.href = lamMoiUrl();
+      return;
+    }
+    if (el) {
+      var m = Math.floor(remaining / 60);
+      var s = remaining % 60;
+      el.textContent = 'tự làm mới sau ' + m + ':' + (s < 10 ? '0' : '') + s;
+    }
+    setTimeout(tick, 1000);
+  }
+  setTimeout(tick, 1000);
+})();
+</script>
 </body>
 </html>
