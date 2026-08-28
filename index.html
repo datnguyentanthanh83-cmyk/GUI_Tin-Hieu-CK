@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bảng Tín Hiệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F6F8;
+  --surface: #FFFFFF;
+  --surface-2: #ECEFF2;
+  --border: #DBE1E7;
+  --ink: #14181F;
+  --ink-dim: #5B6672;
+  --accent: #B9862C;
+  --accent-ink: #6E4B12;
+  --up: #1B8A5A;
+  --up-bg: #E4F5EC;
+  --down: #C63B32;
+  --down-bg: #FCEAE8;
+  --flat: #8A93A0;
+  --neutral: #A9781E;
+  --neutral-bg: #F6EEDC;
+  --ok-dot: #1B8A5A;
+  --err-dot: #C63B32;
+  --shadow: 0 1px 2px rgba(20,24,31,0.04), 0 8px 24px -12px rgba(20,24,31,0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161C;
+    --surface: #1A2028;
+    --surface-2: #212933;
+    --border: #2C3644;
+    --ink: #E7EAEE;
+    --ink-dim: #97A2AF;
+    --accent: #E0AC52;
+    --accent-ink: #F0C989;
+    --up: #3FCB85;
+    --up-bg: #143226;
+    --down: #FF7A6E;
+    --down-bg: #3A1D1C;
+    --flat: #7C8794;
+    --neutral: #E0B84A;
+    --neutral-bg: #362C15;
+    --ok-dot: #3FCB85;
+    --err-dot: #FF7A6E;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161C;
+  --surface: #1A2028;
+  --surface-2: #212933;
+  --border: #2C3644;
+  --ink: #E7EAEE;
+  --ink-dim: #97A2AF;
+  --accent: #E0AC52;
+  --accent-ink: #F0C989;
+  --up: #3FCB85;
+  --up-bg: #143226;
+  --down: #FF7A6E;
+  --down-bg: #3A1D1C;
+  --flat: #7C8794;
+  --neutral: #E0B84A;
+  --neutral-bg: #362C15;
+  --ok-dot: #3FCB85;
+  --err-dot: #FF7A6E;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Be Vietnam Pro", -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 20px 16px 64px; }
+
+header.top {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 8px 20px; padding-bottom: 18px; margin-bottom: 22px; border-bottom: 1px solid var(--border);
+}
+header.top h1 {
+  font-size: 1.5rem; font-weight: 700; margin: 0; letter-spacing: -0.01em; text-wrap: balance;
+}
+header.top h1 .accent { color: var(--accent); }
+.sync-tag {
+  font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--ink-dim);
+  display: flex; align-items: center; gap: 6px;
+}
+.sync-tag .src {
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
+  padding: 2px 9px; color: var(--ink); font-weight: 500;
+}
+
+.summary {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 26px;
+}
+.stat {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px 16px; box-shadow: var(--shadow);
+}
+.stat .n { font-family: "IBM Plex Mono", monospace; font-size: 1.7rem; font-weight: 600; line-height: 1; }
+.stat .lbl { font-size: 0.78rem; color: var(--ink-dim); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+.stat.mua .n { color: var(--up); }
+.stat.ban .n { color: var(--down); }
+.stat.theodoi .n { color: var(--flat); }
+
+h2.section {
+  font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-dim);
+  font-weight: 600; margin: 30px 0 12px;
+}
+
+.cards {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px;
+}
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 14px 16px 16px; box-shadow: var(--shadow); border-left: 3px solid var(--flat);
+}
+.card.mua { border-left-color: var(--up); }
+.card.ban { border-left-color: var(--down); }
+.card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.ticker { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.02em; }
+.price-block { margin-left: auto; text-align: right; font-family: "IBM Plex Mono", monospace; }
+.price { font-weight: 600; font-size: 1rem; }
+.chg { display: block; font-size: 0.78rem; }
+.chg.up { color: var(--up); }
+.chg.down { color: var(--down); }
+.chg.flat { color: var(--flat); }
+.badge {
+  font-size: 0.72rem; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+}
+.badge.mua { background: var(--up-bg); color: var(--up); }
+.badge.ban { background: var(--down-bg); color: var(--down); }
+.consensus { font-size: 0.8rem; color: var(--ink-dim); margin-bottom: 8px; }
+
+.flow {
+  display: flex; align-items: center; gap: 6px; font-size: 0.82rem;
+  background: var(--surface-2); border-radius: 8px; padding: 6px 10px; margin-bottom: 10px;
+}
+.flow b.up { color: var(--up); } .flow b.down { color: var(--down); } .flow b.flat { color: var(--flat); }
+.flow .dim { color: var(--ink-dim); }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
+.dot.pulse { animation: pulse 1.8s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .dot.pulse { animation: none; } }
+
+.tradeplan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px; }
+.tp-item {
+  display: flex; flex-direction: column; background: var(--surface-2); border-radius: 8px;
+  padding: 6px 8px; font-family: "IBM Plex Mono", monospace;
+}
+.tp-label { font-size: 0.68rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.03em; font-family: "Be Vietnam Pro", sans-serif; }
+.tp-val { font-weight: 600; font-size: 0.95rem; }
+.tp-val.up { color: var(--up); }
+.tp-val.down { color: var(--down); }
+.tp-sub { font-size: 0.65rem; color: var(--ink-dim); font-family: "Be Vietnam Pro", sans-serif; }
+.tp-note { font-size: 0.76rem; color: var(--ink-dim); margin-bottom: 8px; font-style: italic; }
+
+.levels { display: flex; flex-direction: column; gap: 4px; }
+.lv-row { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; font-size: 0.76rem; }
+.lv-cap { color: var(--ink-dim); width: 38px; flex: none; text-transform: uppercase; letter-spacing: 0.03em; font-size: 0.68rem; }
+.lv { font-family: "IBM Plex Mono", monospace; color: var(--ink-dim); }
+.lv b { color: var(--ink); font-weight: 500; }
+
+.empty { color: var(--ink-dim); font-size: 0.9rem; background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+
+.status-panel {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 16px 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px;
+}
+.status-row { display: flex; align-items: center; gap: 10px; font-size: 0.86rem; }
+.status-row .sd { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.status-row .sd.ok { background: var(--ok-dot); }
+.status-row .sd.bad { background: var(--err-dot); }
+.status-row .k { color: var(--ink-dim); min-width: 128px; }
+.status-row .v { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+.err-details { font-size: 0.82rem; color: var(--ink-dim); }
+.err-details summary { cursor: pointer; color: var(--ink); font-weight: 500; }
+.err-details ul { margin: 8px 0 0; padding-left: 18px; font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; }
+
+footer.disclaimer {
+  margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--border);
+  font-size: 0.76rem; color: var(--ink-dim); text-align: center; line-height: 1.6;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>Bảng <span class="accent">Tín Hiệu</span></h1>
+    <div class="sync-tag">Quét lúc <b class="mono">11:16 28/08/2026</b> · <span class="src">nguồn: Mac</span></div>
+  </header>
+
+  <section class="summary">
+    <div class="stat mua"><div class="n">7</div><div class="lbl">Mua</div></div>
+    <div class="stat theodoi"><div class="n">102</div><div class="lbl">Theo dõi sát</div></div>
+    <div class="stat ban"><div class="n">1</div><div class="lbl">Bán</div></div>
+  </section>
+
+  <h2 class="section">Tín hiệu MUA / BÁN (8 / 111 mã)</h2>
+  <div class="cards">
+    
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">BAF</div>
+        <div class="price-block">
+          <span class="price">32.3</span>
+          <span class="chg flat">0.00</span>
+        </div>
+        <span class="badge mua">MUA</span>
+      </header>
+      <div class="consensus">5/7 tăng · 0/7 giảm</div>
+      
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">32.2</span><span class="tp-sub">P</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">32.05</span><span class="tp-sub">S1</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">32.45</span><span class="tp-sub">R1</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (P).</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>31.59</b></span><span class="lv">MA50 <b>30.42</b></span><span class="lv">MA200 <b>29.79</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>32.6</b></span><span class="lv">R1 <b>32.45</b></span><span class="lv">P <b>32.2</b></span><span class="lv">S1 <b>32.05</b></span><span class="lv">S2 <b>31.8</b></span></div>
+      </div>
+    </article>
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">DGW</div>
+        <div class="price-block">
+          <span class="price">42.8</span>
+          <span class="chg down">-0.3</span>
+        </div>
+        <span class="badge mua">MUA</span>
+      </header>
+      <div class="consensus">5/7 tăng · 0/7 giảm</div>
+      
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">42.5</span><span class="tp-sub">S1</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">41.97</span><span class="tp-sub">MA200</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">43</span><span class="tp-sub">P</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (S1).</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>41.03</b></span><span class="lv">MA50 <b>39.16</b></span><span class="lv">MA200 <b>41.97</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>44.1</b></span><span class="lv">R1 <b>43.6</b></span><span class="lv">P <b>43</b></span><span class="lv">S1 <b>42.5</b></span><span class="lv">S2 <b>41.9</b></span></div>
+      </div>
+    </article>
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">FPT</div>
+        <div class="price-block">
+          <span class="price">73.8</span>
+          <span class="chg up">+1.6</span>
+        </div>
+        <span class="badge mua">MUA</span>
+      </header>
+      <div class="consensus">5/7 tăng · 0/7 giảm</div>
+      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="up">60%</b><span class="dim"> (100 lệnh mẫu)</span></div>
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">73.03</span><span class="tp-sub">R3</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">72.87</span><span class="tp-sub">R2</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">81.45</span><span class="tp-sub">MA200</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (R3).</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>70.44</b></span><span class="lv">MA50 <b>69.55</b></span><span class="lv">MA200 <b>81.45</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>72.87</b></span><span class="lv">R1 <b>72.53</b></span><span class="lv">P <b>72.37</b></span><span class="lv">S1 <b>72.03</b></span><span class="lv">S2 <b>71.87</b></span></div>
+      </div>
+    </article>
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">GAS</div>
+        <div class="price-block">
+          <span class="price">85.4</span>
+          <span class="chg up">+1.1</span>
+        </div>
+        <span class="badge mua">MUA</span>
+      </header>
+      <div class="consensus">5/7 tăng · 0/7 giảm</div>
+      
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">84.13</span><span class="tp-sub">P</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">82.87</span><span class="tp-sub">S1</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">85.57</span><span class="tp-sub">R1</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (P).</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>78.3</b></span><span class="lv">MA50 <b>75.94</b></span><span class="lv">MA200 <b>82.4</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>86.83</b></span><span class="lv">R1 <b>85.57</b></span><span class="lv">P <b>84.13</b></span><span class="lv">S1 <b>82.87</b></span><span class="lv">S2 <b>81.43</b></span></div>
+      </div>
+    </article>
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">HHP</div>
+        <div class="price-block">
+          <span class="price">15.95</span>
+          <span class="chg flat">0.00</span>
+        </div>
+        <span class="badge mua">MUA</span>
+      </header>
+      <div class="consensus">5/7 tăng · 0/7 giảm</div>
+      
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">15.73</span><span class="tp-sub">S1</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">15.52</span><span class="tp-sub">S2</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">16.02</span><span class="tp-sub">P</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (S1).</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>14.87</b></span><span class="lv">MA50 <b>14.26</b></span><span class="lv">MA200 <b>12.72</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>16.52</b></span><span class="lv">R1 <b>16.23</b></span><span class="lv">P <b>16.02</b></span><span class="lv">S1 <b>15.73</b></span><span class="lv">S2 <b>15.52</b></span></div>
+      </div>
+    </article>
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">MZG</div>
+        <div class="price-block">
+          <span class="price">12.8</span>
+          <span class="chg flat">0.00</span>
+        </div>
+        <span class="badge mua">MUA</span>
+      </header>
+      <div class="consensus">5/7 tăng · 0/7 giảm</div>
+      
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">12.7</span><span class="tp-sub">S1</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">12.6</span><span class="tp-sub">S2</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">12.85</span><span class="tp-sub">P</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (S1).</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>12.32</b></span><span class="lv">MA50 <b>11.84</b></span><span class="lv">MA200 <b>11.16</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>13.1</b></span><span class="lv">R1 <b>12.95</b></span><span class="lv">P <b>12.85</b></span><span class="lv">S1 <b>12.7</b></span><span class="lv">S2 <b>12.6</b></span></div>
+      </div>
+    </article>
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">VPI</div>
+        <div class="price-block">
+          <span class="price">68.1</span>
+          <span class="chg up">+0.6</span>
+        </div>
+        <span class="badge mua">MUA</span>
+      </header>
+      <div class="consensus">5/7 tăng · 0/7 giảm</div>
+      
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">68</span><span class="tp-sub">P</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">67</span><span class="tp-sub">S1</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">68.5</span><span class="tp-sub">R1</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (P).</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>63.22</b></span><span class="lv">MA50 <b>62.49</b></span><span class="lv">MA200 <b>59.16</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>69.5</b></span><span class="lv">R1 <b>68.5</b></span><span class="lv">P <b>68</b></span><span class="lv">S1 <b>67</b></span><span class="lv">S2 <b>66.5</b></span></div>
+      </div>
+    </article>
+    <article class="card ban">
+      <header class="card-head">
+        <div class="ticker">NTL</div>
+        <div class="price-block">
+          <span class="price">12.5</span>
+          <span class="chg down">-0.05</span>
+        </div>
+        <span class="badge ban">BÁN</span>
+      </header>
+      <div class="consensus">0/7 tăng · 5/7 giảm</div>
+      
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">12.65</span><span class="tp-sub">P</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">12.75</span><span class="tp-sub">R1</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">12.45</span><span class="tp-sub">S1</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng kháng cự gần nhất (P).</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>13.3</b></span><span class="lv">MA50 <b>14.26</b></span><span class="lv">MA200 <b>16.08</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>12.95</b></span><span class="lv">R1 <b>12.75</b></span><span class="lv">P <b>12.65</b></span><span class="lv">S1 <b>12.45</b></span><span class="lv">S2 <b>12.35</b></span></div>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="section">Tình trạng hệ thống</h2>
+  <div class="status-panel">
+    <div class="status-row">
+      <span class="sd ok"></span>
+      <span class="k">Lần quét gần nhất</span>
+      <span class="v">2026-08-28 11:16:49 — Đã quét</span>
+    </div>
+    <div class="status-row">
+      <span class="sd ok"></span>
+      <span class="k">Mã quét thành công</span>
+      <span class="v">110 OK · 1 lỗi</span>
+    </div>
+    <div class="status-row">
+      <span class="sd ok"></span>
+      <span class="k">Kiểm thử logic (self_test)</span>
+      <span class="v">15/15 PASS (08:08:00 28/08/2026)</span>
+    </div>
+    
+  </div>
+
+  <footer class="disclaimer">
+    Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
+    chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 7 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
+    Sinh trang lúc <span class="mono">11:20:00 28/08/2026</span>
+  </footer>
+</div>
+</body>
+</html>
