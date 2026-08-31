@@ -209,6 +209,25 @@ h2.section {
 .err-details summary { cursor: pointer; color: var(--ink); font-weight: 500; }
 .err-details ul { margin: 8px 0 0; padding-left: 18px; font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; }
 
+.hist-wrap {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 4px 16px; overflow-x: auto;
+}
+table.hist { width: 100%; border-collapse: collapse; font-size: 0.82rem; white-space: nowrap; }
+table.hist th {
+  text-align: left; color: var(--ink-dim); font-weight: 500; font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.03em; padding: 10px 10px; border-bottom: 1px solid var(--border);
+}
+table.hist td { padding: 9px 10px; border-bottom: 1px solid var(--border); font-family: "IBM Plex Mono", monospace; }
+table.hist tr:last-child td { border-bottom: none; }
+.hist-sig { font-family: "Be Vietnam Pro", sans-serif; font-weight: 600; padding: 2px 8px; border-radius: 999px; font-size: 0.72rem; }
+.hist-sig.mua { background: var(--up-bg); color: var(--up); }
+.hist-sig.ban { background: var(--down-bg); color: var(--down); }
+.hist-status { font-family: "Be Vietnam Pro", sans-serif; font-size: 0.76rem; }
+.hist-status.theo_doi { color: var(--ink-dim); }
+.hist-status.da_cham_tp { color: var(--up); font-weight: 600; }
+.hist-status.da_cham_sl { color: var(--down); font-weight: 600; }
+
 footer.disclaimer {
   margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--border);
   font-size: 0.76rem; color: var(--ink-dim); text-align: center; line-height: 1.6;
@@ -220,7 +239,7 @@ footer.disclaimer {
   <header class="top">
     <h1>Bảng <span class="accent">Tín Hiệu</span></h1>
     <div class="sync-tag">
-      Quét lúc <b class="mono">16:38 31/08/2026</b> · <span class="src">nguồn: Windows</span>
+      Quét lúc <b class="mono">17:00 31/08/2026</b> · <span class="src">nguồn: Windows</span>
       <button class="refresh-btn" onclick="lamMoi()" title="Tải lại trang ngay, bỏ qua cache">
         <span class="rf-icon">↻</span> Làm mới
       </button>
@@ -376,7 +395,7 @@ footer.disclaimer {
     <div class="status-row">
       <span class="sd ok"></span>
       <span class="k">Lần quét gần nhất</span>
-      <span class="v">2026-08-31 16:38:59 — Đã quét</span>
+      <span class="v">2026-08-31 17:00:46 — Đã quét</span>
     </div>
     <div class="status-row">
       <span class="sd ok"></span>
@@ -391,10 +410,15 @@ footer.disclaimer {
     
   </div>
 
+  <h2 class="section">Lịch sử tín hiệu (0 mã theo dõi)</h2>
+  <div class="hist-wrap">
+    <p class="empty">Chưa có mã nào trong lịch sử tín hiệu.</p>
+  </div>
+
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 7 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">16:38:59 31/08/2026</span>
+    Sinh trang lúc <span class="mono">17:00:46 31/08/2026</span>
   </footer>
 </div>
 <script>
