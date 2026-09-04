@@ -224,6 +224,10 @@ table.hist tr:last-child td { border-bottom: none; }
 .hist-status.theo_doi { color: var(--ink-dim); }
 .hist-status.da_cham_tp { color: var(--up); font-weight: 600; }
 .hist-status.da_cham_sl { color: var(--down); font-weight: 600; }
+.hist-result { font-family: "IBM Plex Mono", monospace; font-weight: 700; padding: 2px 10px; border-radius: 999px; font-size: 0.72rem; letter-spacing: 0.02em; }
+.hist-result.win { background: var(--up-bg); color: var(--up); }
+.hist-result.lost { background: var(--down-bg); color: var(--down); }
+.hist-result.pending { background: var(--neutral-bg); color: var(--neutral); }
 
 footer.disclaimer {
   margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--border);
@@ -435,7 +439,7 @@ footer.disclaimer {
     <div class="status-row">
       <span class="sd bad"></span>
       <span class="k">Lần quét gần nhất</span>
-      <span class="v">2026-09-04 15:02:56 — Ngoài giờ giao dịch (đang chờ)</span>
+      <span class="v">2026-09-04 16:56:36 — Ngoài giờ giao dịch (đang chờ)</span>
     </div>
     <div class="status-row">
       <span class="sd ok"></span>
@@ -447,12 +451,12 @@ footer.disclaimer {
       <span class="k">Kiểm thử logic (self_test)</span>
       <span class="v">28/28 PASS (08:45:02 04/09/2026)</span>
     </div>
-    <details class="err-details"><summary>Log lỗi gần đây (1 dòng)</summary><ul><li>^C^C^C</li></ul></details>
+    <details class="err-details"><summary>Log lỗi gần đây (1 dòng)</summary><ul><li>^C^C^C^C</li></ul></details>
   </div>
 
   <h2 class="section">Lịch sử tín hiệu (30 mã theo dõi)</h2>
   <div class="hist-wrap">
-    <table class="hist"><thead><tr><th>Mã</th><th>Tín hiệu</th><th>Ngày khuyến nghị</th><th>Entry</th><th>Cắt lỗ</th><th>Chốt lời</th><th>Giá gần nhất</th><th>Trạng thái</th></tr></thead><tbody><tr>
+    <table class="hist"><thead><tr><th>Mã</th><th>Tín hiệu</th><th>Ngày khuyến nghị</th><th>Entry</th><th>Cắt lỗ</th><th>Chốt lời</th><th>Giá gần nhất</th><th>Trạng thái</th><th>Kết quả</th></tr></thead><tbody><tr>
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -461,6 +465,7 @@ footer.disclaimer {
           <td>69.33</td>
           <td>68.9 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -470,6 +475,7 @@ footer.disclaimer {
           <td>33.03</td>
           <td>33 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>SSI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -479,6 +485,7 @@ footer.disclaimer {
           <td>21.2</td>
           <td>21.1 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -488,6 +495,7 @@ footer.disclaimer {
           <td>14.35</td>
           <td>14.15 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>MZG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -497,6 +505,7 @@ footer.disclaimer {
           <td>12.5</td>
           <td>12.5 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>HVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -506,6 +515,7 @@ footer.disclaimer {
           <td>11.08</td>
           <td>11.05 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -515,6 +525,7 @@ footer.disclaimer {
           <td>9.47</td>
           <td>9.39 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>HSL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -524,6 +535,7 @@ footer.disclaimer {
           <td>10.58</td>
           <td>10.5 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -533,6 +545,7 @@ footer.disclaimer {
           <td>16.37</td>
           <td>16.35 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>HDB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -542,6 +555,7 @@ footer.disclaimer {
           <td>27.37</td>
           <td>27.25 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -551,6 +565,7 @@ footer.disclaimer {
           <td>68.97</td>
           <td>68.9 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -560,6 +575,7 @@ footer.disclaimer {
           <td>32.63</td>
           <td>33 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -569,6 +585,7 @@ footer.disclaimer {
           <td>14.27</td>
           <td>14.15 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>REE</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -578,6 +595,7 @@ footer.disclaimer {
           <td>45.35</td>
           <td>45.55 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>NTL</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -587,6 +605,7 @@ footer.disclaimer {
           <td>12.28</td>
           <td>12.05 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>MZG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -596,6 +615,7 @@ footer.disclaimer {
           <td>12.88</td>
           <td>12.5 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -605,6 +625,7 @@ footer.disclaimer {
           <td>9.32</td>
           <td>9.39 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -614,6 +635,7 @@ footer.disclaimer {
           <td>16.35</td>
           <td>16.35 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>HDB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -623,6 +645,7 @@ footer.disclaimer {
           <td>27.93</td>
           <td>27.25 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -632,6 +655,7 @@ footer.disclaimer {
           <td>84.93</td>
           <td>84.1 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>FIR</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -641,6 +665,7 @@ footer.disclaimer {
           <td>3.91</td>
           <td>3.7 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>ELC</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -650,6 +675,7 @@ footer.disclaimer {
           <td>14.58</td>
           <td>14.55 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>DHC</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -659,6 +685,7 @@ footer.disclaimer {
           <td>36.62</td>
           <td>35.7 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>ABS</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -668,6 +695,7 @@ footer.disclaimer {
           <td>2.8</td>
           <td>2.87 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
         </tr><tr>
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -677,6 +705,7 @@ footer.disclaimer {
           <td>68.97</td>
           <td>69 <span class="lv">(13:11 04/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:11 04/09/2026 @ 69</td>
+          <td><span class="hist-result win">WIN</span></td>
         </tr><tr>
           <td><b>OCB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -686,6 +715,7 @@ footer.disclaimer {
           <td>11.05</td>
           <td>10.9 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 09:36 03/09/2026 @ 10.9</td>
+          <td><span class="hist-result lost">LOST</span></td>
         </tr><tr>
           <td><b>NTL</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -695,6 +725,7 @@ footer.disclaimer {
           <td>12.43</td>
           <td>12.4 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 09:36 03/09/2026 @ 12.4</td>
+          <td><span class="hist-result win">WIN</span></td>
         </tr><tr>
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -704,6 +735,7 @@ footer.disclaimer {
           <td>16.35</td>
           <td>16.35 <span class="lv">(13:11 04/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:11 04/09/2026 @ 16.35</td>
+          <td><span class="hist-result win">WIN</span></td>
         </tr><tr>
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -713,6 +745,7 @@ footer.disclaimer {
           <td>84.93</td>
           <td>86.3 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 09:36 03/09/2026 @ 86.3</td>
+          <td><span class="hist-result win">WIN</span></td>
         </tr><tr>
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -722,13 +755,14 @@ footer.disclaimer {
           <td>74.07</td>
           <td>72.2 <span class="lv">(14:25 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 14:25 03/09/2026 @ 72.2</td>
+          <td><span class="hist-result lost">LOST</span></td>
         </tr></tbody></table>
   </div>
 
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">15:02:56 04/09/2026</span>
+    Sinh trang lúc <span class="mono">17:01:46 04/09/2026</span>
   </footer>
 </div>
 <script>
