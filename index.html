@@ -229,6 +229,88 @@ table.hist tr:last-child td { border-bottom: none; }
 .hist-result.lost { background: var(--down-bg); color: var(--down); }
 .hist-result.pending { background: var(--neutral-bg); color: var(--neutral); }
 
+.health-banner {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 12px 16px; box-shadow: var(--shadow); margin-bottom: 22px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.health-banner.empty {
+  flex-direction: row; align-items: center; gap: 8px; color: var(--ink-dim); font-size: 0.86rem;
+}
+.hb-title { font-size: 0.72rem; font-weight: 600; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.04em; }
+.hb-row { font-size: 0.86rem; font-weight: 500; }
+.hb-row.green { color: var(--up); }
+.hb-row.yellow { color: var(--neutral); }
+.hb-row.red { color: var(--down); }
+.hb-row.grey { color: var(--ink-dim); }
+
+.tabs {
+  display: flex; gap: 4px; margin-bottom: 22px; border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.tab-btn {
+  font-family: "Be Vietnam Pro", sans-serif; font-size: 0.86rem; font-weight: 600;
+  color: var(--ink-dim); background: none; border: none; border-bottom: 2px solid transparent;
+  padding: 10px 4px; margin-right: 22px; cursor: pointer; white-space: nowrap;
+}
+.tab-btn.active { color: var(--ink); border-bottom-color: var(--accent); }
+.tab-btn .dot-mini { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.tab-btn .dot-mini.red { background: var(--down); }
+.tab-btn .dot-mini.yellow { background: var(--neutral); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.hist-controls { margin-bottom: 12px; }
+.hist-search {
+  width: 100%; max-width: 260px; padding: 8px 12px; border: 1px solid var(--border);
+  border-radius: 8px; background: var(--surface); color: var(--ink);
+  font-family: "Be Vietnam Pro", sans-serif; font-size: 0.86rem;
+}
+.hist-search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.th-sort {
+  background: none; border: none; padding: 0; margin: 0; font: inherit; color: inherit;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+  text-transform: inherit; letter-spacing: inherit;
+}
+.th-sort:hover { color: var(--ink); }
+.hist-no-match { margin-top: 12px; }
+
+.ov-banner {
+  display: flex; align-items: center; gap: 12px; border-radius: 12px; padding: 16px 18px;
+  margin-bottom: 16px; box-shadow: var(--shadow); border: 1px solid var(--border); background: var(--surface);
+}
+.ov-banner.red { background: var(--down-bg); }
+.ov-banner.yellow { background: var(--neutral-bg); }
+.ov-banner.green { background: var(--up-bg); }
+.ov-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; background: var(--flat); }
+.ov-dot.red { background: var(--down); } .ov-dot.yellow { background: var(--neutral); }
+.ov-dot.green { background: var(--up); } .ov-dot.grey { background: var(--flat); }
+.ov-title { font-weight: 700; font-size: 1rem; color: var(--ink); }
+.ov-title.red { color: var(--down); } .ov-title.yellow { color: var(--accent-ink); }
+.ov-title.green { color: var(--up); }
+.ov-sub { font-size: 0.8rem; color: var(--ink-dim); margin-top: 2px; }
+
+.hsum-wrap {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: var(--shadow); overflow-x: auto;
+}
+table.hsum {
+  width: 100%; min-width: 620px; border-collapse: collapse; font-size: 0.84rem;
+}
+table.hsum th {
+  text-align: left; color: var(--ink-dim); font-weight: 500; font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.03em; padding: 10px 12px;
+  border-bottom: 1px solid var(--border); background: var(--surface-2);
+}
+table.hsum td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.hsum tr:last-child td { border-bottom: none; }
+.lvl-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; }
+.lvl-dot.green { background: var(--up); } .lvl-dot.yellow { background: var(--neutral); }
+.lvl-dot.red { background: var(--down); } .lvl-dot.grey { background: var(--flat); }
+.hsum-layer { font-weight: 600; white-space: nowrap; }
+.hsum-detail { color: var(--ink-dim); }
+.hsum-meta { color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; font-size: 0.76rem; white-space: nowrap; }
+
 footer.disclaimer {
   margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--border);
   font-size: 0.76rem; color: var(--ink-dim); text-align: center; line-height: 1.6;
@@ -248,14 +330,21 @@ footer.disclaimer {
     </div>
   </header>
 
-  <section class="summary">
-    <div class="stat mua"><div class="n">8</div><div class="lbl">Mua</div></div>
-    <div class="stat theodoi"><div class="n">151</div><div class="lbl">Theo dõi sát</div></div>
-  </section>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
+    <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
+    <button class="tab-btn" onclick="showTab('tabSucKhoe', this)">Sức khỏe phương pháp</button>
+  </div>
 
-  <h2 class="section">Tín hiệu MUA (8 / 161 mã)</h2>
-  <div class="cards">
-    
+  <div id="tabTinHieu" class="tab-panel active">
+    <section class="summary">
+      <div class="stat mua"><div class="n">8</div><div class="lbl">Mua</div></div>
+      <div class="stat theodoi"><div class="n">151</div><div class="lbl">Theo dõi sát</div></div>
+    </section>
+
+    <h2 class="section">Tín hiệu MUA (8 / 161 mã)</h2>
+    <div class="cards">
+      
     <article class="card mua">
       <header class="card-head">
         <div class="ticker">MZG</div>
@@ -263,7 +352,10 @@ footer.disclaimer {
           <span class="price">12.5</span>
           <span class="chg down">-0.3</span>
         </div>
-        <span class="badge mua">MUA</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">—/486M</span>
+        </div>
       </header>
       <div class="consensus">6/8 tăng · 0/8 giảm</div>
       <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="up">84%</b><span class="dim"> (100 lệnh mẫu)</span></div>
@@ -285,7 +377,10 @@ footer.disclaimer {
           <span class="price">33</span>
           <span class="chg up">+0.6</span>
         </div>
-        <span class="badge mua">MUA</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">—/285M</span>
+        </div>
       </header>
       <div class="consensus">6/8 tăng · 0/8 giảm</div>
       
@@ -307,7 +402,10 @@ footer.disclaimer {
           <span class="price">27.25</span>
           <span class="chg up">+0.05</span>
         </div>
-        <span class="badge mua">MUA</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">—/10.71MM</span>
+        </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
       
@@ -329,7 +427,10 @@ footer.disclaimer {
           <span class="price">16.35</span>
           <span class="chg up">+0.1</span>
         </div>
-        <span class="badge mua">MUA</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">—/1.17MM</span>
+        </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
       
@@ -351,7 +452,10 @@ footer.disclaimer {
           <span class="price">9.39</span>
           <span class="chg up">+0.1</span>
         </div>
-        <span class="badge mua">MUA</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">—/489M</span>
+        </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
       
@@ -373,7 +477,10 @@ footer.disclaimer {
           <span class="price">14.15</span>
           <span class="chg flat">0.00</span>
         </div>
-        <span class="badge mua">MUA</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">—/433M</span>
+        </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
       
@@ -395,7 +502,10 @@ footer.disclaimer {
           <span class="price">21.1</span>
           <span class="chg up">+0.2</span>
         </div>
-        <span class="badge mua">MUA</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">—/22.54MM</span>
+        </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
       
@@ -417,7 +527,10 @@ footer.disclaimer {
           <span class="price">68.9</span>
           <span class="chg up">+0.1</span>
         </div>
-        <span class="badge mua">MUA</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">—/2.04MM</span>
+        </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
       
@@ -432,31 +545,36 @@ footer.disclaimer {
         <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>69.87</b></span><span class="lv">R1 <b>69.33</b></span><span class="lv">P <b>68.47</b></span><span class="lv">S1 <b>67.93</b></span><span class="lv">S2 <b>67.07</b></span></div>
       </div>
     </article>
+    </div>
+
+    <h2 class="section">Tình trạng hệ thống</h2>
+    <div class="status-panel">
+      <div class="status-row">
+        <span class="sd bad"></span>
+        <span class="k">Lần quét gần nhất</span>
+        <span class="v">2026-09-04 22:34:23 — Ngoài giờ giao dịch (đang chờ)</span>
+      </div>
+      <div class="status-row">
+        <span class="sd ok"></span>
+        <span class="k">Mã quét thành công</span>
+        <span class="v">— OK · — lỗi</span>
+      </div>
+      <div class="status-row">
+        <span class="sd ok"></span>
+        <span class="k">Kiểm thử logic (self_test)</span>
+        <span class="v">28/28 PASS (08:45:02 04/09/2026)</span>
+      </div>
+      <details class="err-details"><summary>Log lỗi gần đây (1 dòng)</summary><ul><li>^C^C^C^C</li></ul></details>
+    </div>
   </div>
 
-  <h2 class="section">Tình trạng hệ thống</h2>
-  <div class="status-panel">
-    <div class="status-row">
-      <span class="sd bad"></span>
-      <span class="k">Lần quét gần nhất</span>
-      <span class="v">2026-09-04 16:56:36 — Ngoài giờ giao dịch (đang chờ)</span>
+  <div id="tabLichSu" class="tab-panel">
+    <h2 class="section">Lịch sử tín hiệu (30 mã theo dõi)</h2>
+    <div class="hist-controls">
+      <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="filterHist()" autocomplete="off">
     </div>
-    <div class="status-row">
-      <span class="sd ok"></span>
-      <span class="k">Mã quét thành công</span>
-      <span class="v">— OK · — lỗi</span>
-    </div>
-    <div class="status-row">
-      <span class="sd ok"></span>
-      <span class="k">Kiểm thử logic (self_test)</span>
-      <span class="v">28/28 PASS (08:45:02 04/09/2026)</span>
-    </div>
-    <details class="err-details"><summary>Log lỗi gần đây (1 dòng)</summary><ul><li>^C^C^C^C</li></ul></details>
-  </div>
-
-  <h2 class="section">Lịch sử tín hiệu (30 mã theo dõi)</h2>
-  <div class="hist-wrap">
-    <table class="hist"><thead><tr><th>Mã</th><th>Tín hiệu</th><th>Ngày khuyến nghị</th><th>Entry</th><th>Cắt lỗ</th><th>Chốt lời</th><th>Giá gần nhất</th><th>Trạng thái</th><th>Kết quả</th></tr></thead><tbody><tr>
+    <div class="hist-wrap">
+      <table class="hist" id="histTable"><thead><tr><th>Mã</th><th>Tín hiệu</th><th><button type="button" class="th-sort" onclick="sortHistByDate()">Ngày khuyến nghị <span id="histSortIcon" class="mono">↓</span></button></th><th>Entry</th><th>Cắt lỗ</th><th>Chốt lời</th><th>Giá gần nhất</th><th>Trạng thái</th><th>Kết quả</th></tr></thead><tbody><tr data-symbol="VPI" data-date="20260904">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -466,7 +584,7 @@ footer.disclaimer {
           <td>68.9 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="TDP" data-date="20260904">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -476,7 +594,7 @@ footer.disclaimer {
           <td>33 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="SSI" data-date="20260904">
           <td><b>SSI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -486,7 +604,7 @@ footer.disclaimer {
           <td>21.1 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="SBG" data-date="20260904">
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -496,7 +614,7 @@ footer.disclaimer {
           <td>14.15 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="MZG" data-date="20260904">
           <td><b>MZG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -506,7 +624,7 @@ footer.disclaimer {
           <td>12.5 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="HVH" data-date="20260904">
           <td><b>HVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -516,7 +634,7 @@ footer.disclaimer {
           <td>11.05 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="HTN" data-date="20260904">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -526,7 +644,7 @@ footer.disclaimer {
           <td>9.39 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="HSL" data-date="20260904">
           <td><b>HSL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -536,7 +654,7 @@ footer.disclaimer {
           <td>10.5 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="HHP" data-date="20260904">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -546,7 +664,7 @@ footer.disclaimer {
           <td>16.35 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="HDB" data-date="20260904">
           <td><b>HDB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">hôm nay</span></td>
@@ -556,7 +674,7 @@ footer.disclaimer {
           <td>27.25 <span class="lv">(15:02 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="VPI" data-date="20260903">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -566,7 +684,7 @@ footer.disclaimer {
           <td>68.9 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="TDP" data-date="20260903">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -576,7 +694,7 @@ footer.disclaimer {
           <td>33 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="SBG" data-date="20260903">
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -586,7 +704,7 @@ footer.disclaimer {
           <td>14.15 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="REE" data-date="20260903">
           <td><b>REE</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -596,7 +714,7 @@ footer.disclaimer {
           <td>45.55 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="NTL" data-date="20260903">
           <td><b>NTL</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -606,7 +724,7 @@ footer.disclaimer {
           <td>12.05 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="MZG" data-date="20260903">
           <td><b>MZG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -616,7 +734,7 @@ footer.disclaimer {
           <td>12.5 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="HTN" data-date="20260903">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -626,7 +744,7 @@ footer.disclaimer {
           <td>9.39 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="HHP" data-date="20260903">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -636,7 +754,7 @@ footer.disclaimer {
           <td>16.35 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="HDB" data-date="20260903">
           <td><b>HDB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -646,7 +764,7 @@ footer.disclaimer {
           <td>27.25 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="GAS" data-date="20260903">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -656,7 +774,7 @@ footer.disclaimer {
           <td>84.1 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="FIR" data-date="20260903">
           <td><b>FIR</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -666,7 +784,7 @@ footer.disclaimer {
           <td>3.7 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="ELC" data-date="20260903">
           <td><b>ELC</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -676,7 +794,7 @@ footer.disclaimer {
           <td>14.55 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="DHC" data-date="20260903">
           <td><b>DHC</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -686,7 +804,7 @@ footer.disclaimer {
           <td>35.7 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="ABS" data-date="20260903">
           <td><b>ABS</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">hôm qua</span></td>
@@ -696,7 +814,7 @@ footer.disclaimer {
           <td>2.87 <span class="lv">(14:42 04/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="VPI" data-date="20260902">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -706,7 +824,7 @@ footer.disclaimer {
           <td>69 <span class="lv">(13:11 04/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:11 04/09/2026 @ 69</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="OCB" data-date="20260902">
           <td><b>OCB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -716,7 +834,7 @@ footer.disclaimer {
           <td>10.9 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 09:36 03/09/2026 @ 10.9</td>
           <td><span class="hist-result lost">LOST</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="NTL" data-date="20260902">
           <td><b>NTL</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>02/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -726,7 +844,7 @@ footer.disclaimer {
           <td>12.4 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 09:36 03/09/2026 @ 12.4</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="HHP" data-date="20260902">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -736,7 +854,7 @@ footer.disclaimer {
           <td>16.35 <span class="lv">(13:11 04/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:11 04/09/2026 @ 16.35</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="GAS" data-date="20260902">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -746,7 +864,7 @@ footer.disclaimer {
           <td>86.3 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 09:36 03/09/2026 @ 86.3</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr>
+        </tr><tr data-symbol="FPT" data-date="20260902">
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -756,16 +874,65 @@ footer.disclaimer {
           <td>72.2 <span class="lv">(14:25 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 14:25 03/09/2026 @ 72.2</td>
           <td><span class="hist-result lost">LOST</span></td>
-        </tr></tbody></table>
+        </tr></tbody></table><p class="empty hist-no-match" id="histNoMatch" hidden>Không tìm thấy mã phù hợp.</p>
+    </div>
+  </div>
+
+  <div id="tabSucKhoe" class="tab-panel">
+    <h2 class="section">Sức khỏe phương pháp</h2>
+    <div class="health-banner empty">Chưa có dữ liệu giám sát sức khỏe phương pháp <span class="lv">(chạy run_strategy_health_check.py để bắt đầu theo dõi)</span></div>
   </div>
 
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">17:01:46 04/09/2026</span>
+    Sinh trang lúc <span class="mono">22:42:08 04/09/2026</span>
   </footer>
 </div>
 <script>
+// Chuyển tab (Tín hiệu MUA / Lịch sử tín hiệu / Sức khỏe phương pháp).
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Lịch sử tín hiệu: tìm theo mã + sắp xếp theo ngày khuyến nghị (gần nhất/xa nhất).
+var histSortDir = 'desc'; // bảng đã render sẵn theo thứ tự gần nhất trước
+function sortHistByDate() {
+  var tbody = document.querySelector('#histTable tbody');
+  if (!tbody) return;
+  var rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+  histSortDir = histSortDir === 'desc' ? 'asc' : 'desc';
+  rows.sort(function (a, b) {
+    var da = a.getAttribute('data-date') || '00000000';
+    var db = b.getAttribute('data-date') || '00000000';
+    if (da === db) return 0;
+    var cmp = da < db ? -1 : 1;
+    return histSortDir === 'desc' ? -cmp : cmp;
+  });
+  rows.forEach(function (r) { tbody.appendChild(r); });
+  var icon = document.getElementById('histSortIcon');
+  if (icon) icon.textContent = histSortDir === 'desc' ? '↓' : '↑';
+}
+
+function filterHist() {
+  var input = document.getElementById('histSearch');
+  if (!input) return;
+  var q = input.value.trim().toUpperCase();
+  var rows = document.querySelectorAll('#histTable tbody tr');
+  var nVisible = 0;
+  rows.forEach(function (r) {
+    var sym = r.getAttribute('data-symbol') || '';
+    var match = sym.indexOf(q) !== -1;
+    r.style.display = match ? '' : 'none';
+    if (match) nVisible += 1;
+  });
+  var noMatch = document.getElementById('histNoMatch');
+  if (noMatch) noMatch.hidden = !(q && nVisible === 0);
+}
+
 // Tự làm mới trang định kỳ + nút "Làm mới" thủ công.
 // Dùng query string ngẫu nhiên để buộc trình duyệt VÀ CDN của GitHub Pages
 // phải lấy bản mới nhất, tránh hiện tượng cache giữ bản cũ.
