@@ -311,6 +311,10 @@ table.hsum tr:last-child td { border-bottom: none; }
 .hsum-detail { color: var(--ink-dim); }
 .hsum-meta { color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; font-size: 0.76rem; white-space: nowrap; }
 
+.cc-summary { grid-template-columns: repeat(2, 1fr); }
+.cc-stat-name { font-size: 0.78rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+.cc-note { font-size: 0.78rem; color: var(--ink-dim); margin-top: 14px; font-style: italic; line-height: 1.5; }
+
 footer.disclaimer {
   margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--border);
   font-size: 0.76rem; color: var(--ink-dim); text-align: center; line-height: 1.6;
@@ -322,7 +326,7 @@ footer.disclaimer {
   <header class="top">
     <h1>Bảng <span class="accent">Tín Hiệu</span></h1>
     <div class="sync-tag">
-      Quét lúc <b class="mono">10:39 07/09/2026</b> · <span class="src">nguồn: Windows</span>
+      Quét lúc <b class="mono">11:12 07/09/2026</b> · <span class="src">nguồn: Windows</span>
       <button class="refresh-btn" onclick="lamMoi()" title="Tải lại trang ngay, bỏ qua cache">
         <span class="rf-icon">↻</span> Làm mới
       </button>
@@ -334,6 +338,7 @@ footer.disclaimer {
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
+    <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
 
   <div id="tabTinHieu" class="tab-panel active">
@@ -347,18 +352,68 @@ footer.disclaimer {
       
     <article class="card mua">
       <header class="card-head">
-        <div class="ticker">HTN</div>
+        <div class="ticker">TDP</div>
         <div class="price-block">
-          <span class="price">9.55</span>
-          <span class="chg up">+0.24</span>
+          <span class="price">32.7</span>
+          <span class="chg down">-0.35</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">282M/510M</span>
+          <span class="lv" style="font-size:0.68rem">10M/290M</span>
         </div>
       </header>
       <div class="consensus">7/8 tăng · 0/8 giảm</div>
-      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="up">93%</b><span class="dim"> (77 lệnh mẫu)</span></div>
+      
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">30.35</span><span class="tp-sub">MA20</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">29.26</span><span class="tp-sub">MA50</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">32.77</span><span class="tp-sub">S3</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (MA20).</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>30.35</b></span><span class="lv">MA50 <b>29.26</b></span><span class="lv">MA200 <b>29.07</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>33.28</b></span><span class="lv">R1 <b>33.17</b></span><span class="lv">P <b>33.08</b></span><span class="lv">S1 <b>32.97</b></span><span class="lv">S2 <b>32.88</b></span></div>
+      </div>
+    </article>
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">VPI</div>
+        <div class="price-block">
+          <span class="price">61.2</span>
+          <span class="chg down">-1.44</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">1.56MM/2.05MM</span>
+        </div>
+      </header>
+      <div class="consensus">7/8 tăng · 0/8 giảm</div>
+      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="up">82%</b><span class="dim"> (100 lệnh mẫu)</span></div>
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">58.08</span><span class="tp-sub">MA20</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">57.29</span><span class="tp-sub">MA50</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">61.27</span><span class="tp-sub">S3</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (MA20).</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>58.08</b></span><span class="lv">MA50 <b>57.29</b></span><span class="lv">MA200 <b>54</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>63.55</b></span><span class="lv">R1 <b>63.09</b></span><span class="lv">P <b>62.64</b></span><span class="lv">S1 <b>62.18</b></span><span class="lv">S2 <b>61.73</b></span></div>
+      </div>
+    </article>
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">HTN</div>
+        <div class="price-block">
+          <span class="price">9.6</span>
+          <span class="chg up">+0.29</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">358M/510M</span>
+        </div>
+      </header>
+      <div class="consensus">6/8 tăng · 0/8 giảm</div>
+      
       
         <div class="tradeplan">
           <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">9.47</span><span class="tp-sub">R1</span></div>
@@ -372,39 +427,14 @@ footer.disclaimer {
     </article>
     <article class="card mua">
       <header class="card-head">
-        <div class="ticker">TDP</div>
-        <div class="price-block">
-          <span class="price">32.9</span>
-          <span class="chg down">-0.15</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
-          <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">5M/290M</span>
-        </div>
-      </header>
-      <div class="consensus">7/8 tăng · 0/8 giảm</div>
-      
-      
-        <div class="tradeplan">
-          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">32.88</span><span class="tp-sub">S2</span></div>
-          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">32.77</span><span class="tp-sub">S3</span></div>
-          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">32.97</span><span class="tp-sub">S1</span></div>
-        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (S2).</div>
-      <div class="levels">
-        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>30.35</b></span><span class="lv">MA50 <b>29.26</b></span><span class="lv">MA200 <b>29.07</b></span></div>
-        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>33.28</b></span><span class="lv">R1 <b>33.17</b></span><span class="lv">P <b>33.08</b></span><span class="lv">S1 <b>32.97</b></span><span class="lv">S2 <b>32.88</b></span></div>
-      </div>
-    </article>
-    <article class="card mua">
-      <header class="card-head">
         <div class="ticker">SBG</div>
         <div class="price-block">
-          <span class="price">14.1</span>
-          <span class="chg down">-0.05</span>
+          <span class="price">14.05</span>
+          <span class="chg down">-0.1</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">89M/451M</span>
+          <span class="lv" style="font-size:0.68rem">98M/451M</span>
         </div>
       </header>
       <div class="consensus">6/8 tăng · 0/8 giảm</div>
@@ -422,49 +452,24 @@ footer.disclaimer {
     </article>
     <article class="card mua">
       <header class="card-head">
-        <div class="ticker">VPI</div>
-        <div class="price-block">
-          <span class="price">60.9</span>
-          <span class="chg down">-1.74</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
-          <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">1.26MM/2.05MM</span>
-        </div>
-      </header>
-      <div class="consensus">6/8 tăng · 0/8 giảm</div>
-      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="flat">48%</b><span class="dim"> (100 lệnh mẫu)</span></div>
-      
-        <div class="tradeplan">
-          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">58.08</span><span class="tp-sub">MA20</span></div>
-          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">57.29</span><span class="tp-sub">MA50</span></div>
-          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">61.27</span><span class="tp-sub">S3</span></div>
-        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (MA20).</div>
-      <div class="levels">
-        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>58.08</b></span><span class="lv">MA50 <b>57.29</b></span><span class="lv">MA200 <b>54</b></span></div>
-        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>63.55</b></span><span class="lv">R1 <b>63.09</b></span><span class="lv">P <b>62.64</b></span><span class="lv">S1 <b>62.18</b></span><span class="lv">S2 <b>61.73</b></span></div>
-      </div>
-    </article>
-    <article class="card mua">
-      <header class="card-head">
         <div class="ticker">FPT</div>
         <div class="price-block">
-          <span class="price">73.3</span>
-          <span class="chg up">+0.5</span>
+          <span class="price">72.9</span>
+          <span class="chg up">+0.1</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">3.00MM/5.42MM</span>
+          <span class="lv" style="font-size:0.68rem">3.61MM/5.42MM</span>
         </div>
       </header>
-      <div class="consensus">5/8 tăng · 1/8 giảm</div>
-      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="down">26%</b><span class="dim"> (100 lệnh mẫu)</span></div>
+      <div class="consensus">5/8 tăng · 0/8 giảm</div>
+      
       
         <div class="tradeplan">
-          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">73.07</span><span class="tp-sub">R1</span></div>
-          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">72.73</span><span class="tp-sub">P</span></div>
-          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">73.33</span><span class="tp-sub">R2</span></div>
-        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (R1).</div>
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">72.73</span><span class="tp-sub">P</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">72.47</span><span class="tp-sub">S1</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">73.07</span><span class="tp-sub">R1</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (P).</div>
       <div class="levels">
         <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>70.83</b></span><span class="lv">MA50 <b>69.66</b></span><span class="lv">MA200 <b>81.11</b></span></div>
         <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>73.33</b></span><span class="lv">R1 <b>73.07</b></span><span class="lv">P <b>72.73</b></span><span class="lv">S1 <b>72.47</b></span><span class="lv">S2 <b>72.13</b></span></div>
@@ -474,22 +479,22 @@ footer.disclaimer {
       <header class="card-head">
         <div class="ticker">HCM</div>
         <div class="price-block">
-          <span class="price">26.85</span>
-          <span class="chg up">+0.45</span>
+          <span class="price">26.75</span>
+          <span class="chg up">+0.35</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">3.68MM/3.85MM</span>
+          <span class="lv" style="font-size:0.68rem">4.31MM/3.85MM</span>
         </div>
       </header>
       <div class="consensus">5/8 tăng · 1/8 giảm</div>
-      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="down">34%</b><span class="dim"> (100 lệnh mẫu)</span></div>
+      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="down">24%</b><span class="dim"> (100 lệnh mẫu)</span></div>
       
         <div class="tradeplan">
-          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">26.77</span><span class="tp-sub">R2</span></div>
-          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">26.58</span><span class="tp-sub">R1</span></div>
-          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">27.03</span><span class="tp-sub">R3</span></div>
-        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (R2).</div>
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">26.58</span><span class="tp-sub">R1</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">26.32</span><span class="tp-sub">P</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">26.77</span><span class="tp-sub">R2</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (R1).</div>
       <div class="levels">
         <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>25.83</b></span><span class="lv">MA50 <b>25.07</b></span><span class="lv">MA200 <b>22.05</b></span></div>
         <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>26.77</b></span><span class="lv">R1 <b>26.58</b></span><span class="lv">P <b>26.32</b></span><span class="lv">S1 <b>26.13</b></span><span class="lv">S2 <b>25.87</b></span></div>
@@ -499,22 +504,22 @@ footer.disclaimer {
       <header class="card-head">
         <div class="ticker">HHP</div>
         <div class="price-block">
-          <span class="price">16.4</span>
-          <span class="chg up">+0.05</span>
+          <span class="price">16.3</span>
+          <span class="chg down">-0.05</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">229M/1.06MM</span>
+          <span class="lv" style="font-size:0.68rem">262M/1.06MM</span>
         </div>
       </header>
       <div class="consensus">5/8 tăng · 1/8 giảm</div>
       
       
         <div class="tradeplan">
-          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">16.33</span><span class="tp-sub">P</span></div>
-          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">16.22</span><span class="tp-sub">S1</span></div>
-          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">16.47</span><span class="tp-sub">R1</span></div>
-        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (P).</div>
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">16.22</span><span class="tp-sub">S1</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">16.08</span><span class="tp-sub">S2</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">16.33</span><span class="tp-sub">P</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (S1).</div>
       <div class="levels">
         <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>15.17</b></span><span class="lv">MA50 <b>14.44</b></span><span class="lv">MA200 <b>12.79</b></span></div>
         <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>16.58</b></span><span class="lv">R1 <b>16.47</b></span><span class="lv">P <b>16.33</b></span><span class="lv">S1 <b>16.22</b></span><span class="lv">S2 <b>16.08</b></span></div>
@@ -524,22 +529,22 @@ footer.disclaimer {
       <header class="card-head">
         <div class="ticker">MCH</div>
         <div class="price-block">
-          <span class="price">143.5</span>
-          <span class="chg up">+1.5</span>
+          <span class="price">142.8</span>
+          <span class="chg up">+0.8</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">306M/475M</span>
+          <span class="lv" style="font-size:0.68rem">331M/475M</span>
         </div>
       </header>
-      <div class="consensus">5/8 tăng · 1/8 giảm</div>
-      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="down">36%</b><span class="dim"> (100 lệnh mẫu)</span></div>
+      <div class="consensus">5/8 tăng · 0/8 giảm</div>
+      
       
         <div class="tradeplan">
-          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">142.93</span><span class="tp-sub">R2</span></div>
-          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">142.47</span><span class="tp-sub">R1</span></div>
-          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">143.67</span><span class="tp-sub">R3</span></div>
-        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (R2).</div>
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">142.47</span><span class="tp-sub">R1</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">141.73</span><span class="tp-sub">P</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">142.93</span><span class="tp-sub">R2</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (R1).</div>
       <div class="levels">
         <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>138.3</b></span><span class="lv">MA50 <b>136.01</b></span><span class="lv">MA200 <b>145.95</b></span></div>
         <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>142.93</b></span><span class="lv">R1 <b>142.47</b></span><span class="lv">P <b>141.73</b></span><span class="lv">S1 <b>141.27</b></span><span class="lv">S2 <b>140.53</b></span></div>
@@ -549,12 +554,12 @@ footer.disclaimer {
       <header class="card-head">
         <div class="ticker">SSI</div>
         <div class="price-block">
-          <span class="price">21.05</span>
-          <span class="chg flat">0.00</span>
+          <span class="price">21</span>
+          <span class="chg down">-0.05</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">3.43MM/22.17MM</span>
+          <span class="lv" style="font-size:0.68rem">5.38MM/22.17MM</span>
         </div>
       </header>
       <div class="consensus">5/8 tăng · 1/8 giảm</div>
@@ -579,7 +584,7 @@ footer.disclaimer {
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">641M/3.69MM</span>
+          <span class="lv" style="font-size:0.68rem">780M/3.69MM</span>
         </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
@@ -602,7 +607,7 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd ok"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-09-07 10:39:36 — Đã quét</span>
+        <span class="v">2026-09-07 11:12:49 — Đã quét</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -631,7 +636,7 @@ footer.disclaimer {
           <td>21.05</td>
           <td>20.75</td>
           <td>21.2</td>
-          <td>21.05 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>21 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="HVH" data-date="20260904">
@@ -641,7 +646,7 @@ footer.disclaimer {
           <td>10.88</td>
           <td>10.77</td>
           <td>11.08</td>
-          <td>11.1 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>11.05 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="HSL" data-date="20260904">
@@ -651,7 +656,7 @@ footer.disclaimer {
           <td>10.22</td>
           <td>10.03</td>
           <td>10.58</td>
-          <td>10.3 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>10.35 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="VPI" data-date="20260903">
@@ -661,7 +666,7 @@ footer.disclaimer {
           <td>67.73</td>
           <td>66.87</td>
           <td>68.97</td>
-          <td>60.9 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>61.2 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="TDP" data-date="20260903">
@@ -671,7 +676,7 @@ footer.disclaimer {
           <td>31.67</td>
           <td>30.53</td>
           <td>32.63</td>
-          <td>32.9 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>32.7 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="SBG" data-date="20260903">
@@ -681,7 +686,7 @@ footer.disclaimer {
           <td>14.13</td>
           <td>14.02</td>
           <td>14.27</td>
-          <td>14.1 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>14.05 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="REE" data-date="20260903">
@@ -691,7 +696,7 @@ footer.disclaimer {
           <td>45.7</td>
           <td>45.9</td>
           <td>45.35</td>
-          <td>45.8 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>45.7 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="NTL" data-date="20260903">
@@ -701,7 +706,7 @@ footer.disclaimer {
           <td>12.37</td>
           <td>12.43</td>
           <td>12.28</td>
-          <td>12.35 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>12.3 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="MZG" data-date="20260903">
@@ -711,7 +716,7 @@ footer.disclaimer {
           <td>12.77</td>
           <td>12.63</td>
           <td>12.88</td>
-          <td>12.55 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>12.55 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="HTN" data-date="20260903">
@@ -721,7 +726,7 @@ footer.disclaimer {
           <td>9.24</td>
           <td>9.17</td>
           <td>9.32</td>
-          <td>9.55 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>9.6 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="HHP" data-date="20260903">
@@ -731,7 +736,7 @@ footer.disclaimer {
           <td>16.05</td>
           <td>15.9</td>
           <td>16.35</td>
-          <td>16.4 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>16.3 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="HDB" data-date="20260903">
@@ -741,7 +746,7 @@ footer.disclaimer {
           <td>27.72</td>
           <td>27.58</td>
           <td>27.93</td>
-          <td>27.5 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>27.5 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="GAS" data-date="20260903">
@@ -751,7 +756,7 @@ footer.disclaimer {
           <td>83.47</td>
           <td>82.73</td>
           <td>84.93</td>
-          <td>82.9 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>82.9 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="FIR" data-date="20260903">
@@ -761,7 +766,7 @@ footer.disclaimer {
           <td>4.01</td>
           <td>4.06</td>
           <td>3.91</td>
-          <td>3.68 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>3.7 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="ELC" data-date="20260903">
@@ -771,7 +776,7 @@ footer.disclaimer {
           <td>14.77</td>
           <td>14.93</td>
           <td>14.58</td>
-          <td>14.65 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>14.6 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="DHC" data-date="20260903">
@@ -781,7 +786,7 @@ footer.disclaimer {
           <td>36.33</td>
           <td>35.77</td>
           <td>36.62</td>
-          <td>35.7 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>35.8 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="ABS" data-date="20260903">
@@ -791,7 +796,7 @@ footer.disclaimer {
           <td>2.85</td>
           <td>2.9</td>
           <td>2.8</td>
-          <td>2.9 <span class="lv">(10:39 07/09/2026)</span></td>
+          <td>2.9 <span class="lv">(11:12 07/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
         </tr><tr data-symbol="VPI" data-date="20260902">
@@ -898,14 +903,19 @@ footer.disclaimer {
     </table></div>
   </div>
 
+  <div id="tabChampionChallenger" class="tab-panel">
+    <h2 class="section">Champion / Challenger — theo dõi paper-trade thật</h2>
+    <div class="empty">Chưa có dữ liệu Champion/Challenger trên máy này — chạy <code>champion_challenger_watch.py</code> (xem <code>run_champion_challenger_watch.sh</code>) để bắt đầu theo dõi.</div>
+  </div>
+
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">10:39:36 07/09/2026</span>
+    Sinh trang lúc <span class="mono">11:12:50 07/09/2026</span>
   </footer>
 </div>
 <script>
-// Chuyển tab (Tín hiệu MUA / Lịch sử tín hiệu / Sức khỏe phương pháp).
+// Chuyển tab (Tín hiệu MUA / Lịch sử tín hiệu / Sức khỏe phương pháp / Champion-Challenger).
 function showTab(id, btn) {
   document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
   document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
