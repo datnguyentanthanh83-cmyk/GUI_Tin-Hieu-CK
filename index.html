@@ -624,12 +624,112 @@ footer.disclaimer {
   </div>
 
   <div id="tabLichSu" class="tab-panel">
-    <h2 class="section">Lịch sử tín hiệu (23 mã theo dõi)</h2>
+    <h2 class="section">Lịch sử tín hiệu (33 mã theo dõi)</h2>
     <div class="hist-controls">
       <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="filterHist()" autocomplete="off">
     </div>
     <div class="hist-wrap">
-      <table class="hist" id="histTable"><thead><tr><th>Mã</th><th>Tín hiệu</th><th><button type="button" class="th-sort" onclick="sortHistByDate()">Ngày khuyến nghị <span id="histSortIcon" class="mono">↓</span></button></th><th>Entry</th><th>Cắt lỗ</th><th>Chốt lời</th><th>Giá gần nhất</th><th>Trạng thái</th><th>Kết quả</th></tr></thead><tbody><tr data-symbol="SSI" data-date="20260904">
+      <table class="hist" id="histTable"><thead><tr><th>Mã</th><th>Tín hiệu</th><th><button type="button" class="th-sort" onclick="sortHistByDate()">Ngày khuyến nghị <span id="histSortIcon" class="mono">↓</span></button></th><th>Entry</th><th>Cắt lỗ</th><th>Chốt lời</th><th>Giá gần nhất</th><th>Trạng thái</th><th>Kết quả</th></tr></thead><tbody><tr data-symbol="VPI" data-date="20260907">
+          <td><b>VPI</b></td>
+          <td><span class="hist-sig mua">MUA</span></td>
+          <td>07/09/2026<br><span class="lv">hôm nay</span></td>
+          <td>58.08</td>
+          <td>57.29</td>
+          <td>61.27</td>
+          <td>60.5 <span class="lv">(15:00 07/09/2026)</span></td>
+          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
+        </tr><tr data-symbol="VHM" data-date="20260907">
+          <td><b>VHM</b></td>
+          <td><span class="hist-sig mua">MUA</span></td>
+          <td>07/09/2026<br><span class="lv">hôm nay</span></td>
+          <td>75.1</td>
+          <td>73.2</td>
+          <td>77.1</td>
+          <td>76.5 <span class="lv">(15:00 07/09/2026)</span></td>
+          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
+        </tr><tr data-symbol="TDP" data-date="20260907">
+          <td><b>TDP</b></td>
+          <td><span class="hist-sig mua">MUA</span></td>
+          <td>07/09/2026<br><span class="lv">hôm nay</span></td>
+          <td>33.37</td>
+          <td>33.28</td>
+          <td>—</td>
+          <td>34.6 <span class="lv">(15:00 07/09/2026)</span></td>
+          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
+        </tr><tr data-symbol="STB" data-date="20260907">
+          <td><b>STB</b></td>
+          <td><span class="hist-sig mua">MUA</span></td>
+          <td>07/09/2026<br><span class="lv">hôm nay</span></td>
+          <td>76.4</td>
+          <td>75.4</td>
+          <td>78.3</td>
+          <td>76.6 <span class="lv">(15:00 07/09/2026)</span></td>
+          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
+        </tr><tr data-symbol="SBG" data-date="20260907">
+          <td><b>SBG</b></td>
+          <td><span class="hist-sig mua">MUA</span></td>
+          <td>07/09/2026<br><span class="lv">hôm nay</span></td>
+          <td>14.35</td>
+          <td>14.15</td>
+          <td>14.55</td>
+          <td>14.35 <span class="lv">(15:00 07/09/2026)</span></td>
+          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
+        </tr><tr data-symbol="MCH" data-date="20260907">
+          <td><b>MCH</b></td>
+          <td><span class="hist-sig mua">MUA</span></td>
+          <td>07/09/2026<br><span class="lv">hôm nay</span></td>
+          <td>141.73</td>
+          <td>141.27</td>
+          <td>142.47</td>
+          <td>141.8 <span class="lv">(15:00 07/09/2026)</span></td>
+          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
+        </tr><tr data-symbol="HTN" data-date="20260907">
+          <td><b>HTN</b></td>
+          <td><span class="hist-sig mua">MUA</span></td>
+          <td>07/09/2026<br><span class="lv">hôm nay</span></td>
+          <td>9.64</td>
+          <td>9.47</td>
+          <td>9.77</td>
+          <td>9.67 <span class="lv">(15:00 07/09/2026)</span></td>
+          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
+        </tr><tr data-symbol="HHP" data-date="20260907">
+          <td><b>HHP</b></td>
+          <td><span class="hist-sig mua">MUA</span></td>
+          <td>07/09/2026<br><span class="lv">hôm nay</span></td>
+          <td>16.47</td>
+          <td>16.33</td>
+          <td>16.58</td>
+          <td>16.5 <span class="lv">(15:00 07/09/2026)</span></td>
+          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
+        </tr><tr data-symbol="HCM" data-date="20260907">
+          <td><b>HCM</b></td>
+          <td><span class="hist-sig mua">MUA</span></td>
+          <td>07/09/2026<br><span class="lv">hôm nay</span></td>
+          <td>26.32</td>
+          <td>26.13</td>
+          <td>26.58</td>
+          <td>26.4 <span class="lv">(15:00 07/09/2026)</span></td>
+          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
+        </tr><tr data-symbol="FPT" data-date="20260907">
+          <td><b>FPT</b></td>
+          <td><span class="hist-sig mua">MUA</span></td>
+          <td>07/09/2026<br><span class="lv">hôm nay</span></td>
+          <td>72.13</td>
+          <td>71.87</td>
+          <td>72.47</td>
+          <td>72.4 <span class="lv">(15:00 07/09/2026)</span></td>
+          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
+          <td><span class="hist-result pending">—</span></td>
+        </tr><tr data-symbol="SSI" data-date="20260904">
           <td><b>SSI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">3 ngày trước</span></td>
@@ -929,7 +1029,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">15:00:35 07/09/2026</span>
+    Sinh trang lúc <span class="mono">15:00:57 07/09/2026</span>
   </footer>
 </div>
 <script>
