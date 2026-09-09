@@ -132,14 +132,12 @@ header.top h1 .accent { color: var(--accent); }
 .stat .lbl { font-size: 0.78rem; color: var(--ink-dim); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
 .stat.mua .n { color: var(--up); }
 .stat.theodoi .n { color: var(--flat); }
-.hist-summary { grid-template-columns: repeat(2, 1fr); margin-bottom: 10px; }
+.hist-summary { grid-template-columns: repeat(2, 1fr); margin-bottom: 22px; }
 .stat.total .n { color: var(--ink); }
 .stat.tp .n { color: var(--up); }
 .stat.sl .n { color: var(--down); }
 .stat.pending .n { color: var(--flat); }
-.winrate-note { font-size: 0.82rem; color: var(--ink-dim); margin: 0 0 22px; }
-.winrate-note .wr-tp { color: var(--up); }
-.winrate-note .wr-sl { color: var(--down); }
+.stat .n .pct { font-size: 0.88rem; font-weight: 500; color: var(--ink-dim); margin-left: 5px; }
 
 h2.section {
   font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-dim);
@@ -530,7 +528,7 @@ footer.disclaimer {
         <span class="k">Kiểm thử logic (self_test)</span>
         <span class="v">39/39 PASS (08:45:02 09/09/2026)</span>
       </div>
-      <details class="err-details"><summary>Log lỗi gần đây (1 dòng)</summary><ul><li>^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C</li></ul></details>
+      <details class="err-details"><summary>Log lỗi gần đây (1 dòng)</summary><ul><li>^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C</li></ul></details>
     </div>
   </div>
 
@@ -538,11 +536,10 @@ footer.disclaimer {
     <h2 class="section">Lịch sử tín hiệu (33 mã theo dõi)</h2>
     <section class="summary hist-summary">
       <div class="stat total"><div class="n">27</div><div class="lbl">Tổng lệnh MUA</div></div>
-      <div class="stat tp"><div class="n">9</div><div class="lbl">Đã chạm TP</div></div>
-      <div class="stat sl"><div class="n">6</div><div class="lbl">Đã chạm SL</div></div>
-      <div class="stat pending"><div class="n">12</div><div class="lbl">Đang theo dõi</div></div>
+      <div class="stat tp"><div class="n">9<span class="pct">33.3%</span></div><div class="lbl">Đã chạm TP</div></div>
+      <div class="stat sl"><div class="n">6<span class="pct">22.2%</span></div><div class="lbl">Đã chạm SL</div></div>
+      <div class="stat pending"><div class="n">12<span class="pct">44.5%</span></div><div class="lbl">Đang theo dõi</div></div>
     </section>
-    <p class="winrate-note">Tỷ lệ trên 15 lệnh đã ngã ngũ: <b class="wr-tp">60.0% chạm chốt lời</b> · <b class="wr-sl">40.0% chạm cắt lỗ</b></p>
     <div class="hist-controls">
       <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="filterHist()" autocomplete="off">
     </div>
@@ -947,7 +944,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">10:49:20 09/09/2026</span>
+    Sinh trang lúc <span class="mono">11:03:53 09/09/2026</span>
   </footer>
 </div>
 <script>
