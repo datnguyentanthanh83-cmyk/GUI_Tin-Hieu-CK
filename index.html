@@ -275,6 +275,22 @@ table.hist tr:last-child td { border-bottom: none; }
   font-family: "Be Vietnam Pro", sans-serif; font-size: 0.86rem;
 }
 .hist-search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.hist-date-filter { margin-bottom: 14px; }
+.hist-range-btns { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-bottom: 8px; }
+.hist-range-btn {
+  font-family: "Be Vietnam Pro", sans-serif; font-size: 0.72rem; font-weight: 500;
+  color: var(--ink-dim); background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 6px 2px; cursor: pointer; text-align: center;
+  line-height: 1.25;
+}
+.hist-range-btn.active { color: #fff; background: var(--accent); border-color: var(--accent); }
+.hist-range-custom { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.8rem; color: var(--ink-dim); }
+.hist-range-custom label { display: flex; align-items: center; gap: 6px; }
+.hist-range-custom input[type="date"] {
+  padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px;
+  background: var(--surface); color: var(--ink); font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 0.8rem;
+}
 .th-sort {
   background: none; border: none; padding: 0; margin: 0; font: inherit; color: inherit;
   cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
@@ -491,7 +507,7 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd bad"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-09-09 11:55:52 — Ngoài giờ giao dịch (đang chờ)</span>
+        <span class="v">2026-09-09 12:15:53 — Ngoài giờ giao dịch (đang chờ)</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -503,7 +519,7 @@ footer.disclaimer {
         <span class="k">Kiểm thử logic (self_test)</span>
         <span class="v">39/39 PASS (08:45:02 09/09/2026)</span>
       </div>
-      <details class="err-details"><summary>Log lỗi gần đây (1 dòng)</summary><ul><li>^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C</li></ul></details>
+      <details class="err-details"><summary>Log lỗi gần đây (1 dòng)</summary><ul><li>^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C</li></ul></details>
     </div>
   </div>
 
@@ -515,11 +531,25 @@ footer.disclaimer {
       <div class="stat sl"><div class="n">6<span class="pct">22.2%</span></div><div class="lbl">Đã chạm SL</div></div>
       <div class="stat pending"><div class="n">12<span class="pct">44.5%</span></div><div class="lbl">Đang theo dõi</div></div>
     </section>
+    <div class="hist-date-filter">
+      <div class="hist-range-btns">
+        <button type="button" class="hist-range-btn active" onclick="setHistPreset('all', this)">Tất cả</button>
+        <button type="button" class="hist-range-btn" onclick="setHistPreset('this_month', this)">Tháng này</button>
+        <button type="button" class="hist-range-btn" onclick="setHistPreset('last_month', this)">Tháng trước</button>
+        <button type="button" class="hist-range-btn" onclick="setHistPreset('this_year', this)">Năm nay</button>
+        <button type="button" class="hist-range-btn" onclick="setHistPreset('last_year', this)">Năm trước</button>
+      </div>
+      <div class="hist-range-custom">
+        <label>Từ <input type="date" id="histDateFrom" onchange="applyHistCustomDate()"></label>
+        <label>Đến <input type="date" id="histDateTo" onchange="applyHistCustomDate()"></label>
+      </div>
+    </div>
+    <p class="empty hist-stats-empty" id="histStatsEmpty" hidden>Không có lệnh MUA nào trong khoảng thời gian đã chọn.</p>
     <div class="hist-controls">
-      <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="filterHist()" autocomplete="off">
+      <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="applyHistFilters()" autocomplete="off">
     </div>
     <div class="hist-wrap">
-      <table class="hist" id="histTable"><thead><tr><th>Mã</th><th>Tín hiệu</th><th><button type="button" class="th-sort" onclick="sortHistByDate()">Ngày khuyến nghị <span id="histSortIcon" class="mono">↓</span></button></th><th>Entry</th><th>Cắt lỗ</th><th>Chốt lời</th><th>Giá gần nhất</th><th>Trạng thái</th><th>Kết quả</th></tr></thead><tbody><tr data-symbol="VPI" data-date="20260907">
+      <table class="hist" id="histTable"><thead><tr><th>Mã</th><th>Tín hiệu</th><th><button type="button" class="th-sort" onclick="sortHistByDate()">Ngày khuyến nghị <span id="histSortIcon" class="mono">↓</span></button></th><th>Entry</th><th>Cắt lỗ</th><th>Chốt lời</th><th>Giá gần nhất</th><th>Trạng thái</th><th>Kết quả</th></tr></thead><tbody><tr data-symbol="VPI" data-date="20260907" data-signal="MUA" data-status="theo_doi">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -529,7 +559,7 @@ footer.disclaimer {
           <td>58.5 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="VHM" data-date="20260907">
+        </tr><tr data-symbol="VHM" data-date="20260907" data-signal="MUA" data-status="theo_doi">
           <td><b>VHM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -539,7 +569,7 @@ footer.disclaimer {
           <td>73.1 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="TDP" data-date="20260907">
+        </tr><tr data-symbol="TDP" data-date="20260907" data-signal="MUA" data-status="theo_doi">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -549,7 +579,7 @@ footer.disclaimer {
           <td>32.9 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="STB" data-date="20260907">
+        </tr><tr data-symbol="STB" data-date="20260907" data-signal="MUA" data-status="theo_doi">
           <td><b>STB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -559,7 +589,7 @@ footer.disclaimer {
           <td>76.8 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="SBG" data-date="20260907">
+        </tr><tr data-symbol="SBG" data-date="20260907" data-signal="MUA" data-status="theo_doi">
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -569,7 +599,7 @@ footer.disclaimer {
           <td>13.8 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="MCH" data-date="20260907">
+        </tr><tr data-symbol="MCH" data-date="20260907" data-signal="MUA" data-status="theo_doi">
           <td><b>MCH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -579,7 +609,7 @@ footer.disclaimer {
           <td>142.6 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="HTN" data-date="20260907">
+        </tr><tr data-symbol="HTN" data-date="20260907" data-signal="MUA" data-status="theo_doi">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -589,7 +619,7 @@ footer.disclaimer {
           <td>9.88 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="HHP" data-date="20260907">
+        </tr><tr data-symbol="HHP" data-date="20260907" data-signal="MUA" data-status="theo_doi">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -599,7 +629,7 @@ footer.disclaimer {
           <td>17.25 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="HCM" data-date="20260907">
+        </tr><tr data-symbol="HCM" data-date="20260907" data-signal="MUA" data-status="theo_doi">
           <td><b>HCM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -609,7 +639,7 @@ footer.disclaimer {
           <td>26.3 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="FPT" data-date="20260907">
+        </tr><tr data-symbol="FPT" data-date="20260907" data-signal="MUA" data-status="theo_doi">
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">2 ngày trước</span></td>
@@ -619,7 +649,7 @@ footer.disclaimer {
           <td>72.8 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="SSI" data-date="20260904">
+        </tr><tr data-symbol="SSI" data-date="20260904" data-signal="MUA" data-status="theo_doi">
           <td><b>SSI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">5 ngày trước</span></td>
@@ -629,7 +659,7 @@ footer.disclaimer {
           <td>20.9 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="HVH" data-date="20260904">
+        </tr><tr data-symbol="HVH" data-date="20260904" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">5 ngày trước</span></td>
@@ -639,7 +669,7 @@ footer.disclaimer {
           <td>11.1 <span class="lv">(14:15 08/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 14:15 08/09/2026 @ 11.1</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="HSL" data-date="20260904">
+        </tr><tr data-symbol="HSL" data-date="20260904" data-signal="MUA" data-status="theo_doi">
           <td><b>HSL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">5 ngày trước</span></td>
@@ -649,7 +679,7 @@ footer.disclaimer {
           <td>10.2 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="VPI" data-date="20260903">
+        </tr><tr data-symbol="VPI" data-date="20260903" data-signal="MUA" data-status="da_cham_sl">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -659,7 +689,7 @@ footer.disclaimer {
           <td>61 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:18 07/09/2026 @ 61</td>
           <td><span class="hist-result lost">LOST</span></td>
-        </tr><tr data-symbol="TDP" data-date="20260903">
+        </tr><tr data-symbol="TDP" data-date="20260903" data-signal="MUA" data-status="da_cham_tp">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -669,7 +699,7 @@ footer.disclaimer {
           <td>32.8 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:18 07/09/2026 @ 32.8</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="SBG" data-date="20260903">
+        </tr><tr data-symbol="SBG" data-date="20260903" data-signal="MUA" data-status="da_cham_tp">
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -679,7 +709,7 @@ footer.disclaimer {
           <td>14.45 <span class="lv">(13:48 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:48 07/09/2026 @ 14.45</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="REE" data-date="20260903">
+        </tr><tr data-symbol="REE" data-date="20260903" data-signal="BÁN" data-status="theo_doi">
           <td><b>REE</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -689,7 +719,7 @@ footer.disclaimer {
           <td>45.7 <span class="lv">(11:35 09/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-        </tr><tr data-symbol="NTL" data-date="20260903">
+        </tr><tr data-symbol="NTL" data-date="20260903" data-signal="BÁN" data-status="da_cham_sl">
           <td><b>NTL</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -699,7 +729,7 @@ footer.disclaimer {
           <td>12.5 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:18 07/09/2026 @ 12.5</td>
           <td><span class="hist-result lost">LOST</span></td>
-        </tr><tr data-symbol="MZG" data-date="20260903">
+        </tr><tr data-symbol="MZG" data-date="20260903" data-signal="MUA" data-status="da_cham_sl">
           <td><b>MZG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -709,7 +739,7 @@ footer.disclaimer {
           <td>12.5 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:18 07/09/2026 @ 12.5</td>
           <td><span class="hist-result lost">LOST</span></td>
-        </tr><tr data-symbol="HTN" data-date="20260903">
+        </tr><tr data-symbol="HTN" data-date="20260903" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -719,7 +749,7 @@ footer.disclaimer {
           <td>9.6 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:18 07/09/2026 @ 9.6</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="HHP" data-date="20260903">
+        </tr><tr data-symbol="HHP" data-date="20260903" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -729,7 +759,7 @@ footer.disclaimer {
           <td>16.4 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:18 07/09/2026 @ 16.4</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="HDB" data-date="20260903">
+        </tr><tr data-symbol="HDB" data-date="20260903" data-signal="MUA" data-status="da_cham_sl">
           <td><b>HDB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -739,7 +769,7 @@ footer.disclaimer {
           <td>27.45 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:18 07/09/2026 @ 27.45</td>
           <td><span class="hist-result lost">LOST</span></td>
-        </tr><tr data-symbol="GAS" data-date="20260903">
+        </tr><tr data-symbol="GAS" data-date="20260903" data-signal="MUA" data-status="da_cham_tp">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -749,7 +779,7 @@ footer.disclaimer {
           <td>87 <span class="lv">(10:12 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 10:12 09/09/2026 @ 87</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="FIR" data-date="20260903">
+        </tr><tr data-symbol="FIR" data-date="20260903" data-signal="BÁN" data-status="da_cham_tp">
           <td><b>FIR</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -759,7 +789,7 @@ footer.disclaimer {
           <td>3.69 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:18 07/09/2026 @ 3.69</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="ELC" data-date="20260903">
+        </tr><tr data-symbol="ELC" data-date="20260903" data-signal="BÁN" data-status="da_cham_tp">
           <td><b>ELC</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -769,7 +799,7 @@ footer.disclaimer {
           <td>14.55 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:18 07/09/2026 @ 14.55</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="DHC" data-date="20260903">
+        </tr><tr data-symbol="DHC" data-date="20260903" data-signal="MUA" data-status="da_cham_sl">
           <td><b>DHC</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -779,7 +809,7 @@ footer.disclaimer {
           <td>35.7 <span class="lv">(14:35 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 14:35 07/09/2026 @ 35.7</td>
           <td><span class="hist-result lost">LOST</span></td>
-        </tr><tr data-symbol="ABS" data-date="20260903">
+        </tr><tr data-symbol="ABS" data-date="20260903" data-signal="BÁN" data-status="da_cham_sl">
           <td><b>ABS</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">6 ngày trước</span></td>
@@ -789,7 +819,7 @@ footer.disclaimer {
           <td>2.91 <span class="lv">(09:39 08/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 09:39 08/09/2026 @ 2.91</td>
           <td><span class="hist-result lost">LOST</span></td>
-        </tr><tr data-symbol="VPI" data-date="20260902">
+        </tr><tr data-symbol="VPI" data-date="20260902" data-signal="MUA" data-status="da_cham_tp">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">7 ngày trước</span></td>
@@ -799,7 +829,7 @@ footer.disclaimer {
           <td>69 <span class="lv">(13:11 04/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:11 04/09/2026 @ 69</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="OCB" data-date="20260902">
+        </tr><tr data-symbol="OCB" data-date="20260902" data-signal="MUA" data-status="da_cham_sl">
           <td><b>OCB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">7 ngày trước</span></td>
@@ -809,7 +839,7 @@ footer.disclaimer {
           <td>10.9 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 09:36 03/09/2026 @ 10.9</td>
           <td><span class="hist-result lost">LOST</span></td>
-        </tr><tr data-symbol="NTL" data-date="20260902">
+        </tr><tr data-symbol="NTL" data-date="20260902" data-signal="BÁN" data-status="da_cham_tp">
           <td><b>NTL</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>02/09/2026<br><span class="lv">7 ngày trước</span></td>
@@ -819,7 +849,7 @@ footer.disclaimer {
           <td>12.4 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 09:36 03/09/2026 @ 12.4</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="HHP" data-date="20260902">
+        </tr><tr data-symbol="HHP" data-date="20260902" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">7 ngày trước</span></td>
@@ -829,7 +859,7 @@ footer.disclaimer {
           <td>16.35 <span class="lv">(13:11 04/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:11 04/09/2026 @ 16.35</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="GAS" data-date="20260902">
+        </tr><tr data-symbol="GAS" data-date="20260902" data-signal="MUA" data-status="da_cham_tp">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">7 ngày trước</span></td>
@@ -839,7 +869,7 @@ footer.disclaimer {
           <td>86.3 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 09:36 03/09/2026 @ 86.3</td>
           <td><span class="hist-result win">WIN</span></td>
-        </tr><tr data-symbol="FPT" data-date="20260902">
+        </tr><tr data-symbol="FPT" data-date="20260902" data-signal="MUA" data-status="da_cham_sl">
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">7 ngày trước</span></td>
@@ -919,7 +949,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">12:04:20 09/09/2026</span>
+    Sinh trang lúc <span class="mono">12:16:24 09/09/2026</span>
   </footer>
 </div>
 <script>
@@ -950,20 +980,138 @@ function sortHistByDate() {
   if (icon) icon.textContent = histSortDir === 'desc' ? '↓' : '↑';
 }
 
-function filterHist() {
+// Bo loc khoang ngay (preset + tu chon) cho tab Lich su tin hieu - THEM
+// 09/09/2026. histDateFrom/histDateTo dang chuoi 'YYYYMMDD' (khop dinh dang
+// data-date co san tren <tr>) hoac null = khong gioi han 1 dau.
+var histDateFrom = null, histDateTo = null;
+
+function _pad2(n) { return n < 10 ? '0' + n : '' + n; }
+function _ymd(y, m, d) { return '' + y + _pad2(m) + _pad2(d); }
+
+function presetRange(kind) {
+  var now = new Date();
+  var y = now.getFullYear(), m = now.getMonth() + 1; // thang 1-12
+  if (kind === 'this_month') {
+    var lastDay = new Date(y, m, 0).getDate();
+    return { from: _ymd(y, m, 1), to: _ymd(y, m, lastDay) };
+  }
+  if (kind === 'last_month') {
+    var pm = m - 1, py = y;
+    if (pm === 0) { pm = 12; py = y - 1; }
+    var lastDay = new Date(py, pm, 0).getDate();
+    return { from: _ymd(py, pm, 1), to: _ymd(py, pm, lastDay) };
+  }
+  if (kind === 'this_year') return { from: _ymd(y, 1, 1), to: _ymd(y, 12, 31) };
+  if (kind === 'last_year') return { from: _ymd(y - 1, 1, 1), to: _ymd(y - 1, 12, 31) };
+  return { from: null, to: null }; // 'all'
+}
+
+function _ymdToInputDate(ymd) {
+  return ymd ? (ymd.slice(0, 4) + '-' + ymd.slice(4, 6) + '-' + ymd.slice(6, 8)) : '';
+}
+
+function setHistPreset(kind, btn) {
+  var r = presetRange(kind);
+  histDateFrom = r.from; histDateTo = r.to;
+  document.querySelectorAll('.hist-range-btn').forEach(function (b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  var fromInput = document.getElementById('histDateFrom');
+  var toInput = document.getElementById('histDateTo');
+  if (fromInput) fromInput.value = _ymdToInputDate(r.from);
+  if (toInput) toInput.value = _ymdToInputDate(r.to);
+  applyHistFilters();
+}
+
+function applyHistCustomDate() {
+  var fromInput = document.getElementById('histDateFrom');
+  var toInput = document.getElementById('histDateTo');
+  histDateFrom = (fromInput && fromInput.value) ? fromInput.value.replace(/-/g, '') : null;
+  histDateTo = (toInput && toInput.value) ? toInput.value.replace(/-/g, '') : null;
+  document.querySelectorAll('.hist-range-btn').forEach(function (b) { b.classList.remove('active'); });
+  applyHistFilters();
+}
+
+// Chia % cho tung nhom trong `parts` ({ten: soluong}) tren tong `total`,
+// dam bao 3 so hien thi (lam tron 1 chu so) LUON cong dung 100.0 - dung lai
+// dung thuat toan "largest remainder" nhu compute_history_stats() ben Python
+// (_split_pct_sum_100) de nhat quan giua ban render san va ban loc lai o JS.
+function _splitPctSum100(parts, total) {
+  var keys = Object.keys(parts);
+  var result = {};
+  if (!total) {
+    keys.forEach(function (k) { result[k] = 0; });
+    return result;
+  }
+  var raw = {}, floored = {}, sumFloored10 = 0;
+  keys.forEach(function (k) {
+    raw[k] = parts[k] / total * 100;
+    floored[k] = Math.floor(raw[k] * 10) / 10;
+    sumFloored10 += Math.round(floored[k] * 10);
+  });
+  var missing = Math.round(1000 - sumFloored10);
+  var order = keys.slice().sort(function (a, b) {
+    return (raw[b] * 10 - floored[b] * 10) - (raw[a] * 10 - floored[a] * 10);
+  });
+  keys.forEach(function (k) { result[k] = floored[k]; });
+  for (var i = 0; i < Math.max(missing, 0); i++) {
+    var k = order[i % order.length];
+    result[k] = Math.round((result[k] + 0.1) * 10) / 10;
+  }
+  return result;
+}
+
+function updateHistStatsCards(counts) {
+  var pcts = _splitPctSum100({ tp: counts.tp, sl: counts.sl, pending: counts.pending }, counts.total);
+  var tab = document.getElementById('tabLichSu');
+  if (!tab) return;
+  function setStat(cls, n, pct) {
+    var card = tab.querySelector('.stat.' + cls);
+    if (!card) return;
+    var nEl = card.querySelector('.n');
+    var pctEl = card.querySelector('.pct');
+    if (!nEl) return;
+    if (pctEl && nEl.childNodes.length) {
+      nEl.childNodes[0].nodeValue = n;
+      pctEl.textContent = pct.toFixed(1) + '%';
+    } else {
+      nEl.textContent = n;
+    }
+  }
+  setStat('total', counts.total, null);
+  setStat('tp', counts.tp, pcts.tp);
+  setStat('sl', counts.sl, pcts.sl);
+  setStat('pending', counts.pending, pcts.pending);
+  var emptyNote = document.getElementById('histStatsEmpty');
+  if (emptyNote) emptyNote.hidden = counts.total !== 0;
+}
+
+function applyHistFilters() {
   var input = document.getElementById('histSearch');
-  if (!input) return;
-  var q = input.value.trim().toUpperCase();
+  var q = input ? input.value.trim().toUpperCase() : '';
   var rows = document.querySelectorAll('#histTable tbody tr');
   var nVisible = 0;
+  var counts = { tp: 0, sl: 0, pending: 0, total: 0 };
   rows.forEach(function (r) {
     var sym = r.getAttribute('data-symbol') || '';
-    var match = sym.indexOf(q) !== -1;
+    var d = r.getAttribute('data-date') || '00000000';
+    var symOk = sym.indexOf(q) !== -1;
+    var dateOk = (!histDateFrom || d >= histDateFrom) && (!histDateTo || d <= histDateTo);
+    var match = symOk && dateOk;
     r.style.display = match ? '' : 'none';
-    if (match) nVisible += 1;
+    if (match) {
+      nVisible += 1;
+      if (r.getAttribute('data-signal') === 'MUA') {
+        counts.total += 1;
+        var st = r.getAttribute('data-status');
+        if (st === 'da_cham_tp') counts.tp += 1;
+        else if (st === 'da_cham_sl') counts.sl += 1;
+        else counts.pending += 1;
+      }
+    }
   });
   var noMatch = document.getElementById('histNoMatch');
-  if (noMatch) noMatch.hidden = !(q && nVisible === 0);
+  if (noMatch) noMatch.hidden = nVisible !== 0;
+  updateHistStatsCards(counts);
 }
 
 // Tự làm mới trang định kỳ + nút "Làm mới" thủ công.
