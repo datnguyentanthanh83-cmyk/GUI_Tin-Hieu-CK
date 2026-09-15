@@ -165,6 +165,14 @@ h2.section {
 }
 .badge.mua { background: var(--up-bg); color: var(--up); }
 .consensus { font-size: 0.8rem; color: var(--ink-dim); margin-bottom: 8px; }
+.fa-line { font-size: 0.78rem; color: var(--ink-dim); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.fa-chip {
+  font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 0.74rem;
+  padding: 1px 8px; border-radius: 999px;
+}
+.fa-chip.high { background: var(--up-bg); color: var(--up); }
+.fa-chip.mid { background: var(--neutral-bg); color: var(--neutral); }
+.fa-chip.low { background: var(--down-bg); color: var(--down); }
 .tracked-note { font-size: 0.82rem; color: var(--accent-ink); background: var(--neutral-bg);
   border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin: 0 0 14px; }
 
@@ -275,6 +283,15 @@ table.hist tr:last-child td { border-bottom: none; }
   font-family: "Be Vietnam Pro", sans-serif; font-size: 0.86rem;
 }
 .hist-search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.hist-status-btns { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.hist-status-btn {
+  font-family: "Be Vietnam Pro", sans-serif; font-size: 0.78rem; font-weight: 500;
+  color: var(--ink-dim); background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 6px 12px; cursor: pointer; line-height: 1.25;
+}
+.hist-status-btn .cnt { font-family: "IBM Plex Mono", monospace; opacity: 0.75; }
+.hist-status-btn.active { color: #fff; background: var(--accent); border-color: var(--accent); }
+.hist-status-btn.active .cnt { opacity: 0.9; }
 .hist-date-filter { margin-bottom: 14px; }
 .hist-range-btns { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-bottom: 8px; }
 .hist-range-btn {
@@ -389,6 +406,7 @@ footer.disclaimer {
         </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
+      
       <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="flat">47%</b><span class="dim"> (100 lệnh mẫu)</span></div>
       
         <div class="tradeplan">
@@ -415,6 +433,7 @@ footer.disclaimer {
         </div>
       </header>
       <div class="consensus">5/8 tăng · 1/8 giảm</div>
+      
       <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="down">21%</b><span class="dim"> (100 lệnh mẫu)</span></div>
       
         <div class="tradeplan">
@@ -441,6 +460,7 @@ footer.disclaimer {
         </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
+      
       
       
         <div class="tradeplan">
@@ -499,6 +519,12 @@ footer.disclaimer {
     </div>
     <p class="empty hist-stats-empty" id="histStatsEmpty" hidden>Không có lệnh MUA nào trong khoảng thời gian đã chọn.</p>
     <div class="hist-controls">
+      <div class="hist-status-btns" id="histStatusBtns">
+        <button type="button" class="hist-status-btn active" data-status-filter="all" onclick="setHistStatusFilter('all', this)">Tất cả <span class="cnt" id="histCnt_all">58</span></button>
+        <button type="button" class="hist-status-btn" data-status-filter="theo_doi" onclick="setHistStatusFilter('theo_doi', this)">Đang theo dõi <span class="cnt" id="histCnt_theo_doi">16</span></button>
+        <button type="button" class="hist-status-btn" data-status-filter="da_cham_tp" onclick="setHistStatusFilter('da_cham_tp', this)">Đã chạm TP <span class="cnt" id="histCnt_da_cham_tp">24</span></button>
+        <button type="button" class="hist-status-btn" data-status-filter="da_cham_sl" onclick="setHistStatusFilter('da_cham_sl', this)">Đã chạm SL <span class="cnt" id="histCnt_da_cham_sl">18</span></button>
+      </div>
       <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="applyHistFilters()" autocomplete="off">
     </div>
     <div class="hist-wrap">
@@ -1152,7 +1178,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">13:17:38 15/09/2026</span>
+    Sinh trang lúc <span class="mono">13:21:51 15/09/2026</span>
   </footer>
 </div>
 <script>
@@ -1288,24 +1314,50 @@ function updateHistStatsCards(counts) {
   if (emptyNote) emptyNote.hidden = counts.total !== 0;
 }
 
+var histStatusFilter = 'all'; // 'all' | 'theo_doi' | 'da_cham_tp' | 'da_cham_sl'
+
+function setHistStatusFilter(val, btn) {
+  histStatusFilter = val;
+  document.querySelectorAll('.hist-status-btn').forEach(function (b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  applyHistFilters();
+}
+
+function updateHistStatusCounts(statusCounts) {
+  var map = { all: 'histCnt_all', theo_doi: 'histCnt_theo_doi', da_cham_tp: 'histCnt_da_cham_tp', da_cham_sl: 'histCnt_da_cham_sl' };
+  Object.keys(map).forEach(function (key) {
+    var el = document.getElementById(map[key]);
+    if (el) el.textContent = statusCounts[key];
+  });
+}
+
 function applyHistFilters() {
   var input = document.getElementById('histSearch');
   var q = input ? input.value.trim().toUpperCase() : '';
   var rows = document.querySelectorAll('#histTable tbody tr');
   var nVisible = 0;
   var counts = { tp: 0, sl: 0, pending: 0, total: 0 };
+  // Dem theo trang_thai TRUOC KHI ap dung bo loc trang thai (chi tinh theo
+  // sym/date dang chon) de so tren nut luon phan anh dung "neu bo loc nay,
+  // con lai bao nhieu dong" - dung UX facet-count quen thuoc.
+  var statusCounts = { all: 0, theo_doi: 0, da_cham_tp: 0, da_cham_sl: 0 };
   rows.forEach(function (r) {
     var sym = r.getAttribute('data-symbol') || '';
     var d = r.getAttribute('data-date') || '00000000';
+    var st = r.getAttribute('data-status') || 'theo_doi';
     var symOk = sym.indexOf(q) !== -1;
     var dateOk = (!histDateFrom || d >= histDateFrom) && (!histDateTo || d <= histDateTo);
-    var match = symOk && dateOk;
+    if (symOk && dateOk) {
+      statusCounts.all += 1;
+      if (statusCounts.hasOwnProperty(st)) statusCounts[st] += 1;
+    }
+    var statusOk = (histStatusFilter === 'all') || (st === histStatusFilter);
+    var match = symOk && dateOk && statusOk;
     r.style.display = match ? '' : 'none';
     if (match) {
       nVisible += 1;
       if (r.getAttribute('data-signal') === 'MUA') {
         counts.total += 1;
-        var st = r.getAttribute('data-status');
         if (st === 'da_cham_tp') counts.tp += 1;
         else if (st === 'da_cham_sl') counts.sl += 1;
         else counts.pending += 1;
@@ -1315,6 +1367,7 @@ function applyHistFilters() {
   var noMatch = document.getElementById('histNoMatch');
   if (noMatch) noMatch.hidden = nVisible !== 0;
   updateHistStatsCards(counts);
+  updateHistStatusCounts(statusCounts);
 }
 
 // Tự làm mới trang định kỳ + nút "Làm mới" thủ công.
