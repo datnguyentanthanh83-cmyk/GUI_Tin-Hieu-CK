@@ -233,6 +233,18 @@ table.hist th {
 }
 table.hist td { padding: 9px 10px; border-bottom: 1px solid var(--border); font-family: "IBM Plex Mono", monospace; }
 table.hist tr:last-child td { border-bottom: none; }
+/* Cố định 2 cột đầu (Mã, Tín hiệu) khi kéo ngang bảng Lịch sử tín hiệu — dễ
+   theo dõi mã nào trên điện thoại/màn hình hẹp thay vì phải cuộn lại để đối chiếu. */
+table.hist th:nth-child(1), table.hist td:nth-child(1) {
+  position: sticky; left: 0; z-index: 2; background: var(--surface);
+  width: 64px; min-width: 64px;
+}
+table.hist th:nth-child(2), table.hist td:nth-child(2) {
+  position: sticky; left: 64px; z-index: 2; background: var(--surface);
+  width: 100px; min-width: 100px;
+  box-shadow: 4px 0 6px -4px rgba(0, 0, 0, 0.18);
+}
+table.hist thead th:nth-child(1), table.hist thead th:nth-child(2) { z-index: 3; }
 .hist-sig { font-family: "Be Vietnam Pro", sans-serif; font-weight: 600; padding: 2px 8px; border-radius: 999px; font-size: 0.72rem; }
 .hist-sig.mua { background: var(--up-bg); color: var(--up); }
 .hist-sig.ban { background: var(--down-bg); color: var(--down); }
@@ -399,7 +411,7 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd bad"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-09-16 15:17:03 — Ngoài giờ giao dịch (đang chờ)</span>
+        <span class="v">2026-09-16 15:19:26 — Ngoài giờ giao dịch (đang chờ)</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -1217,7 +1229,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">15:17:03 16/09/2026</span>
+    Sinh trang lúc <span class="mono">15:19:55 16/09/2026</span>
   </footer>
 </div>
 <script>
