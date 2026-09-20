@@ -256,6 +256,10 @@ table.hist thead th:nth-child(1), table.hist thead th:nth-child(2) { z-index: 3;
 .hist-result.win { background: var(--up-bg); color: var(--up); }
 .hist-result.lost { background: var(--down-bg); color: var(--down); }
 .hist-result.pending { background: var(--neutral-bg); color: var(--neutral); }
+/* Cot D-Trader (Lich su tin hieu) - tai su dung style .hist-result co san. */
+.hist-result.confirmed { background: var(--up-bg); color: var(--up); }
+.hist-result.pending-review { background: var(--neutral-bg); color: var(--neutral); }
+.hist-result.not-reviewed { background: var(--neutral-bg); color: var(--ink-dim); opacity: 0.7; }
 
 .health-banner {
   background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
@@ -411,7 +415,7 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd bad"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-09-20 19:59:26 — Ngoài giờ giao dịch (đang chờ)</span>
+        <span class="v">2026-09-20 20:34:26 — Ngoài giờ giao dịch (đang chờ)</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -459,7 +463,7 @@ footer.disclaimer {
       <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="applyHistFilters()" autocomplete="off">
     </div>
     <div class="hist-wrap">
-      <table class="hist" id="histTable"><thead><tr><th>Mã</th><th>Tín hiệu</th><th><button type="button" class="th-sort" onclick="sortHistByDate()">Ngày khuyến nghị <span id="histSortIcon" class="mono">↓</span></button></th><th>Entry</th><th>Cắt lỗ</th><th>Chốt lời</th><th>Giá gần nhất</th><th>Trạng thái</th><th>Kết quả</th></tr></thead><tbody><tr data-symbol="VOS" data-date="20260918" data-signal="MUA" data-status="theo_doi">
+      <table class="hist" id="histTable"><thead><tr><th>Mã</th><th>Tín hiệu</th><th><button type="button" class="th-sort" onclick="sortHistByDate()">Ngày khuyến nghị <span id="histSortIcon" class="mono">↓</span></button></th><th>Entry</th><th>Cắt lỗ</th><th>Chốt lời</th><th>Giá gần nhất</th><th>Trạng thái</th><th>Kết quả</th><th>D-Trader</th></tr></thead><tbody><tr data-symbol="VOS" data-date="20260918" data-signal="MUA" data-status="theo_doi">
           <td><b>VOS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>18/09/2026 <span class="lv">09:36</span><br><span class="lv">2 ngày trước</span></td>
@@ -469,6 +473,7 @@ footer.disclaimer {
           <td>11.95 <span class="lv">(15:15 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="VCB" data-date="20260918" data-signal="MUA" data-status="theo_doi">
           <td><b>VCB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -479,6 +484,7 @@ footer.disclaimer {
           <td>60.5 <span class="lv">(15:15 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="TDP" data-date="20260918" data-signal="MUA" data-status="theo_doi">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -489,6 +495,7 @@ footer.disclaimer {
           <td>29.8 <span class="lv">(15:15 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="SSB" data-date="20260918" data-signal="MUA" data-status="theo_doi">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -499,6 +506,7 @@ footer.disclaimer {
           <td>24.1 <span class="lv">(15:15 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="BID" data-date="20260918" data-signal="MUA" data-status="theo_doi">
           <td><b>BID</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -509,6 +517,7 @@ footer.disclaimer {
           <td>37.65 <span class="lv">(15:15 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="VPL" data-date="20260917" data-signal="MUA" data-status="theo_doi">
           <td><b>VPL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -519,6 +528,7 @@ footer.disclaimer {
           <td>81.2 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="VPI" data-date="20260917" data-signal="MUA" data-status="theo_doi">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -529,6 +539,7 @@ footer.disclaimer {
           <td>62.9 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="VPB" data-date="20260917" data-signal="MUA" data-status="theo_doi">
           <td><b>VPB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -539,6 +550,7 @@ footer.disclaimer {
           <td>27.45 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="SHI" data-date="20260917" data-signal="MUA" data-status="theo_doi">
           <td><b>SHI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -549,6 +561,7 @@ footer.disclaimer {
           <td>14.45 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="PLX" data-date="20260917" data-signal="MUA" data-status="theo_doi">
           <td><b>PLX</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -559,6 +572,7 @@ footer.disclaimer {
           <td>37.4 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="HID" data-date="20260917" data-signal="MUA" data-status="theo_doi">
           <td><b>HID</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -569,6 +583,7 @@ footer.disclaimer {
           <td>5.65 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="SSB" data-date="20260916" data-signal="MUA" data-status="da_cham_tp">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -579,6 +594,7 @@ footer.disclaimer {
           <td>24.15 <span class="lv">(13:08 18/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:08 18/09/2026 @ 24.15</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="PVD" data-date="20260916" data-signal="MUA" data-status="theo_doi">
           <td><b>PVD</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -589,6 +605,7 @@ footer.disclaimer {
           <td>19.2 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="HII" data-date="20260916" data-signal="MUA" data-status="theo_doi">
           <td><b>HII</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -599,6 +616,7 @@ footer.disclaimer {
           <td>10.6 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="DPR" data-date="20260916" data-signal="MUA" data-status="theo_doi">
           <td><b>DPR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -609,6 +627,7 @@ footer.disclaimer {
           <td>37.85 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="DPM" data-date="20260916" data-signal="MUA" data-status="theo_doi">
           <td><b>DPM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -619,6 +638,7 @@ footer.disclaimer {
           <td>22.85 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="DCM" data-date="20260916" data-signal="MUA" data-status="theo_doi">
           <td><b>DCM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -629,6 +649,7 @@ footer.disclaimer {
           <td>33.05 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="BSR" data-date="20260916" data-signal="MUA" data-status="theo_doi">
           <td><b>BSR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -639,6 +660,7 @@ footer.disclaimer {
           <td>30.2 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="APH" data-date="20260916" data-signal="MUA" data-status="theo_doi">
           <td><b>APH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -649,6 +671,7 @@ footer.disclaimer {
           <td>6.91 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="PVT" data-date="20260915" data-signal="MUA" data-status="theo_doi">
           <td><b>PVT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -659,6 +682,7 @@ footer.disclaimer {
           <td>22.8 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="PVP" data-date="20260915" data-signal="MUA" data-status="da_cham_sl">
           <td><b>PVP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -669,6 +693,7 @@ footer.disclaimer {
           <td>18.15 <span class="lv">(13:52 17/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:52 17/09/2026 @ 18.15</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="BVH" data-date="20260915" data-signal="MUA" data-status="theo_doi">
           <td><b>BVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -679,6 +704,7 @@ footer.disclaimer {
           <td>68.5 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="AAA" data-date="20260915" data-signal="MUA" data-status="theo_doi">
           <td><b>AAA</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -689,6 +715,7 @@ footer.disclaimer {
           <td>7.26 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="SSB" data-date="20260914" data-signal="MUA" data-status="da_cham_tp">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -699,6 +726,7 @@ footer.disclaimer {
           <td>21.85 <span class="lv">(13:11 16/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:11 16/09/2026 @ 21.85</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="BSR" data-date="20260914" data-signal="MUA" data-status="da_cham_tp">
           <td><b>BSR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -709,6 +737,7 @@ footer.disclaimer {
           <td>31.2 <span class="lv">(13:11 16/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:11 16/09/2026 @ 31.2</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="APH" data-date="20260914" data-signal="MUA" data-status="da_cham_tp">
           <td><b>APH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -719,6 +748,7 @@ footer.disclaimer {
           <td>6.93 <span class="lv">(14:04 16/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 14:04 16/09/2026 @ 6.93</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="VPI" data-date="20260911" data-signal="MUA" data-status="da_cham_tp">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -729,6 +759,7 @@ footer.disclaimer {
           <td>63.2 <span class="lv">(13:52 17/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:52 17/09/2026 @ 63.2</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="STB" data-date="20260911" data-signal="MUA" data-status="theo_doi">
           <td><b>STB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -739,6 +770,7 @@ footer.disclaimer {
           <td>78.2 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="PVT" data-date="20260911" data-signal="MUA" data-status="da_cham_tp">
           <td><b>PVT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -749,6 +781,7 @@ footer.disclaimer {
           <td>23.05 <span class="lv">(13:17 15/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:17 15/09/2026 @ 23.05</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HTN" data-date="20260911" data-signal="MUA" data-status="theo_doi">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -759,6 +792,7 @@ footer.disclaimer {
           <td>6.81 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="HII" data-date="20260911" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HII</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -769,6 +803,7 @@ footer.disclaimer {
           <td>11.15 <span class="lv">(11:04 16/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 11:04 16/09/2026 @ 11.15</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="PVP" data-date="20260910" data-signal="MUA" data-status="da_cham_tp">
           <td><b>PVP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -779,6 +814,7 @@ footer.disclaimer {
           <td>19.95 <span class="lv">(14:47 15/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 14:47 15/09/2026 @ 19.95</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="NLG" data-date="20260910" data-signal="MUA" data-status="da_cham_sl">
           <td><b>NLG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -789,6 +825,7 @@ footer.disclaimer {
           <td>23.75 <span class="lv">(11:31 15/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 11:31 15/09/2026 @ 23.75</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="GAS" data-date="20260910" data-signal="MUA" data-status="da_cham_tp">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -799,6 +836,7 @@ footer.disclaimer {
           <td>89.9 <span class="lv">(13:26 15/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:26 15/09/2026 @ 89.9</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="AAA" data-date="20260910" data-signal="MUA" data-status="da_cham_tp">
           <td><b>AAA</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -809,6 +847,7 @@ footer.disclaimer {
           <td>7.52 <span class="lv">(09:21 15/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 09:21 15/09/2026 @ 7.52</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="VPB" data-date="20260909" data-signal="MUA" data-status="da_cham_tp">
           <td><b>VPB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -819,6 +858,7 @@ footer.disclaimer {
           <td>28.2 <span class="lv">(14:46 17/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 14:46 17/09/2026 @ 28.2</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="VIC" data-date="20260909" data-signal="MUA" data-status="theo_doi">
           <td><b>VIC</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -829,6 +869,7 @@ footer.disclaimer {
           <td>241.2 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="TDP" data-date="20260909" data-signal="MUA" data-status="da_cham_sl">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -839,6 +880,7 @@ footer.disclaimer {
           <td>27.8 <span class="lv">(09:36 18/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 09:36 18/09/2026 @ 27.8</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="SSB" data-date="20260909" data-signal="MUA" data-status="da_cham_tp">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -849,6 +891,7 @@ footer.disclaimer {
           <td>18.85 <span class="lv">(09:34 14/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 09:34 14/09/2026 @ 18.85</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="SBG" data-date="20260909" data-signal="MUA" data-status="theo_doi">
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -859,6 +902,7 @@ footer.disclaimer {
           <td>13.75 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="PVT" data-date="20260909" data-signal="MUA" data-status="da_cham_tp">
           <td><b>PVT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -869,6 +913,7 @@ footer.disclaimer {
           <td>22.4 <span class="lv">(13:17 11/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:17 11/09/2026 @ 22.4</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="MCH" data-date="20260909" data-signal="MUA" data-status="theo_doi">
           <td><b>MCH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -879,6 +924,7 @@ footer.disclaimer {
           <td>143 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="HVH" data-date="20260909" data-signal="MUA" data-status="da_cham_sl">
           <td><b>HVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -889,6 +935,7 @@ footer.disclaimer {
           <td>10.5 <span class="lv">(11:31 15/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 11:31 15/09/2026 @ 10.5</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HTN" data-date="20260909" data-signal="MUA" data-status="da_cham_sl">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -899,6 +946,7 @@ footer.disclaimer {
           <td>6.64 <span class="lv">(13:17 11/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:17 11/09/2026 @ 6.64</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HSL" data-date="20260909" data-signal="MUA" data-status="da_cham_sl">
           <td><b>HSL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -909,6 +957,7 @@ footer.disclaimer {
           <td>8.75 <span class="lv">(10:00 14/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 10:00 14/09/2026 @ 8.75</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HHP" data-date="20260909" data-signal="MUA" data-status="theo_doi">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -919,6 +968,7 @@ footer.disclaimer {
           <td>17.2 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="FPT" data-date="20260909" data-signal="MUA" data-status="theo_doi">
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -929,6 +979,7 @@ footer.disclaimer {
           <td>71.7 <span class="lv">(14:55 18/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
+          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
         </tr><tr data-symbol="APH" data-date="20260909" data-signal="MUA" data-status="da_cham_tp">
           <td><b>APH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -939,6 +990,7 @@ footer.disclaimer {
           <td>6.57 <span class="lv">(10:00 14/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 10:00 14/09/2026 @ 6.57</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="VPI" data-date="20260907" data-signal="MUA" data-status="da_cham_tp">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -949,6 +1001,7 @@ footer.disclaimer {
           <td>61.4 <span class="lv">(13:15 10/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:15 10/09/2026 @ 61.4</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="VHM" data-date="20260907" data-signal="MUA" data-status="da_cham_sl">
           <td><b>VHM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -959,6 +1012,7 @@ footer.disclaimer {
           <td>73.1 <span class="lv">(13:23 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:23 09/09/2026 @ 73.1</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="TDP" data-date="20260907" data-signal="MUA" data-status="da_cham_sl">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -969,6 +1023,7 @@ footer.disclaimer {
           <td>32.9 <span class="lv">(13:23 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:23 09/09/2026 @ 32.9</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="STB" data-date="20260907" data-signal="MUA" data-status="da_cham_tp">
           <td><b>STB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -979,6 +1034,7 @@ footer.disclaimer {
           <td>78.4 <span class="lv">(10:58 10/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 10:58 10/09/2026 @ 78.4</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="SBG" data-date="20260907" data-signal="MUA" data-status="da_cham_sl">
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -989,6 +1045,7 @@ footer.disclaimer {
           <td>13.7 <span class="lv">(13:23 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:23 09/09/2026 @ 13.7</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="MCH" data-date="20260907" data-signal="MUA" data-status="da_cham_tp">
           <td><b>MCH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -999,6 +1056,7 @@ footer.disclaimer {
           <td>142.5 <span class="lv">(13:23 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:23 09/09/2026 @ 142.5</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HTN" data-date="20260907" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1009,6 +1067,7 @@ footer.disclaimer {
           <td>9.81 <span class="lv">(13:23 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:23 09/09/2026 @ 9.81</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HHP" data-date="20260907" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1019,6 +1078,7 @@ footer.disclaimer {
           <td>17.15 <span class="lv">(13:23 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:23 09/09/2026 @ 17.15</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HCM" data-date="20260907" data-signal="MUA" data-status="da_cham_sl">
           <td><b>HCM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1029,6 +1089,7 @@ footer.disclaimer {
           <td>26.05 <span class="lv">(10:58 10/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 10:58 10/09/2026 @ 26.05</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="FPT" data-date="20260907" data-signal="MUA" data-status="da_cham_tp">
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1039,6 +1100,7 @@ footer.disclaimer {
           <td>72.7 <span class="lv">(13:23 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:23 09/09/2026 @ 72.7</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="SSI" data-date="20260904" data-signal="MUA" data-status="da_cham_sl">
           <td><b>SSI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1049,6 +1111,7 @@ footer.disclaimer {
           <td>20.7 <span class="lv">(10:18 11/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 10:18 11/09/2026 @ 20.7</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HVH" data-date="20260904" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1059,6 +1122,7 @@ footer.disclaimer {
           <td>11.1 <span class="lv">(14:15 08/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 14:15 08/09/2026 @ 11.1</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HSL" data-date="20260904" data-signal="MUA" data-status="da_cham_sl">
           <td><b>HSL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1069,6 +1133,7 @@ footer.disclaimer {
           <td>9.96 <span class="lv">(14:41 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 14:41 09/09/2026 @ 9.96</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="VPI" data-date="20260903" data-signal="MUA" data-status="da_cham_sl">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1079,6 +1144,7 @@ footer.disclaimer {
           <td>61 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:18 07/09/2026 @ 61</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="TDP" data-date="20260903" data-signal="MUA" data-status="da_cham_tp">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1089,6 +1155,7 @@ footer.disclaimer {
           <td>32.8 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:18 07/09/2026 @ 32.8</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="SBG" data-date="20260903" data-signal="MUA" data-status="da_cham_tp">
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1099,6 +1166,7 @@ footer.disclaimer {
           <td>14.45 <span class="lv">(13:48 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:48 07/09/2026 @ 14.45</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="REE" data-date="20260903" data-signal="BÁN" data-status="da_cham_tp">
           <td><b>REE</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -1109,6 +1177,7 @@ footer.disclaimer {
           <td>45.3 <span class="lv">(14:41 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 14:41 09/09/2026 @ 45.3</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="NTL" data-date="20260903" data-signal="BÁN" data-status="da_cham_sl">
           <td><b>NTL</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -1119,6 +1188,7 @@ footer.disclaimer {
           <td>12.5 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:18 07/09/2026 @ 12.5</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="MZG" data-date="20260903" data-signal="MUA" data-status="da_cham_sl">
           <td><b>MZG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1129,6 +1199,7 @@ footer.disclaimer {
           <td>12.5 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:18 07/09/2026 @ 12.5</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HTN" data-date="20260903" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1139,6 +1210,7 @@ footer.disclaimer {
           <td>9.6 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:18 07/09/2026 @ 9.6</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HHP" data-date="20260903" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1149,6 +1221,7 @@ footer.disclaimer {
           <td>16.4 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:18 07/09/2026 @ 16.4</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HDB" data-date="20260903" data-signal="MUA" data-status="da_cham_sl">
           <td><b>HDB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1159,6 +1232,7 @@ footer.disclaimer {
           <td>27.45 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 13:18 07/09/2026 @ 27.45</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="GAS" data-date="20260903" data-signal="MUA" data-status="da_cham_tp">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1169,6 +1243,7 @@ footer.disclaimer {
           <td>87 <span class="lv">(10:12 09/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 10:12 09/09/2026 @ 87</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="FIR" data-date="20260903" data-signal="BÁN" data-status="da_cham_tp">
           <td><b>FIR</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -1179,6 +1254,7 @@ footer.disclaimer {
           <td>3.69 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:18 07/09/2026 @ 3.69</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="ELC" data-date="20260903" data-signal="BÁN" data-status="da_cham_tp">
           <td><b>ELC</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -1189,6 +1265,7 @@ footer.disclaimer {
           <td>14.55 <span class="lv">(13:18 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:18 07/09/2026 @ 14.55</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="DHC" data-date="20260903" data-signal="MUA" data-status="da_cham_sl">
           <td><b>DHC</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1199,6 +1276,7 @@ footer.disclaimer {
           <td>35.7 <span class="lv">(14:35 07/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 14:35 07/09/2026 @ 35.7</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="ABS" data-date="20260903" data-signal="BÁN" data-status="da_cham_sl">
           <td><b>ABS</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -1209,6 +1287,7 @@ footer.disclaimer {
           <td>2.91 <span class="lv">(09:39 08/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 09:39 08/09/2026 @ 2.91</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="VPI" data-date="20260902" data-signal="MUA" data-status="da_cham_tp">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1219,6 +1298,7 @@ footer.disclaimer {
           <td>69 <span class="lv">(13:11 04/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:11 04/09/2026 @ 69</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="OCB" data-date="20260902" data-signal="MUA" data-status="da_cham_sl">
           <td><b>OCB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1229,6 +1309,7 @@ footer.disclaimer {
           <td>10.9 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 09:36 03/09/2026 @ 10.9</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="NTL" data-date="20260902" data-signal="BÁN" data-status="da_cham_tp">
           <td><b>NTL</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
@@ -1239,6 +1320,7 @@ footer.disclaimer {
           <td>12.4 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 09:36 03/09/2026 @ 12.4</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HHP" data-date="20260902" data-signal="MUA" data-status="da_cham_tp">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1249,6 +1331,7 @@ footer.disclaimer {
           <td>16.35 <span class="lv">(13:11 04/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 13:11 04/09/2026 @ 16.35</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="GAS" data-date="20260902" data-signal="MUA" data-status="da_cham_tp">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1259,6 +1342,7 @@ footer.disclaimer {
           <td>86.3 <span class="lv">(09:36 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 09:36 03/09/2026 @ 86.3</td>
           <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="FPT" data-date="20260902" data-signal="MUA" data-status="da_cham_sl">
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1269,6 +1353,7 @@ footer.disclaimer {
           <td>72.2 <span class="lv">(14:25 03/09/2026)</span></td>
           <td><span class="hist-status da_cham_sl">Đã chạm CẮT LỖ</span> lúc 14:25 03/09/2026 @ 72.2</td>
           <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr></tbody></table><p class="empty hist-no-match" id="histNoMatch" hidden>Không tìm thấy mã phù hợp.</p>
     </div>
   </div>
@@ -1339,7 +1424,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">20:19:20 20/09/2026</span>
+    Sinh trang lúc <span class="mono">20:34:55 20/09/2026</span>
   </footer>
 </div>
 <script>
