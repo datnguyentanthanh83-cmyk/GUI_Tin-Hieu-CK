@@ -139,49 +139,6 @@ header.top h1 .accent { color: var(--accent); }
 .stat.pending .n { color: var(--flat); }
 .stat .n .pct { font-size: 0.88rem; font-weight: 500; color: var(--ink-dim); margin-left: 5px; }
 
-/* Khoi "Hieu suat D-Trader" - bar doi xung, chung 1 truc giua + thang 0-100% (20-21/09/2026) */
-.section-tag { font-size: 0.6rem; font-weight: 700; color: var(--accent); background: var(--neutral-bg); border-radius: 999px; padding: 2px 8px; margin-left: 8px; vertical-align: middle; text-transform: none; letter-spacing: 0; }
-.dtp-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 26px 28px 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; margin-bottom: 22px; }
-.dtp-panel::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--flat), var(--accent)); }
-.dtp-panel.dtp-empty { padding: 22px 24px; }
-.dtp-empty-note { font-size: 0.84rem; color: var(--ink-dim); margin: 12px 0 0; }
-.dtp-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
-.dtp-panel-head-text p { margin: 5px 0 0; font-size: 0.78rem; color: var(--ink-dim); }
-.dtp-legend { display: flex; gap: 8px; flex-shrink: 0; }
-.dtp-legend span { display: flex; align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 600; padding: 5px 11px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--ink-dim); white-space: nowrap; }
-.dtp-legend .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.dtp-legend .dot.mechanical { background: var(--ink-dim); }
-.dtp-legend .dot.dtrader { background: var(--accent); }
-.dtp-totals { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; padding: 4px 0 24px; margin-bottom: 26px; border-bottom: 1px solid var(--border); }
-.dtp-total-block { text-align: center; }
-.dtp-total-n { font-family: "IBM Plex Mono", monospace; font-size: 2.5rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
-.dtp-total-block.dtrader .dtp-total-n { color: var(--accent); }
-.dtp-total-lbl { font-size: 0.76rem; color: var(--ink-dim); margin-top: 8px; font-weight: 600; }
-.dtp-vs { width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.64rem; font-weight: 800; color: var(--ink-dim); margin: 0 auto; }
-.dtp-metric { margin-bottom: 24px; }
-.dtp-metric:last-child { margin-bottom: 0; }
-.dtp-metric-lbl { text-align: center; font-size: 0.86rem; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
-.dtp-diverge-row { display: flex; align-items: center; gap: 14px; }
-.dtp-diverge-num { font-family: "IBM Plex Mono", monospace; font-size: 0.9rem; font-weight: 800; width: 100px; flex-shrink: 0; }
-.dtp-diverge-num.left { text-align: right; }
-.dtp-diverge-num.right { text-align: left; }
-.dtp-diverge-num.tp { color: var(--up); }
-.dtp-diverge-num.sl { color: var(--down); }
-.dtp-diverge-num.pending { color: var(--flat); }
-.dtp-diverge-track { flex: 1; display: flex; align-items: center; height: 18px; }
-.dtp-diverge-half { flex: 1; height: 100%; display: flex; background: var(--surface-2); }
-.dtp-diverge-half.left { justify-content: flex-end; border-radius: 999px 0 0 999px; }
-.dtp-diverge-half.right { justify-content: flex-start; border-radius: 0 999px 999px 0; }
-.dtp-diverge-center { width: 2px; height: 26px; background: var(--border); flex-shrink: 0; border-radius: 1px; }
-.dtp-diverge-fill { height: 100%; background-image: linear-gradient(180deg, rgba(255,255,255,0.30), rgba(255,255,255,0) 65%); box-shadow: 0 1px 3px rgba(20,24,31,0.18); }
-.dtp-diverge-fill.side-left { border-radius: 999px 0 0 999px; }
-.dtp-diverge-fill.side-right { border-radius: 0 999px 999px 0; }
-.dtp-diverge-fill.tp { background-color: var(--up); }
-.dtp-diverge-fill.sl { background-color: var(--down); }
-.dtp-diverge-fill.pending { background-color: var(--flat); }
-.dtp-scale-row { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border); }
-.dtp-scale-half { flex: 1; display: flex; justify-content: space-between; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.65; }
-
 h2.section {
   font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-dim);
   font-weight: 600; margin: 30px 0 12px;
@@ -426,7 +383,7 @@ footer.disclaimer {
   <header class="top">
     <h1>Bảng <span class="accent">Tín Hiệu</span></h1>
     <div class="sync-tag">
-      Quét lúc <b class="mono">10:34 21/09/2026</b> · <span class="src">nguồn: Windows</span>
+      Quét lúc <b class="mono">11:09 21/09/2026</b> · <span class="src">nguồn: Windows</span>
       <button class="refresh-btn" onclick="lamMoi()" title="Tải lại trang ngay, bỏ qua cache">
         <span class="rf-icon">↻</span> Làm mới
       </button>
@@ -443,11 +400,11 @@ footer.disclaimer {
 
   <div id="tabTinHieu" class="tab-panel active">
     <section class="summary">
-      <div class="stat mua"><div class="n">15</div><div class="lbl">Mua</div></div>
-      <div class="stat theodoi"><div class="n">144</div><div class="lbl">Theo dõi sát</div></div>
+      <div class="stat mua"><div class="n">17</div><div class="lbl">Mua</div></div>
+      <div class="stat theodoi"><div class="n">142</div><div class="lbl">Theo dõi sát</div></div>
     </section>
 
-    <h2 class="section">Tín hiệu MUA MỚI (2 / 161 mã)</h2>
+    <h2 class="section">Tín hiệu MUA MỚI (4 / 161 mã)</h2>
     <p class="tracked-note">13 mã khác đang có vị thế MUA mở (đã khuyến nghị từ trước, đang theo dõi tới khi chạm chốt lời/cắt lỗ) — không hiển thị lại ở đây, xem tab "Lịch sử tín hiệu".</p>
     <div class="cards">
       
@@ -455,24 +412,24 @@ footer.disclaimer {
       <header class="card-head">
         <div class="ticker">APH</div>
         <div class="price-block">
-          <span class="price">7.13</span>
-          <span class="chg up">+0.22</span>
+          <span class="price">7.3</span>
+          <span class="chg up">+0.39</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">229M/515M</span>
+          <span class="lv" style="font-size:0.68rem">866M/515M</span>
           <span class="lv" style="font-size:0.68rem" title="Thoi diem BAT DAU chuoi tin hieu MUA lien tuc hom nay - co dinh, khong doi theo moi lan quet">Từ 09:26</span>
         </div>
       </header>
-      <div class="consensus">5/8 tăng · 1/8 giảm</div>
+      <div class="consensus">6/8 tăng · 1/8 giảm</div>
       <div class="fa-line">Điểm FA (tham khảo)<span class="fa-chip mid">57</span></div>
-      
+      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="up">76%</b><span class="dim"> (100 lệnh mẫu)</span></div>
       
         <div class="tradeplan">
-          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">7.04</span><span class="tp-sub">R1</span></div>
-          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">6.68</span><span class="tp-sub">S2</span></div>
-          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">7.28</span><span class="tp-sub">R3</span></div>
-        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (R1). Chốt lời: chưa mức KC nào đủ xa theo ATR, dùng mức xa nhất hiện có.</div>
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">7.28</span><span class="tp-sub">R3</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">6.92</span><span class="tp-sub">P</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">7.62</span><span class="tp-sub">ATR x1.5</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (R3). Chốt lời: không còn mức KC nào khác, dùng thẳng 1.5x ATR14.</div>
       <div class="levels">
         <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>6.28</b></span><span class="lv">MA50 <b>5.89</b></span><span class="lv">MA200 <b>5.93</b></span></div>
         <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>7.16</b></span><span class="lv">R1 <b>7.04</b></span><span class="lv">P <b>6.92</b></span><span class="lv">S1 <b>6.8</b></span><span class="lv">S2 <b>6.68</b></span></div>
@@ -480,14 +437,41 @@ footer.disclaimer {
     </article>
     <article class="card mua">
       <header class="card-head">
-        <div class="ticker">DGW</div>
+        <div class="ticker">BSR</div>
         <div class="price-block">
-          <span class="price">45.25</span>
-          <span class="chg down">-0.25</span>
+          <span class="price">31.2</span>
+          <span class="chg up">+1</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">232M/2.30MM</span>
+          <span class="lv" style="font-size:0.68rem">4.92MM/15.20MM</span>
+          <span class="lv" style="font-size:0.68rem" title="Thoi diem BAT DAU chuoi tin hieu MUA lien tuc hom nay - co dinh, khong doi theo moi lan quet">Từ 09:26</span>
+        </div>
+      </header>
+      <div class="consensus">5/8 tăng · 0/8 giảm</div>
+      <div class="fa-line">Điểm FA (tham khảo)<span class="fa-chip mid">64</span></div>
+      
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">31</span><span class="tp-sub">R1</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">29</span><span class="tp-sub">S2</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">32.4</span><span class="tp-sub">R3</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (R1). Chốt lời: chưa mức KC nào đủ xa theo ATR, dùng mức xa nhất hiện có.</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>27.7</b></span><span class="lv">MA50 <b>26.15</b></span><span class="lv">MA200 <b>24.83</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>31.8</b></span><span class="lv">R1 <b>31</b></span><span class="lv">P <b>30.4</b></span><span class="lv">S1 <b>29.6</b></span><span class="lv">S2 <b>29</b></span></div>
+      </div>
+    </article>
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">DGW</div>
+        <div class="price-block">
+          <span class="price">45.2</span>
+          <span class="chg down">-0.3</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">361M/2.30MM</span>
           <span class="lv" style="font-size:0.68rem" title="Thoi diem BAT DAU chuoi tin hieu MUA lien tuc hom nay - co dinh, khong doi theo moi lan quet">Từ 09:26</span>
         </div>
       </header>
@@ -505,6 +489,33 @@ footer.disclaimer {
         <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>47.53</b></span><span class="lv">R1 <b>46.52</b></span><span class="lv">P <b>45.98</b></span><span class="lv">S1 <b>44.97</b></span><span class="lv">S2 <b>44.43</b></span></div>
       </div>
     </article>
+    <article class="card mua">
+      <header class="card-head">
+        <div class="ticker">GAS</div>
+        <div class="price-block">
+          <span class="price">89.2</span>
+          <span class="chg up">+1.2</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="badge mua">MUA</span>
+          <span class="lv" style="font-size:0.68rem">327M/1.92MM</span>
+          <span class="lv" style="font-size:0.68rem" title="Thoi diem BAT DAU chuoi tin hieu MUA lien tuc hom nay - co dinh, khong doi theo moi lan quet">Từ 11:09</span>
+        </div>
+      </header>
+      <div class="consensus">5/8 tăng · 0/8 giảm</div>
+      <div class="fa-line">Điểm FA (tham khảo)<span class="fa-chip low">45</span></div>
+      
+      
+        <div class="tradeplan">
+          <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">88.73</span><span class="tp-sub">R1</span></div>
+          <div class="tp-item"><span class="tp-label">Cắt lỗ</span><span class="tp-val down">83.95</span><span class="tp-sub">MA200</span></div>
+          <div class="tp-item"><span class="tp-label">Chốt lời</span><span class="tp-val up">90.23</span><span class="tp-sub">R3</span></div>
+        </div><div class="tp-note">Entry gợi ý ở vùng hỗ trợ gần nhất (R1). Chốt lời: chưa mức KC nào đủ xa theo ATR, dùng mức xa nhất hiện có.</div>
+      <div class="levels">
+        <div class="lv-row"><span class="lv-cap">MA</span><span class="lv">MA20 <b>85.16</b></span><span class="lv">MA50 <b>78.08</b></span><span class="lv">MA200 <b>83.95</b></span></div>
+        <div class="lv-row"><span class="lv-cap">Pivot</span><span class="lv">R2 <b>89.47</b></span><span class="lv">R1 <b>88.73</b></span><span class="lv">P <b>87.97</b></span><span class="lv">S1 <b>87.23</b></span><span class="lv">S2 <b>86.47</b></span></div>
+      </div>
+    </article>
     </div>
 
     <h2 class="section">Tình trạng hệ thống</h2>
@@ -512,7 +523,7 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd ok"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-09-21 10:34:34 — Đã quét</span>
+        <span class="v">2026-09-21 11:09:37 — Đã quét</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -530,13 +541,12 @@ footer.disclaimer {
 
   <div id="tabLichSu" class="tab-panel">
     <h2 class="section">Lịch sử tín hiệu (81 mã theo dõi)</h2>
-    <div class="dtp-panel dtp-empty">
-      <div class="dtp-panel-head-text">
-        <h2 class="section" style="margin:0; border:none; padding:0;">Hiệu suất D-Trader <span class="section-tag">MỚI</span></h2>
-        <p>So tỉ lệ chạm TP/SL giữa tín hiệu MUA đã qua D-Trader xác nhận và chưa qua</p>
-      </div>
-      <p class="dtp-empty-note">D-Trader chưa xác nhận mã nào — khối so sánh sẽ tự hiện ra ngay khi có ít nhất 1 lần D-Trader trả lời "Đã xác nhận".</p>
-    </div>
+    <section class="summary hist-summary">
+      <div class="stat total"><div class="n">75</div><div class="lbl">Tổng lệnh MUA</div></div>
+      <div class="stat tp"><div class="n">32<span class="pct">42.7%</span></div><div class="lbl">Đã chạm TP</div></div>
+      <div class="stat sl"><div class="n">19<span class="pct">25.3%</span></div><div class="lbl">Đã chạm SL</div></div>
+      <div class="stat pending"><div class="n">24<span class="pct">32.0%</span></div><div class="lbl">Đang theo dõi</div></div>
+    </section>
     <div class="hist-date-filter">
       <div class="hist-range-btns">
         <button type="button" class="hist-range-btn active" onclick="setHistPreset('all', this)">Tất cả</button>
@@ -554,8 +564,8 @@ footer.disclaimer {
     <div class="hist-controls">
       <div class="hist-status-btns" id="histStatusBtns">
         <button type="button" class="hist-status-btn active" data-status-filter="all" onclick="setHistStatusFilter('all', this)">Tất cả <span class="cnt" id="histCnt_all">81</span></button>
-        <button type="button" class="hist-status-btn" data-status-filter="theo_doi" onclick="setHistStatusFilter('theo_doi', this)">Đang theo dõi <span class="cnt" id="histCnt_theo_doi">25</span></button>
-        <button type="button" class="hist-status-btn" data-status-filter="da_cham_tp" onclick="setHistStatusFilter('da_cham_tp', this)">Đã chạm TP <span class="cnt" id="histCnt_da_cham_tp">35</span></button>
+        <button type="button" class="hist-status-btn" data-status-filter="theo_doi" onclick="setHistStatusFilter('theo_doi', this)">Đang theo dõi <span class="cnt" id="histCnt_theo_doi">24</span></button>
+        <button type="button" class="hist-status-btn" data-status-filter="da_cham_tp" onclick="setHistStatusFilter('da_cham_tp', this)">Đã chạm TP <span class="cnt" id="histCnt_da_cham_tp">36</span></button>
         <button type="button" class="hist-status-btn" data-status-filter="da_cham_sl" onclick="setHistStatusFilter('da_cham_sl', this)">Đã chạm SL <span class="cnt" id="histCnt_da_cham_sl">21</span></button>
       </div>
       <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="applyHistFilters()" autocomplete="off">
@@ -568,7 +578,7 @@ footer.disclaimer {
           <td>11.85</td>
           <td>11.19</td>
           <td>12.62</td>
-          <td>12.3 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>12.25 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -579,7 +589,7 @@ footer.disclaimer {
           <td>60.13</td>
           <td>58.43</td>
           <td>61.33</td>
-          <td>59.4 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>59.2 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -590,7 +600,7 @@ footer.disclaimer {
           <td>29.46</td>
           <td>27.39</td>
           <td>32.27</td>
-          <td>28.2 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>28.2 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -601,7 +611,7 @@ footer.disclaimer {
           <td>24</td>
           <td>21.95</td>
           <td>25.3</td>
-          <td>22.45 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>22.45 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -612,7 +622,7 @@ footer.disclaimer {
           <td>37.4</td>
           <td>36.39</td>
           <td>38.68</td>
-          <td>36.5 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>36.5 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -623,7 +633,7 @@ footer.disclaimer {
           <td>85.47</td>
           <td>80.27</td>
           <td>88.07</td>
-          <td>81.3 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>80.8 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -634,7 +644,7 @@ footer.disclaimer {
           <td>62.93</td>
           <td>59.87</td>
           <td>63.77</td>
-          <td>60.9 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>60.9 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -645,7 +655,7 @@ footer.disclaimer {
           <td>28.17</td>
           <td>27.13</td>
           <td>29.13</td>
-          <td>27.9 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>27.85 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -656,7 +666,7 @@ footer.disclaimer {
           <td>14.55</td>
           <td>14.15</td>
           <td>14.75</td>
-          <td>14.35 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>14.35 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -667,7 +677,7 @@ footer.disclaimer {
           <td>37.3</td>
           <td>35.3</td>
           <td>39.3</td>
-          <td>37.3 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>37.5 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -678,7 +688,7 @@ footer.disclaimer {
           <td>5.62</td>
           <td>5.13</td>
           <td>5.94</td>
-          <td>5.65 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>5.8 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -700,7 +710,7 @@ footer.disclaimer {
           <td>19.47</td>
           <td>18.32</td>
           <td>20.62</td>
-          <td>19.15 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>19.35 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -711,7 +721,7 @@ footer.disclaimer {
           <td>10.6</td>
           <td>9.31</td>
           <td>11.85</td>
-          <td>11.3 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>11.3 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -722,7 +732,7 @@ footer.disclaimer {
           <td>38.45</td>
           <td>37.2</td>
           <td>39.5</td>
-          <td>37.9 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>37.85 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -733,7 +743,7 @@ footer.disclaimer {
           <td>22.78</td>
           <td>21.68</td>
           <td>23.88</td>
-          <td>22.75 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>23.05 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -744,21 +754,21 @@ footer.disclaimer {
           <td>33.35</td>
           <td>31.7</td>
           <td>35</td>
-          <td>32.9 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>33.55 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
-        </tr><tr data-symbol="BSR" data-date="20260916" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="BSR" data-date="20260916" data-signal="MUA" data-status="da_cham_tp">
           <td><b>BSR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">09:46</span><br><span class="lv">5 ngày trước</span></td>
           <td>29.72</td>
           <td>27.52</td>
           <td>31.18</td>
-          <td>30.75 <span class="lv">(10:34 21/09/2026)</span></td>
-          <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
-          <td><span class="hist-result pending">—</span></td>
-          <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
+          <td>31.2 <span class="lv">(11:09 21/09/2026)</span></td>
+          <td><span class="hist-status da_cham_tp">Đã chạm CHỐT LỜI</span> lúc 11:09 21/09/2026 @ 31.2</td>
+          <td><span class="hist-result win">WIN</span></td>
+          <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="APH" data-date="20260916" data-signal="MUA" data-status="da_cham_tp">
           <td><b>APH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -777,7 +787,7 @@ footer.disclaimer {
           <td>22.55</td>
           <td>20.64</td>
           <td>23.75</td>
-          <td>22.65 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>22.85 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -799,7 +809,7 @@ footer.disclaimer {
           <td>67.24</td>
           <td>62.46</td>
           <td>70.87</td>
-          <td>70.7 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>70.5 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -810,7 +820,7 @@ footer.disclaimer {
           <td>7.34</td>
           <td>7.05</td>
           <td>7.68</td>
-          <td>7.44 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>7.48 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -865,7 +875,7 @@ footer.disclaimer {
           <td>77.9</td>
           <td>74.95</td>
           <td>81.4</td>
-          <td>77.6 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>77.6 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -964,7 +974,7 @@ footer.disclaimer {
           <td>243.67</td>
           <td>219.65</td>
           <td>261.67</td>
-          <td>238.7 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>238 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -997,7 +1007,7 @@ footer.disclaimer {
           <td>13.62</td>
           <td>12.5</td>
           <td>14.42</td>
-          <td>13.75 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>13.75 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -1019,7 +1029,7 @@ footer.disclaimer {
           <td>142.37</td>
           <td>139.03</td>
           <td>145.9</td>
-          <td>140.3 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>140 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -1063,7 +1073,7 @@ footer.disclaimer {
           <td>17.17</td>
           <td>16.33</td>
           <td>17.67</td>
-          <td>17.2 <span class="lv">(10:34 21/09/2026)</span></td>
+          <td>17.2 <span class="lv">(11:09 21/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -1522,7 +1532,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">11:04:19 21/09/2026</span>
+    Sinh trang lúc <span class="mono">11:09:39 21/09/2026</span>
   </footer>
 </div>
 <script>
