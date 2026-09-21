@@ -139,6 +139,49 @@ header.top h1 .accent { color: var(--accent); }
 .stat.pending .n { color: var(--flat); }
 .stat .n .pct { font-size: 0.88rem; font-weight: 500; color: var(--ink-dim); margin-left: 5px; }
 
+/* Khoi "Hieu suat D-Trader" - bar doi xung, chung 1 truc giua + thang 0-100% (20-21/09/2026) */
+.section-tag { font-size: 0.6rem; font-weight: 700; color: var(--accent); background: var(--neutral-bg); border-radius: 999px; padding: 2px 8px; margin-left: 8px; vertical-align: middle; text-transform: none; letter-spacing: 0; }
+.dtp-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 26px 28px 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; margin-bottom: 22px; }
+.dtp-panel::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--flat), var(--accent)); }
+.dtp-panel.dtp-empty { padding: 22px 24px; }
+.dtp-empty-note { font-size: 0.84rem; color: var(--ink-dim); margin: 12px 0 0; }
+.dtp-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
+.dtp-panel-head-text p { margin: 5px 0 0; font-size: 0.78rem; color: var(--ink-dim); }
+.dtp-legend { display: flex; gap: 8px; flex-shrink: 0; }
+.dtp-legend span { display: flex; align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 600; padding: 5px 11px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--ink-dim); white-space: nowrap; }
+.dtp-legend .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dtp-legend .dot.mechanical { background: var(--ink-dim); }
+.dtp-legend .dot.dtrader { background: var(--accent); }
+.dtp-totals { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; padding: 4px 0 24px; margin-bottom: 26px; border-bottom: 1px solid var(--border); }
+.dtp-total-block { text-align: center; }
+.dtp-total-n { font-family: "IBM Plex Mono", monospace; font-size: 2.5rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
+.dtp-total-block.dtrader .dtp-total-n { color: var(--accent); }
+.dtp-total-lbl { font-size: 0.76rem; color: var(--ink-dim); margin-top: 8px; font-weight: 600; }
+.dtp-vs { width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.64rem; font-weight: 800; color: var(--ink-dim); margin: 0 auto; }
+.dtp-metric { margin-bottom: 24px; }
+.dtp-metric:last-child { margin-bottom: 0; }
+.dtp-metric-lbl { text-align: center; font-size: 0.86rem; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
+.dtp-diverge-row { display: flex; align-items: center; gap: 14px; }
+.dtp-diverge-num { font-family: "IBM Plex Mono", monospace; font-size: 0.9rem; font-weight: 800; width: 100px; flex-shrink: 0; }
+.dtp-diverge-num.left { text-align: right; }
+.dtp-diverge-num.right { text-align: left; }
+.dtp-diverge-num.tp { color: var(--up); }
+.dtp-diverge-num.sl { color: var(--down); }
+.dtp-diverge-num.pending { color: var(--flat); }
+.dtp-diverge-track { flex: 1; display: flex; align-items: center; height: 18px; }
+.dtp-diverge-half { flex: 1; height: 100%; display: flex; background: var(--surface-2); }
+.dtp-diverge-half.left { justify-content: flex-end; border-radius: 999px 0 0 999px; }
+.dtp-diverge-half.right { justify-content: flex-start; border-radius: 0 999px 999px 0; }
+.dtp-diverge-center { width: 2px; height: 26px; background: var(--border); flex-shrink: 0; border-radius: 1px; }
+.dtp-diverge-fill { height: 100%; background-image: linear-gradient(180deg, rgba(255,255,255,0.30), rgba(255,255,255,0) 65%); box-shadow: 0 1px 3px rgba(20,24,31,0.18); }
+.dtp-diverge-fill.side-left { border-radius: 999px 0 0 999px; }
+.dtp-diverge-fill.side-right { border-radius: 0 999px 999px 0; }
+.dtp-diverge-fill.tp { background-color: var(--up); }
+.dtp-diverge-fill.sl { background-color: var(--down); }
+.dtp-diverge-fill.pending { background-color: var(--flat); }
+.dtp-scale-row { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border); }
+.dtp-scale-half { flex: 1; display: flex; justify-content: space-between; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.65; }
+
 h2.section {
   font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-dim);
   font-weight: 600; margin: 30px 0 12px;
@@ -292,6 +335,37 @@ table.hist thead th:nth-child(1), table.hist thead th:nth-child(2) { z-index: 3;
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
+.dtr-summary { font-size: 0.84rem; color: var(--ink-dim); margin-bottom: 12px; }
+.dtr-empty { margin-top: 12px; }
+.dtr-day { margin-top: 22px; }
+.dtr-day:first-child { margin-top: 4px; }
+.dtr-day-head {
+  font-family: "IBM Plex Mono", monospace; font-size: 0.76rem; font-weight: 600;
+  color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 10px;
+}
+.dtr-day-cnt { font-weight: 400; opacity: 0.75; text-transform: none; letter-spacing: 0; }
+.dtr-cards { display: flex; flex-direction: column; gap: 8px; }
+.dtr-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px;
+}
+.dtr-card-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.dtr-symbol { font-family: "IBM Plex Mono", monospace; font-weight: 700; font-size: 0.92rem; }
+.dtr-time { margin-left: auto; font-size: 0.74rem; color: var(--ink-dim); }
+.dtr-reasoning { margin-top: 8px; }
+.dtr-reasoning summary {
+  cursor: pointer; font-size: 0.8rem; color: var(--accent); font-weight: 600;
+  list-style: none;
+}
+.dtr-reasoning summary::-webkit-details-marker { display: none; }
+.dtr-reasoning summary::before { content: "▸ "; }
+.dtr-reasoning[open] summary::before { content: "▾ "; }
+.dtr-reasoning p {
+  font-size: 0.85rem; line-height: 1.55; color: var(--ink); margin: 8px 0 0;
+  white-space: pre-wrap;
+}
+
 .hist-controls { margin-bottom: 12px; }
 .hist-search {
   width: 100%; max-width: 260px; padding: 8px 12px; border: 1px solid var(--border);
@@ -394,6 +468,7 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">17</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
@@ -568,12 +643,79 @@ footer.disclaimer {
 
   <div id="tabLichSu" class="tab-panel">
     <h2 class="section">Lịch sử tín hiệu (81 mã theo dõi)</h2>
-    <section class="summary hist-summary">
-      <div class="stat total"><div class="n">75</div><div class="lbl">Tổng lệnh MUA</div></div>
-      <div class="stat tp"><div class="n">33<span class="pct">44.0%</span></div><div class="lbl">Đã chạm TP</div></div>
-      <div class="stat sl"><div class="n">20<span class="pct">26.7%</span></div><div class="lbl">Đã chạm SL</div></div>
-      <div class="stat pending"><div class="n">22<span class="pct">29.3%</span></div><div class="lbl">Đang theo dõi</div></div>
-    </section>
+    <div class="dtp-panel">
+  <div class="dtp-panel-head">
+    <div class="dtp-panel-head-text">
+      <h2 class="section" style="margin:0; border:none; padding:0;">Hiệu suất D-Trader <span class="section-tag">MỚI</span></h2>
+      <p>So tỉ lệ chạm TP/SL giữa 2 nhóm tín hiệu MUA loại trừ nhau</p>
+    </div>
+    <div class="dtp-legend">
+      <span><span class="dot mechanical"></span>Chưa qua D-Trader</span>
+      <span><span class="dot dtrader"></span>Đã qua D-Trader xác nhận</span>
+    </div>
+  </div>
+
+  <div class="dtp-totals">
+    <div class="dtp-total-block">
+      <div class="dtp-total-n">75</div>
+      <div class="dtp-total-lbl">Chưa qua D-Trader</div>
+    </div>
+    <div class="dtp-vs">VS</div>
+    <div class="dtp-total-block dtrader">
+      <div class="dtp-total-n">0</div>
+      <div class="dtp-total-lbl">Đã qua D-Trader xác nhận</div>
+    </div>
+  </div>
+
+  <div class="dtp-metric">
+    <div class="dtp-metric-lbl">Chạm TP</div>
+      <div class="dtp-diverge-row">
+        <div class="dtp-diverge-num left tp">33 (44.0%)</div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left tp" style="width:44.0%"></div></div>
+          <div class="dtp-diverge-center"></div>
+          <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right tp" style="width:0.0%"></div></div>
+        </div>
+        <div class="dtp-diverge-num right tp">0 (0.0%)</div>
+      </div>
+  </div>
+
+  <div class="dtp-metric">
+    <div class="dtp-metric-lbl">Chạm SL</div>
+      <div class="dtp-diverge-row">
+        <div class="dtp-diverge-num left sl">20 (26.7%)</div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left sl" style="width:26.7%"></div></div>
+          <div class="dtp-diverge-center"></div>
+          <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right sl" style="width:0.0%"></div></div>
+        </div>
+        <div class="dtp-diverge-num right sl">0 (0.0%)</div>
+      </div>
+  </div>
+
+  <div class="dtp-metric">
+    <div class="dtp-metric-lbl">Đang theo dõi</div>
+      <div class="dtp-diverge-row">
+        <div class="dtp-diverge-num left pending">22 (29.3%)</div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left pending" style="width:29.3%"></div></div>
+          <div class="dtp-diverge-center"></div>
+          <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right pending" style="width:0.0%"></div></div>
+        </div>
+        <div class="dtp-diverge-num right pending">0 (0.0%)</div>
+      </div>
+  </div>
+
+  <div class="dtp-diverge-row dtp-scale-row">
+    <div class="dtp-diverge-num"></div>
+    <div class="dtp-diverge-track">
+      <div class="dtp-scale-half"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+      <div class="dtp-diverge-center" style="background:transparent;"></div>
+      <div class="dtp-scale-half"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+    </div>
+    <div class="dtp-diverge-num"></div>
+  </div>
+</div>
     <div class="hist-date-filter">
       <div class="hist-range-btns">
         <button type="button" class="hist-range-btn active" onclick="setHistPreset('all', this)">Tất cả</button>
@@ -1493,6 +1635,196 @@ footer.disclaimer {
     </div>
   </div>
 
+  <div id="tabDTrader" class="tab-panel">
+    <h2 class="section">D-Trader — Lịch sử xem xét</h2>
+    <div class="dtr-summary">Tổng 17 lần xem xét — 0 đã xác nhận, 17 chưa đủ điều kiện.</div>
+    <div class="hist-status-btns" id="dtrStatusBtns">
+      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">17</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="da_xac_nhan" onclick="dtrSetFilter('da_xac_nhan', this)">✅ Đã xác nhận <span class="cnt">0</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">17</span></button>
+    </div>
+    <input type="text" id="dtrSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="dtrApplySearch()" autocomplete="off">
+    <p class="empty dtr-empty" id="dtrEmpty" hidden>Không có mã nào khớp bộ lọc.</p>
+    <div id="dtrList">
+    <div class="dtr-day">
+      <div class="dtr-day-head">21/09/2026 <span class="dtr-day-cnt">(17 mã)</span></div>
+      <div class="dtr-cards">
+      <div class="dtr-card" data-dtr-symbol="aaa" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">AAA</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX vừa điều chỉnh nhẹ từ đỉnh ~1,855 về 1,806 (~-2.7%), chưa phải gấu cả thị trường. Cấu trúc AAA: đáy 6,840 (đầu T9) -&gt; HH+HL rõ (7,200/7,120/7,360/7,320) -&gt; hôm nay tăng mạnh +3.44% lên 7,510, volume 2.17M &gt; TB 1.53M (có xác nhận). Tuy nhiên vùng giá hiện tại đang áp sát đỉnh cũ tháng 8 (~7,600), CHƯA phá qua, nến hôm nay đã tăng nhiều trong phiên -&gt; vào lệnh lúc này là đuổi giá gần kháng cự thay vì mua gần hỗ trợ. Kịch bản B: nếu bị từ chối tại kháng cự 7,600 giá có thể quay lại vùng 7,320-7,360. Thiếu mục &#x27;vào gần vùng hỗ trợ rõ ràng&#x27; trong checklist -&gt; chưa đủ điều kiện, nên chờ phá hẳn 7,600 kèm volume hoặc chờ hồi về hỗ trợ.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="aph" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">APH</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Cấu trúc: tăng gần như thẳng đứng từ ~5,500 (đầu T8) lên 7,310 hôm nay (+5.79%), hầu như không có nhịp điều chỉnh/HL rõ ràng để xác định vùng hỗ trợ - đây là 1 nhịp tăng parabol đã kéo dài nhiều tuần. Volume hôm nay 902.98K &gt; TB 545K nhưng mức tăng trong 1 phiên quá lớn, giá đã đi xa khỏi mọi vùng tích luỹ trước đó (6,000-6,200). Không có vùng giá/hỗ trợ rõ để đặt kịch bản B hợp lý, rủi ro đuổi đỉnh giữa khoảng trống rất cao (giống các case trượt giá mạnh trong bài học 5). Chưa đủ điều kiện.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="bsr" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">BSR</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Cấu trúc: nền tích luỹ 26,000-27,600 (T8-đầu T9) -&gt; breakout mạnh lên đỉnh 31,600 (giữa T9) -&gt; điều chỉnh về 29,600-30,800 khoảng 2 tuần -&gt; hôm nay hồi lên 31,200 (+3.31%) áp sát đỉnh cũ 31,600. Volume hôm nay chỉ 5.95M, THẤP hơn TB 11.49M dù giá tăng - không đạt tiêu chí &#x27;giá tăng phải có volume xác nhận&#x27;. Đồng thời giá đang đuổi lên gần kháng cự chứ không phải mua gần hỗ trợ (hỗ trợ gần nhất ~29,600-30,000). Chưa đủ điều kiện.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="bvh" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">BVH</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Cấu trúc rõ HH+HL: đáy 62,000 -&gt; đỉnh 66,700 -&gt; HL 63,000-64,000 -&gt; đỉnh mới 71,400 -&gt; hồi nhẹ về HL ~68,700-69,000 (2 phiên trước) -&gt; hôm nay +3.5% lên 70,900, áp sát đỉnh 71,400. Đây là mã thể hiện sức mạnh tương đối tốt hơn VNINDEX (VNINDEX đang điều chỉnh nhưng BVH vẫn tạo đỉnh mới) - điểm cộng theo Bài học 1. Tuy nhiên volume hôm nay (564.63K) chỉ xấp xỉ TB (569.39K), CHƯA phải xác nhận volume tăng vượt trội cho việc test lại đỉnh cũ, và giá đã hồi khá xa khỏi vùng HL 68,700 nên không còn là điểm vào &#x27;gần hỗ trợ&#x27;. Rủi ro double-top nếu bị từ chối lại tại 71,400. Chưa đủ điều kiện - nên chờ phá dứt khoát 71,400 kèm volume mạnh hơn rõ rệt.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="dgw" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">DGW</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Sau nhịp tăng mạnh từ 40,000 lên đỉnh 46,850 (giữa T9), DGW đang tạo chuỗi đỉnh thấp dần (LH: 46,850-&gt;46,000-&gt;45,700) trong hơn 1 tuần qua - dấu hiệu suy yếu cấu trúc ngắn hạn, CHƯA rõ đã tạo HL mới. Hôm nay giá giảm -0.33% đóng cửa không gần đỉnh phiên, volume 477K rất thấp so với TB 1.78M - bên mua KHÔNG chiếm ưu thế hôm nay. Không đạt mục checklist &#x27;giá đóng cửa gần HIGH, bên mua chiếm ưu thế&#x27;. Chưa đủ điều kiện.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="dpm" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">DPM</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Sau đỉnh 23,700 (vài phiên trước), giá điều chỉnh về 22,600-22,700 rồi hồi nhẹ lên 23,000 hôm nay (+0.66%), thân nến nhỏ, đóng cửa giữa vùng dao động - chưa cho thấy bên mua áp đảo rõ rệt. Volume 1.42M thấp hơn nhiều so với TB 3.19M - không có xác nhận dòng tiền cho nhịp hồi. Chưa đủ điều kiện - tín hiệu còn yếu và mơ hồ.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="gas" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">GAS</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>GAS trong xu hướng tăng dài hạn từ ~75,000 lên đỉnh 92,700 (giữa T9), nhưng hiện đang đi ngang tích luỹ dưới đỉnh trong vùng 87,600-89,500 nhiều phiên liên tiếp. Hôm nay +1.25% lên 89,100 nhưng volume 454.64K rất thấp so với TB 1.78M - không có dòng tiền xác nhận, chưa phá khỏi vùng đi ngang, chưa rõ đây là điểm breakout hay chỉ là dao động trong biên. Chưa đủ điều kiện.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="hhp" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">HHP</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Giá tăng gần như thẳng đứng từ ~14,000 lên đỉnh ~17,400 chỉ trong vài tuần, hiện đi ngang hẹp 16,900-17,400 dưới đỉnh, không có nhịp điều chỉnh rõ để xác định vùng hỗ trợ đáng tin. Hôm nay tăng nhẹ +0.29% với volume 737K thấp hơn TB 1.41M. Đây là 1 nhịp tăng đã đi quá xa (parabol) không còn điểm vào có cấu trúc rõ ràng, rủi ro đảo chiều đột ngột cao đối với dạng tăng nóng như vậy. Chưa đủ điều kiện.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="hid" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">HID</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Mã vốn hoá rất nhỏ (433.67B), giá tăng theo kiểu parabol cực đoan: từ ~3,200 lên 5,830 (~+80%) chỉ trong khoảng 3 tuần, gần như không có nhịp điều chỉnh/HL để xác lập cấu trúc, hôm nay tiếp tục +3.19% lập đỉnh mới với volume 967.04K &gt; TB 598.53K. Dù volume có xác nhận, mức độ tăng nóng bất thường ở 1 mã vốn hoá siêu nhỏ khiến không có vùng hỗ trợ/kháng cự đáng tin để đặt kịch bản B, rủi ro trượt giá khi đảo chiều rất lớn (đúng tinh thần cảnh báo ở Bài học 5 về biến động tăng bất thường). Chưa đủ điều kiện dù volume đẹp - cấu trúc quá rủi ro để xác nhận điểm vào.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="hii" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">HII</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Từ đáy 8,600-9,000 hình thành HH+HL (9,900 -&gt; HL 9,700 -&gt; đỉnh 11,400) rồi điều chỉnh về ~10,400, hôm nay bật tăng mạnh +6.60% lên 11,300 áp sát đỉnh cũ 11,400. Điểm bất thường: mức tăng rất lớn trong 1 phiên (+6.6%) nhưng volume chỉ 450.47K, THẤP hơn TB 745.09K - biến động giá lớn mà không có dòng tiền tương xứng xác nhận là dấu hiệu đáng ngờ (dễ là do thanh khoản mỏng chứ không phải lực mua thật mạnh), đồng thời giá đang đuổi sát kháng cự cũ. Chưa đủ điều kiện.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="plx" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">PLX</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>PLX vẫn đang trong xu hướng giảm lớn hơn: đỉnh tháng 8 ~39,600 giảm về đáy 34,700 (giữa T9), sau đó hồi lên đỉnh 38,100 rồi điều chỉnh về 37,200, hôm nay nhích nhẹ +0.27% lên 37,500. Đỉnh hồi phục 38,100 CHƯA phá qua đỉnh thấp gần nhất trước khi giảm sâu (~38,800) nên theo đúng nguyên tắc trong phương pháp, đây có thể chỉ là 1 LH mới trong downtrend, CHƯA đủ bằng chứng đổi cấu trúc sang uptrend. Volume hôm nay 1.68M rất thấp so với TB 4.73M. Chưa đủ điều kiện.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="pvt" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">PVT</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Xu hướng tăng khá rõ với HH+HL (đáy 17,500 -&gt; ... -&gt; HL 22,150 -&gt; đỉnh 23,500), hiện hồi từ HL 22,150 lên 22,950 hôm nay (+0.66%), áp sát đỉnh 23,500 nhưng chưa phá. Volume hôm nay 3.15M thấp hơn TB 5.44M - chưa có xác nhận dòng tiền mạnh cho nhịp hồi, đồng thời giá đã đi khá xa khỏi vùng HL 22,150 (không còn là điểm vào gần hỗ trợ). Chưa đủ điều kiện - nên chờ phá đỉnh 23,500 kèm volume hoặc hồi sâu hơn về gần hỗ trợ.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="shi" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">SHI</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Biến động giằng co mạnh trong biên 13,800-14,900 khoảng 3 tuần qua, không tạo được cấu trúc HH+HL rõ ràng (nhiều phiên tăng giảm mạnh đan xen). Hôm nay giá giảm -0.69%, đóng cửa không gần đỉnh phiên - bên bán đang chiếm ưu thế hôm nay, volume 1.4M xấp xỉ TB (1.52M) không có gì nổi bật. Chưa đủ điều kiện.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="ssb" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">SSB</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>QUAN TRỌNG - đây là tín hiệu CẢNH BÁO, không phải cơ hội mua: sau nhịp tăng parabol từ ~15,000 lên đỉnh ~24,600 (hôm qua), HÔM NAY giá GIẢM MẠNH -6.85% xuống 22,450, đóng cửa gần mức thấp nhất phiên, kèm volume ĐỘT BIẾN 18.35M (TB chỉ 10.85M) - đây là nến đảo chiều/phân phối rất rõ ràng, bên bán đang áp đảo hoàn toàn ngay sau khi tạo đỉnh. Hoàn toàn trái ngược với 1 điểm vào có cấu trúc - đây là dấu hiệu cấu trúc tăng đã bị phá vỡ mạnh. Chưa đủ điều kiện - thực chất là tín hiệu nên tránh xa, không phải chờ thêm.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="stb" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">STB</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Xu hướng tăng dài hạn từ 71,000 lên đỉnh 78,400 (vài phiên trước), nhưng 2 phiên gần đây (bao gồm hôm nay -0.90%) đều giảm, đóng cửa hôm nay tại 77,500 không gần đỉnh phiên - bên bán đang tạm chiếm ưu thế trong ngắn hạn. Nhịp điều chỉnh mới bắt đầu, CHƯA rõ đâu là vùng hỗ trợ/HL mới để vào lệnh, volume 2.41M thấp hơn TB 5.26M. Chưa đủ điều kiện - nên chờ giá tìm được vùng hỗ trợ rõ ràng hơn.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="vos" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">VOS</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Sau nền tích luỹ dài 10,800-11,600 (T8-đầu T9), VOS breakout mạnh lên đỉnh 12,450, điều chỉnh nhẹ về HL ~11,900-12,000, hôm nay hồi +2.51% lên 12,250 áp sát đỉnh cũ. Volume hôm nay 517.76K chỉ xấp xỉ TB (524.32K) - chưa có xác nhận dòng tiền vượt trội cho nhịp hồi/breakout tiếp theo, và giá đã hồi khá xa khỏi vùng HL nên không còn là điểm vào gần hỗ trợ. Chưa đủ điều kiện.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="vpi" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">VPI</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">12:30</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>LƯU Ý: VPI từng bị &#x27;chạm cắt lỗ&#x27; với mức trượt giá lớn (-8.8% qua ngưỡng SL) đúng đợt gấu cả thị trường 07/09/2026 (xem sl_history_dataset.json) - theo Bài học 3, mã có lịch sử SL gần đây cần soi kỹ hơn bình thường. Đúng như cảnh báo đó, hôm nay VPI GIẢM MẠNH -3.34% xuống 60,800 ngay sau khi vừa lập đỉnh mới ~63,200 (1-2 phiên trước), đóng cửa gần mức thấp nhất phiên - nến đảo chiều/bên bán chiếm ưu thế rõ rệt ngay sau đỉnh, giống mô-típ đã từng khiến mã này bị quét cắt lỗ trước đây. Chưa đủ điều kiện - nên tránh, không phải điểm vào.</p>
+        </details>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
   <div id="tabSucKhoe" class="tab-panel">
     <h2 class="section">Sức khỏe phương pháp</h2>
     <div class="ov-banner red">
@@ -1559,7 +1891,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">13:22:08 21/09/2026</span>
+    Sinh trang lúc <span class="mono">13:30:06 21/09/2026</span>
   </footer>
 </div>
 <script>
@@ -1749,6 +2081,35 @@ function applyHistFilters() {
   if (noMatch) noMatch.hidden = nVisible !== 0;
   updateHistStatsCards(counts);
   updateHistStatusCounts(statusCounts);
+}
+
+// Tab "D-Trader" — lọc theo verdict (Tất cả / Đã xác nhận / Chưa đủ điều
+// kiện) + tìm theo mã. Mỗi ngày là 1 khối .dtr-day, tự ẩn khi hết mã khớp.
+var dtrCurrentFilter = 'all';
+function dtrSetFilter(val, btn) {
+  dtrCurrentFilter = val;
+  document.querySelectorAll('#dtrStatusBtns .hist-status-btn').forEach(function (b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  dtrApplyFilters();
+}
+function dtrApplySearch() { dtrApplyFilters(); }
+function dtrApplyFilters() {
+  var input = document.getElementById('dtrSearch');
+  var q = input ? input.value.trim().toLowerCase() : '';
+  var anyVisible = false;
+  document.querySelectorAll('#dtrList .dtr-day').forEach(function (day) {
+    var dayHasVisible = false;
+    day.querySelectorAll('.dtr-card').forEach(function (card) {
+      var verdictOk = (dtrCurrentFilter === 'all') || (card.getAttribute('data-dtr-verdict') === dtrCurrentFilter);
+      var symOk = !q || (card.getAttribute('data-dtr-symbol') || '').indexOf(q) !== -1;
+      var show = verdictOk && symOk;
+      card.style.display = show ? '' : 'none';
+      if (show) { dayHasVisible = true; anyVisible = true; }
+    });
+    day.style.display = dayHasVisible ? '' : 'none';
+  });
+  var dtrEmpty = document.getElementById('dtrEmpty');
+  if (dtrEmpty) dtrEmpty.hidden = anyVisible;
 }
 
 // Tự làm mới trang định kỳ + nút "Làm mới" thủ công.
