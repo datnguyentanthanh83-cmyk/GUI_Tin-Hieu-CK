@@ -139,6 +139,49 @@ header.top h1 .accent { color: var(--accent); }
 .stat.pending .n { color: var(--flat); }
 .stat .n .pct { font-size: 0.88rem; font-weight: 500; color: var(--ink-dim); margin-left: 5px; }
 
+/* Khoi "Hieu suat D-Trader" - bar doi xung, chung 1 truc giua + thang 0-100% (20-21/09/2026) */
+.section-tag { font-size: 0.6rem; font-weight: 700; color: var(--accent); background: var(--neutral-bg); border-radius: 999px; padding: 2px 8px; margin-left: 8px; vertical-align: middle; text-transform: none; letter-spacing: 0; }
+.dtp-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 26px 28px 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; margin-bottom: 22px; }
+.dtp-panel::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--flat), var(--accent)); }
+.dtp-panel.dtp-empty { padding: 22px 24px; }
+.dtp-empty-note { font-size: 0.84rem; color: var(--ink-dim); margin: 12px 0 0; }
+.dtp-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
+.dtp-panel-head-text p { margin: 5px 0 0; font-size: 0.78rem; color: var(--ink-dim); }
+.dtp-legend { display: flex; gap: 8px; flex-shrink: 0; }
+.dtp-legend span { display: flex; align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 600; padding: 5px 11px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--ink-dim); white-space: nowrap; }
+.dtp-legend .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dtp-legend .dot.mechanical { background: var(--ink-dim); }
+.dtp-legend .dot.dtrader { background: var(--accent); }
+.dtp-totals { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; padding: 4px 0 24px; margin-bottom: 26px; border-bottom: 1px solid var(--border); }
+.dtp-total-block { text-align: center; }
+.dtp-total-n { font-family: "IBM Plex Mono", monospace; font-size: 2.5rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
+.dtp-total-block.dtrader .dtp-total-n { color: var(--accent); }
+.dtp-total-lbl { font-size: 0.76rem; color: var(--ink-dim); margin-top: 8px; font-weight: 600; }
+.dtp-vs { width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.64rem; font-weight: 800; color: var(--ink-dim); margin: 0 auto; }
+.dtp-metric { margin-bottom: 24px; }
+.dtp-metric:last-child { margin-bottom: 0; }
+.dtp-metric-lbl { text-align: center; font-size: 0.86rem; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
+.dtp-diverge-row { display: flex; align-items: center; gap: 14px; }
+.dtp-diverge-num { font-family: "IBM Plex Mono", monospace; font-size: 0.9rem; font-weight: 800; width: 100px; flex-shrink: 0; }
+.dtp-diverge-num.left { text-align: right; }
+.dtp-diverge-num.right { text-align: left; }
+.dtp-diverge-num.tp { color: var(--up); }
+.dtp-diverge-num.sl { color: var(--down); }
+.dtp-diverge-num.pending { color: var(--flat); }
+.dtp-diverge-track { flex: 1; display: flex; align-items: center; height: 18px; }
+.dtp-diverge-half { flex: 1; height: 100%; display: flex; background: var(--surface-2); }
+.dtp-diverge-half.left { justify-content: flex-end; border-radius: 999px 0 0 999px; }
+.dtp-diverge-half.right { justify-content: flex-start; border-radius: 0 999px 999px 0; }
+.dtp-diverge-center { width: 2px; height: 26px; background: var(--border); flex-shrink: 0; border-radius: 1px; }
+.dtp-diverge-fill { height: 100%; background-image: linear-gradient(180deg, rgba(255,255,255,0.30), rgba(255,255,255,0) 65%); box-shadow: 0 1px 3px rgba(20,24,31,0.18); }
+.dtp-diverge-fill.side-left { border-radius: 999px 0 0 999px; }
+.dtp-diverge-fill.side-right { border-radius: 0 999px 999px 0; }
+.dtp-diverge-fill.tp { background-color: var(--up); }
+.dtp-diverge-fill.sl { background-color: var(--down); }
+.dtp-diverge-fill.pending { background-color: var(--flat); }
+.dtp-scale-row { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border); }
+.dtp-scale-half { flex: 1; display: flex; justify-content: space-between; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.65; }
+
 h2.section {
   font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-dim);
   font-weight: 600; margin: 30px 0 12px;
@@ -487,12 +530,13 @@ footer.disclaimer {
 
   <div id="tabLichSu" class="tab-panel">
     <h2 class="section">Lịch sử tín hiệu (81 mã theo dõi)</h2>
-    <section class="summary hist-summary">
-      <div class="stat total"><div class="n">75</div><div class="lbl">Tổng lệnh MUA</div></div>
-      <div class="stat tp"><div class="n">31<span class="pct">41.4%</span></div><div class="lbl">Đã chạm TP</div></div>
-      <div class="stat sl"><div class="n">19<span class="pct">25.3%</span></div><div class="lbl">Đã chạm SL</div></div>
-      <div class="stat pending"><div class="n">25<span class="pct">33.3%</span></div><div class="lbl">Đang theo dõi</div></div>
-    </section>
+    <div class="dtp-panel dtp-empty">
+      <div class="dtp-panel-head-text">
+        <h2 class="section" style="margin:0; border:none; padding:0;">Hiệu suất D-Trader <span class="section-tag">MỚI</span></h2>
+        <p>So tỉ lệ chạm TP/SL giữa tín hiệu MUA đã qua D-Trader xác nhận và chưa qua</p>
+      </div>
+      <p class="dtp-empty-note">D-Trader chưa xác nhận mã nào — khối so sánh sẽ tự hiện ra ngay khi có ít nhất 1 lần D-Trader trả lời "Đã xác nhận".</p>
+    </div>
     <div class="hist-date-filter">
       <div class="hist-range-btns">
         <button type="button" class="hist-range-btn active" onclick="setHistPreset('all', this)">Tất cả</button>
@@ -1478,7 +1522,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">10:34:34 21/09/2026</span>
+    Sinh trang lúc <span class="mono">10:49:19 21/09/2026</span>
   </footer>
 </div>
 <script>
