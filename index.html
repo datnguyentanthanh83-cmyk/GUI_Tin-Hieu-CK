@@ -593,7 +593,7 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd bad"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-09-21 12:15:41 — Ngoài giờ giao dịch (đang chờ)</span>
+        <span class="v">2026-09-21 12:35:41 — Ngoài giờ giao dịch (đang chờ)</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -611,13 +611,79 @@ footer.disclaimer {
 
   <div id="tabLichSu" class="tab-panel">
     <h2 class="section">Lịch sử tín hiệu (81 mã theo dõi)</h2>
-    <div class="dtp-panel dtp-empty">
-      <div class="dtp-panel-head-text">
-        <h2 class="section" style="margin:0; border:none; padding:0;">Hiệu suất D-Trader <span class="section-tag">MỚI</span></h2>
-        <p>So tỉ lệ chạm TP/SL giữa tín hiệu MUA đã qua D-Trader xác nhận và chưa qua</p>
-      </div>
-      <p class="dtp-empty-note">D-Trader chưa xác nhận mã nào — khối so sánh sẽ tự hiện ra ngay khi có ít nhất 1 lần D-Trader trả lời "Đã xác nhận".</p>
+    <div class="dtp-panel">
+  <div class="dtp-panel-head">
+    <div class="dtp-panel-head-text">
+      <h2 class="section" style="margin:0; border:none; padding:0;">Hiệu suất D-Trader <span class="section-tag">MỚI</span></h2>
+      <p>So tỉ lệ chạm TP/SL giữa 2 nhóm tín hiệu MUA loại trừ nhau</p>
     </div>
+    <div class="dtp-legend">
+      <span><span class="dot mechanical"></span>Chưa qua D-Trader</span>
+      <span><span class="dot dtrader"></span>Đã qua D-Trader xác nhận</span>
+    </div>
+  </div>
+
+  <div class="dtp-totals">
+    <div class="dtp-total-block">
+      <div class="dtp-total-n">75</div>
+      <div class="dtp-total-lbl">Chưa qua D-Trader</div>
+    </div>
+    <div class="dtp-vs">VS</div>
+    <div class="dtp-total-block dtrader">
+      <div class="dtp-total-n">0</div>
+      <div class="dtp-total-lbl">Đã qua D-Trader xác nhận</div>
+    </div>
+  </div>
+
+  <div class="dtp-metric">
+    <div class="dtp-metric-lbl">Chạm TP</div>
+      <div class="dtp-diverge-row">
+        <div class="dtp-diverge-num left tp">33 (44.0%)</div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left tp" style="width:44.0%"></div></div>
+          <div class="dtp-diverge-center"></div>
+          <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right tp" style="width:0.0%"></div></div>
+        </div>
+        <div class="dtp-diverge-num right tp">0 (0.0%)</div>
+      </div>
+  </div>
+
+  <div class="dtp-metric">
+    <div class="dtp-metric-lbl">Chạm SL</div>
+      <div class="dtp-diverge-row">
+        <div class="dtp-diverge-num left sl">19 (25.3%)</div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left sl" style="width:25.3%"></div></div>
+          <div class="dtp-diverge-center"></div>
+          <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right sl" style="width:0.0%"></div></div>
+        </div>
+        <div class="dtp-diverge-num right sl">0 (0.0%)</div>
+      </div>
+  </div>
+
+  <div class="dtp-metric">
+    <div class="dtp-metric-lbl">Đang theo dõi</div>
+      <div class="dtp-diverge-row">
+        <div class="dtp-diverge-num left pending">23 (30.7%)</div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left pending" style="width:30.7%"></div></div>
+          <div class="dtp-diverge-center"></div>
+          <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right pending" style="width:0.0%"></div></div>
+        </div>
+        <div class="dtp-diverge-num right pending">0 (0.0%)</div>
+      </div>
+  </div>
+
+  <div class="dtp-diverge-row dtp-scale-row">
+    <div class="dtp-diverge-num"></div>
+    <div class="dtp-diverge-track">
+      <div class="dtp-scale-half"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+      <div class="dtp-diverge-center" style="background:transparent;"></div>
+      <div class="dtp-scale-half"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+    </div>
+    <div class="dtp-diverge-num"></div>
+  </div>
+</div>
     <div class="hist-date-filter">
       <div class="hist-range-btns">
         <button type="button" class="hist-range-btn active" onclick="setHistPreset('all', this)">Tất cả</button>
@@ -1603,7 +1669,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">12:34:19 21/09/2026</span>
+    Sinh trang lúc <span class="mono">12:49:19 21/09/2026</span>
   </footer>
 </div>
 <script>
