@@ -468,9 +468,9 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">17</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
-    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">17</span></button>
   </div>
 
   <div id="tabTinHieu" class="tab-panel active">
@@ -1635,69 +1635,6 @@ footer.disclaimer {
     </div>
   </div>
 
-  <div id="tabSucKhoe" class="tab-panel">
-    <h2 class="section">Sức khỏe phương pháp</h2>
-    <div class="ov-banner red">
-      <span class="ov-dot red"></span>
-      <div>
-        <div class="ov-title red">Mức cảnh báo tổng thể: ĐỎ</div>
-        <div class="ov-sub">Lớp 3 · Walk-forward (~tháng) đang báo mất lợi thế — xem chi tiết bên dưới. <span class="lv">Cập nhật 15:30 20/09/2026.</span></div>
-      </div>
-    </div>
-<div class="hsum-wrap"><table class="hsum">
-      <thead><tr><th>Lớp</th><th>Mức</th><th>Chi tiết</th><th>Kiểm gần nhất</th></tr></thead>
-      <tbody><tr>
-          <td class="hsum-layer">Lớp 1 · Live rolling</td>
-          <td><span class="lvl-dot green"></span>Ổn định (live)</td>
-          <td class="hsum-detail">Win-rate 63% · PF 1.25 trên 30 tín hiệu</td>
-          <td class="hsum-meta">liên tục</td>
-        </tr><tr>
-          <td class="hsum-layer">Lớp 2 · Backtest tái xác nhận (~quý)</td>
-          <td><span class="lvl-dot green"></span>Ổn định (backtest)</td>
-          <td class="hsum-detail">PF test 1.20 (974 lệnh)</td>
-          <td class="hsum-meta">05/09/2026</td>
-        </tr><tr>
-          <td class="hsum-layer">Lớp 3 · Walk-forward (~tháng)</td>
-          <td><span class="lvl-dot red"></span>Mất lợi thế gần đây (walk-forward)</td>
-          <td class="hsum-detail">Mất lợi thế gần đây (PF 0.65 &lt; 1.0, 6 tháng gần nhất)</td>
-          <td class="hsum-meta">05/09/2026</td>
-        </tr><tr>
-          <td class="hsum-layer">Lớp 4 · Chỉ số phụ trợ</td>
-          <td><span class="lvl-dot green"></span>Ổn định (chỉ số phụ)</td>
-          <td class="hsum-detail">Cắt lỗ 30% · giữ lệnh TB 4.3 ngày</td>
-          <td class="hsum-meta">liên tục</td>
-        </tr><tr>
-          <td class="hsum-layer">Lớp 5 · Thứ hạng chiến lược (~quý)</td>
-          <td><span class="lvl-dot green"></span>Thứ hạng ổn định</td>
-          <td class="hsum-detail">golden_cross 1.34 &gt; donchian_rejection_retest 1.31 &gt; seven_steps 1.20</td>
-          <td class="hsum-meta">05/09/2026</td>
-        </tr></tbody>
-    </table></div>
-  </div>
-
-  <div id="tabChampionChallenger" class="tab-panel">
-    <h2 class="section">Champion / Challenger — theo dõi paper-trade thật</h2>
-    <section class="summary cc-summary"><div class="stat cc-stat"><div class="cc-stat-name">Autumn</div><div class="n">—</div><div class="lbl">Chưa có lệnh đã "chín"</div></div><div class="stat cc-stat"><div class="cc-stat-name">Spring</div><div class="n">—</div><div class="lbl">Chưa có lệnh đã "chín"</div></div></section><div class="hsum-wrap">
-      <table class="hsum">
-        <thead><tr><th colspan="3">Autumn — 5 mã (phiên 2026-09-18)</th></tr>
-        <tr><th>Mã</th><th>Đóng cửa</th><th>Xác suất</th></tr></thead>
-        <tbody><tr><td class="hsum-layer">APH</td><td>6.91</td><td>—</td></tr><tr><td class="hsum-layer">HHP</td><td>17.2</td><td>—</td></tr><tr><td class="hsum-layer">HII</td><td>10.6</td><td>—</td></tr><tr><td class="hsum-layer">SSB</td><td>24.1</td><td>—</td></tr><tr><td class="hsum-layer">VOS</td><td>11.95</td><td>—</td></tr></tbody>
-      </table>
-    </div>
-    <div class="hsum-wrap" style="margin-top:12px;">
-      <table class="hsum">
-        <thead><tr><th colspan="3">Spring — 0 mã (phiên 2026-09-18)</th></tr>
-        <tr><th>Mã</th><th>Đóng cửa</th><th>Xác suất</th></tr></thead>
-        <tbody><tr><td colspan="3" class="hsum-detail">Không có mã nào hôm nay</td></tr></tbody>
-      </table>
-    </div><div class="hsum-wrap" style="margin-top:20px;">
-      <table class="hsum">
-        <thead><tr><th>Ngày</th><th>Autumn</th><th>Spring</th><th>Trạng thái</th></tr></thead>
-        <tbody><tr><td class="hsum-meta">2026-09-18</td><td>5</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-17</td><td>9</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-16</td><td>9</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-15</td><td>9</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-14</td><td>10</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-11</td><td>7</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-10</td><td>9</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-09</td><td>7</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-08</td><td>4</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-04</td><td>6</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr></tbody>
-      </table>
-    </div><p class="cc-note">So sánh PF/tỷ lệ thắng ở trên chỉ tính trên các lệnh đã đủ thời gian "chín" (đóng theo đúng cơ chế cắt lỗ/chốt lời/hết hạn) — số liệu forward THẬT, không phải backtest. Đây là bản ghi theo dõi song song, KHÔNG phải khuyến nghị giao dịch thật; chỉ cân nhắc thay Autumn khi Spring chứng minh vượt trội bằng đủ số lệnh thật.</p>
-  </div>
-
   <div id="tabDTrader" class="tab-panel">
     <h2 class="section">D-Trader — Lịch sử xem xét</h2>
     <div class="dtr-summary">Tổng 17 lần xem xét — 0 đã xác nhận, 17 chưa đủ điều kiện.</div>
@@ -1888,10 +1825,73 @@ footer.disclaimer {
     </div>
   </div>
 
+  <div id="tabSucKhoe" class="tab-panel">
+    <h2 class="section">Sức khỏe phương pháp</h2>
+    <div class="ov-banner red">
+      <span class="ov-dot red"></span>
+      <div>
+        <div class="ov-title red">Mức cảnh báo tổng thể: ĐỎ</div>
+        <div class="ov-sub">Lớp 3 · Walk-forward (~tháng) đang báo mất lợi thế — xem chi tiết bên dưới. <span class="lv">Cập nhật 15:30 20/09/2026.</span></div>
+      </div>
+    </div>
+<div class="hsum-wrap"><table class="hsum">
+      <thead><tr><th>Lớp</th><th>Mức</th><th>Chi tiết</th><th>Kiểm gần nhất</th></tr></thead>
+      <tbody><tr>
+          <td class="hsum-layer">Lớp 1 · Live rolling</td>
+          <td><span class="lvl-dot green"></span>Ổn định (live)</td>
+          <td class="hsum-detail">Win-rate 63% · PF 1.25 trên 30 tín hiệu</td>
+          <td class="hsum-meta">liên tục</td>
+        </tr><tr>
+          <td class="hsum-layer">Lớp 2 · Backtest tái xác nhận (~quý)</td>
+          <td><span class="lvl-dot green"></span>Ổn định (backtest)</td>
+          <td class="hsum-detail">PF test 1.20 (974 lệnh)</td>
+          <td class="hsum-meta">05/09/2026</td>
+        </tr><tr>
+          <td class="hsum-layer">Lớp 3 · Walk-forward (~tháng)</td>
+          <td><span class="lvl-dot red"></span>Mất lợi thế gần đây (walk-forward)</td>
+          <td class="hsum-detail">Mất lợi thế gần đây (PF 0.65 &lt; 1.0, 6 tháng gần nhất)</td>
+          <td class="hsum-meta">05/09/2026</td>
+        </tr><tr>
+          <td class="hsum-layer">Lớp 4 · Chỉ số phụ trợ</td>
+          <td><span class="lvl-dot green"></span>Ổn định (chỉ số phụ)</td>
+          <td class="hsum-detail">Cắt lỗ 30% · giữ lệnh TB 4.3 ngày</td>
+          <td class="hsum-meta">liên tục</td>
+        </tr><tr>
+          <td class="hsum-layer">Lớp 5 · Thứ hạng chiến lược (~quý)</td>
+          <td><span class="lvl-dot green"></span>Thứ hạng ổn định</td>
+          <td class="hsum-detail">golden_cross 1.34 &gt; donchian_rejection_retest 1.31 &gt; seven_steps 1.20</td>
+          <td class="hsum-meta">05/09/2026</td>
+        </tr></tbody>
+    </table></div>
+  </div>
+
+  <div id="tabChampionChallenger" class="tab-panel">
+    <h2 class="section">Champion / Challenger — theo dõi paper-trade thật</h2>
+    <section class="summary cc-summary"><div class="stat cc-stat"><div class="cc-stat-name">Autumn</div><div class="n">—</div><div class="lbl">Chưa có lệnh đã "chín"</div></div><div class="stat cc-stat"><div class="cc-stat-name">Spring</div><div class="n">—</div><div class="lbl">Chưa có lệnh đã "chín"</div></div></section><div class="hsum-wrap">
+      <table class="hsum">
+        <thead><tr><th colspan="3">Autumn — 5 mã (phiên 2026-09-18)</th></tr>
+        <tr><th>Mã</th><th>Đóng cửa</th><th>Xác suất</th></tr></thead>
+        <tbody><tr><td class="hsum-layer">APH</td><td>6.91</td><td>—</td></tr><tr><td class="hsum-layer">HHP</td><td>17.2</td><td>—</td></tr><tr><td class="hsum-layer">HII</td><td>10.6</td><td>—</td></tr><tr><td class="hsum-layer">SSB</td><td>24.1</td><td>—</td></tr><tr><td class="hsum-layer">VOS</td><td>11.95</td><td>—</td></tr></tbody>
+      </table>
+    </div>
+    <div class="hsum-wrap" style="margin-top:12px;">
+      <table class="hsum">
+        <thead><tr><th colspan="3">Spring — 0 mã (phiên 2026-09-18)</th></tr>
+        <tr><th>Mã</th><th>Đóng cửa</th><th>Xác suất</th></tr></thead>
+        <tbody><tr><td colspan="3" class="hsum-detail">Không có mã nào hôm nay</td></tr></tbody>
+      </table>
+    </div><div class="hsum-wrap" style="margin-top:20px;">
+      <table class="hsum">
+        <thead><tr><th>Ngày</th><th>Autumn</th><th>Spring</th><th>Trạng thái</th></tr></thead>
+        <tbody><tr><td class="hsum-meta">2026-09-18</td><td>5</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-17</td><td>9</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-16</td><td>9</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-15</td><td>9</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-14</td><td>10</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-11</td><td>7</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-10</td><td>9</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-09</td><td>7</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-08</td><td>4</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr><tr><td class="hsum-meta">2026-09-04</td><td>6</td><td>0</td><td class="hsum-detail">Đang chờ &quot;chín&quot;</td></tr></tbody>
+      </table>
+    </div><p class="cc-note">So sánh PF/tỷ lệ thắng ở trên chỉ tính trên các lệnh đã đủ thời gian "chín" (đóng theo đúng cơ chế cắt lỗ/chốt lời/hết hạn) — số liệu forward THẬT, không phải backtest. Đây là bản ghi theo dõi song song, KHÔNG phải khuyến nghị giao dịch thật; chỉ cân nhắc thay Autumn khi Spring chứng minh vượt trội bằng đủ số lệnh thật.</p>
+  </div>
+
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">13:04:19 21/09/2026</span>
+    Sinh trang lúc <span class="mono">13:19:21 21/09/2026</span>
   </footer>
 </div>
 <script>
