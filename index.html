@@ -147,7 +147,7 @@ header.top h1 .accent { color: var(--accent); }
 .dtp-empty-note { font-size: 0.84rem; color: var(--ink-dim); margin: 12px 0 0; }
 .dtp-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
 .dtp-panel-head-text p { margin: 5px 0 0; font-size: 0.78rem; color: var(--ink-dim); }
-.dtp-legend { display: flex; gap: 6px; flex-shrink: 1; flex-wrap: wrap; max-width: 100%; min-width: 0; flex-basis: 100%; justify-content: center; }
+.dtp-legend { display: flex; gap: 6px; flex-shrink: 1; flex-wrap: wrap; max-width: 100%; min-width: 0; }
 .dtp-legend span { display: flex; align-items: center; gap: 4px; font-size: 0.6rem; font-weight: 600; padding: 4px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--ink-dim); white-space: nowrap; }
 .dtp-legend .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .dtp-legend .dot.mechanical { background: var(--ink-dim); }
@@ -179,12 +179,12 @@ header.top h1 .accent { color: var(--accent); }
 .dtp-diverge-fill.tp { background-color: var(--up); }
 .dtp-diverge-fill.sl { background-color: var(--down); }
 .dtp-diverge-fill.pending { background-color: var(--flat); }
-.dtp-scale-row { margin-top: 5px; }
-.dtp-scale-half { position: relative; flex: 1; height: 13px; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.6; }
-.dtp-scale-half span { position: absolute; top: 0; white-space: nowrap; }
+.dtp-scale-row { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border); }
+.dtp-scale-row .dtp-diverge-num { width: 16px; }
+.dtp-scale-half { flex: 1; display: flex; justify-content: space-between; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.65; }
 @media (max-width: 480px) {
   .dtp-total-lbl { font-size: 0.66rem; }
-  .dtp-scale-half { font-size: 0.52rem; letter-spacing: -0.4px; }
+  .dtp-scale-half { font-size: 0.5rem; letter-spacing: -0.4px; }
   .dtp-diverge-row { gap: 8px; }
   .dtp-diverge-num { width: 78px; font-size: 0.8rem; }
 }
@@ -464,7 +464,7 @@ footer.disclaimer {
   <header class="top">
     <h1>Bảng <span class="accent">Tín Hiệu</span></h1>
     <div class="sync-tag">
-      Quét lúc <b class="mono">10:53 22/09/2026</b> · <span class="src">nguồn: Windows</span>
+      Quét lúc <b class="mono">11:20 22/09/2026</b> · <span class="src">nguồn: Windows</span>
       <button class="refresh-btn" onclick="lamMoi()" title="Tải lại trang ngay, bỏ qua cache">
         <span class="rf-icon">↻</span> Làm mới
       </button>
@@ -483,7 +483,7 @@ footer.disclaimer {
   <div id="tabTinHieu" class="tab-panel active">
     <section class="summary">
       <div class="stat mua"><div class="n">12</div><div class="lbl">Mua</div></div>
-      <div class="stat theodoi"><div class="n">147</div><div class="lbl">Theo dõi sát</div></div>
+      <div class="stat theodoi"><div class="n">146</div><div class="lbl">Theo dõi sát</div></div>
     </section>
 
     <h2 class="section">Tín hiệu MUA MỚI (1 / 161 mã)</h2>
@@ -494,18 +494,18 @@ footer.disclaimer {
       <header class="card-head">
         <div class="ticker">DCL</div>
         <div class="price-block">
-          <span class="price">46.25</span>
-          <span class="chg up">+2.95</span>
+          <span class="price">45.8</span>
+          <span class="chg up">+2.5</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">2.13MM/1.95MM</span>
+          <span class="lv" style="font-size:0.68rem">2.19MM/1.95MM</span>
           <span class="lv" style="font-size:0.68rem" title="Thoi diem BAT DAU chuoi tin hieu MUA lien tuc hom nay - co dinh, khong doi theo moi lan quet">Từ 09:56</span>
         </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
       <div class="fa-line">Điểm FA (tham khảo)<span class="fa-chip low">48</span></div>
-      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="up">100%</b><span class="dim"> (100 lệnh mẫu)</span></div>
+      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="up">98%</b><span class="dim"> (100 lệnh mẫu)</span></div>
       
         <div class="tradeplan">
           <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">45.17</span><span class="tp-sub">R2</span></div>
@@ -524,12 +524,12 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd ok"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-09-22 10:53:55 — Đã quét</span>
+        <span class="v">2026-09-22 11:20:24 — Đã quét</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
         <span class="k">Mã quét thành công</span>
-        <span class="v">159 OK · 2 lỗi</span>
+        <span class="v">158 OK · 3 lỗi</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -577,15 +577,6 @@ footer.disclaimer {
         </div>
         <div class="dtp-diverge-num right tp">14 (60.9%)</div>
       </div>
-      <div class="dtp-diverge-row dtp-scale-row">
-        <div class="dtp-diverge-num"></div>
-        <div class="dtp-diverge-track">
-          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">100%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">0%</span></div>
-          <div class="dtp-diverge-center" style="background:transparent;"></div>
-          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">0%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">100%</span></div>
-        </div>
-        <div class="dtp-diverge-num"></div>
-      </div>
   </div>
 
   <div class="dtp-metric">
@@ -598,15 +589,6 @@ footer.disclaimer {
           <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right sl" style="width:0.0%"></div></div>
         </div>
         <div class="dtp-diverge-num right sl">0 (0.0%)</div>
-      </div>
-      <div class="dtp-diverge-row dtp-scale-row">
-        <div class="dtp-diverge-num"></div>
-        <div class="dtp-diverge-track">
-          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">100%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">0%</span></div>
-          <div class="dtp-diverge-center" style="background:transparent;"></div>
-          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">0%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">100%</span></div>
-        </div>
-        <div class="dtp-diverge-num"></div>
       </div>
   </div>
 
@@ -621,15 +603,16 @@ footer.disclaimer {
         </div>
         <div class="dtp-diverge-num right pending">9 (39.1%)</div>
       </div>
-      <div class="dtp-diverge-row dtp-scale-row">
-        <div class="dtp-diverge-num"></div>
-        <div class="dtp-diverge-track">
-          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">100%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">0%</span></div>
-          <div class="dtp-diverge-center" style="background:transparent;"></div>
-          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">0%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">100%</span></div>
-        </div>
-        <div class="dtp-diverge-num"></div>
-      </div>
+  </div>
+
+  <div class="dtp-diverge-row dtp-scale-row">
+    <div class="dtp-diverge-num"></div>
+    <div class="dtp-diverge-track">
+      <div class="dtp-scale-half"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+      <div class="dtp-diverge-center" style="background:transparent;"></div>
+      <div class="dtp-scale-half"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+    </div>
+    <div class="dtp-diverge-num"></div>
   </div>
 </div>
     <div class="hist-date-filter">
@@ -663,7 +646,7 @@ footer.disclaimer {
           <td>87.97</td>
           <td>78.08</td>
           <td>90.23</td>
-          <td>85.4 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>85.2 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="15:23 21/09/2026: Boi canh: VNINDEX dieu chinh duoi dinh gan day, dong cua -0.88% hom nay - nhung GAS lai tang +0.68% cung ngay, cho thay suc manh tuong doi ro ret so voi thi truong chung (dap ung yeu cau cao hon cua Bai hoc 1). Cau truc: day thang 8 quanh 62-65, sau do tang manh lien tuc len vung tich luy 82-86 (dau-giua thang 9, day sau ~82-84 giu vung khong pha thap hon day truoc = HL ro rang), roi breakout manh ngay 15/9 vuot han 86 len toi 91.7 kem khoi luong dot bien ro ret = HH xac nhan. Sau breakout, gia dieu chinh nhe ve 87-90 tren khoi luong THAP DAN (lanh manh, khong phai phan phoi) - gia giu vung tren vung breakout cu (~86), KHONG roi nguoc lai vung tich luy truoc do = breakout giu vung, khong phai breakout gia. Vung gia: gia hien tai 88.6 dang o vung ho tro gan (vung breakout cu ~86-88), khong phai duoi gia giua khoang trong. Price Action + Volume: nen hom nay dong o nua tren than nen (O87.5/H89.7/L87.4/C88.6), tang +0.68%, khoi luong khong dot bien (thap hon TB10, phu hop voi ngay dieu chinh nhe tich cuc). Kich ban A: neu giu tren vung ho tro 86-87, co the tiep tuc huong toi dinh 91.7 cu. Kich ban B: neu gia pha xuong duoi ~85-86 (vung tich luy cu), breakout bi vo hieu hoa, can thoat. Entry theo he thong: 87.97 (P), cat lo 78.08 (MA50, cach entry ~11.2% - khong qua sat, phu hop bien do dao dong). Khong co lich su cham SL gan day cho GAS trong sl_history_dataset.json. KET LUAN: da xac nhan - cau truc HH+HL ro rang, breakout co volume xac nhan va giu vung, the hien suc manh tuong doi tot hon han VNINDEX.">✅ Đã xác nhận</span></td>
@@ -674,7 +657,7 @@ footer.disclaimer {
           <td>44.97</td>
           <td>42.14</td>
           <td>48.07</td>
-          <td>45.65 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>45.1 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="10:34 22/09/2026: Bối cảnh: VNINDEX điều chỉnh dưới đỉnh gần đây; DGW thể hiện sức mạnh tương đối khi vẫn giữ gần vùng đỉnh 5 tháng bất chấp thị trường chung điều chỉnh mấy phiên qua. Cấu trúc Daily: đáy quan trọng gần nhất quanh 31.700 (tháng 8), sau đó hình thành chuỗi đáy sau cao hơn đáy trước rõ ràng: khoảng 39.600 (đầu tháng 9) rồi 42.700 (14/09, trùng nhịp điều chỉnh chung của VNINDEX) rồi tiếp tục tăng lên đỉnh 47.350 (17-18/09) - xác nhận xu hướng tăng HH+HL vững chắc, giá đã vượt qua vùng kháng cự cũ quanh 43.600-44.000 (vùng tích luỹ tháng 3-5) và vùng này giờ là hỗ trợ mới. Vùng giá hiện tại: giá đang điều chỉnh nhẹ từ đỉnh 47.350 về 46.100-46.650, vẫn nằm trong kênh tăng, gần sát vùng Entry gợi ý của market_scan (45,9). Price Action: nến gần nhất xanh nhẹ (+2,44%), không có dấu hiệu phá vỡ cấu trúc tăng. Khối lượng hôm nay không đột biến nhưng giai đoạn bứt phá giữa tháng 9 đã có khối lượng xác nhận tốt. Kịch bản A: nếu giữ trên vùng hỗ trợ 44.000 và MA20, xu hướng tăng tiếp diễn. Kịch bản B: nếu giá đóng cửa dưới 43.000-44.000 kèm khối lượng lớn, cấu trúc tăng bị vô hiệu hoá. Không có lịch sử cắt lỗ gần đây. Kết luận: đủ điều kiện xác nhận.">✅ Đã xác nhận</span></td>
@@ -685,7 +668,7 @@ footer.disclaimer {
           <td>69.53</td>
           <td>66.13</td>
           <td>71.23</td>
-          <td>69.4 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>69.3 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="14:51 21/09/2026: Downtrend ro thang 4-7 (86.000-&gt;56.000). Tu day thang 7, cau truc HH+HL ro rang: day 56.000-&gt;62.000(T8)-&gt;63.500(giua T9); dinh 64.500(T8)-&gt;66.700(T9)-&gt;71.600(dinh phien). Gia pha vung khang cu 66.700-67.000 bang chuoi nen tang lien tiep, dong cua cuoi phien +2.34% len 70.100, giu vung tren vung breakout du co dieu chinh nhe trong phien va VNINDEX giam -1.8% ca ngay - xac nhan suc manh tuong doi. Khong co lich su cham cat lo gan day. Ho tro gan: vung breakout 67.000-68.000 (~-4%); ho tro cau truc 63.500-64.000 (~-9%). Checklist: du tat ca muc -&gt; DA_XAC_NHAN. Kich ban B: mat vung 67.000 -&gt; can theo doi sat; mat 63.500 -&gt; cau truc HH/HL bi pha.">✅ Đã xác nhận</span></td>
@@ -696,7 +679,7 @@ footer.disclaimer {
           <td>31</td>
           <td>29</td>
           <td>32.4</td>
-          <td>31.3 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>31.15 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="10:34 22/09/2026: Bối cảnh: VNINDEX điều chỉnh dưới đỉnh gần đây; BSR thể hiện sức mạnh tương đối tốt khi chỉ đi ngang tích luỹ nhẹ thay vì giảm sâu theo thị trường chung. Cấu trúc Daily: đáy quan trọng gần nhất quanh 22.000 (tháng 7), hình thành đáy sau cao hơn quanh 24.000-27.000 (tháng 8), rồi bứt phá mạnh lên 32.000-34.000 (giữa tháng 9) - chuỗi HH+HL rõ ràng, xác nhận xu hướng tăng. Vùng giá hiện tại: sau nhịp bứt phá, giá đang tích luỹ đi ngang chặt trong vùng 30.800-32.000 khoảng 5 phiên gần đây, giá hiện tại 31.150-31.200 gần sát vùng Entry gợi ý của market_scan (Pivot P = 31,15). Price Action và Volume: nhịp bứt phá có khối lượng tăng mạnh xác nhận, giai đoạn tích luỹ sau đó khối lượng giảm bình thường chứ không phải phân phối; nến gần nhất đỏ nhẹ (-1,27%), đóng cửa giữa vùng tích luỹ, không phá vỡ đáy kênh. Kịch bản A: nếu giữ trên vùng hỗ trợ 30.800-31.000, có thể tiếp tục đà tăng vượt đỉnh gần nhất khoảng 32.000. Kịch bản B: nếu giá phá xuống dưới vùng hỗ trợ 29.350-30.000 kèm khối lượng lớn, cấu trúc tăng bị vô hiệu hoá. Không có lịch sử cắt lỗ gần đây, khoảng cách entry-cắt lỗ khoảng 5,8%, hợp lý. Kết luận: đủ điều kiện xác nhận, điểm vào hợp lý ngay tại vùng giá hiện tại/vùng tích luỹ 30.800-31.200.">✅ Đã xác nhận</span></td>
@@ -707,7 +690,7 @@ footer.disclaimer {
           <td>7.28</td>
           <td>6.92</td>
           <td>7.62</td>
-          <td>7.41 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>7.39 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="10:34 22/09/2026: Bối cảnh: tương tự AAA, VNINDEX đang điều chỉnh dưới đỉnh gần đây, cần tiêu chuẩn cao hơn bình thường. Cấu trúc: APH có đáy quan trọng quanh 5.200 (tháng 8), sau đó phục hồi rất mạnh và liên tục (chuỗi HH+HL) lên tới 7.490-7.600 hiện tại, tương đương tăng khoảng 44% chỉ trong 6 tuần; riêng phiên gần nhất (21-22/09) tăng vọt từ khoảng 7.090-7.200 lên 7.600 rồi điều chỉnh nhẹ về 7.490, biên độ nến mở rộng bất thường kèm khối lượng đột biến rất lớn. Vùng giá: giá hiện đã chạy quá xa khỏi vùng hỗ trợ/tích luỹ gần nhất (khoảng 7.090-7.200), không còn điểm vào gần vùng hỗ trợ rõ ràng - đây là hiện tượng đuổi giá giữa khoảng trống sau một nhịp tăng nóng. Theo bài học về biến động tăng bất thường (nến biên độ rộng, khối lượng đột biến), đây là yếu tố rủi ro trượt giá cao cần thận trọng. Price Action: nến gần nhất đóng cửa lùi khỏi đỉnh trong phiên, cho thấy bên bán bắt đầu chốt lời sau đợt tăng nóng. Kịch bản B: nếu giá điều chỉnh sâu về vùng hỗ trợ cũ 7.090-7.200 thì mới có điểm vào rõ ràng hơn. Kết luận: chưa đủ điều kiện - giá đã tăng quá nóng, không có điểm vào cấu trúc rõ ràng gần vùng hỗ trợ, nên chờ nhịp điều chỉnh hoặc tích luỹ lại.">⏳ Chưa đủ đk</span></td>
@@ -718,7 +701,7 @@ footer.disclaimer {
           <td>7.51</td>
           <td>7.21</td>
           <td>7.78</td>
-          <td>7.66 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>7.63 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="10:34 22/09/2026: Bối cảnh: VNINDEX vừa điều chỉnh từ đỉnh gần đây quanh 1.875-1.880 điểm (18-19/09) xuống còn khoảng 1.808 điểm hôm nay, đang ở dưới đỉnh gần đây nên tiêu chuẩn xác nhận được nâng cao hơn bình thường; AAA thể hiện sức mạnh tương đối rõ rệt khi vẫn tạo đỉnh mới bất chấp thị trường chung điều chỉnh. Cấu trúc trên khung Daily: đáy quan trọng gần nhất quanh 6.600-6.700 (cuối tháng 8), sau đó hình thành đáy sau cao hơn đáy trước quanh 7.150-7.200 (đầu tháng 9), rồi bứt phá mạnh lên đỉnh mới 7.900 (22/09) - đây là chuỗi HH+HL rõ ràng, xác nhận xu hướng tăng ngắn hạn (lưu ý về dài hạn 1 năm giá vẫn còn thấp hơn nhiều so với đỉnh cũ khoảng 9.000, đây là nhịp hồi phục trong xu hướng giảm dài hạn, không phải đảo chiều hoàn toàn). Vùng giá hiện tại: giá đã phá vỡ vùng kháng cự cũ quanh 7.600 (đỉnh dao động nhiều lần từ tháng 4 đến tháng 7) và vùng này giờ trở thành hỗ trợ mới. Price Action và Volume: nến bứt phá có khối lượng tăng mạnh xác nhận, nến gần nhất là nến đỏ điều chỉnh nhẹ từ đỉnh 7.900 về 7.750, vẫn giữ vững trên vùng hỗ trợ 7.600, chưa có dấu hiệu phá vỡ cấu trúc. Kịch bản A: nếu giá giữ trên vùng hỗ trợ 7.600 và MA20 (khoảng 7.200), xu hướng tăng có thể tiếp diễn hướng tới vùng kháng cự cao hơn. Kịch bản B: nếu giá đóng cửa xuyên thủng xuống dưới 7.600 kèm khối lượng lớn, đây là bứt phá giả, cấu trúc HH+HL vừa hình thành bị vô hiệu hoá. Không có lịch sử cắt lỗ gần đây cho mã này, khoảng cách entry-cắt lỗ theo market_scan khoảng 5,1%, không quá hẹp. Kết luận: đủ điều kiện xác nhận, điểm vào hợp lý quanh vùng hỗ trợ 7.600-7.750.">✅ Đã xác nhận</span></td>
@@ -729,7 +712,7 @@ footer.disclaimer {
           <td>11.85</td>
           <td>11.19</td>
           <td>12.62</td>
-          <td>12.25 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>12.2 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="10:34 22/09/2026: Bối cảnh: VNINDEX điều chỉnh dưới đỉnh gần đây; VOS vẫn giữ được đà tăng nhẹ (+1,67%) trong phiên thị trường chung yếu. Cấu trúc Daily: đáy quan trọng gần nhất quanh 10.000-10.300 (tháng 8), phục hồi dần lên nền tích luỹ 10.900-11.500 (đầu đến giữa tháng 9), sau đó bứt phá lên đỉnh 12.600 (16/09), điều chỉnh về đáy sau cao hơn khoảng 11.850-12.000 (18-19/09), rồi hồi phục lên 12.200-12.400 hiện tại - chuỗi HH+HL hình thành, dù không quá dứt khoát bằng một số mã khác trong nhóm do biên độ dao động đi ngang khá dài trước khi bứt phá. Vùng giá hiện tại 12.200 rất sát vùng Entry gợi ý (Pivot P = 12,13). Price Action và Volume: nến gần nhất xanh nhẹ, không có khối lượng đột biến hôm nay (giai đoạn tích luỹ bình thường sau bứt phá), nhịp bứt phá giữa tháng 9 trước đó có khối lượng xác nhận. Kịch bản A: nếu giữ trên vùng hỗ trợ 12.000-12.100 (đỉnh cũ trước bứt phá, nay là hỗ trợ), xu hướng tăng tiếp diễn hướng tới đỉnh gần nhất 12.600. Kịch bản B: nếu giá phá xuống dưới vùng cắt lỗ 11.390 kèm khối lượng lớn, cấu trúc tăng bị vô hiệu hoá. Không có lịch sử cắt lỗ gần đây, khoảng cách entry-cắt lỗ khoảng 6,1%, hợp lý. Kết luận: đủ điều kiện xác nhận, dù cấu trúc chưa thật sự dứt khoát bằng nhóm dẫn đầu gồm AAA, BSR, DGW, HHP, PVT, vẫn đáp ứng đủ các tiêu chí checklist.">✅ Đã xác nhận</span></td>
@@ -740,7 +723,7 @@ footer.disclaimer {
           <td>60.13</td>
           <td>58.43</td>
           <td>61.33</td>
-          <td>59.1 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>59 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -762,7 +745,7 @@ footer.disclaimer {
           <td>24</td>
           <td>21.95</td>
           <td>25.3</td>
-          <td>20.95 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>20.9 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="10:34 22/09/2026: Bối cảnh: VNINDEX điều chỉnh dưới đỉnh gần đây; SSB đang thể hiện sự suy yếu rõ rệt so với thị trường chung, không phải sức mạnh tương đối. Cấu trúc Daily: SSB có đợt tăng rất mạnh và nhanh từ nền 13.750-15.500 (tháng 2 đến tháng 8) lên đỉnh 25.000 (18-19/09, tăng hơn 70% trong khoảng 1 tháng), nhưng ngay sau đó đã đảo chiều giảm mạnh liên tục 3 phiên gần nhất: từ đỉnh 25.000 về hiện tại chỉ còn 21.050-21.100, tương đương giảm khoảng 15-16% chỉ trong vài phiên, riêng hôm nay giảm tới khoảng 6%. Đây là đỉnh sau thấp hơn đỉnh trước (LH) rõ ràng đang hình thành, xác nhận cấu trúc tăng trước đó đã bị phá vỡ, không phải nhịp điều chỉnh lành mạnh trong xu hướng tăng. Price Action và Volume: khối lượng trong 3 phiên giảm gần đây tăng mạnh, xác nhận đây là áp lực bán/phân phối thực sự chứ không phải nhiễu giá thông thường; nến gần nhất đóng cửa gần vùng thấp trong ngày, bên bán hoàn toàn chiếm ưu thế. Đây chính xác là mẫu hình rủi ro thị trường chung đã được ghi nhận trước đây: không nên đánh giá một mã tách rời bối cảnh thị trường, và khi thấy dấu hiệu suy yếu rõ rệt phải nâng chuẩn xác nhận lên rất cao - SSB không đáp ứng được tiêu chuẩn đó. Kịch bản B đã xảy ra: cấu trúc tăng đã bị phá, hiện tại không có điểm vào hợp lý, cần chờ giá tạo đáy ổn định và xác nhận cấu trúc mới trước khi xem xét lại. Kết luận: chưa đủ điều kiện - đây là tín hiệu suy yếu/đảo chiều rõ ràng, hoàn toàn không phải điểm vào, mã này cần thận trọng cho tới khi có cấu trúc mới ổn định hơn.">⏳ Chưa đủ đk</span></td>
@@ -773,7 +756,7 @@ footer.disclaimer {
           <td>37.4</td>
           <td>36.39</td>
           <td>38.68</td>
-          <td>36.25 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>36.2 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -806,7 +789,7 @@ footer.disclaimer {
           <td>28.17</td>
           <td>27.13</td>
           <td>29.13</td>
-          <td>28 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>28 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="15:23 21/09/2026: Boi canh: VNINDEX dieu chinh -0.88% hom nay, nhung VPB tang manh +3.64% cung ngay - suc manh tuong doi rat tot, dap ung yeu cau Bai hoc 1. Cau truc: tu day thang 8 (~24.8-25), VPB tang theo cau truc HH+HL kha ro qua 6 tuan (day 27.3-27.4 giua thang 9 cao hon day cuoi thang 8 quanh 26.0-26.1; dinh 18/9 test len toi 29.0 noi phien, cao hon dinh dau thang 9 quanh 28.15). Tuy nhien phien 18/9 gia choc len 29.0 roi bi tu choi manh, dong cua lui ve ~27.85 (bong tren rat dai) - chua pha duoc han dinh 29.0 nay. Vung gia + Price Action: nen hom nay tang manh dong cua NGAY TAI DINH phien (O27.85/H28.45/L27.6/C28.45, +3.64%), khoi luong dot bien ro ret so TB10 (33.29tr so 22.16tr, cot KL_dot_bien=Co) - luc mua rat tot, nhung ty le mua chu dong chi 46% (hoi thap, khong ap dao). Gia 28.45 van dang o DUOI vung dinh 29.0 vua bi tu choi 3 phien truoc - day la duoi gia len gan vung khang cu cu vua bi tu choi, KHONG phai vao lenh tai vung ho tro. Rui ro quan trong khac: chart TradingView cua VPB co 1 badge tron cam ky hieu &#x27;S&#x27; dung vao ngay 24/9/2026 - chi con 3 phien nua - cho thay sap co su kien chia tach/thuong co phieu. Theo dung tinh than Bai hoc 2 (du day la truong hop khac ve ban chat - lan nay la su kien sap toi chu khong phai loi du lieu qua khu), 1 su kien corporate action sap dien ra ngay sau tin hieu MUA lam cho cac muc cat lo/entry do he thong tinh toan (dua tren gia chua dieu chinh) co the tro nen khong dang tin cay chi sau vai phien - day la 1 yeu to Kich ban B can can nhac nghiem tuc, khong the bo qua. Kich ban: neu VPB vuot dut khoat qua 29.0 kem volume tot (khong bi anh huong boi su kien chia tach sap toi) moi nen coi la diem vao ro rang; hien tai van dang duoi gia gan khang cu cu, kem rui ro corporate action can ke. KET LUAN: chua du dieu kien - du nen hom nay rat manh va co suc manh tuong doi tot, day la diem duoi gia gan khang cu vua bi tu choi chu khong phai diem vao tai vung ho tro ro rang, cong them rui ro su kien chia tach co phieu chi con 3 phien nua khien muc cat lo/entry do he thong de xuat kem tin cay.">⏳ Chưa đủ đk</span></td>
@@ -828,7 +811,7 @@ footer.disclaimer {
           <td>37.3</td>
           <td>35.3</td>
           <td>39.3</td>
-          <td>36.4 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>36.25 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="13:00 21/09/2026: Sau downtrend thang 4-8 (45.000-&gt;32.500), gia hoi phuc len dinh ~39.500 (giua T9) roi bat dau dieu chinh giam dan (39.500-&gt;38.700-&gt;hom nay 37.000), co dau hieu tao dinh sau thap hon (LH) trong ngan han. Nen HOM NAY giam -1.07%, dong cua 37.000 gan LOW (36.850) chu khong gan HIGH - ben ban dang chiem uu the ro rang trong phien, nguoc han voi tin hieu MUA. Checklist: khong dat muc &#x27;ben mua chiem uu the&#x27; -&gt; CHUA DU DIEU KIEN.">⏳ Chưa đủ đk</span></td>
@@ -839,7 +822,7 @@ footer.disclaimer {
           <td>5.62</td>
           <td>5.13</td>
           <td>5.94</td>
-          <td>5.6 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>5.69 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="10:34 22/09/2026: Bối cảnh: tiêu chuẩn nâng cao do VNINDEX điều chỉnh. Cấu trúc Daily: HID giảm dài suốt từ tháng 2 (đỉnh khoảng 7.250) về đáy sâu quanh 3.000-3.100 (cuối tháng 8), sau đó bật tăng gần như thẳng đứng, không có nhịp tích luỹ hay điều chỉnh rõ ràng nào, hiện đã lên tới 5.700-5.960, tương đương tăng hơn 80-90% chỉ trong khoảng 3 tuần. Đây không phải chuỗi HH+HL với các nhịp điều chỉnh lành mạnh, mà là một đợt tăng dựng đứng kiểu đầu cơ, không có vùng tích luỹ/hỗ trợ gần nào để xác định điểm vào an toàn - vùng hỗ trợ/tham chiếu gần nhất chỉ có thể lùi về tận 4.900-5.000 hoặc xa hơn, khoảng cách entry-cắt lỗ theo market_scan lên tới 10,6%. Theo nguyên tắc vào lệnh gần vùng hỗ trợ luôn tốt hơn đuổi giá giữa khoảng trống, đây rõ ràng là trường hợp đuổi giá rủi ro cao, không có điểm vào cấu trúc rõ ràng. Price Action: nến gần nhất đỏ nhẹ (-0,52%), sau chuỗi tăng nóng dựng đứng, cần thêm thời gian tích luỹ ổn định để đánh giá lại. Kết luận: chưa đủ điều kiện - giá tăng quá nóng, không có nhịp tích luỹ/điều chỉnh để xác định vùng hỗ trợ, rủi ro đảo chiều và trượt giá rất cao.">⏳ Chưa đủ đk</span></td>
@@ -861,7 +844,7 @@ footer.disclaimer {
           <td>19.47</td>
           <td>18.32</td>
           <td>20.62</td>
-          <td>19.2 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>19.15 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -872,7 +855,7 @@ footer.disclaimer {
           <td>10.6</td>
           <td>9.31</td>
           <td>11.85</td>
-          <td>11.4 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>11.3 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="10:34 22/09/2026: Bối cảnh: VNINDEX điều chỉnh dưới đỉnh gần đây; HII vẫn giữ được đà tăng, đóng cửa dương (+2,21%) trong phiên thị trường chung yếu, thể hiện sức mạnh tương đối. Cấu trúc Daily: nền tích luỹ dài tháng 2 đến tháng 7 (vùng 5.000-7.000), sau đó tăng bậc thang qua nhiều giai đoạn rõ ràng: bứt phá tháng 8 lên khoảng 9.900 rồi tích luỹ đi ngang 8.500-9.900 (cuối tháng 8 đến giữa tháng 9) rồi bứt phá tiếp lên đỉnh mới hiện tại quanh 11.550-12.000 (giữa đến cuối tháng 9) - xác nhận chuỗi HH+HL rõ ràng qua nhiều nhịp. Vùng giá hiện tại 11.550-11.600 sát ngay vùng Entry gợi ý (R1 = 11,53). Price Action và Volume: trong phiên có lúc chạm đỉnh mới khoảng 12.000 rồi bị bán chốt lời đẩy lùi về 11.550 (bấc trên khá dài, cho thấy có áp lực bán tại vùng đỉnh mới), nhưng vẫn đóng cửa tăng +2,21% so với hôm trước - chưa phải tín hiệu đảo chiều, chỉ là điều chỉnh bình thường sau nhịp tăng nhanh. Khối lượng ghi nhận đột biến và dòng tiền khối ngoại mua ròng 3 phiên gần nhất, hỗ trợ tích cực cho cấu trúc. Kịch bản A: nếu giữ trên vùng hỗ trợ 10.700-11.150, xu hướng tăng bậc thang tiếp diễn. Kịch bản B: nếu giá phá xuống dưới vùng cắt lỗ 10.367 kèm khối lượng lớn, cấu trúc bị vô hiệu hoá. Không có lịch sử cắt lỗ gần đây. Lưu ý cần theo dõi sát vì bấc trên dài hôm nay cho thấy vùng đỉnh mới khoảng 12.000 đang gặp áp lực chốt lời. Kết luận: đủ điều kiện xác nhận, nhưng cần thận trọng theo dõi vùng 11.150-11.300 có giữ vững hay không.">✅ Đã xác nhận</span></td>
@@ -883,7 +866,7 @@ footer.disclaimer {
           <td>38.45</td>
           <td>37.2</td>
           <td>39.5</td>
-          <td>37.6 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>37.55 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -894,7 +877,7 @@ footer.disclaimer {
           <td>22.78</td>
           <td>21.68</td>
           <td>23.88</td>
-          <td>22.75 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>22.75 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="15:23 21/09/2026: Boi canh: VNINDEX dang dieu chinh duoi dinh gan day (dinh ~1900 dau/giua thang 9, hien 1799.67, -0.88% hom nay) nen can doi hoi suc manh tuong doi ro ret hon binh thuong (Bai hoc 1). Cau truc: DPM dang trong downtrend dai han tu dinh ~36 (thang 3) giam ve vung 21.9-23.8 hien tai (~-35%), 4-6 tuan gan day di ngang tich luy o day, co dau hieu day sau cao hon day truoc (~21.7 cuoi thang 8 -&gt; ~22.05 giua thang 9) nhung dinh gan bang nhau (~23.4-23.8 dau va giua thang 9) - CHUA du de goi la uptrend ro rang (moi chi co HL, chua co HH xac nhan). Vung gia: gia hien tai 22.8 dang o giua vung tich luy 21.9-23.8, khong phai dang test ho tro, khong phai vua breakout. Price Action + Volume: nen hom nay dong cua giam nhe -0.22%, khoi luong thap hon TB10 phien (2.89tr so 4.01tr), khong co tin hieu dot bien, khong co breakout khoi khang cu ~23.4-23.8 kem volume xac nhan. Kich ban: neu pha duoc khang cu 23.4-23.8 kem volume tot moi co the coi la diem vao hop le; hien tai gia lung lo giua vung, chua co diem vao ro rang. KET LUAN: chua du dieu kien - cau truc moi chi la tich luy o day downtrend dai han, chua co breakout xac nhan, VNINDEX cung khong ung ho.">⏳ Chưa đủ đk</span></td>
@@ -905,7 +888,7 @@ footer.disclaimer {
           <td>33.35</td>
           <td>31.7</td>
           <td>35</td>
-          <td>33.45 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>33.25 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="10:34 22/09/2026: Bối cảnh: tiêu chuẩn nâng cao do VNINDEX điều chỉnh. Cấu trúc Daily: DCM trải qua xu hướng giảm dài từ đỉnh 54.000 (tháng 2) giảm liên tục về đáy quanh 30.000 (tháng 7), sau đó đi ngang tích luỹ trong biên hẹp 30.000-34.500 suốt 2 tháng qua (tháng 8 đến tháng 9) mà chưa hình thành rõ chuỗi HH+HL hay LH+LL - hiện tại vẫn là sideway trong nền tích luỹ, chưa xác nhận đảo chiều. Vùng giá hiện tại (33.400) nằm giữa biên dao động 32.000-34.200 của tháng qua, không phải tại điểm phá vỡ cấu trúc nào. Price Action và Volume: không có khối lượng đột biến xác nhận hướng đi, các phiên gần đây dao động hẹp, thiếu động lực rõ ràng theo cả hai hướng; nến gần nhất đỏ nhẹ (-0,89%). Kịch bản B: cần chờ giá phá vỡ rõ ràng khỏi biên 32.000-34.200 (lên trên kèm khối lượng để xác nhận xu hướng tăng, hoặc xuống dưới để xác nhận xu hướng giảm tiếp diễn) mới có cơ sở đánh giá lại. Kết luận: chưa đủ điều kiện - cấu trúc hiện tại là sideway/tích luỹ, chưa có điểm phá vỡ hay điểm vào rõ ràng.">⏳ Chưa đủ đk</span></td>
@@ -938,7 +921,7 @@ footer.disclaimer {
           <td>22.55</td>
           <td>20.64</td>
           <td>23.75</td>
-          <td>23.25 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>23.15 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="10:34 22/09/2026: Bối cảnh: VNINDEX điều chỉnh dưới đỉnh gần đây; PVT thể hiện sức mạnh tương đối khi đang phục hồi trở lại đỉnh gần nhất bất chấp thị trường chung yếu. Cấu trúc Daily: đáy quan trọng gần nhất quanh 16.900-17.000 (cuối tháng 7 đến đầu tháng 8), sau đó hình thành chuỗi HH+HL rõ ràng: nền tích luỹ khoảng 19.800-20.600 (cuối tháng 8 đến đầu tháng 9) rồi bứt phá mạnh lên 23.650 (16-17/09) rồi điều chỉnh về đáy sau cao hơn khoảng 22.300 (18-21/09, trùng nhịp điều chỉnh VNINDEX) rồi hồi phục trở lại 23.400-23.550 hiện tại, sát đỉnh cũ. Vùng giá hiện tại sát vùng Entry gợi ý (R1 = 23,55). Price Action và Volume: nến gần nhất xanh (+1,52%), giá đang kiểm định lại vùng đỉnh gần nhất sau khi giữ vững đáy sau cao hơn, không có khối lượng đột biến bất thường hôm nay nhưng giai đoạn bứt phá giữa tháng 9 đã có khối lượng xác nhận tốt. Kịch bản A: nếu vượt qua đỉnh gần nhất 23.650 kèm khối lượng, xu hướng tăng tiếp diễn. Kịch bản B: nếu giá phá xuống dưới vùng cắt lỗ 21.950 kèm khối lượng lớn, cấu trúc tăng bị vô hiệu hoá. Không có lịch sử cắt lỗ gần đây, khoảng cách entry-cắt lỗ khoảng 6,8%, hợp lý. Kết luận: đủ điều kiện xác nhận.">✅ Đã xác nhận</span></td>
@@ -1026,7 +1009,7 @@ footer.disclaimer {
           <td>77.9</td>
           <td>74.95</td>
           <td>81.4</td>
-          <td>77.5 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>77.2 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="13:00 21/09/2026: Uptrend rat deu dan, khoe manh tu thang 6 den nay (68.000-&gt;79.000, kieu bac thang HH+HL lien tuc qua nhieu thang, khong tang nong bat thuong). Tuy nhien nen HOM NAY giam -1.66%, dong cua 76.900 = DUNG BANG gia LOW (khong co phuc hoi trong phien), ngay sau khi vua lap dinh ~79.000 vai phien truoc - ben ban dang tam chiem uu the. Checklist: khong dat muc &#x27;ben mua chiem uu the&#x27; -&gt; CHUA DU DIEU KIEN, can cho nen xac nhan giu vung ho tro 75.500-76.000 truoc khi ket luan.">⏳ Chưa đủ đk</span></td>
@@ -1125,7 +1108,7 @@ footer.disclaimer {
           <td>243.67</td>
           <td>219.65</td>
           <td>261.67</td>
-          <td>238.9 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>237.7 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -1158,7 +1141,7 @@ footer.disclaimer {
           <td>13.62</td>
           <td>12.5</td>
           <td>14.42</td>
-          <td>13.95 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>13.95 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -1224,7 +1207,7 @@ footer.disclaimer {
           <td>17.17</td>
           <td>16.33</td>
           <td>17.67</td>
-          <td>17.35 <span class="lv">(10:53 22/09/2026)</span></td>
+          <td>17.35 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="10:34 22/09/2026: Bối cảnh: VNINDEX điều chỉnh dưới đỉnh gần đây; HHP thể hiện sức mạnh tương đối rất tốt - xu hướng tăng bậc thang liên tục suốt từ tháng 4 tới nay, không bị ảnh hưởng bởi nhịp điều chỉnh chung của thị trường. Cấu trúc Daily: chuỗi HH+HL rất rõ ràng và bền vững kéo dài nhiều tháng: đáy quan trọng gần nhất khoảng 11.000 (tháng 4), tăng bậc thang qua các vùng 14.000 (tháng 5-7) rồi 16.000-16.800 (tháng 8, có bứt phá mạnh kèm khối lượng lớn) rồi hiện tại 17.350-17.600 (đỉnh mới, tháng 9). Mỗi nhịp điều chỉnh trong xu hướng đều tạo đáy sau cao hơn đáy trước, đúng chuẩn cấu trúc tăng bậc thang trong phương pháp. Vùng giá: giá hiện tại 17.350-17.400 sát ngay vùng Entry gợi ý (Pivot P = 17,27), là điểm vào gần vùng hỗ trợ hợp lý, không phải đuổi giá. Price Action và Volume: nến gần nhất đỏ nhẹ (-0,29%), điều chỉnh bình thường sau khi vừa lập đỉnh mới khoảng 17.600, khối lượng đột biến ghi nhận trong giai đoạn bứt phá gần đây. Kịch bản A: nếu giữ trên vùng hỗ trợ ngắn hạn 17.000-17.200, xu hướng tăng bậc thang tiếp diễn. Kịch bản B: nếu giá phá xuống dưới vùng cắt lỗ 16.733 kèm khối lượng lớn, cấu trúc tăng bậc thang bị vô hiệu hoá. Không có lịch sử cắt lỗ gần đây, khoảng cách entry-cắt lỗ khoảng 3,1% (hơi hẹp hơn các mã khác nhưng vẫn trong ngưỡng chấp nhận được, không thuộc diện quá hẹp dưới 1%). Kết luận: đủ điều kiện xác nhận, đây là cấu trúc tăng rõ ràng và bền vững nhất trong nhóm.">✅ Đã xác nhận</span></td>
@@ -2358,7 +2341,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">11:19:20 22/09/2026</span>
+    Sinh trang lúc <span class="mono">11:20:24 22/09/2026</span>
   </footer>
 </div>
 <script>
