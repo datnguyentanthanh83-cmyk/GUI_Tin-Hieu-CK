@@ -147,7 +147,7 @@ header.top h1 .accent { color: var(--accent); }
 .dtp-empty-note { font-size: 0.84rem; color: var(--ink-dim); margin: 12px 0 0; }
 .dtp-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
 .dtp-panel-head-text p { margin: 5px 0 0; font-size: 0.78rem; color: var(--ink-dim); }
-.dtp-legend { display: flex; gap: 6px; flex-shrink: 1; flex-wrap: wrap; max-width: 100%; min-width: 0; }
+.dtp-legend { display: flex; gap: 6px; flex-shrink: 1; flex-wrap: wrap; max-width: 100%; min-width: 0; flex-basis: 100%; justify-content: center; }
 .dtp-legend span { display: flex; align-items: center; gap: 4px; font-size: 0.6rem; font-weight: 600; padding: 4px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--ink-dim); white-space: nowrap; }
 .dtp-legend .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .dtp-legend .dot.mechanical { background: var(--ink-dim); }
@@ -179,12 +179,12 @@ header.top h1 .accent { color: var(--accent); }
 .dtp-diverge-fill.tp { background-color: var(--up); }
 .dtp-diverge-fill.sl { background-color: var(--down); }
 .dtp-diverge-fill.pending { background-color: var(--flat); }
-.dtp-scale-row { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border); }
-.dtp-scale-row .dtp-diverge-num { width: 16px; }
-.dtp-scale-half { flex: 1; display: flex; justify-content: space-between; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.65; }
+.dtp-scale-row { margin-top: 5px; }
+.dtp-scale-half { position: relative; flex: 1; height: 13px; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.6; }
+.dtp-scale-half span { position: absolute; top: 0; white-space: nowrap; }
 @media (max-width: 480px) {
   .dtp-total-lbl { font-size: 0.66rem; }
-  .dtp-scale-half { font-size: 0.5rem; letter-spacing: -0.4px; }
+  .dtp-scale-half { font-size: 0.52rem; letter-spacing: -0.4px; }
   .dtp-diverge-row { gap: 8px; }
   .dtp-diverge-num { width: 78px; font-size: 0.8rem; }
 }
@@ -577,6 +577,15 @@ footer.disclaimer {
         </div>
         <div class="dtp-diverge-num right tp">14 (60.9%)</div>
       </div>
+      <div class="dtp-diverge-row dtp-scale-row">
+        <div class="dtp-diverge-num"></div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">100%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">0%</span></div>
+          <div class="dtp-diverge-center" style="background:transparent;"></div>
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">0%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">100%</span></div>
+        </div>
+        <div class="dtp-diverge-num"></div>
+      </div>
   </div>
 
   <div class="dtp-metric">
@@ -589,6 +598,15 @@ footer.disclaimer {
           <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right sl" style="width:0.0%"></div></div>
         </div>
         <div class="dtp-diverge-num right sl">0 (0.0%)</div>
+      </div>
+      <div class="dtp-diverge-row dtp-scale-row">
+        <div class="dtp-diverge-num"></div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">100%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">0%</span></div>
+          <div class="dtp-diverge-center" style="background:transparent;"></div>
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">0%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">100%</span></div>
+        </div>
+        <div class="dtp-diverge-num"></div>
       </div>
   </div>
 
@@ -603,16 +621,15 @@ footer.disclaimer {
         </div>
         <div class="dtp-diverge-num right pending">9 (39.1%)</div>
       </div>
-  </div>
-
-  <div class="dtp-diverge-row dtp-scale-row">
-    <div class="dtp-diverge-num"></div>
-    <div class="dtp-diverge-track">
-      <div class="dtp-scale-half"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
-      <div class="dtp-diverge-center" style="background:transparent;"></div>
-      <div class="dtp-scale-half"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
-    </div>
-    <div class="dtp-diverge-num"></div>
+      <div class="dtp-diverge-row dtp-scale-row">
+        <div class="dtp-diverge-num"></div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">100%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">0%</span></div>
+          <div class="dtp-diverge-center" style="background:transparent;"></div>
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">0%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">100%</span></div>
+        </div>
+        <div class="dtp-diverge-num"></div>
+      </div>
   </div>
 </div>
     <div class="hist-date-filter">
@@ -2341,7 +2358,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">10:53:55 22/09/2026</span>
+    Sinh trang lúc <span class="mono">11:04:20 22/09/2026</span>
   </footer>
 </div>
 <script>
