@@ -147,7 +147,7 @@ header.top h1 .accent { color: var(--accent); }
 .dtp-empty-note { font-size: 0.84rem; color: var(--ink-dim); margin: 12px 0 0; }
 .dtp-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
 .dtp-panel-head-text p { margin: 5px 0 0; font-size: 0.78rem; color: var(--ink-dim); }
-.dtp-legend { display: flex; gap: 6px; flex-shrink: 1; flex-wrap: wrap; max-width: 100%; min-width: 0; }
+.dtp-legend { display: flex; gap: 6px; flex-shrink: 1; flex-wrap: wrap; max-width: 100%; min-width: 0; flex-basis: 100%; justify-content: center; }
 .dtp-legend span { display: flex; align-items: center; gap: 4px; font-size: 0.6rem; font-weight: 600; padding: 4px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--ink-dim); white-space: nowrap; }
 .dtp-legend .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .dtp-legend .dot.mechanical { background: var(--ink-dim); }
@@ -179,12 +179,12 @@ header.top h1 .accent { color: var(--accent); }
 .dtp-diverge-fill.tp { background-color: var(--up); }
 .dtp-diverge-fill.sl { background-color: var(--down); }
 .dtp-diverge-fill.pending { background-color: var(--flat); }
-.dtp-scale-row { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border); }
-.dtp-scale-row .dtp-diverge-num { width: 16px; }
-.dtp-scale-half { flex: 1; display: flex; justify-content: space-between; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.65; }
+.dtp-scale-row { margin-top: 5px; }
+.dtp-scale-half { position: relative; flex: 1; height: 13px; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.6; }
+.dtp-scale-half span { position: absolute; top: 0; white-space: nowrap; }
 @media (max-width: 480px) {
   .dtp-total-lbl { font-size: 0.66rem; }
-  .dtp-scale-half { font-size: 0.5rem; letter-spacing: -0.4px; }
+  .dtp-scale-half { font-size: 0.52rem; letter-spacing: -0.4px; }
   .dtp-diverge-row { gap: 8px; }
   .dtp-diverge-num { width: 78px; font-size: 0.8rem; }
 }
@@ -475,7 +475,7 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
-    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">65</span></button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">70</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
@@ -577,6 +577,15 @@ footer.disclaimer {
         </div>
         <div class="dtp-diverge-num right tp">14 (60.9%)</div>
       </div>
+      <div class="dtp-diverge-row dtp-scale-row">
+        <div class="dtp-diverge-num"></div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">100%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">0%</span></div>
+          <div class="dtp-diverge-center" style="background:transparent;"></div>
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">0%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">100%</span></div>
+        </div>
+        <div class="dtp-diverge-num"></div>
+      </div>
   </div>
 
   <div class="dtp-metric">
@@ -589,6 +598,15 @@ footer.disclaimer {
           <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right sl" style="width:0.0%"></div></div>
         </div>
         <div class="dtp-diverge-num right sl">0 (0.0%)</div>
+      </div>
+      <div class="dtp-diverge-row dtp-scale-row">
+        <div class="dtp-diverge-num"></div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">100%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">0%</span></div>
+          <div class="dtp-diverge-center" style="background:transparent;"></div>
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">0%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">100%</span></div>
+        </div>
+        <div class="dtp-diverge-num"></div>
       </div>
   </div>
 
@@ -603,16 +621,15 @@ footer.disclaimer {
         </div>
         <div class="dtp-diverge-num right pending">9 (39.1%)</div>
       </div>
-  </div>
-
-  <div class="dtp-diverge-row dtp-scale-row">
-    <div class="dtp-diverge-num"></div>
-    <div class="dtp-diverge-track">
-      <div class="dtp-scale-half"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
-      <div class="dtp-diverge-center" style="background:transparent;"></div>
-      <div class="dtp-scale-half"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
-    </div>
-    <div class="dtp-diverge-num"></div>
+      <div class="dtp-diverge-row dtp-scale-row">
+        <div class="dtp-diverge-num"></div>
+        <div class="dtp-diverge-track">
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">100%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">0%</span></div>
+          <div class="dtp-diverge-center" style="background:transparent;"></div>
+          <div class="dtp-scale-half"><span style="left:0%; transform:translateX(0)">0%</span><span style="left:50%; transform:translateX(-50%)">50%</span><span style="left:100%; transform:translateX(-100%)">100%</span></div>
+        </div>
+        <div class="dtp-diverge-num"></div>
+      </div>
   </div>
 </div>
     <div class="hist-date-filter">
@@ -693,7 +710,7 @@ footer.disclaimer {
           <td>7.39 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-          <td><span class="hist-result pending-review" title="10:34 22/09/2026: Bối cảnh: tương tự AAA, VNINDEX đang điều chỉnh dưới đỉnh gần đây, cần tiêu chuẩn cao hơn bình thường. Cấu trúc: APH có đáy quan trọng quanh 5.200 (tháng 8), sau đó phục hồi rất mạnh và liên tục (chuỗi HH+HL) lên tới 7.490-7.600 hiện tại, tương đương tăng khoảng 44% chỉ trong 6 tuần; riêng phiên gần nhất (21-22/09) tăng vọt từ khoảng 7.090-7.200 lên 7.600 rồi điều chỉnh nhẹ về 7.490, biên độ nến mở rộng bất thường kèm khối lượng đột biến rất lớn. Vùng giá: giá hiện đã chạy quá xa khỏi vùng hỗ trợ/tích luỹ gần nhất (khoảng 7.090-7.200), không còn điểm vào gần vùng hỗ trợ rõ ràng - đây là hiện tượng đuổi giá giữa khoảng trống sau một nhịp tăng nóng. Theo bài học về biến động tăng bất thường (nến biên độ rộng, khối lượng đột biến), đây là yếu tố rủi ro trượt giá cao cần thận trọng. Price Action: nến gần nhất đóng cửa lùi khỏi đỉnh trong phiên, cho thấy bên bán bắt đầu chốt lời sau đợt tăng nóng. Kịch bản B: nếu giá điều chỉnh sâu về vùng hỗ trợ cũ 7.090-7.200 thì mới có điểm vào rõ ràng hơn. Kết luận: chưa đủ điều kiện - giá đã tăng quá nóng, không có điểm vào cấu trúc rõ ràng gần vùng hỗ trợ, nên chờ nhịp điều chỉnh hoặc tích luỹ lại.">⏳ Chưa đủ đk</span></td>
+          <td><span class="hist-result pending-review" title="11:26 22/09/2026: Bối cảnh: VNINDEX đang trong nhịp điều chỉnh nhẹ dưới đỉnh gần đây (giảm khoảng 2% từ đỉnh khoảng 1.840 điểm ngày 18-19/09 xuống 1.801 điểm hiện tại), chưa phải điều chỉnh mạnh nhưng cũng không phải môi trường thuận lợi tuyệt đối, nên cần tiêu chuẩn xác nhận cao hơn bình thường. Cấu trúc: giá APH đã tăng theo dạng parabol từ vùng tích lũy 5.200-6.200 (tháng 4-8) lên tới đỉnh 7.580 chỉ trong khoảng hai tuần gần đây, mức tăng quá nhanh và quá dốc, không có nhịp điều chỉnh higher-low rõ ràng để xác nhận cấu trúc bền vững. Vùng giá: giá hiện đã vượt xa vùng hỗ trợ gần nhất, không còn ở gần vùng hỗ trợ mà đang ở vùng đỉnh lịch sử, mức entry gợi ý theo hệ thống (7,24) đã bị bỏ lại phía sau khá xa. Price Action và Volume: nến hôm nay mở cửa ngay tại đỉnh phiên (7.580) rồi bị bán mạnh về sát đáy phiên (7.320), đóng cửa giảm 0,95% ngay sau chuỗi tăng nóng, đây là dấu hiệu kiệt sức và phân phối điển hình sau một nhịp tăng dựng đứng; khối lượng những phiên gần đây cũng tăng vọt bất thường, cho thấy áp lực chốt lời rất lớn. Kịch bản: nếu giá tiếp tục giữ vững trên vùng 7.000 và có nhịp tích lũy lành mạnh trở lại thì có thể xem xét sau, nhưng nếu giá thủng vùng 7.000 thì xác nhận đây là đỉnh ngắn hạn và nhịp tăng nóng đã kết thúc. Kết luận: chưa đủ điều kiện xác nhận điểm vào, vì đây là hành vi đuổi giá sau một nhịp tăng quá nóng, kèm nến đảo chiều mang tính phân phối ngay tại vùng đỉnh, rủi ro trượt giá và chạm cắt lỗ theo đúng các bài học đã rút ra là rất cao.">⏳ Chưa đủ đk</span></td>
         </tr><tr data-symbol="AAA" data-date="20260921" data-signal="MUA" data-status="theo_doi">
           <td><b>AAA</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -748,7 +765,7 @@ footer.disclaimer {
           <td>20.9 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-          <td><span class="hist-result pending-review" title="10:34 22/09/2026: Bối cảnh: VNINDEX điều chỉnh dưới đỉnh gần đây; SSB đang thể hiện sự suy yếu rõ rệt so với thị trường chung, không phải sức mạnh tương đối. Cấu trúc Daily: SSB có đợt tăng rất mạnh và nhanh từ nền 13.750-15.500 (tháng 2 đến tháng 8) lên đỉnh 25.000 (18-19/09, tăng hơn 70% trong khoảng 1 tháng), nhưng ngay sau đó đã đảo chiều giảm mạnh liên tục 3 phiên gần nhất: từ đỉnh 25.000 về hiện tại chỉ còn 21.050-21.100, tương đương giảm khoảng 15-16% chỉ trong vài phiên, riêng hôm nay giảm tới khoảng 6%. Đây là đỉnh sau thấp hơn đỉnh trước (LH) rõ ràng đang hình thành, xác nhận cấu trúc tăng trước đó đã bị phá vỡ, không phải nhịp điều chỉnh lành mạnh trong xu hướng tăng. Price Action và Volume: khối lượng trong 3 phiên giảm gần đây tăng mạnh, xác nhận đây là áp lực bán/phân phối thực sự chứ không phải nhiễu giá thông thường; nến gần nhất đóng cửa gần vùng thấp trong ngày, bên bán hoàn toàn chiếm ưu thế. Đây chính xác là mẫu hình rủi ro thị trường chung đã được ghi nhận trước đây: không nên đánh giá một mã tách rời bối cảnh thị trường, và khi thấy dấu hiệu suy yếu rõ rệt phải nâng chuẩn xác nhận lên rất cao - SSB không đáp ứng được tiêu chuẩn đó. Kịch bản B đã xảy ra: cấu trúc tăng đã bị phá, hiện tại không có điểm vào hợp lý, cần chờ giá tạo đáy ổn định và xác nhận cấu trúc mới trước khi xem xét lại. Kết luận: chưa đủ điều kiện - đây là tín hiệu suy yếu/đảo chiều rõ ràng, hoàn toàn không phải điểm vào, mã này cần thận trọng cho tới khi có cấu trúc mới ổn định hơn.">⏳ Chưa đủ đk</span></td>
+          <td><span class="hist-result pending-review" title="11:26 22/09/2026: Bối cảnh: VNINDEX điều chỉnh nhẹ dưới đỉnh gần đây, cần thận trọng hơn khi xét các mã vừa tăng rất nóng. Cấu trúc: SSB tăng theo dạng parabol cực mạnh từ vùng tích lũy khoảng 14.000 (tháng 8) lên đỉnh gần 24.700 chỉ trong khoảng hai tuần, mức tăng gần 75%, thuộc nhóm tăng nóng nhất trong năm mã xem xét hôm nay. Vùng giá: giá đã đi quá xa khỏi mọi vùng hỗ trợ, đang ở vùng đỉnh lịch sử. Price Action và Volume: nến hôm nay đặc biệt xấu, mở cửa tại 20.900, bật lên chạm 21.700 trong phiên rồi bị bán tháo về đúng mức mở cửa, đóng cửa tại 20.900 tương ứng giảm tới 6,90%, hình thành một cây nến dạng bóng trên dài với thân gần như không có, cho thấy bên bán áp đảo hoàn toàn ngay khi giá cố gắng hồi phục trong phiên, đây là tín hiệu phân phối và đảo chiều rất mạnh ngay sau một nhịp tăng nóng. Thêm vào đó, điểm FA_Score của SSB rất thấp, chỉ khoảng 17,9, thấp hơn hẳn so với bốn mã còn lại đang dao động trong khoảng 48 đến 61, là một điểm trừ đáng chú ý về nền tảng cơ bản. Kịch bản: nếu giá tiếp tục giảm sâu hơn thì xác nhận đỉnh ngắn hạn đã hình thành sau nhịp tăng nóng, kịch bản hồi phục chỉ còn khả thi nếu giá giữ vững trên vùng 19.000-20.000 kèm khối lượng ổn định trở lại. Kết luận: chưa đủ điều kiện, vì nến giảm mạnh gần 6,90% ngay sau một chuỗi tăng nóng là tín hiệu cảnh báo rất rõ ràng, tuyệt đối không nên coi đây là điểm vào lệnh.">⏳ Chưa đủ đk</span></td>
         </tr><tr data-symbol="BID" data-date="20260918" data-signal="MUA" data-status="theo_doi">
           <td><b>BID</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -825,7 +842,7 @@ footer.disclaimer {
           <td>5.69 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-          <td><span class="hist-result pending-review" title="10:34 22/09/2026: Bối cảnh: tiêu chuẩn nâng cao do VNINDEX điều chỉnh. Cấu trúc Daily: HID giảm dài suốt từ tháng 2 (đỉnh khoảng 7.250) về đáy sâu quanh 3.000-3.100 (cuối tháng 8), sau đó bật tăng gần như thẳng đứng, không có nhịp tích luỹ hay điều chỉnh rõ ràng nào, hiện đã lên tới 5.700-5.960, tương đương tăng hơn 80-90% chỉ trong khoảng 3 tuần. Đây không phải chuỗi HH+HL với các nhịp điều chỉnh lành mạnh, mà là một đợt tăng dựng đứng kiểu đầu cơ, không có vùng tích luỹ/hỗ trợ gần nào để xác định điểm vào an toàn - vùng hỗ trợ/tham chiếu gần nhất chỉ có thể lùi về tận 4.900-5.000 hoặc xa hơn, khoảng cách entry-cắt lỗ theo market_scan lên tới 10,6%. Theo nguyên tắc vào lệnh gần vùng hỗ trợ luôn tốt hơn đuổi giá giữa khoảng trống, đây rõ ràng là trường hợp đuổi giá rủi ro cao, không có điểm vào cấu trúc rõ ràng. Price Action: nến gần nhất đỏ nhẹ (-0,52%), sau chuỗi tăng nóng dựng đứng, cần thêm thời gian tích luỹ ổn định để đánh giá lại. Kết luận: chưa đủ điều kiện - giá tăng quá nóng, không có nhịp tích luỹ/điều chỉnh để xác định vùng hỗ trợ, rủi ro đảo chiều và trượt giá rất cao.">⏳ Chưa đủ đk</span></td>
+          <td><span class="hist-result pending-review" title="11:26 22/09/2026: Bối cảnh: VNINDEX điều chỉnh nhẹ dưới đỉnh gần đây, cần thận trọng hơn khi xét các mã tăng nóng. Cấu trúc: HID giảm dài từ tháng 4 (khoảng 5.900) về đáy sâu khoảng 3.150 (đầu tháng 8), sau đó đảo chiều tăng theo dạng parabol rất mạnh, từ khoảng 3.700 (giữa tháng 8) vọt lên đỉnh 6.000 vào khoảng ngày 19 đến 22 tháng 9, tức tăng hơn 60% chỉ trong hơn một tháng, phần lớn mức tăng dồn vào những phiên rất gần đây. Vùng giá: giá đã đi quá xa khỏi mọi vùng hỗ trợ cũ, đang ở vùng đỉnh cao nhất trong nhiều tháng, hoàn toàn không phải bối cảnh vào lệnh gần vùng hỗ trợ. Price Action và Volume: nến hôm nay biên độ rất rộng, mở cửa gần đỉnh phiên (5.920) rồi bị bán mạnh xuống đáy phiên (5.500), hồi nhẹ và đóng cửa tại 5.600 tương ứng giảm 2,27%, đóng cửa nằm ở phần dưới của biên độ ngày cho thấy bên bán đang chiếm ưu thế ngay tại vùng đỉnh; khối lượng các phiên tăng nóng vừa qua cũng tăng vọt bất thường, một dấu hiệu phân phối khá rõ rệt. Kịch bản: nếu giá giữ được trên vùng 5.000 và tích lũy trở lại thì có thể xem xét sau, nhưng nếu thủng vùng 5.000 thì xác nhận đỉnh ngắn hạn đã hình thành và nhịp tăng nóng đã kết thúc. Kết luận: chưa đủ điều kiện, vì đây là mã tăng nóng dạng parabol kèm nến đảo chiều mang tính phân phối ngay tại đỉnh, rủi ro đuổi đỉnh và trượt giá rất cao theo đúng các bài học đã ghi nhận trước đây.">⏳ Chưa đủ đk</span></td>
         </tr><tr data-symbol="SSB" data-date="20260916" data-signal="MUA" data-status="da_cham_tp">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -891,7 +908,7 @@ footer.disclaimer {
           <td>33.25 <span class="lv">(11:20 22/09/2026)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
-          <td><span class="hist-result pending-review" title="10:34 22/09/2026: Bối cảnh: tiêu chuẩn nâng cao do VNINDEX điều chỉnh. Cấu trúc Daily: DCM trải qua xu hướng giảm dài từ đỉnh 54.000 (tháng 2) giảm liên tục về đáy quanh 30.000 (tháng 7), sau đó đi ngang tích luỹ trong biên hẹp 30.000-34.500 suốt 2 tháng qua (tháng 8 đến tháng 9) mà chưa hình thành rõ chuỗi HH+HL hay LH+LL - hiện tại vẫn là sideway trong nền tích luỹ, chưa xác nhận đảo chiều. Vùng giá hiện tại (33.400) nằm giữa biên dao động 32.000-34.200 của tháng qua, không phải tại điểm phá vỡ cấu trúc nào. Price Action và Volume: không có khối lượng đột biến xác nhận hướng đi, các phiên gần đây dao động hẹp, thiếu động lực rõ ràng theo cả hai hướng; nến gần nhất đỏ nhẹ (-0,89%). Kịch bản B: cần chờ giá phá vỡ rõ ràng khỏi biên 32.000-34.200 (lên trên kèm khối lượng để xác nhận xu hướng tăng, hoặc xuống dưới để xác nhận xu hướng giảm tiếp diễn) mới có cơ sở đánh giá lại. Kết luận: chưa đủ điều kiện - cấu trúc hiện tại là sideway/tích luỹ, chưa có điểm phá vỡ hay điểm vào rõ ràng.">⏳ Chưa đủ đk</span></td>
+          <td><span class="hist-result pending-review" title="11:26 22/09/2026: Bối cảnh: VNINDEX điều chỉnh nhẹ dưới đỉnh gần đây, cần tiêu chuẩn xác nhận cao hơn bình thường. Cấu trúc: DCM đã trải qua một downtrend dài từ tháng 4 (đỉnh khoảng 48.000) về đáy khoảng 28.000 (cuối tháng 7 đầu tháng 8), sau đó có một nhịp hồi phục: từ đáy 28.000 bật lên tạo đỉnh gần 36.000 (giữa tháng 8) rồi điều chỉnh về một đáy sau cao hơn đáy trước, khoảng 30.500 vào đầu tháng 9, xác nhận một higher low, nhưng từ đó đến nay giá mới hồi phục lại lên vùng 33.000-34.000, vẫn chưa vượt qua đỉnh cũ khoảng 36.000 để xác nhận một đỉnh sau cao hơn mới. Vùng giá: giá hiện đang đi ngang hẹp ngay tại vùng pivot 33.400, đúng vùng entry hệ thống gợi ý và gần vùng hỗ trợ ngắn hạn. Price Action và Volume: nến hôm nay biên độ hẹp, giảm nhẹ 0,89%, khối lượng không có gì đột biến, đúng dạng giằng co và tích lũy, chưa cho tín hiệu bứt phá rõ ràng. Kịch bản: nếu giá bứt phá qua vùng 36.000 kèm khối lượng tốt thì cấu trúc higher-high và higher-low sẽ được xác nhận rõ ràng và đây sẽ là một uptrend thật sự; còn nếu giá thủng lại đáy 30.500 thì higher low vừa hình thành sẽ bị vô hiệu hóa và có nguy cơ quay lại downtrend. Kết luận: chưa đủ điều kiện, vì cấu trúc đang cải thiện tích cực với một higher low rõ ràng nhưng chưa đủ để khẳng định là một uptrend hoàn chỉnh theo đúng yêu cầu higher-high và higher-low liên tục của phương pháp, đây là mã cần tiếp tục theo dõi chứ chưa phải điểm vào ngay lúc này.">⏳ Chưa đủ đk</span></td>
         </tr><tr data-symbol="BSR" data-date="20260916" data-signal="MUA" data-status="da_cham_tp">
           <td><b>BSR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1602,19 +1619,69 @@ footer.disclaimer {
 
   <div id="tabDTrader" class="tab-panel">
     <h2 class="section">D-Trader — Lịch sử xem xét</h2>
-    <div class="dtr-summary">Tổng 65 lần xem xét — 12 đã xác nhận, 53 chưa đủ điều kiện.</div>
+    <div class="dtr-summary">Tổng 70 lần xem xét — 12 đã xác nhận, 58 chưa đủ điều kiện.</div>
     <div class="hist-status-btns" id="dtrStatusBtns">
-      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">65</span></button>
+      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">70</span></button>
       <button type="button" class="hist-status-btn" data-dtr-filter="da_xac_nhan" onclick="dtrSetFilter('da_xac_nhan', this)">✅ Đã xác nhận <span class="cnt">12</span></button>
-      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">53</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">58</span></button>
     </div>
     <input type="text" id="dtrSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="dtrApplySearch()" autocomplete="off">
     <p class="empty dtr-empty" id="dtrEmpty" hidden>Không có mã nào khớp bộ lọc.</p>
     <div id="dtrList">
     <div class="dtr-day">
-      <div class="dtr-day-head">22/09/2026 <span class="dtr-day-cnt">(12 mã)</span></div>
+      <div class="dtr-day-head">22/09/2026 <span class="dtr-day-cnt">(17 mã)</span></div>
       <div class="dtr-cards">
-      <div class="dtr-card" data-dtr-symbol="aaa" data-dtr-verdict="da_xac_nhan">
+      <div class="dtr-card" data-dtr-symbol="aph" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">APH</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">11:26</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX đang trong nhịp điều chỉnh nhẹ dưới đỉnh gần đây (giảm khoảng 2% từ đỉnh khoảng 1.840 điểm ngày 18-19/09 xuống 1.801 điểm hiện tại), chưa phải điều chỉnh mạnh nhưng cũng không phải môi trường thuận lợi tuyệt đối, nên cần tiêu chuẩn xác nhận cao hơn bình thường. Cấu trúc: giá APH đã tăng theo dạng parabol từ vùng tích lũy 5.200-6.200 (tháng 4-8) lên tới đỉnh 7.580 chỉ trong khoảng hai tuần gần đây, mức tăng quá nhanh và quá dốc, không có nhịp điều chỉnh higher-low rõ ràng để xác nhận cấu trúc bền vững. Vùng giá: giá hiện đã vượt xa vùng hỗ trợ gần nhất, không còn ở gần vùng hỗ trợ mà đang ở vùng đỉnh lịch sử, mức entry gợi ý theo hệ thống (7,24) đã bị bỏ lại phía sau khá xa. Price Action và Volume: nến hôm nay mở cửa ngay tại đỉnh phiên (7.580) rồi bị bán mạnh về sát đáy phiên (7.320), đóng cửa giảm 0,95% ngay sau chuỗi tăng nóng, đây là dấu hiệu kiệt sức và phân phối điển hình sau một nhịp tăng dựng đứng; khối lượng những phiên gần đây cũng tăng vọt bất thường, cho thấy áp lực chốt lời rất lớn. Kịch bản: nếu giá tiếp tục giữ vững trên vùng 7.000 và có nhịp tích lũy lành mạnh trở lại thì có thể xem xét sau, nhưng nếu giá thủng vùng 7.000 thì xác nhận đây là đỉnh ngắn hạn và nhịp tăng nóng đã kết thúc. Kết luận: chưa đủ điều kiện xác nhận điểm vào, vì đây là hành vi đuổi giá sau một nhịp tăng quá nóng, kèm nến đảo chiều mang tính phân phối ngay tại vùng đỉnh, rủi ro trượt giá và chạm cắt lỗ theo đúng các bài học đã rút ra là rất cao.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="dcl" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">DCL</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">11:26</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: tương tự, VNINDEX đang điều chỉnh nhẹ dưới đỉnh gần đây, cần thận trọng hơn bình thường khi xét các mã riêng lẻ. Cấu trúc: DCL đã đi ngang trong vùng 36.000-40.000 suốt bốn đến năm tháng (tháng 4-9), với một lần bứt phá giả lên 46.300 vào đầu tháng 8 rồi bị bán ngược trở lại vùng tích lũy, tạo ra một vùng kháng cự quan trọng chính xác tại mức 46.300 đó. Vùng giá: hôm nay giá bứt phá khỏi vùng tích lũy, tăng mạnh lên chạm đúng 46.300, trùng khớp hoàn toàn với đỉnh bứt phá giả hồi đầu tháng 8, rồi bị đẩy lui nhẹ và đóng cửa tại 45.300 tương ứng mức tăng 4,62% trong phiên, tức là đang kiểm định lại đúng vùng kháng cự cũ từng thất bại, chưa đóng cửa vượt hẳn qua mức này. Price Action và Volume: nến tăng khá tốt, đóng cửa ở phần trên của biên độ ngày (khoảng 67% biên độ), khối lượng có cải thiện nhưng chưa phải mức đột biến rõ rệt để khẳng định chắc chắn đã phá vỡ kháng cự thành công. Kịch bản: nếu một đến hai phiên tới giá đóng cửa giữ vững trên 46.300 kèm khối lượng xác nhận thì đây sẽ là điểm phá vỡ thật, còn nếu giá quay đầu giảm trở lại dưới 46.300 giống hệt lần thất bại đầu tháng 8 thì đây chỉ là một lần bứt phá giả nữa. Kết luận: chưa đủ điều kiện, vì cấu trúc chưa xác nhận giữ vững trên kháng cự cũ, đúng tinh thần các bài học về nguy cơ vào lệnh khi chưa có xác nhận breakout thật sự, nên cần chờ thêm ít nhất một phiên xác nhận trước khi xem xét vào lệnh.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="dcm" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">DCM</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">11:26</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX điều chỉnh nhẹ dưới đỉnh gần đây, cần tiêu chuẩn xác nhận cao hơn bình thường. Cấu trúc: DCM đã trải qua một downtrend dài từ tháng 4 (đỉnh khoảng 48.000) về đáy khoảng 28.000 (cuối tháng 7 đầu tháng 8), sau đó có một nhịp hồi phục: từ đáy 28.000 bật lên tạo đỉnh gần 36.000 (giữa tháng 8) rồi điều chỉnh về một đáy sau cao hơn đáy trước, khoảng 30.500 vào đầu tháng 9, xác nhận một higher low, nhưng từ đó đến nay giá mới hồi phục lại lên vùng 33.000-34.000, vẫn chưa vượt qua đỉnh cũ khoảng 36.000 để xác nhận một đỉnh sau cao hơn mới. Vùng giá: giá hiện đang đi ngang hẹp ngay tại vùng pivot 33.400, đúng vùng entry hệ thống gợi ý và gần vùng hỗ trợ ngắn hạn. Price Action và Volume: nến hôm nay biên độ hẹp, giảm nhẹ 0,89%, khối lượng không có gì đột biến, đúng dạng giằng co và tích lũy, chưa cho tín hiệu bứt phá rõ ràng. Kịch bản: nếu giá bứt phá qua vùng 36.000 kèm khối lượng tốt thì cấu trúc higher-high và higher-low sẽ được xác nhận rõ ràng và đây sẽ là một uptrend thật sự; còn nếu giá thủng lại đáy 30.500 thì higher low vừa hình thành sẽ bị vô hiệu hóa và có nguy cơ quay lại downtrend. Kết luận: chưa đủ điều kiện, vì cấu trúc đang cải thiện tích cực với một higher low rõ ràng nhưng chưa đủ để khẳng định là một uptrend hoàn chỉnh theo đúng yêu cầu higher-high và higher-low liên tục của phương pháp, đây là mã cần tiếp tục theo dõi chứ chưa phải điểm vào ngay lúc này.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="hid" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">HID</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">11:26</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX điều chỉnh nhẹ dưới đỉnh gần đây, cần thận trọng hơn khi xét các mã tăng nóng. Cấu trúc: HID giảm dài từ tháng 4 (khoảng 5.900) về đáy sâu khoảng 3.150 (đầu tháng 8), sau đó đảo chiều tăng theo dạng parabol rất mạnh, từ khoảng 3.700 (giữa tháng 8) vọt lên đỉnh 6.000 vào khoảng ngày 19 đến 22 tháng 9, tức tăng hơn 60% chỉ trong hơn một tháng, phần lớn mức tăng dồn vào những phiên rất gần đây. Vùng giá: giá đã đi quá xa khỏi mọi vùng hỗ trợ cũ, đang ở vùng đỉnh cao nhất trong nhiều tháng, hoàn toàn không phải bối cảnh vào lệnh gần vùng hỗ trợ. Price Action và Volume: nến hôm nay biên độ rất rộng, mở cửa gần đỉnh phiên (5.920) rồi bị bán mạnh xuống đáy phiên (5.500), hồi nhẹ và đóng cửa tại 5.600 tương ứng giảm 2,27%, đóng cửa nằm ở phần dưới của biên độ ngày cho thấy bên bán đang chiếm ưu thế ngay tại vùng đỉnh; khối lượng các phiên tăng nóng vừa qua cũng tăng vọt bất thường, một dấu hiệu phân phối khá rõ rệt. Kịch bản: nếu giá giữ được trên vùng 5.000 và tích lũy trở lại thì có thể xem xét sau, nhưng nếu thủng vùng 5.000 thì xác nhận đỉnh ngắn hạn đã hình thành và nhịp tăng nóng đã kết thúc. Kết luận: chưa đủ điều kiện, vì đây là mã tăng nóng dạng parabol kèm nến đảo chiều mang tính phân phối ngay tại đỉnh, rủi ro đuổi đỉnh và trượt giá rất cao theo đúng các bài học đã ghi nhận trước đây.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="ssb" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">SSB</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">11:26</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX điều chỉnh nhẹ dưới đỉnh gần đây, cần thận trọng hơn khi xét các mã vừa tăng rất nóng. Cấu trúc: SSB tăng theo dạng parabol cực mạnh từ vùng tích lũy khoảng 14.000 (tháng 8) lên đỉnh gần 24.700 chỉ trong khoảng hai tuần, mức tăng gần 75%, thuộc nhóm tăng nóng nhất trong năm mã xem xét hôm nay. Vùng giá: giá đã đi quá xa khỏi mọi vùng hỗ trợ, đang ở vùng đỉnh lịch sử. Price Action và Volume: nến hôm nay đặc biệt xấu, mở cửa tại 20.900, bật lên chạm 21.700 trong phiên rồi bị bán tháo về đúng mức mở cửa, đóng cửa tại 20.900 tương ứng giảm tới 6,90%, hình thành một cây nến dạng bóng trên dài với thân gần như không có, cho thấy bên bán áp đảo hoàn toàn ngay khi giá cố gắng hồi phục trong phiên, đây là tín hiệu phân phối và đảo chiều rất mạnh ngay sau một nhịp tăng nóng. Thêm vào đó, điểm FA_Score của SSB rất thấp, chỉ khoảng 17,9, thấp hơn hẳn so với bốn mã còn lại đang dao động trong khoảng 48 đến 61, là một điểm trừ đáng chú ý về nền tảng cơ bản. Kịch bản: nếu giá tiếp tục giảm sâu hơn thì xác nhận đỉnh ngắn hạn đã hình thành sau nhịp tăng nóng, kịch bản hồi phục chỉ còn khả thi nếu giá giữ vững trên vùng 19.000-20.000 kèm khối lượng ổn định trở lại. Kết luận: chưa đủ điều kiện, vì nến giảm mạnh gần 6,90% ngay sau một chuỗi tăng nóng là tín hiệu cảnh báo rất rõ ràng, tuyệt đối không nên coi đây là điểm vào lệnh.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="aaa" data-dtr-verdict="da_xac_nhan">
         <div class="dtr-card-head">
           <span class="dtr-symbol">AAA</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
@@ -2341,7 +2408,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">11:20:24 22/09/2026</span>
+    Sinh trang lúc <span class="mono">11:34:20 22/09/2026</span>
   </footer>
 </div>
 <script>
