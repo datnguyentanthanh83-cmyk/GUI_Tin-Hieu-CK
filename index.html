@@ -475,7 +475,7 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
-    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">70</span></button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">71</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
@@ -1700,19 +1700,39 @@ footer.disclaimer {
 
   <div id="tabDTrader" class="tab-panel">
     <h2 class="section">D-Trader — Lịch sử xem xét</h2>
-    <div class="dtr-summary">Tổng 70 lần xem xét — 12 đã xác nhận, 58 chưa đủ điều kiện.</div>
+    <div class="dtr-summary">Tổng 71 lần xem xét — 12 đã xác nhận, 59 chưa đủ điều kiện.</div>
     <div class="hist-status-btns" id="dtrStatusBtns">
-      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">70</span></button>
+      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">71</span></button>
       <button type="button" class="hist-status-btn" data-dtr-filter="da_xac_nhan" onclick="dtrSetFilter('da_xac_nhan', this)">✅ Đã xác nhận <span class="cnt">12</span></button>
-      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">58</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">59</span></button>
     </div>
     <input type="text" id="dtrSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="dtrApplySearch()" autocomplete="off">
     <p class="empty dtr-empty" id="dtrEmpty" hidden>Không có mã nào khớp bộ lọc.</p>
     <div id="dtrList">
     <div class="dtr-day">
-      <div class="dtr-day-head">22/09/2026 <span class="dtr-day-cnt">(17 mã)</span></div>
+      <div class="dtr-day-head">22/09/2026 <span class="dtr-day-cnt">(18 mã)</span></div>
       <div class="dtr-cards">
-      <div class="dtr-card" data-dtr-symbol="aph" data-dtr-verdict="chua_du_dieu_kien">
+      <div class="dtr-card" data-dtr-symbol="dcl" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">DCL</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="dtr-time mono">14:11</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX (khung Daily) đang trong nhịp hồi phục nhẹ (+0,6% hôm nay, quanh 1.810 điểm) sau một đợt điều chỉnh từ đỉnh gần nhất khoảng 1.880 (đầu tháng 9) xuống vùng 1.780-1.800 (giữa tháng 9), hiện vẫn ở dưới đỉnh gần đây, chưa xác nhận một xu hướng tăng rõ ràng mà đúng hơn là đang dao động trong một biên độ rộng. Đây là bối cảnh trung tính, không phải tín hiệu rủi ro hệ thống rõ rệt như khi thị trường giảm mạnh, nhưng cũng chưa có lực đẩy chung mạnh mẽ ủng hộ. Riêng DCL lại đang tăng rất mạnh so với chỉ số chung (khoảng +6% trong phiên hôm nay so với mức tăng khiêm tốn của VNINDEX), cho thấy sức mạnh tương đối tốt.
+
+Cấu trúc: trên khung Daily, DCL trải qua giai đoạn tích lũy đi ngang trong vùng 36-40 suốt tháng 6-7, sau đó có một nhịp tăng vọt đầu tháng 8 lên đỉnh khoảng 45, rồi điều chỉnh và đi ngang tích lũy trong vùng 38-43 suốt hơn một tháng (tháng 8 đến giữa tháng 9). Trong hai tuần gần đây, giá bắt đầu tạo các đáy sau cao hơn đáy trước (đáy đầu tháng 9 khoảng 36,5, đáy giữa tháng khoảng 37,7, đáy 17/09 khoảng 38), và hôm nay giá đã phá vỡ luôn đỉnh cũ khoảng 45 để tạo đỉnh cao mới 46,3 (giá tạm tính lúc xem xét là 45,9). Đây là dấu hiệu chuyển từ nền tích lũy sang cấu trúc HH+HL (higher high, higher low), tức là một breakout khỏi vùng tích lũy kéo dài hơn một tháng.
+
+Vùng giá: giá hiện tại (45,9) đã vượt qua vùng kháng cự quan trọng nhất trong hơn một tháng qua (đỉnh cũ tháng 8 quanh 45), nghĩa là đây là một điểm entry kiểu breakout (mua đuổi ngay tại vùng đỉnh của phiên tăng nóng), KHÔNG PHẢI entry gần vùng hỗ trợ như phương pháp ưu tiên. Vùng hỗ trợ gần nhất sau khi phá vỡ (vùng đỉnh cũ 43-45, nay đóng vai trò hỗ trợ nếu có nhịp hồi về test lại) cách giá hiện tại khoảng 4-5%.
+
+Price Action + Volume: nến hôm nay là nến tăng thân dài, đóng cửa gần mức cao nhất phiên (bên mua đang chiếm ưu thế rõ rệt), khối lượng giao dịch (khoảng 3,14 triệu cổ phiếu) cao hơn khoảng 1,6 lần khối lượng trung bình 10 phiên (1,945 triệu) — có xác nhận volume cho breakout. Tuy nhiên, đây đã là phiên tăng rất mạnh (khoảng +6% từ giá mở cửa), và đáng chú ý là chỉ 3 phiên trước (19/09), DCL cũng có một phiên tăng vọt tương tự với biên độ rất rộng, nhưng ngay phiên kế tiếp (21/09) giá đã bị bán tháo mạnh, giật lùi gần hết phần tăng của phiên trước đó. Điều này cho thấy biến động của mã đang rất cao và có TIỀN LỆ GẦN ĐÂY về việc bị chốt lời/bán tháo gắt ngay sau các phiên tăng nóng — đúng như cảnh báo trong bài học 5 về rủi ro trượt giá khi biến động tăng bất thường. Đối chiếu với sl_history_dataset.json: DCL KHÔNG nằm trong 20 trường hợp đã chạm cắt lỗ gần đây — không có tiền sử xấu trực tiếp trên chính mã này.
+
+Kịch bản: (A) Nếu giá giữ vững được trên vùng kháng cự cũ 45 sau khi có nhịp hồi về test lại (chưa xảy ra, vì hôm nay là phiên phá vỡ đầu tiên, chưa có phiên đóng cửa xác nhận giữ vững), xu hướng tăng mới sẽ được củng cố, có thể cân nhắc entry quanh vùng 43-45 khi giá hồi về, cắt lỗ dưới vùng 42 (mức Pivot P), mục tiêu gần nhất quanh 47 (mức Pivot R3) — tuy nhiên bản thân dữ liệu hệ thống cũng ghi chú rõ là &#x27;chưa có mức kháng cự nào đủ xa theo ATR&#x27; cho mục tiêu này, nghĩa là tỷ lệ được/mất khá kém (rủi ro khoảng 6,2% để đổi lấy tiềm năng khoảng 2,5%, tính từ giá entry đề xuất 45,17 đến cắt lỗ 42,37 và mục tiêu 47,03). (B) Nếu lặp lại kịch bản đã xảy ra với phiên 19/09-21/09, giá có thể quay đầu giảm trở lại dưới vùng kháng cự cũ 45 trong 1-2 phiên tới, khiến breakout hôm nay trở thành breakout giả (bị đẩy lui).
+
+Kết luận checklist: các mục còn lại đều trả lời được rõ ràng, NHƯNG mục &#x27;cấu trúc đã bị phá (breakout) có được volume xác nhận VÀ giữ vững chưa&#x27; CHƯA thể trả lời là ĐÃ ĐỦ — volume có xác nhận, nhưng việc giữ vững sau breakout CHƯA được kiểm chứng qua ít nhất một phiên đóng cửa tiếp theo, đặc biệt khi mã vừa có đúng một tiền lệ thất bại tương tự cách đây 3 phiên. Theo đúng nguyên tắc của phương pháp (không kết luận chỉ vì một cây nến đẹp, phải đặt trong bối cảnh cấu trúc + vùng giá + volume, và không mua đuổi ngay tại đỉnh phiên tăng nóng khi tỷ lệ được/mất không thuận lợi), D-Trader kết luận CHƯA ĐỦ ĐIỀU KIỆN xác nhận điểm vào lúc này. Nên chờ thêm ít nhất một phiên xác nhận giá giữ vững trên vùng kháng cự cũ 45 (hoặc một nhịp hồi về vùng 43-45 kèm volume tốt) trước khi coi đây là điểm vào có cấu trúc rõ ràng.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="aph" data-dtr-verdict="chua_du_dieu_kien">
         <div class="dtr-card-head">
           <span class="dtr-symbol">APH</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
@@ -2489,7 +2509,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">14:04:22 22/09/2026</span>
+    Sinh trang lúc <span class="mono">14:19:21 22/09/2026</span>
   </footer>
 </div>
 <script>
