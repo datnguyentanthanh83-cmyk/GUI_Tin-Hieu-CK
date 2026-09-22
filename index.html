@@ -156,7 +156,7 @@ header.top h1 .accent { color: var(--accent); }
 .dtp-total-block { text-align: center; }
 .dtp-total-n { font-family: "IBM Plex Mono", monospace; font-size: 2.5rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
 .dtp-total-block.dtrader .dtp-total-n { color: var(--accent); }
-.dtp-total-lbl { font-size: 0.76rem; color: var(--ink-dim); margin-top: 8px; font-weight: 600; }
+.dtp-total-lbl { font-size: 0.76rem; color: var(--ink-dim); margin-top: 8px; font-weight: 600; white-space: nowrap; }
 .dtp-vs { width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.64rem; font-weight: 800; color: var(--ink-dim); margin: 0 auto; }
 .dtp-metric { margin-bottom: 24px; }
 .dtp-metric:last-child { margin-bottom: 0; }
@@ -180,7 +180,14 @@ header.top h1 .accent { color: var(--accent); }
 .dtp-diverge-fill.sl { background-color: var(--down); }
 .dtp-diverge-fill.pending { background-color: var(--flat); }
 .dtp-scale-row { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border); }
+.dtp-scale-row .dtp-diverge-num { width: 16px; }
 .dtp-scale-half { flex: 1; display: flex; justify-content: space-between; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.65; }
+@media (max-width: 480px) {
+  .dtp-total-lbl { font-size: 0.66rem; }
+  .dtp-scale-half { font-size: 0.5rem; letter-spacing: -0.4px; }
+  .dtp-diverge-row { gap: 8px; }
+  .dtp-diverge-num { width: 78px; font-size: 0.8rem; }
+}
 
 h2.section {
   font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-dim);
@@ -555,7 +562,7 @@ footer.disclaimer {
     <div class="dtp-vs">VS</div>
     <div class="dtp-total-block dtrader">
       <div class="dtp-total-n">16</div>
-      <div class="dtp-total-lbl">Đã qua D-Trader xác nhận</div>
+      <div class="dtp-total-lbl">Đã qua D-Trader</div>
     </div>
   </div>
 
@@ -2209,7 +2216,7 @@ footer.disclaimer {
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">10:22:58 22/09/2026</span>
+    Sinh trang lúc <span class="mono">10:34:20 22/09/2026</span>
   </footer>
 </div>
 <script>
