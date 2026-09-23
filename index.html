@@ -121,12 +121,8 @@ header.top h1 .accent { color: var(--accent); }
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .rf-countdown { font-size: 0.74rem; color: var(--ink-dim); }
 
-/* 2 cot (tab Tin hieu MUA chi co 2 the "Mua"/"Theo doi sat") - truoc day de
-   3 cot co san nen luon thua han 1 o trong ben phai tren desktop (khoang
-   trong lon) - anh Dat phan anh 23/09/2026. .hist-summary/.cc-summary da tu
-   ghi de rieng nen doi o day khong anh huong 2 cho do. */
 .summary {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 26px;
 }
 .stat {
   background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
@@ -145,46 +141,46 @@ header.top h1 .accent { color: var(--accent); }
 
 /* Khoi "Hieu suat D-Trader" - bar doi xung, chung 1 truc giua + thang 0-100% (20-21/09/2026) */
 .section-tag { font-size: 0.6rem; font-weight: 700; color: var(--accent); background: var(--neutral-bg); border-radius: 999px; padding: 2px 8px; margin-left: 8px; vertical-align: middle; text-transform: none; letter-spacing: 0; }
-.dtp-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 16px 20px 14px; box-shadow: var(--shadow); position: relative; overflow: hidden; margin-bottom: 16px; }
+.dtp-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 26px 28px 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; margin-bottom: 22px; }
 .dtp-panel::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--flat), var(--accent)); }
 .dtp-panel.dtp-empty { padding: 22px 24px; }
 .dtp-empty-note { font-size: 0.84rem; color: var(--ink-dim); margin: 12px 0 0; }
-.dtp-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 12px; flex-wrap: wrap; }
+.dtp-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
 .dtp-panel-head-text p { margin: 5px 0 0; font-size: 0.78rem; color: var(--ink-dim); }
 .dtp-legend { display: flex; gap: 6px; flex-shrink: 1; flex-wrap: wrap; max-width: 100%; min-width: 0; flex-basis: 100%; justify-content: center; }
 .dtp-legend span { display: flex; align-items: center; gap: 4px; font-size: 0.6rem; font-weight: 600; padding: 4px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--ink-dim); white-space: nowrap; }
 .dtp-legend .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .dtp-legend .dot.mechanical { background: var(--ink-dim); }
 .dtp-legend .dot.dtrader { background: var(--accent); }
-.dtp-totals { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; padding: 2px 0 10px; margin-bottom: 14px; border-bottom: 1px solid var(--border); }
+.dtp-totals { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; padding: 4px 0 24px; margin-bottom: 26px; border-bottom: 1px solid var(--border); }
 .dtp-total-block { text-align: center; }
-.dtp-total-n { font-family: "IBM Plex Mono", monospace; font-size: 1.8rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
+.dtp-total-n { font-family: "IBM Plex Mono", monospace; font-size: 2.5rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
 .dtp-total-block.dtrader .dtp-total-n { color: var(--accent); }
-.dtp-total-lbl { font-size: 0.76rem; color: var(--ink-dim); margin-top: 4px; font-weight: 600; white-space: nowrap; }
-.dtp-vs { width: 28px; height: 28px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.58rem; font-weight: 800; color: var(--ink-dim); margin: 0 auto; }
-.dtp-metric { margin-bottom: 2px; }
+.dtp-total-lbl { font-size: 0.76rem; color: var(--ink-dim); margin-top: 8px; font-weight: 600; white-space: nowrap; }
+.dtp-vs { width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.64rem; font-weight: 800; color: var(--ink-dim); margin: 0 auto; }
+.dtp-metric { margin-bottom: 4px; }
 .dtp-metric:last-child { margin-bottom: 0; }
-.dtp-metric-lbl { text-align: center; font-size: 0.8rem; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.dtp-metric-lbl { text-align: center; font-size: 0.86rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
 .dtp-diverge-row { display: flex; align-items: center; gap: 14px; }
-.dtp-diverge-num { font-family: "IBM Plex Mono", monospace; font-size: 0.82rem; font-weight: 800; width: 100px; flex-shrink: 0; }
+.dtp-diverge-num { font-family: "IBM Plex Mono", monospace; font-size: 0.9rem; font-weight: 800; width: 100px; flex-shrink: 0; }
 .dtp-diverge-num.left { text-align: right; }
 .dtp-diverge-num.right { text-align: left; }
 .dtp-diverge-num.tp { color: var(--up); }
 .dtp-diverge-num.sl { color: var(--down); }
 .dtp-diverge-num.pending { color: var(--flat); }
-.dtp-diverge-track { flex: 1; display: flex; align-items: center; height: 14px; }
+.dtp-diverge-track { flex: 1; display: flex; align-items: center; height: 18px; }
 .dtp-diverge-half { flex: 1; height: 100%; display: flex; background: var(--surface-2); }
 .dtp-diverge-half.left { justify-content: flex-end; border-radius: 999px 0 0 999px; }
 .dtp-diverge-half.right { justify-content: flex-start; border-radius: 0 999px 999px 0; }
-.dtp-diverge-center { width: 2px; height: 20px; background: var(--border); flex-shrink: 0; border-radius: 1px; }
+.dtp-diverge-center { width: 2px; height: 26px; background: var(--border); flex-shrink: 0; border-radius: 1px; }
 .dtp-diverge-fill { height: 100%; background-image: linear-gradient(180deg, rgba(255,255,255,0.30), rgba(255,255,255,0) 65%); box-shadow: 0 1px 3px rgba(20,24,31,0.18); }
 .dtp-diverge-fill.side-left { border-radius: 999px 0 0 999px; }
 .dtp-diverge-fill.side-right { border-radius: 0 999px 999px 0; }
 .dtp-diverge-fill.tp { background-color: var(--up); }
 .dtp-diverge-fill.sl { background-color: var(--down); }
 .dtp-diverge-fill.pending { background-color: var(--flat); }
-.dtp-scale-row { margin-top: 1px; }
-.dtp-scale-half { position: relative; flex: 1; height: 11px; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.6; }
+.dtp-scale-row { margin-top: 2px; }
+.dtp-scale-half { position: relative; flex: 1; height: 13px; font-size: 0.6rem; color: var(--ink-dim); font-family: "IBM Plex Mono", monospace; opacity: 0.6; }
 .dtp-scale-half span { position: absolute; top: 0; white-space: nowrap; }
 @media (max-width: 480px) {
   .dtp-total-lbl { font-size: 0.66rem; }
@@ -198,12 +194,8 @@ h2.section {
   font-weight: 600; margin: 30px 0 12px;
 }
 
-/* auto-fit (khong phai auto-fill): auto-fill de lai cot rong "ma" khi so the
-   it hon so cot toi da vua khung hinh (vd 2 the MUA tren man rong 1080px du
-   cho 3 cot) - nhin nhu khoang trong thua - anh Dat phan anh 23/09/2026.
-   auto-fit gop cot rong lai, cac the con lai tu gian ra lap day khung. */
 .cards {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px;
 }
 .card {
   background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
@@ -430,35 +422,6 @@ table.hist thead th:nth-child(1), table.hist thead th:nth-child(2) { z-index: 3;
   background: var(--surface); color: var(--ink); font-family: "Be Vietnam Pro", sans-serif;
   font-size: 0.8rem;
 }
-
-/* Desktop rong (>=900px) - CHI o day: gom cac hang dieu khien lich su tin
-   hieu (pill khoang thoi gian + tu-den ngay, pill trang thai + o tim ma) ve
-   chung 1 dong cho do choan cho, va thu gon vai cot bang de cot D-Trader
-   khong bi day khuat - anh Dat phan anh 23/09/2026. KHONG dong den layout
-   dien thoai/man hinh hep (< 900px) - van giu nguyen nhu cu, xep chong tung
-   dong + cuon ngang bang nhu thiet ke ban dau. */
-@media (min-width: 900px) {
-  .hist-date-filter {
-    display: flex; align-items: center; flex-wrap: wrap; gap: 16px 20px;
-  }
-  .hist-range-btns {
-    display: flex; flex-wrap: nowrap; gap: 5px; margin-bottom: 0; flex: none;
-  }
-  .hist-range-btn { padding: 6px 10px; }
-  .hist-range-custom { margin-bottom: 0; flex: none; }
-
-  .hist-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; }
-  .hist-status-btns { margin-bottom: 0; flex: none; }
-  .hist-search { max-width: 200px; flex: none; }
-
-  /* Thu gon Ma/Tin hieu (2 cot ghim) + Gia gan nhat xuong 2 dong (nhu cot
-     Ngay khuyen nghi da lam) - nhuong cho de D-Trader (cot cuoi) khong bi
-     cuon khuat tren desktop. */
-  table.hist th:nth-child(1), table.hist td:nth-child(1) { width: 42px; min-width: 42px; }
-  table.hist th:nth-child(2), table.hist td:nth-child(2) { left: 42px; width: 66px; min-width: 66px; }
-  table.hist td:nth-child(7) .lv { display: block; margin-top: 1px; }
-}
-
 .th-sort {
   background: none; border: none; padding: 0; margin: 0; font: inherit; color: inherit;
   cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
@@ -518,7 +481,7 @@ footer.disclaimer {
   <header class="top">
     <h1>Bảng <span class="accent">Tín Hiệu</span></h1>
     <div class="sync-tag">
-      Quét lúc <b class="mono">11:30 23/09/2026</b> · <span class="src">nguồn: Windows</span>
+      Quét lúc <b class="mono">13:16 23/09/2026</b> · <span class="src">nguồn: Windows</span>
       <button class="refresh-btn" onclick="lamMoi()" title="Tải lại trang ngay, bỏ qua cache">
         <span class="rf-icon">↻</span> Làm mới
       </button>
@@ -536,30 +499,30 @@ footer.disclaimer {
 
   <div id="tabTinHieu" class="tab-panel active">
     <section class="summary">
-      <div class="stat mua"><div class="n">11</div><div class="lbl">Mua</div></div>
-      <div class="stat theodoi"><div class="n">149</div><div class="lbl">Theo dõi sát</div></div>
+      <div class="stat mua"><div class="n">10</div><div class="lbl">Mua</div></div>
+      <div class="stat theodoi"><div class="n">150</div><div class="lbl">Theo dõi sát</div></div>
     </section>
 
     <h2 class="section">Tín hiệu MUA MỚI (2 / 161 mã)</h2>
-    <p class="tracked-note">9 mã khác đang có vị thế MUA mở (đã khuyến nghị từ trước, đang theo dõi tới khi chạm chốt lời/cắt lỗ) — không hiển thị lại ở đây, xem tab "Lịch sử tín hiệu".</p>
+    <p class="tracked-note">8 mã khác đang có vị thế MUA mở (đã khuyến nghị từ trước, đang theo dõi tới khi chạm chốt lời/cắt lỗ) — không hiển thị lại ở đây, xem tab "Lịch sử tín hiệu".</p>
     <div class="cards">
       
     <article class="card mua">
       <header class="card-head">
         <div class="ticker">HID</div>
         <div class="price-block">
-          <span class="price">4.97</span>
-          <span class="chg down">-0.36</span>
+          <span class="price">4.98</span>
+          <span class="chg down">-0.35</span>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">1.31MM/1.56MM</span>
+          <span class="lv" style="font-size:0.68rem">1.55MM/1.56MM</span>
           <span class="lv" style="font-size:0.68rem" title="Thoi diem BAT DAU chuoi tin hieu MUA lien tuc hom nay - co dinh, khong doi theo moi lan quet">Từ 09:25</span>
         </div>
       </header>
-      <div class="consensus">7/8 tăng · 0/8 giảm</div>
-      <div class="fa-line">Điểm FA (tham khảo)<span class="fa-chip mid">55</span></div>
-      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="up">100%</b><span class="dim"> (100 lệnh mẫu)</span></div>
+      <div class="consensus">6/8 tăng · 1/8 giảm</div>
+      <div class="fa-line">Điểm FA (tham khảo)<span class="fa-chip mid">56</span></div>
+      <div class="flow"><span class="dot pulse"></span>KL đột biến — mua chủ động <b class="down">42%</b><span class="dim"> (100 lệnh mẫu)</span></div>
       
         <div class="tradeplan">
           <div class="tp-item"><span class="tp-label">Entry</span><span class="tp-val">4.92</span><span class="tp-sub">MA200</span></div>
@@ -580,12 +543,12 @@ footer.disclaimer {
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
           <span class="badge mua">MUA</span>
-          <span class="lv" style="font-size:0.68rem">950M/1.30MM</span>
+          <span class="lv" style="font-size:0.68rem">1.02MM/1.30MM</span>
           <span class="lv" style="font-size:0.68rem" title="Thoi diem BAT DAU chuoi tin hieu MUA lien tuc hom nay - co dinh, khong doi theo moi lan quet">Từ 09:25</span>
         </div>
       </header>
       <div class="consensus">5/8 tăng · 0/8 giảm</div>
-      
+      <div class="fa-line">Điểm FA (tham khảo)<span class="fa-chip mid">65</span></div>
       
       
         <div class="tradeplan">
@@ -603,14 +566,14 @@ footer.disclaimer {
     <h2 class="section">Tình trạng hệ thống</h2>
     <div class="status-panel">
       <div class="status-row">
-        <span class="sd bad"></span>
+        <span class="sd ok"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-09-23 12:50:12 — Ngoài giờ giao dịch (đang chờ)</span>
+        <span class="v">2026-09-23 13:16:16 — Đã quét</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
         <span class="k">Mã quét thành công</span>
-        <span class="v">— OK · — lỗi</span>
+        <span class="v">160 OK · 1 lỗi</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -745,7 +708,7 @@ footer.disclaimer {
           <td>12.32</td>
           <td>11.63</td>
           <td>12.82</td>
-          <td>12.45 <span class="lv">(23/09 11:30)</span></td>
+          <td>12.4 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="11:24 23/09/2026: Bối cảnh: VNINDEX điều chỉnh nhẹ, không phải yếu tố chính. Cấu trúc: đi ngang tích luỹ trong biên 10.600-11.600 suốt tháng 7-8, breakout đầu tháng 9 từ ~11.000 tăng ổn định lên đỉnh 12.800 (16-19/09), điều chỉnh về vùng 12.000-12.100 (19-22/09, cao hơn breakout cũ ~11.000 - là 1 HL rõ ràng), rồi bật tăng liên tiếp vài phiên lên hiện tại 12.500 - mẫu hình HH+HL, uptrend còn nguyên. Vùng giá: giá đã tiến sát trở lại vùng đỉnh cũ 12.700-12.800, đang test lại kháng cự chứ không còn thật sự &#x27;gần vùng hỗ trợ&#x27; nữa. Price Action + Volume: nến hôm nay (O12.400 H12.700 L12.400 C12.500) mở cửa bằng đáy ngày, tăng lên tới 12.700 trong phiên nhưng bị bán trả lại phần lớn, đóng cửa chỉ ở khoảng 33% biên độ ngày (12.400-12.700) - đây là bóng trên dài, cho thấy có lực bán/chốt lời tại vùng kháng cự 12.700-12.800 (trùng đỉnh cũ 16-19/09), KHÔNG phải nến đóng cửa gần HIGH xác nhận bên mua áp đảo hoàn toàn mà là dấu hiệu giằng co tại kháng cự. Khối lượng hôm nay chưa có đột biến để xác nhận phá kháng cự. Kịch bản: (A) nếu phiên tới đóng cửa vượt hẳn 12.700-12.800 kèm volume tăng, xác nhận phá kháng cự, đó sẽ là điểm vào tốt hơn; (B) nếu giá bị đẩy lùi khỏi vùng 12.700-12.800 và quay về dưới hỗ trợ HL 12.000, coi như nhịp bật vừa qua chỉ là hồi kỹ thuật trong vùng tích luỹ. Checklist: khung Daily; đỉnh gần nhất 12.800, đáy/HL gần nhất ~12.000-12.100; đang HH/HL - uptrend; vùng cần theo dõi: kháng cự 12.700-12.800 (đang bị test), hỗ trợ 12.000; cấu trúc breakout đầu tháng 9 vẫn giữ nhưng đang gặp lực cản tại đỉnh cũ, CHƯA có xác nhận phá kháng cự kèm volume; nến gần nhất có bóng trên dài, đóng cửa KHÔNG gần HIGH - chưa thể kết luận bên mua hoàn toàn áp đảo; có kịch bản B rõ ràng. =&gt; Giá đang test lại kháng cự cũ với nến do dự (bóng trên dài), CHƯA có xác nhận phá vỡ rõ ràng kèm volume - CHƯA đủ điều kiện, cần chờ thêm.">⏳ Chưa đủ đk</span></td>
@@ -756,7 +719,7 @@ footer.disclaimer {
           <td>20.25</td>
           <td>16.69</td>
           <td>23</td>
-          <td>20.95 <span class="lv">(23/09 11:30)</span></td>
+          <td>20.85 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="11:24 23/09/2026: Bối cảnh: VNINDEX điều chỉnh nhẹ, không phải yếu tố chính - vấn đề chính nằm ở chính mã này. Cấu trúc: SSB vừa trải qua 1 đợt tăng parabol rất mạnh từ ~15.000 (đầu tháng 9) lên đỉnh 24.400 (18-19/09) trong khoảng 2 tuần, RSI đã lên tới gần 80 (cực kỳ quá mua) trước khi đảo chiều. Vùng giá + Price Action/Volume: ngay sau đỉnh, giá đã GIẢM MẠNH liên tục về vùng hiện tại 20.850 (mất khoảng -14,6% từ đỉnh chỉ trong vài phiên), nến hôm nay là nến do dự dạng bóng dài cả 2 đầu (O20.850 H21.600 L20.400 C20.850) cho thấy tranh chấp mạnh chứ chưa có dấu hiệu ổn định trở lại. Đây là cấu trúc ĐÃ BỊ PHÁ VỠ theo hướng xấu - từ tăng nóng chuyển sang giảm mạnh, chưa hình thành nền tích luỹ mới. Kịch bản: (A) nếu giá ổn định lại quanh vùng hiện tại và tạo nền tích luỹ vài phiên tới, có thể xem xét lại sau; (B) nếu giá tiếp tục giảm, đây là 1 đợt điều chỉnh sâu sau đỉnh parabol, chưa có đáy rõ ràng để xác định hỗ trợ mới. Checklist: đỉnh gần nhất vừa lập 24.400 (18-19/09); cấu trúc đã chuyển từ tăng sang đảo chiều ngay sau đỉnh; xu hướng hiện tại là GIẢM ngắn hạn sau đỉnh parabol; không có vùng hỗ trợ nào được xác nhận giữ vững ở gần; cấu trúc tăng đã bị phá vỡ hoàn toàn, không phải breakout được volume xác nhận theo hướng mua; nến gần nhất là nến do dự, chưa nghiêng hẳn về bên mua; kịch bản B (tiếp tục giảm) là kịch bản đáng lo ngại đang hiện hữu. =&gt; Cấu trúc tăng đã bị phá vỡ bởi nhịp giảm mạnh sau đỉnh parabol, hoàn toàn không phải điểm vào - CHƯA đủ điều kiện.">⏳ Chưa đủ đk</span></td>
@@ -767,7 +730,7 @@ footer.disclaimer {
           <td>14.33</td>
           <td>14.08</td>
           <td>14.83</td>
-          <td>14 <span class="lv">(23/09 11:30)</span></td>
+          <td>14 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="14:51 22/09/2026: Bối cảnh: VNINDEX vừa trải qua hai nhịp điều chỉnh liên tiếp trong tháng 9 (từ đỉnh khoảng 1.845 điểm đầu tháng giảm về vùng 1.780-1.790 điểm quanh 08-11/09, hồi phục rồi lại giảm về vùng 1.790 điểm quanh 21/09), hôm nay 22/09 bật tăng mạnh 1,13% lên 1.820,08 điểm nhưng vẫn còn thấp hơn đỉnh gần nhất. Bối cảnh chung đang trong giai đoạn hồi phục sau điều chỉnh, chưa xác nhận xu hướng tăng rõ ràng, cần thận trọng hơn bình thường theo đúng tinh thần bài học về rủi ro hệ thống.
@@ -792,7 +755,7 @@ Kết luận: Cấu trúc trung hạn của SHI vẫn là sideway kéo dài chí
           <td>24.05</td>
           <td>22.5</td>
           <td>24.6</td>
-          <td>23.65 <span class="lv">(23/09 11:30)</span></td>
+          <td>23.65 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="11:24 23/09/2026: Bối cảnh: VNINDEX điều chỉnh nhẹ, không phải yếu tố chính. Cấu trúc: xu hướng tăng mạnh và khá liên tục từ đáy ~19.000 (đầu tháng 9) lên đỉnh 24.500 (hôm qua 22/09) - tăng dốc gần như không nghỉ, HH+HL nhưng chưa có nhịp điều chỉnh thật sự nào để xác định vùng hỗ trợ gần, RSI 68-70, khá nóng. Vùng giá: giá hôm nay giảm về 23.650 (-1,87%), là nến giảm đáng chú ý đầu tiên sau chuỗi tăng, nhưng vẫn cách vùng hỗ trợ entry gợi ý (S1 ~23.283) và xa hơn nữa mới tới MA20 (cắt lỗ, ~21.498). Price Action + Volume: nến hôm nay (O23.900 H24.000 L23.550 C23.650) đóng cửa gần LOW trong ngày (khoảng 22% biên độ) - bên bán đang tạm chiếm ưu thế phiên này, khối lượng ở mức bình thường. Kịch bản: (A) nếu giá tiếp tục điều chỉnh về sát S1 (~23.283) và xuất hiện nến bật lên kèm volume, đó sẽ là điểm vào hợp lý; (B) nếu đà giảm mạnh hơn dự kiến, cần xem lại cấu trúc HL. Checklist: đỉnh gần nhất 24.500; chưa có HL rõ ràng mới hình thành do chưa điều chỉnh đủ; xu hướng tăng nhưng đang trong nhịp điều chỉnh đầu tiên; vùng cần theo dõi S1 ~23.283; cấu trúc tăng chưa bị phá; nến gần nhất đóng gần LOW - bên bán tạm chiếm ưu thế; có kịch bản B. =&gt; Vừa xuất hiện nến giảm đóng cửa gần LOW sau chuỗi tăng mạnh không nghỉ, giá chưa về tới vùng hỗ trợ entry gợi ý - CHƯA đủ điều kiện.">⏳ Chưa đủ đk</span></td>
@@ -803,7 +766,7 @@ Kết luận: Cấu trúc trung hạn của SHI vẫn là sideway kéo dài chí
           <td>45.17</td>
           <td>42.37</td>
           <td>47.03</td>
-          <td>45.9 <span class="lv">(23/09 11:30)</span></td>
+          <td>44.8 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="14:11 22/09/2026: Bối cảnh: VNINDEX (khung Daily) đang trong nhịp hồi phục nhẹ (+0,6% hôm nay, quanh 1.810 điểm) sau một đợt điều chỉnh từ đỉnh gần nhất khoảng 1.880 (đầu tháng 9) xuống vùng 1.780-1.800 (giữa tháng 9), hiện vẫn ở dưới đỉnh gần đây, chưa xác nhận một xu hướng tăng rõ ràng mà đúng hơn là đang dao động trong một biên độ rộng. Đây là bối cảnh trung tính, không phải tín hiệu rủi ro hệ thống rõ rệt như khi thị trường giảm mạnh, nhưng cũng chưa có lực đẩy chung mạnh mẽ ủng hộ. Riêng DCL lại đang tăng rất mạnh so với chỉ số chung (khoảng +6% trong phiên hôm nay so với mức tăng khiêm tốn của VNINDEX), cho thấy sức mạnh tương đối tốt.
@@ -824,7 +787,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>87.97</td>
           <td>78.08</td>
           <td>90.23</td>
-          <td>85.7 <span class="lv">(23/09 11:30)</span></td>
+          <td>85.3 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="15:23 21/09/2026: Boi canh: VNINDEX dieu chinh duoi dinh gan day, dong cua -0.88% hom nay - nhung GAS lai tang +0.68% cung ngay, cho thay suc manh tuong doi ro ret so voi thi truong chung (dap ung yeu cau cao hon cua Bai hoc 1). Cau truc: day thang 8 quanh 62-65, sau do tang manh lien tuc len vung tich luy 82-86 (dau-giua thang 9, day sau ~82-84 giu vung khong pha thap hon day truoc = HL ro rang), roi breakout manh ngay 15/9 vuot han 86 len toi 91.7 kem khoi luong dot bien ro ret = HH xac nhan. Sau breakout, gia dieu chinh nhe ve 87-90 tren khoi luong THAP DAN (lanh manh, khong phai phan phoi) - gia giu vung tren vung breakout cu (~86), KHONG roi nguoc lai vung tich luy truoc do = breakout giu vung, khong phai breakout gia. Vung gia: gia hien tai 88.6 dang o vung ho tro gan (vung breakout cu ~86-88), khong phai duoi gia giua khoang trong. Price Action + Volume: nen hom nay dong o nua tren than nen (O87.5/H89.7/L87.4/C88.6), tang +0.68%, khoi luong khong dot bien (thap hon TB10, phu hop voi ngay dieu chinh nhe tich cuc). Kich ban A: neu giu tren vung ho tro 86-87, co the tiep tuc huong toi dinh 91.7 cu. Kich ban B: neu gia pha xuong duoi ~85-86 (vung tich luy cu), breakout bi vo hieu hoa, can thoat. Entry theo he thong: 87.97 (P), cat lo 78.08 (MA50, cach entry ~11.2% - khong qua sat, phu hop bien do dao dong). Khong co lich su cham SL gan day cho GAS trong sl_history_dataset.json. KET LUAN: da xac nhan - cau truc HH+HL ro rang, breakout co volume xac nhan va giu vung, the hien suc manh tuong doi tot hon han VNINDEX.">✅ Đã xác nhận</span></td>
@@ -835,7 +798,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>44.97</td>
           <td>42.14</td>
           <td>48.07</td>
-          <td>45.7 <span class="lv">(23/09 11:30)</span></td>
+          <td>45.65 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="11:24 23/09/2026: Bối cảnh: VNINDEX đang điều chỉnh nhẹ quanh 1.819, trung tính, không phải yếu tố chính. Cấu trúc: nhịp tăng mạnh từ đáy ~34.000 (cuối tháng 7) lên đỉnh ~45.700 (giữa tháng 9), sau đó đi ngang tích luỹ trong biên ~43.000-45.700 gần 2 tuần với volume co hẹp dần - hình thành 1 vùng kháng cự kép (double top tiềm ẩn) quanh 45.700 đã bị thử và đẩy lui ít nhất 1 lần trước đó (theo log phiên trước lúc 10:35 hôm nay, giá cũng test đúng vùng này ở mức 45.550 và bị đẩy lui). Vùng giá: giá hiện tại (45.800-45.900) đã nhích lên cao hơn đỉnh kháng cự cũ 45.700 một chút trong phiên (cao nhất trong phiên đạt 46.150), nhưng đây vẫn là dữ liệu TRONG PHIÊN (phiên sáng HOSE chưa đóng cửa lúc xem xét), mức vượt qua còn rất mỏng (~0,4% trên đỉnh cũ) và CHƯA có nến đóng cửa (end-of-day) xác nhận phá vỡ dứt khoát. Price Action + Volume: giá đang test lại đúng vùng kháng cự kép 45.700 lần thứ 2 trong buổi sáng, khối lượng chưa cho thấy đột biến rõ rệt so với các phiên tích luỹ trước để xác nhận đây là breakout thật (khác với chỉ là dao động trong biên tích luỹ). Theo đúng yêu cầu D_TRADER_METHOD (breakout phải được volume xác nhận VÀ giá GIỮ VỮNG sau breakout, không phải bị đẩy lui ngay), việc giá mới nhích nhẹ qua đỉnh cũ trong phiên, ngay tại đúng vùng vừa bị từ chối trước đó, là CHƯA đủ bằng chứng để kết luận phá vỡ thành công - cần chờ nến ngày đóng cửa thật sự vượt hẳn 45.700-46.000 kèm volume tăng rõ rệt. Kịch bản: (A) nếu giá đóng cửa cuối ngày vượt dứt khoát 45.700-46.000 kèm volume tăng mạnh, xác nhận breakout khỏi vùng tích luỹ, cấu trúc HH+HL được củng cố, mục tiêu hướng R3 ~47.817; (B) nếu giá bị đẩy lui lại từ vùng 45.700-46.150 lần thứ 2 này (double top), giá có thể quay lại vùng tích luỹ 43.000-45.000, cắt lỗ tham chiếu dưới MA200 (~42.167). Checklist: khung Daily; đỉnh kháng cự kép ~45.700, đáy vùng tích luỹ ~43.000; đang test kháng cự lần 2, chưa xác nhận HH mới; xu hướng tăng trung hạn còn nguyên nhưng ngắn hạn đang giằng co tại kháng cự; vùng cần theo dõi 45.700-46.000 (kháng cự đang test); cấu trúc CHƯA có breakout được volume xác nhận và giữ vững - đây là điểm còn thiếu (mới là dữ liệu trong phiên, chưa đóng cửa); nến hiện tại (trong phiên) đang ở phần trên biên độ nhưng chưa phải đóng cửa cuối ngày; có kịch bản B (double top) rõ ràng. =&gt; Vẫn đang test lại đúng vùng kháng cự kép vừa bị từ chối cách đây chưa đầy 1 giờ, mức vượt qua còn quá mỏng và chưa có nến đóng cửa xác nhận - CHƯA đủ điều kiện, cần chờ đóng cửa phiên xác nhận rõ ràng hơn.">⏳ Chưa đủ đk</span></td>
@@ -846,7 +809,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>69.53</td>
           <td>66.13</td>
           <td>71.23</td>
-          <td>68.9 <span class="lv">(23/09 11:30)</span></td>
+          <td>69.1 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="14:51 21/09/2026: Downtrend ro thang 4-7 (86.000-&gt;56.000). Tu day thang 7, cau truc HH+HL ro rang: day 56.000-&gt;62.000(T8)-&gt;63.500(giua T9); dinh 64.500(T8)-&gt;66.700(T9)-&gt;71.600(dinh phien). Gia pha vung khang cu 66.700-67.000 bang chuoi nen tang lien tiep, dong cua cuoi phien +2.34% len 70.100, giu vung tren vung breakout du co dieu chinh nhe trong phien va VNINDEX giam -1.8% ca ngay - xac nhan suc manh tuong doi. Khong co lich su cham cat lo gan day. Ho tro gan: vung breakout 67.000-68.000 (~-4%); ho tro cau truc 63.500-64.000 (~-9%). Checklist: du tat ca muc -&gt; DA_XAC_NHAN. Kich ban B: mat vung 67.000 -&gt; can theo doi sat; mat 63.500 -&gt; cau truc HH/HL bi pha.">✅ Đã xác nhận</span></td>
@@ -857,7 +820,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>31</td>
           <td>29</td>
           <td>32.4</td>
-          <td>31.65 <span class="lv">(23/09 11:30)</span></td>
+          <td>31.5 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="11:24 23/09/2026: Bối cảnh: VNINDEX điều chỉnh nhẹ, không phải yếu tố chính. Cấu trúc: đáy tăng dần rõ rệt từ 25.600 (giữa tháng 8), breakout mạnh kèm volume lớn lên vùng 30.000-31.700 từ đầu tháng 9, sau đó đi ngang tích luỹ trong biên khoảng 30.300-31.700 suốt gần 2 tuần gần đây, đã có vài lần thử lên vùng đỉnh tích luỹ nhưng chưa bứt hẳn - xác nhận HH+HL, uptrend nhưng đang tích luỹ. Vùng giá: giá hiện 31.450, đang đẩy lên gần đỉnh vùng tích luỹ, gần Pivot entry gợi ý (~31.317) nhưng CHƯA đóng cửa vượt hẳn đỉnh vùng tích luỹ (~31.600-31.700). Price Action + Volume: nến hôm nay (O31.200 H31.500 L30.800 C31.450) đóng cửa gần HIGH trong ngày (khoảng 93% biên độ) - bên mua khá áp đảo phiên này, đây là tín hiệu tích cực cần theo dõi, nhưng vì đã có nhiều lần thử đỉnh vùng tích luỹ trong 2 tuần qua mà chưa phá được, cần thêm 1 phiên đóng cửa vượt hẳn đỉnh vùng tích luỹ kèm volume tăng rõ để xác nhận breakout thật sự (theo đúng yêu cầu D_TRADER_METHOD: breakout phải được volume xác nhận VÀ giữ vững, không phải vừa chạm đỉnh vùng tích luỹ). Kịch bản: (A) nếu phiên tới đóng cửa rõ ràng trên 31.600-31.700 kèm volume tăng, xác nhận tiếp diễn xu hướng tăng, mục tiêu R3 ~32.683; (B) nếu giá bị đẩy lùi lại như các lần trước và về dưới 30.300, tích luỹ có thể kéo dài thêm hoặc chuyển thành điều chỉnh sâu hơn. Checklist: đỉnh vùng tích luỹ ~31.600-31.700, đáy vùng tích luỹ ~30.300; đang tích luỹ trong biên hẹp sau uptrend, chưa rõ phá lên; xu hướng tăng tổng thể; vùng cần theo dõi 30.300 (hỗ trợ)/31.600-31.700 (kháng cự); cấu trúc CHƯA có breakout được volume xác nhận và giữ vững - đây là điểm còn thiếu; nến gần nhất đóng gần HIGH (tích cực) nhưng đơn lẻ; có kịch bản B. =&gt; Thiếu xác nhận breakout thật sự khỏi vùng tích luỹ, CHƯA đủ điều kiện.">⏳ Chưa đủ đk</span></td>
@@ -868,7 +831,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>7.28</td>
           <td>6.92</td>
           <td>7.62</td>
-          <td>7.2 <span class="lv">(23/09 11:30)</span></td>
+          <td>7.15 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="11:24 23/09/2026: Bối cảnh: VNINDEX điều chỉnh nhẹ, chưa phải rủi ro hệ thống. Cấu trúc: xu hướng tăng rất mạnh và liên tục từ 5.200 (giữa tháng 7) lên đỉnh 7.600 (hôm qua) gần như không có nhịp điều chỉnh đáng kể - dạng bậc thang tăng dốc, RSI đang ở vùng quá mua rõ rệt (74,3). Vùng giá: giá hôm nay giảm về 7.240 (-1,09%), là nến giảm đầu tiên đáng chú ý sau chuỗi tăng nóng, nhưng còn cách khá xa vùng hỗ trợ entry gợi ý (S2 quanh 7.133) và xa cắt lỗ MA20 (6.412, khoảng -10%). Price Action + Volume: nến hôm nay (O7.230 H7.330 L7.200 C7.240) đóng cửa nghiêng về phía dưới thân nến (khoảng 31% biên độ ngày tính từ đáy) - bên bán tạm chiếm ưu thế nhẹ, chưa có dấu hiệu đảo chiều tăng trở lại rõ ràng. Kịch bản: (A) nếu giá điều chỉnh về gần S2 (~7.133) và bật lên kèm volume, đó là điểm vào hợp lý; (B) nếu giá tiếp tục giảm sâu hơn hoặc phá luôn vùng hỗ trợ gần nhất, xu hướng tăng ngắn hạn cần xem lại. Checklist: đỉnh gần nhất 7.600, chưa xác định rõ đáy/HL mới do chưa có nhịp điều chỉnh đủ; xu hướng tăng nhưng đã quá nóng (RSI 74); vùng cần theo dõi S2 ~7.133; cấu trúc chưa bị phá; nến gần nhất đóng cửa nghiêng về bên bán; có kịch bản B. =&gt; Giá đang ở giữa khoảng trống sau nhịp tăng nóng kéo dài, chưa về vùng hỗ trợ, vào lệnh lúc này sẽ là đuổi giá - CHƯA đủ điều kiện.">⏳ Chưa đủ đk</span></td>
@@ -879,7 +842,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>7.51</td>
           <td>7.21</td>
           <td>7.78</td>
-          <td>7.59 <span class="lv">(23/09 11:30)</span></td>
+          <td>7.48 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="11:24 23/09/2026: Bối cảnh: VNINDEX đang điều chỉnh nhẹ từ đỉnh gần đây quanh 1.880 (đầu tháng 9) về khoảng 1.819 hiện tại, RSI trung tính quanh 55, chưa phải nhịp giảm mạnh toàn thị trường. Cấu trúc: đáy tăng dần từ 6.600 (cuối tháng 7) lên 7.000-7.150 (cuối tháng 8) rồi bứt phá mạnh kèm volume đột biến lên đỉnh mới 8.000 (giữa tháng 9) - xác nhận HH+HL, xu hướng tăng. Vùng giá: sau khi lập đỉnh 8.000, giá đang điều chỉnh về 7.610 hôm nay, nằm giữa đỉnh mới và vùng hỗ trợ entry gợi ý (S1 quanh 7.513) - chưa chạm hẳn vùng hỗ trợ. Price Action + Volume: nến hôm nay giảm nhẹ (-0,52%), đóng cửa đúng giữa thân nến (O7.650 H7.690 L7.530 C7.610), khối lượng điều chỉnh các phiên gần đây đã giảm so với phiên bứt phá (điều chỉnh lành mạnh) nhưng CHƯA có nến xác nhận lực mua quay lại tại vùng hỗ trợ. Kịch bản: (A) nếu giá về sát vùng 7.500-7.550 (S1) và xuất hiện nến xanh xác nhận volume, đó sẽ là điểm vào hợp lý, cắt lỗ dưới MA200 (~7.164), chốt lời quanh R2 (~8.037); (B) nếu giá thủng hẳn vùng 7.500 mà không giữ được, xu hướng tăng ngắn hạn cần xem lại. Checklist: khung Daily; đỉnh gần nhất 8.000, đáy/HL gần nhất khoảng 7.000-7.150; đang là HH/HL - uptrend; vùng cần theo dõi 7.500-7.550 (S1); cấu trúc breakout tháng 9 vẫn đang giữ, chưa bị phá; nến gần nhất đóng cửa giữa thân, chưa nghiêng hẳn về bên mua; có kịch bản B rõ ràng. =&gt; Thiếu tiêu chí giá về hẳn vùng hỗ trợ kèm nến xác nhận lực mua, nên CHƯA đủ điều kiện, cần chờ thêm.">⏳ Chưa đủ đk</span></td>
@@ -901,7 +864,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>60.13</td>
           <td>58.43</td>
           <td>61.33</td>
-          <td>59.1 <span class="lv">(23/09 11:30)</span></td>
+          <td>59 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -967,7 +930,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>28.17</td>
           <td>27.13</td>
           <td>29.13</td>
-          <td>27.95 <span class="lv">(23/09 11:30)</span></td>
+          <td>27.95 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="15:23 21/09/2026: Boi canh: VNINDEX dieu chinh -0.88% hom nay, nhung VPB tang manh +3.64% cung ngay - suc manh tuong doi rat tot, dap ung yeu cau Bai hoc 1. Cau truc: tu day thang 8 (~24.8-25), VPB tang theo cau truc HH+HL kha ro qua 6 tuan (day 27.3-27.4 giua thang 9 cao hon day cuoi thang 8 quanh 26.0-26.1; dinh 18/9 test len toi 29.0 noi phien, cao hon dinh dau thang 9 quanh 28.15). Tuy nhien phien 18/9 gia choc len 29.0 roi bi tu choi manh, dong cua lui ve ~27.85 (bong tren rat dai) - chua pha duoc han dinh 29.0 nay. Vung gia + Price Action: nen hom nay tang manh dong cua NGAY TAI DINH phien (O27.85/H28.45/L27.6/C28.45, +3.64%), khoi luong dot bien ro ret so TB10 (33.29tr so 22.16tr, cot KL_dot_bien=Co) - luc mua rat tot, nhung ty le mua chu dong chi 46% (hoi thap, khong ap dao). Gia 28.45 van dang o DUOI vung dinh 29.0 vua bi tu choi 3 phien truoc - day la duoi gia len gan vung khang cu cu vua bi tu choi, KHONG phai vao lenh tai vung ho tro. Rui ro quan trong khac: chart TradingView cua VPB co 1 badge tron cam ky hieu &#x27;S&#x27; dung vao ngay 24/9/2026 - chi con 3 phien nua - cho thay sap co su kien chia tach/thuong co phieu. Theo dung tinh than Bai hoc 2 (du day la truong hop khac ve ban chat - lan nay la su kien sap toi chu khong phai loi du lieu qua khu), 1 su kien corporate action sap dien ra ngay sau tin hieu MUA lam cho cac muc cat lo/entry do he thong tinh toan (dua tren gia chua dieu chinh) co the tro nen khong dang tin cay chi sau vai phien - day la 1 yeu to Kich ban B can can nhac nghiem tuc, khong the bo qua. Kich ban: neu VPB vuot dut khoat qua 29.0 kem volume tot (khong bi anh huong boi su kien chia tach sap toi) moi nen coi la diem vao ro rang; hien tai van dang duoi gia gan khang cu cu, kem rui ro corporate action can ke. KET LUAN: chua du dieu kien - du nen hom nay rat manh va co suc manh tuong doi tot, day la diem duoi gia gan khang cu vua bi tu choi chu khong phai diem vao tai vung ho tro ro rang, cong them rui ro su kien chia tach co phieu chi con 3 phien nua khien muc cat lo/entry do he thong de xuat kem tin cay.">⏳ Chưa đủ đk</span></td>
@@ -989,7 +952,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>37.3</td>
           <td>35.3</td>
           <td>39.3</td>
-          <td>36.6 <span class="lv">(23/09 11:30)</span></td>
+          <td>36.45 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="13:00 21/09/2026: Sau downtrend thang 4-8 (45.000-&gt;32.500), gia hoi phuc len dinh ~39.500 (giua T9) roi bat dau dieu chinh giam dan (39.500-&gt;38.700-&gt;hom nay 37.000), co dau hieu tao dinh sau thap hon (LH) trong ngan han. Nen HOM NAY giam -1.07%, dong cua 37.000 gan LOW (36.850) chu khong gan HIGH - ben ban dang chiem uu the ro rang trong phien, nguoc han voi tin hieu MUA. Checklist: khong dat muc &#x27;ben mua chiem uu the&#x27; -&gt; CHUA DU DIEU KIEN.">⏳ Chưa đủ đk</span></td>
@@ -1022,7 +985,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>19.47</td>
           <td>18.32</td>
           <td>20.62</td>
-          <td>19.15 <span class="lv">(23/09 11:30)</span></td>
+          <td>19.1 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -1033,7 +996,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>10.6</td>
           <td>9.31</td>
           <td>11.85</td>
-          <td>11.2 <span class="lv">(23/09 11:30)</span></td>
+          <td>11.15 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="11:24 23/09/2026: Bối cảnh: VNINDEX điều chỉnh nhẹ, không phải yếu tố quyết định. Cấu trúc: HII có nền tích luỹ 9.000-10.000 kéo dài khoảng 1 tháng (cuối tháng 8-giữa tháng 9) sau nhịp bứt phá đầu tháng 8 (từ 6.000 lên 9.000-9.500 kèm volume rất lớn), sau đó breakout tiếp tục giữa tháng 9 lên vùng 10.000-11.650 hiện tại mà gần như không có nhịp điều chỉnh đáng kể nào - xu hướng tăng HH+HL nhưng đang ở trạng thái tăng nóng, RSI 70-71 (quá mua). Vùng giá: giá hiện 11.150, vẫn gần sát vùng đỉnh ngắn hạn (11.650 hôm qua), chưa có nhịp điều chỉnh về vùng hỗ trợ nào để xác nhận. Price Action + Volume: nến hôm nay (O11.150 H11.450 L11.150 C11.150) mở cửa bằng đáy ngày, tăng lên 11.450 trong phiên nhưng bị bán trả lại toàn bộ, đóng cửa NGAY TẠI ĐÁY ngày (0% biên độ) - đây là nến bóng trên dài dạng cảnh báo chốt lời tại vùng đỉnh, không phải tín hiệu bên mua áp đảo. Kịch bản: (A) nếu giá điều chỉnh lành mạnh về vùng hỗ trợ S1 (~10.933) hoặc quanh 10.500-10.800 và bật lên kèm volume, đó sẽ là điểm vào tốt hơn; (B) nếu giá điều chỉnh sâu hơn dự kiến sau tín hiệu cảnh báo hôm nay, cần xem lại cấu trúc HL gần nhất. Checklist: đỉnh gần nhất 11.650; chưa xác định rõ đáy/HL mới vì chưa có nhịp điều chỉnh; xu hướng tăng nhưng đã tăng nóng; vùng cần theo dõi S1 ~10.933; cấu trúc breakout giữa tháng 9 vẫn giữ nhưng chưa test lại; nến gần nhất đóng cửa tại LOW - cảnh báo bên bán, không phải bên mua chiếm ưu thế; có kịch bản B. =&gt; Giá đang ở vùng đỉnh ngắn hạn với nến cảnh báo chốt lời, chưa có nhịp điều chỉnh về hỗ trợ để xác nhận điểm vào - CHƯA đủ điều kiện.">⏳ Chưa đủ đk</span></td>
@@ -1044,7 +1007,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>38.45</td>
           <td>37.2</td>
           <td>39.5</td>
-          <td>38.45 <span class="lv">(23/09 11:30)</span></td>
+          <td>38.4 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="10:35 23/09/2026: Bối cảnh VNINDEX (khung Daily): chỉ số đóng cửa quanh 1.822 điểm, tăng nhẹ +0,3% phiên gần nhất, vẫn thấp hơn đỉnh gần đây quanh 1.880 (đầu-giữa tháng 9/2026). Thị trường vừa trải qua một đợt điều chỉnh rõ rệt từ đỉnh đó xuống vùng đáy khoảng 1.780-1.790 (giữa tháng 9), sau đó hồi phục nhưng hai lần thử lại vùng 1.840-1.850 đều bị đẩy lui, hiện đang đi ngang trong biên độ rộng 1.780-1.850 khoảng ba tuần qua. Đây là bối cảnh trung tính-thận trọng: chưa có tín hiệu điều chỉnh mạnh toàn thị trường như giai đoạn 07-11/09 hay 17-18/09 (theo D_TRADER_LESSONS_LEARNED.md, Bài học 1), nhưng cũng chưa xác nhận được xu hướng tăng rõ ràng của cả thị trường (chưa phá đỉnh 1.880), nên D-Trader giữ tiêu chuẩn xác nhận ở mức bình thường đến hơi thận trọng, không hạ chuẩn cho bất kỳ mã nào.
@@ -1069,7 +1032,7 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
           <td>22.78</td>
           <td>21.68</td>
           <td>23.88</td>
-          <td>22.9 <span class="lv">(23/09 11:30)</span></td>
+          <td>22.8 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="15:23 21/09/2026: Boi canh: VNINDEX dang dieu chinh duoi dinh gan day (dinh ~1900 dau/giua thang 9, hien 1799.67, -0.88% hom nay) nen can doi hoi suc manh tuong doi ro ret hon binh thuong (Bai hoc 1). Cau truc: DPM dang trong downtrend dai han tu dinh ~36 (thang 3) giam ve vung 21.9-23.8 hien tai (~-35%), 4-6 tuan gan day di ngang tich luy o day, co dau hieu day sau cao hon day truoc (~21.7 cuoi thang 8 -&gt; ~22.05 giua thang 9) nhung dinh gan bang nhau (~23.4-23.8 dau va giua thang 9) - CHUA du de goi la uptrend ro rang (moi chi co HL, chua co HH xac nhan). Vung gia: gia hien tai 22.8 dang o giua vung tich luy 21.9-23.8, khong phai dang test ho tro, khong phai vua breakout. Price Action + Volume: nen hom nay dong cua giam nhe -0.22%, khoi luong thap hon TB10 phien (2.89tr so 4.01tr), khong co tin hieu dot bien, khong co breakout khoi khang cu ~23.4-23.8 kem volume xac nhan. Kich ban: neu pha duoc khang cu 23.4-23.8 kem volume tot moi co the coi la diem vao hop le; hien tai gia lung lo giua vung, chua co diem vao ro rang. KET LUAN: chua du dieu kien - cau truc moi chi la tich luy o day downtrend dai han, chua co breakout xac nhan, VNINDEX cung khong ung ho.">⏳ Chưa đủ đk</span></td>
@@ -1080,7 +1043,7 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
           <td>33.35</td>
           <td>31.7</td>
           <td>35</td>
-          <td>33.7 <span class="lv">(23/09 11:30)</span></td>
+          <td>33.7 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="11:24 23/09/2026: Bối cảnh: VNINDEX điều chỉnh nhẹ, không phải yếu tố chính. Cấu trúc: đáy tăng dần rõ (29.700 cuối tháng 7 → 31.900-32.000 cuối tháng 8 → ~32.300 đầu-giữa tháng 9), đỉnh tăng dần (33.000 → 33.900 → 34.300 giữa tháng 9) - xác nhận HH+HL, uptrend. Vùng giá: giá hiện 33.700, đang điều chỉnh nhẹ từ đỉnh 34.300, chưa về tới vùng hỗ trợ entry gợi ý S1 (~33.300). Price Action + Volume: nến hôm nay (O33.950 H34.000 L33.600 C33.700) giảm nhẹ (-0,74%), đóng cửa nghiêng về phía dưới thân nến (khoảng 25% biên độ ngày), khối lượng bình thường, chưa có nến đảo chiều/xác nhận lực mua quay lại tại vùng hỗ trợ. Kịch bản: (A) nếu giá về sát S1 (~33.300) và bật lên kèm volume, đó là điểm vào hợp lý, cắt lỗ dưới MA50 (~31.566); (B) nếu giá thủng luôn S1 mà không giữ, cần xem lại cấu trúc HL gần nhất. Checklist: đỉnh gần nhất 34.300, đáy/HL gần nhất ~32.300; đang HH/HL - uptrend; vùng cần theo dõi S1 ~33.300; cấu trúc chưa bị phá; nến gần nhất đóng cửa nghiêng về bên bán; có kịch bản B. =&gt; Giá chưa về hẳn vùng hỗ trợ, chưa có nến xác nhận - CHƯA đủ điều kiện.">⏳ Chưa đủ đk</span></td>
@@ -1201,7 +1164,7 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
           <td>77.9</td>
           <td>74.95</td>
           <td>81.4</td>
-          <td>77.6 <span class="lv">(23/09 11:30)</span></td>
+          <td>77.7 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="13:00 21/09/2026: Uptrend rat deu dan, khoe manh tu thang 6 den nay (68.000-&gt;79.000, kieu bac thang HH+HL lien tuc qua nhieu thang, khong tang nong bat thuong). Tuy nhien nen HOM NAY giam -1.66%, dong cua 76.900 = DUNG BANG gia LOW (khong co phuc hoi trong phien), ngay sau khi vua lap dinh ~79.000 vai phien truoc - ben ban dang tam chiem uu the. Checklist: khong dat muc &#x27;ben mua chiem uu the&#x27; -&gt; CHUA DU DIEU KIEN, can cho nen xac nhan giu vung ho tro 75.500-76.000 truoc khi ket luan.">⏳ Chưa đủ đk</span></td>
@@ -1300,7 +1263,7 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
           <td>243.67</td>
           <td>219.65</td>
           <td>261.67</td>
-          <td>241.4 <span class="lv">(23/09 11:30)</span></td>
+          <td>239.8 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -1333,7 +1296,7 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
           <td>13.62</td>
           <td>12.5</td>
           <td>14.42</td>
-          <td>14.2 <span class="lv">(23/09 11:30)</span></td>
+          <td>14.2 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result not-reviewed" title="D-Trader chưa xem xét mã này">— chưa xem</span></td>
@@ -1399,7 +1362,7 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
           <td>17.17</td>
           <td>16.33</td>
           <td>17.67</td>
-          <td>17.35 <span class="lv">(23/09 11:30)</span></td>
+          <td>17.1 <span class="lv">(23/09 13:16)</span></td>
           <td><span class="hist-status theo_doi">Đang theo dõi</span></td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result confirmed" title="10:34 22/09/2026: Bối cảnh: VNINDEX điều chỉnh dưới đỉnh gần đây; HHP thể hiện sức mạnh tương đối rất tốt - xu hướng tăng bậc thang liên tục suốt từ tháng 4 tới nay, không bị ảnh hưởng bởi nhịp điều chỉnh chung của thị trường. Cấu trúc Daily: chuỗi HH+HL rất rõ ràng và bền vững kéo dài nhiều tháng: đáy quan trọng gần nhất khoảng 11.000 (tháng 4), tăng bậc thang qua các vùng 14.000 (tháng 5-7) rồi 16.000-16.800 (tháng 8, có bứt phá mạnh kèm khối lượng lớn) rồi hiện tại 17.350-17.600 (đỉnh mới, tháng 9). Mỗi nhịp điều chỉnh trong xu hướng đều tạo đáy sau cao hơn đáy trước, đúng chuẩn cấu trúc tăng bậc thang trong phương pháp. Vùng giá: giá hiện tại 17.350-17.400 sát ngay vùng Entry gợi ý (Pivot P = 17,27), là điểm vào gần vùng hỗ trợ hợp lý, không phải đuổi giá. Price Action và Volume: nến gần nhất đỏ nhẹ (-0,29%), điều chỉnh bình thường sau khi vừa lập đỉnh mới khoảng 17.600, khối lượng đột biến ghi nhận trong giai đoạn bứt phá gần đây. Kịch bản A: nếu giữ trên vùng hỗ trợ ngắn hạn 17.000-17.200, xu hướng tăng bậc thang tiếp diễn. Kịch bản B: nếu giá phá xuống dưới vùng cắt lỗ 16.733 kèm khối lượng lớn, cấu trúc tăng bậc thang bị vô hiệu hoá. Không có lịch sử cắt lỗ gần đây, khoảng cách entry-cắt lỗ khoảng 3,1% (hơi hẹp hơn các mã khác nhưng vẫn trong ngưỡng chấp nhận được, không thuộc diện quá hẹp dưới 1%). Kết luận: đủ điều kiện xác nhận, đây là cấu trúc tăng rõ ràng và bền vững nhất trong nhóm.">✅ Đã xác nhận</span></td>
@@ -1811,7 +1774,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">AAA</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1822,7 +1784,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">APH</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1833,7 +1794,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">BSR</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1844,7 +1804,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">DCM</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1855,7 +1814,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">DGW</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1866,7 +1824,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">HID</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1877,7 +1834,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">HII</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1888,7 +1844,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">PVP</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1899,7 +1854,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">PVT</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1910,7 +1864,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">SSB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1921,7 +1874,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">VOS</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -1932,7 +1884,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">AAA</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -1953,7 +1904,6 @@ Checklist: mục bắt buộc &#x27;cấu trúc đã breakout chưa, đã đư�
         <div class="dtr-card-head">
           <span class="dtr-symbol">APH</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -1974,7 +1924,6 @@ Checklist: mục &#x27;vào lệnh gần vùng hỗ trợ, không đuổi giá g
         <div class="dtr-card-head">
           <span class="dtr-symbol">BSR</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -1995,7 +1944,6 @@ Checklist: mục &#x27;cấu trúc đã breakout khỏi vùng tích luỹ hiện
         <div class="dtr-card-head">
           <span class="dtr-symbol">DCM</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -2016,7 +1964,6 @@ Checklist: mục &#x27;entry có nằm gần vùng hỗ trợ không, hay đang 
         <div class="dtr-card-head">
           <span class="dtr-symbol">DGW</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -2037,7 +1984,6 @@ Checklist: mục &#x27;cấu trúc đã phá vỡ (breakout) chưa, có được
         <div class="dtr-card-head">
           <span class="dtr-symbol">DPR</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -2062,7 +2008,6 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
         <div class="dtr-card-head">
           <span class="dtr-symbol">HID</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -2083,7 +2028,6 @@ Checklist: mục &#x27;không kết luận MUA chỉ vì một tín hiệu máy 
         <div class="dtr-card-head">
           <span class="dtr-symbol">HII</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -2104,7 +2048,6 @@ Checklist: mục &#x27;giá đóng cửa gần HIGH hay gần LOW, bên nào đa
         <div class="dtr-card-head">
           <span class="dtr-symbol">PVP</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -2127,7 +2070,6 @@ Checklist: các mục về cấu trúc/volume/giá đóng cửa đều tạm ổ
         <div class="dtr-card-head">
           <span class="dtr-symbol">PVT</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -2148,7 +2090,6 @@ Checklist: mục &#x27;entry gần vùng hỗ trợ, không đuổi giá giữa 
         <div class="dtr-card-head">
           <span class="dtr-symbol">SSB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -2169,7 +2110,6 @@ Checklist: mục &#x27;không đuổi giá giữa khoảng trống&#x27; và &#x
         <div class="dtr-card-head">
           <span class="dtr-symbol">VOS</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:35</span>
         </div>
         <details class="dtr-reasoning">
@@ -2195,7 +2135,6 @@ Checklist: mục &#x27;entry có gần vùng hỗ trợ rõ ràng, tránh đuổ
         <div class="dtr-card-head">
           <span class="dtr-symbol">SHI</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:51</span>
         </div>
         <details class="dtr-reasoning">
@@ -2220,7 +2159,6 @@ Kết luận: Cấu trúc trung hạn của SHI vẫn là sideway kéo dài chí
         <div class="dtr-card-head">
           <span class="dtr-symbol">DCL</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:11</span>
         </div>
         <details class="dtr-reasoning">
@@ -2241,7 +2179,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">APH</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:26</span>
         </div>
         <details class="dtr-reasoning">
@@ -2252,7 +2189,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DCL</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:26</span>
         </div>
         <details class="dtr-reasoning">
@@ -2263,7 +2199,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DCM</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:26</span>
         </div>
         <details class="dtr-reasoning">
@@ -2274,7 +2209,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HID</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">11:26</span>
         </div>
         <details class="dtr-reasoning">
@@ -2285,7 +2219,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">SSB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">11:26</span>
         </div>
         <details class="dtr-reasoning">
@@ -2296,7 +2229,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">AAA</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2307,7 +2239,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">APH</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2318,7 +2249,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">BSR</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2329,7 +2259,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DCL</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2340,7 +2269,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DCM</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2351,7 +2279,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DGW</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2362,7 +2289,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HHP</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2373,7 +2299,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HID</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2384,7 +2309,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HII</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2395,7 +2319,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">PVT</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2406,7 +2329,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">SSB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2417,7 +2339,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">VOS</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">10:34</span>
         </div>
         <details class="dtr-reasoning">
@@ -2433,7 +2354,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DPM</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">15:23</span>
         </div>
         <details class="dtr-reasoning">
@@ -2444,7 +2364,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">GAS</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">15:23</span>
         </div>
         <details class="dtr-reasoning">
@@ -2455,7 +2374,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">SHI</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">15:23</span>
         </div>
         <details class="dtr-reasoning">
@@ -2466,7 +2384,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">VPB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">15:23</span>
         </div>
         <details class="dtr-reasoning">
@@ -2477,7 +2394,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">BSR</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:51</span>
         </div>
         <details class="dtr-reasoning">
@@ -2488,7 +2404,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">BVH</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:51</span>
         </div>
         <details class="dtr-reasoning">
@@ -2499,7 +2414,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HHP</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:51</span>
         </div>
         <details class="dtr-reasoning">
@@ -2510,7 +2424,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">PVT</span>
           <span class="hist-result confirmed">✅ Đã xác nhận</span>
-          <span class="hist-result win">✅ Đã chạm TP</span>
           <span class="dtr-time mono">14:51</span>
         </div>
         <details class="dtr-reasoning">
@@ -2521,7 +2434,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">AAA</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2532,7 +2444,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">APH</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2543,7 +2454,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">BSR</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2554,7 +2464,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">BVH</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2565,7 +2474,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DGW</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2576,7 +2484,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DPM</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2587,7 +2494,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">GAS</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2598,7 +2504,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HHP</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2609,7 +2514,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HID</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2620,7 +2524,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HII</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2631,7 +2534,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">PVT</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result win">✅ Đã chạm TP</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2642,7 +2544,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">SHI</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2653,7 +2554,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">SSB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2664,7 +2564,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">VOS</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result win">✅ Đã chạm TP</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2675,7 +2574,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">VPB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -2686,7 +2584,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">AAA</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2697,7 +2594,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">APH</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2708,7 +2604,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DGW</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2719,7 +2614,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DPM</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2730,7 +2624,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">GAS</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2741,7 +2634,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HID</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2752,7 +2644,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HII</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2763,7 +2654,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">PLX</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2774,7 +2664,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">SHI</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2785,7 +2674,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">SSB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2796,7 +2684,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">STB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2807,7 +2694,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">VOS</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result win">✅ Đã chạm TP</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2818,7 +2704,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">VPI</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">13:00</span>
         </div>
         <details class="dtr-reasoning">
@@ -2829,7 +2714,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">AAA</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2840,7 +2724,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">APH</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2851,7 +2734,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">BSR</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2862,7 +2744,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">BVH</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2873,7 +2754,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DGW</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2884,7 +2764,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">DPM</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2895,7 +2774,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">GAS</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2906,7 +2784,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HHP</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2917,7 +2794,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HID</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2928,7 +2804,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">HII</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2939,7 +2814,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">PLX</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2950,7 +2824,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">PVT</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result win">✅ Đã chạm TP</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2961,7 +2834,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">SHI</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2972,7 +2844,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">SSB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2983,7 +2854,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">STB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result pending">🔵 Đang mở</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -2994,7 +2864,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">VOS</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result win">✅ Đã chạm TP</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -3005,7 +2874,6 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">VPI</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
           <span class="dtr-time mono">12:30</span>
         </div>
         <details class="dtr-reasoning">
@@ -3089,7 +2957,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">13:09:48 23/09/2026</span>
+    Sinh trang lúc <span class="mono">13:16:16 23/09/2026</span>
   </footer>
 </div>
 <script>
