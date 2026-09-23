@@ -198,12 +198,6 @@ header.top h1 .accent { color: var(--accent); }
      ma khong can cuon (xem #histStatusBtns o tren). */
   #histStatusBtns { gap: 4px; }
   #histStatusBtns .hist-status-btn { padding: 5px 8px; font-size: 0.72rem; }
-  /* Thu gon 2 cot ghim Ma/Tin hieu tren dien thoai - qua rong so voi noi
-     dung that su (VD/MUA), chiem nhieu khong gian man hinh hep - anh Dat
-     phan anh. */
-  table.hist th:nth-child(1), table.hist td:nth-child(1) { width: 40px; min-width: 40px; padding-left: 4px; padding-right: 4px; }
-  table.hist th:nth-child(2), table.hist td:nth-child(2) { left: 40px; width: 56px; min-width: 56px; padding-left: 4px; padding-right: 4px; }
-  table.hist td:nth-child(2) .hist-sig { padding: 2px 6px; font-size: 0.66rem; }
 }
 
 h2.section {
@@ -333,6 +327,18 @@ table.hist th:nth-child(2), table.hist td:nth-child(2) {
   box-shadow: 4px 0 6px -4px rgba(0, 0, 0, 0.18);
 }
 table.hist thead th:nth-child(1), table.hist thead th:nth-child(2) { z-index: 3; }
+/* Thu gon 2 cot ghim Ma/Tin hieu tren dien thoai - qua rong so voi noi dung
+   that su (VD/MUA), chiem nhieu khong gian man hinh hep - anh Dat phan anh
+   23/09/2026. QUAN TRONG: rule nay phai nam SAU rule width:64px/100px o
+   tren (cung do specificity - selector nth-child thuong, khong ID) de
+   thang duoc theo thu tu nguon, bat ke nam trong media query hay khong -
+   dat truoc do (trong khoi @media (max-width:480px) o dau file CSS) se BI
+   rule khong-media o duoi de len do dung sau trong thu tu nguon. */
+@media (max-width: 480px) {
+  table.hist th:nth-child(1), table.hist td:nth-child(1) { width: 40px; min-width: 40px; padding-left: 4px; padding-right: 4px; }
+  table.hist th:nth-child(2), table.hist td:nth-child(2) { left: 40px; width: 56px; min-width: 56px; padding-left: 4px; padding-right: 4px; }
+  table.hist td:nth-child(2) .hist-sig { padding: 2px 6px; font-size: 0.66rem; }
+}
 .hist-sig { font-family: "Be Vietnam Pro", sans-serif; font-weight: 600; padding: 2px 8px; border-radius: 999px; font-size: 0.72rem; }
 .hist-sig.mua { background: var(--up-bg); color: var(--up); }
 .hist-sig.ban { background: var(--down-bg); color: var(--down); }
@@ -3316,7 +3322,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">19:04:20 23/09/2026</span>
+    Sinh trang lúc <span class="mono">19:06:39 23/09/2026</span>
   </footer>
 </div>
 <script>
