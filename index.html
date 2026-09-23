@@ -121,8 +121,12 @@ header.top h1 .accent { color: var(--accent); }
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .rf-countdown { font-size: 0.74rem; color: var(--ink-dim); }
 
+/* 2 cot (tab Tin hieu MUA chi co 2 the "Mua"/"Theo doi sat") - truoc day de
+   3 cot co san nen luon thua han 1 o trong ben phai tren desktop (khoang
+   trong lon) - anh Dat phan anh 23/09/2026. .hist-summary/.cc-summary da tu
+   ghi de rieng nen doi o day khong anh huong 2 cho do. */
 .summary {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 26px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 26px;
 }
 .stat {
   background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
@@ -194,8 +198,12 @@ h2.section {
   font-weight: 600; margin: 30px 0 12px;
 }
 
+/* auto-fit (khong phai auto-fill): auto-fill de lai cot rong "ma" khi so the
+   it hon so cot toi da vua khung hinh (vd 2 the MUA tren man rong 1080px du
+   cho 3 cot) - nhin nhu khoang trong thua - anh Dat phan anh 23/09/2026.
+   auto-fit gop cot rong lai, cac the con lai tu gian ra lap day khung. */
 .cards {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px;
 }
 .card {
   background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
@@ -422,6 +430,35 @@ table.hist thead th:nth-child(1), table.hist thead th:nth-child(2) { z-index: 3;
   background: var(--surface); color: var(--ink); font-family: "Be Vietnam Pro", sans-serif;
   font-size: 0.8rem;
 }
+
+/* Desktop rong (>=900px) - CHI o day: gom cac hang dieu khien lich su tin
+   hieu (pill khoang thoi gian + tu-den ngay, pill trang thai + o tim ma) ve
+   chung 1 dong cho do choan cho, va thu gon vai cot bang de cot D-Trader
+   khong bi day khuat - anh Dat phan anh 23/09/2026. KHONG dong den layout
+   dien thoai/man hinh hep (< 900px) - van giu nguyen nhu cu, xep chong tung
+   dong + cuon ngang bang nhu thiet ke ban dau. */
+@media (min-width: 900px) {
+  .hist-date-filter {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 16px 20px;
+  }
+  .hist-range-btns {
+    display: flex; flex-wrap: nowrap; gap: 5px; margin-bottom: 0; flex: none;
+  }
+  .hist-range-btn { padding: 6px 10px; }
+  .hist-range-custom { margin-bottom: 0; flex: none; }
+
+  .hist-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; }
+  .hist-status-btns { margin-bottom: 0; flex: none; }
+  .hist-search { max-width: 200px; flex: none; }
+
+  /* Thu gon Ma/Tin hieu (2 cot ghim) + Gia gan nhat xuong 2 dong (nhu cot
+     Ngay khuyen nghi da lam) - nhuong cho de D-Trader (cot cuoi) khong bi
+     cuon khuat tren desktop. */
+  table.hist th:nth-child(1), table.hist td:nth-child(1) { width: 42px; min-width: 42px; }
+  table.hist th:nth-child(2), table.hist td:nth-child(2) { left: 42px; width: 66px; min-width: 66px; }
+  table.hist td:nth-child(7) .lv { display: block; margin-top: 1px; }
+}
+
 .th-sort {
   background: none; border: none; padding: 0; margin: 0; font: inherit; color: inherit;
   cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
@@ -2957,7 +2994,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">12:34:21 23/09/2026</span>
+    Sinh trang lúc <span class="mono">12:49:22 23/09/2026</span>
   </footer>
 </div>
 <script>
