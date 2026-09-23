@@ -198,6 +198,12 @@ header.top h1 .accent { color: var(--accent); }
      ma khong can cuon (xem #histStatusBtns o tren). */
   #histStatusBtns { gap: 4px; }
   #histStatusBtns .hist-status-btn { padding: 5px 8px; font-size: 0.72rem; }
+  /* Thu gon 2 cot ghim Ma/Tin hieu tren dien thoai - qua rong so voi noi
+     dung that su (VD/MUA), chiem nhieu khong gian man hinh hep - anh Dat
+     phan anh. */
+  table.hist th:nth-child(1), table.hist td:nth-child(1) { width: 40px; min-width: 40px; padding-left: 4px; padding-right: 4px; }
+  table.hist th:nth-child(2), table.hist td:nth-child(2) { left: 40px; width: 56px; min-width: 56px; padding-left: 4px; padding-right: 4px; }
+  table.hist td:nth-child(2) .hist-sig { padding: 2px 6px; font-size: 0.66rem; }
 }
 
 h2.section {
@@ -589,7 +595,7 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd bad"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-09-23 17:39:33 — Ngoài giờ giao dịch (đang chờ)</span>
+        <span class="v">2026-09-23 17:59:34 — Ngoài giờ giao dịch (đang chờ)</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -3310,7 +3316,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">17:49:22 23/09/2026</span>
+    Sinh trang lúc <span class="mono">18:04:26 23/09/2026</span>
   </footer>
 </div>
 <script>
