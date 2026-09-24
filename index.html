@@ -778,9 +778,9 @@ footer.disclaimer {
   <div class="dtp-metric">
     <div class="dtp-metric-lbl">Chạm SL</div>
       <div class="dtp-diverge-row">
-        <div class="dtp-diverge-num left sl">29 (37.7%)</div>
+        <div class="dtp-diverge-num left sl">28 (36.4%)</div>
         <div class="dtp-diverge-track">
-          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left sl" style="width:37.7%"></div></div>
+          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left sl" style="width:36.4%"></div></div>
           <div class="dtp-diverge-center"></div>
           <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right sl" style="width:0.0%"></div></div>
         </div>
@@ -800,9 +800,9 @@ footer.disclaimer {
   <div class="dtp-metric">
     <div class="dtp-metric-lbl">Đang theo dõi</div>
       <div class="dtp-diverge-row">
-        <div class="dtp-diverge-num left pending">13 (16.9%)</div>
+        <div class="dtp-diverge-num left pending">14 (18.2%)</div>
         <div class="dtp-diverge-track">
-          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left pending" style="width:16.9%"></div></div>
+          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left pending" style="width:18.2%"></div></div>
           <div class="dtp-diverge-center"></div>
           <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right pending" style="width:90.9%"></div></div>
         </div>
@@ -838,7 +838,7 @@ footer.disclaimer {
         <button type="button" class="hist-status-btn active" data-status-filter="all" onclick="setHistStatusFilter('all', this)">All <span class="cnt" id="histCnt_all">94</span></button>
         <button type="button" class="hist-status-btn" data-status-filter="theo_doi" onclick="setHistStatusFilter('theo_doi', this)">Open <span class="cnt" id="histCnt_theo_doi">22</span></button>
         <button type="button" class="hist-status-btn" data-status-filter="da_cham_tp" onclick="setHistStatusFilter('da_cham_tp', this)">TP <span class="cnt" id="histCnt_da_cham_tp">40</span></button>
-        <button type="button" class="hist-status-btn" data-status-filter="da_cham_sl" onclick="setHistStatusFilter('da_cham_sl', this)">SL <span class="cnt" id="histCnt_da_cham_sl">31</span></button>
+        <button type="button" class="hist-status-btn" data-status-filter="da_cham_sl" onclick="setHistStatusFilter('da_cham_sl', this)">SL <span class="cnt" id="histCnt_da_cham_sl">30</span></button>
       </div>
       <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="applyHistFilters()" autocomplete="off">
     </div>
@@ -1108,17 +1108,17 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
           <td>22/09 09:41</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VPB" data-date="20260917" data-datecol="202609240933" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="VPB" data-date="20260917" data-datecol="202609240933" data-signal="MUA" data-status="can_xac_minh">
           <td><b>VPB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>17/09/2026 <span class="lv">09:25</span><br><span class="lv">7 ngày trước</span></td>
           <td>28.17</td>
           <td>27.13</td>
           <td>29.13</td>
-          <td><span class="px-sl">22.5</span></td>
-          <td><span class="hist-status da_cham_sl">SL</span></td>
+          <td>22.5<br><span class="lv can-xac-minh-note">Nghi ngờ SL giả do sự kiện doanh nghiệp: VPB (VPBank) chia cổ tức bằng cổ phiếu tỷ lệ 26.04104% — ngày GDKHQ 24/09/2026 (đúng ngày ghi nhận chạm SL), ngày ĐKCC 25/09/2026. Giá điều chỉnh kỹ thuật giảm ~20.7% (hệ số 1/1.2604104), khớp với mức giảm quan sát được (28.2 -&gt; 22.5, -20.2%). Không phải giá thị trường giảm thật — cần xem lại thủ công, đã loại khỏi thống kê SL. Đã sửa lại bởi Claude ngày 24/09/2026 sau khi anh Dat báo cáo.</span></td>
+          <td><span class="hist-status can_xac_minh">⚠️ Xem lại</span></td>
           <td>24/09 09:33</td>
-          <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result pending-review">CẦN XEM LẠI</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="SHI" data-date="20260917" data-datecol="202609220941" data-signal="MUA" data-status="da_cham_sl">
           <td><b>SHI</b></td>
@@ -2809,7 +2809,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">VPB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
+          <span class="hist-result not-reviewed">—</span>
           <span class="dtr-time mono">15:23</span>
         </div>
         <details class="dtr-reasoning">
@@ -3018,7 +3018,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
         <div class="dtr-card-head">
           <span class="dtr-symbol">VPB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
-          <span class="hist-result lost">🔴 Đã chạm SL</span>
+          <span class="hist-result not-reviewed">—</span>
           <span class="dtr-time mono">14:24</span>
         </div>
         <details class="dtr-reasoning">
@@ -3432,7 +3432,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">09:34:20 24/09/2026</span>
+    Sinh trang lúc <span class="mono">09:49:20 24/09/2026</span>
   </footer>
 </div>
 <script>
