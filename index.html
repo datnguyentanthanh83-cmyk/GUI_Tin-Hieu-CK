@@ -346,6 +346,8 @@ table.hist thead th:nth-child(1), table.hist thead th:nth-child(2) { z-index: 3;
 .hist-status.theo_doi { color: var(--ink-dim); }
 .hist-status.da_cham_tp { color: var(--up); font-weight: 600; }
 .hist-status.da_cham_sl { color: var(--down); font-weight: 600; }
+.hist-status.can_xac_minh { color: var(--neutral); font-weight: 600; }
+.can-xac-minh-note { color: var(--neutral); }
 /* Cot "Gia gan nhat" (Lich su tin hieu) - lenh da ngã ngũ hien gia TP/SL to
    mau thay vi gia kiem tra gan nhat, yeu cau anh Dat 23/09/2026. */
 .px-tp { color: var(--up); font-weight: 600; }
@@ -601,19 +603,19 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd bad"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-09-24 08:42:46 — Ngoài giờ giao dịch (đang chờ)</span>
+        <span class="v">2026-09-24 09:07:19 — TOÀN BỘ LỖI — cần kiểm tra</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
         <span class="k">Mã quét thành công</span>
-        <span class="v">— OK · — lỗi</span>
+        <span class="v">— OK · 163 lỗi</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
         <span class="k">Kiểm thử logic (self_test)</span>
         <span class="v">39/39 PASS (08:45:02 24/09/2026)</span>
       </div>
-      <details class="err-details"><summary>Log lỗi gần đây (4 dòng)</summary><ul><li>Current: 2.5.9 (Python 3.11 (venv))</li><li>Update: C:\Users\Admin\Documents\IM\.venv_vnstock\Scripts\python.exe -m pip install vnai --upgrade</li><li>Release: https://pypi.org/project/vnai/#history</li><li>^C</li></ul></details>
+      <details class="err-details"><summary>Log lỗi gần đây (4 dòng)</summary><ul><li>📦 Vnai 2.6.1 is available</li><li>Current: 2.5.9 (Python 3.11 (venv))</li><li>Update: C:\Users\Admin\Documents\IM\.venv_vnstock\Scripts\python.exe -m pip install vnai --upgrade</li><li>Release: https://pypi.org/project/vnai/#history</li></ul></details>
     </div>
   </div>
 
@@ -668,9 +670,9 @@ footer.disclaimer {
   <div class="dtp-metric">
     <div class="dtp-metric-lbl">Chạm SL</div>
       <div class="dtp-diverge-row">
-        <div class="dtp-diverge-num left sl">27 (35.1%)</div>
+        <div class="dtp-diverge-num left sl">26 (33.8%)</div>
         <div class="dtp-diverge-track">
-          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left sl" style="width:35.1%"></div></div>
+          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left sl" style="width:33.8%"></div></div>
           <div class="dtp-diverge-center"></div>
           <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right sl" style="width:0.0%"></div></div>
         </div>
@@ -690,9 +692,9 @@ footer.disclaimer {
   <div class="dtp-metric">
     <div class="dtp-metric-lbl">Đang theo dõi</div>
       <div class="dtp-diverge-row">
-        <div class="dtp-diverge-num left pending">15 (19.5%)</div>
+        <div class="dtp-diverge-num left pending">16 (20.8%)</div>
         <div class="dtp-diverge-track">
-          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left pending" style="width:19.5%"></div></div>
+          <div class="dtp-diverge-half left"><div class="dtp-diverge-fill side-left pending" style="width:20.8%"></div></div>
           <div class="dtp-diverge-center"></div>
           <div class="dtp-diverge-half right"><div class="dtp-diverge-fill side-right pending" style="width:90.9%"></div></div>
         </div>
@@ -728,7 +730,7 @@ footer.disclaimer {
         <button type="button" class="hist-status-btn active" data-status-filter="all" onclick="setHistStatusFilter('all', this)">All <span class="cnt" id="histCnt_all">94</span></button>
         <button type="button" class="hist-status-btn" data-status-filter="theo_doi" onclick="setHistStatusFilter('theo_doi', this)">Open <span class="cnt" id="histCnt_theo_doi">25</span></button>
         <button type="button" class="hist-status-btn" data-status-filter="da_cham_tp" onclick="setHistStatusFilter('da_cham_tp', this)">TP <span class="cnt" id="histCnt_da_cham_tp">40</span></button>
-        <button type="button" class="hist-status-btn" data-status-filter="da_cham_sl" onclick="setHistStatusFilter('da_cham_sl', this)">SL <span class="cnt" id="histCnt_da_cham_sl">29</span></button>
+        <button type="button" class="hist-status-btn" data-status-filter="da_cham_sl" onclick="setHistStatusFilter('da_cham_sl', this)">SL <span class="cnt" id="histCnt_da_cham_sl">28</span></button>
       </div>
       <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="applyHistFilters()" autocomplete="off">
     </div>
@@ -1444,17 +1446,17 @@ Checklist: (1) Khung thời gian: Daily. (2) Đỉnh/đáy quan trọng gần nh
           <td>15/09 11:31</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HTN" data-date="20260909" data-datecol="202609111317" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="HTN" data-date="20260909" data-datecol="202609111317" data-signal="MUA" data-status="can_xac_minh">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">15 ngày trước</span></td>
           <td>9.61</td>
           <td>8.51</td>
           <td>10.21</td>
-          <td><span class="px-sl">6.64</span></td>
-          <td><span class="hist-status da_cham_sl">SL</span></td>
+          <td>6.64<br><span class="lv can-xac-minh-note">Sua thu cong 24/09/2026 (anh Dat phat hien + xac minh qua bao chi): HTN chia co phieu thuong ty le 50% (GDKHQ 10/09/2026, DKCC 11/09/2026) lam gia dieu chinh ky thuat giam ~33% - KHONG phai cham cat lo that. Ghi nhan &#x27;da_cham_sl&#x27; truoc day la SAI (he thong luc do chua co logic phat hien bat thuong gia do su kien doanh nghiep - da bo sung trong check_price_touches() cung ngay).</span></td>
+          <td><span class="hist-status can_xac_minh">⚠️ Xem lại</span></td>
           <td>11/09 13:17</td>
-          <td><span class="hist-result lost">LOST</span></td>
+          <td><span class="hist-result pending-review">CẦN XEM LẠI</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
         </tr><tr data-symbol="HSL" data-date="20260909" data-datecol="202609141000" data-signal="MUA" data-status="da_cham_sl">
           <td><b>HSL</b></td>
@@ -3322,7 +3324,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">09:04:20 24/09/2026</span>
+    Sinh trang lúc <span class="mono">09:19:20 24/09/2026</span>
   </footer>
 </div>
 <script>
