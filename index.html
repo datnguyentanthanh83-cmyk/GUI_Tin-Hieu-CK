@@ -591,7 +591,7 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
-    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">207</span></button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">209</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
@@ -2037,19 +2037,65 @@ footer.disclaimer {
 
   <div id="tabDTrader" class="tab-panel">
     <h2 class="section">D-Trader — Lịch sử xem xét</h2>
-    <div class="dtr-summary">Tổng 37 giao dịch đã qua D-Trader xem xét — 12 đã xác nhận, 25 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
+    <div class="dtr-summary">Tổng 39 giao dịch đã qua D-Trader xem xét — 12 đã xác nhận, 27 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
     <div class="hist-status-btns" id="dtrStatusBtns">
-      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">37</span></button>
+      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">39</span></button>
       <button type="button" class="hist-status-btn" data-dtr-filter="da_xac_nhan" onclick="dtrSetFilter('da_xac_nhan', this)">✅ Đã xác nhận <span class="cnt">12</span></button>
-      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">25</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">27</span></button>
     </div>
     <input type="text" id="dtrSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="dtrApplySearch()" autocomplete="off">
     <p class="empty dtr-empty" id="dtrEmpty" hidden>Không có mã nào khớp bộ lọc.</p>
     <div id="dtrList">
     <div class="dtr-day">
-      <div class="dtr-day-head">28/09/2026 <span class="dtr-day-cnt">(23 mã)</span></div>
+      <div class="dtr-day-head">28/09/2026 <span class="dtr-day-cnt">(25 mã)</span></div>
       <div class="dtr-cards">
-      <div class="dtr-card" data-dtr-symbol="vjc" data-dtr-verdict="chua_du_dieu_kien">
+      <div class="dtr-card" data-dtr-symbol="hah" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">HAH</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result not-reviewed" title="Không tìm được chu kỳ tín hiệu khớp">— chưa rõ lệnh</span>
+          <span class="dtr-time mono">14:47</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bước 1 (Bối cảnh): VNINDEX đang trong nhịp điều chỉnh giảm rõ ràng từ đỉnh gần đây quanh 1.880 điểm (đầu tháng 9) xuống còn 1.773,70 điểm hiện tại, với chuỗi nhiều phiên giảm liên tiếp, RSI khung Daily đã tụt xuống 43,85 (dưới 50) và MACD histogram âm đang mở rộng — đây là tín hiệu rủi ro hệ thống theo đúng bài học đã ghi nhận, cần nâng tiêu chuẩn xác nhận cao hơn bình thường cho mọi mã, kể cả khi setup riêng lẻ có vẻ đẹp.
+
+Bước 2 (Cấu trúc): Trên khung Daily, HAH đã trải qua downtrend lớn từ đỉnh khoảng 72.000 (tháng 3/2026) xuống đáy khoảng 43.200 (11/08/2026, kèm volume đột biến dạng capitulation). Từ đáy này, giá tích luỹ sideway 44.000-48.000 đến cuối tháng 8, sau đó bứt phá tăng từ đầu tháng 9 với chuỗi đáy sau cao hơn đáy trước (Higher Low) và đỉnh sau cao hơn đỉnh trước (Higher High) khá rõ — đây là 1 uptrend ngắn hạn hợp lệ tính từ đáy tháng 8, nhưng vẫn nằm trong 1 downtrend lớn hơn tính từ đỉnh tháng 3 chưa được xác nhận đảo chiều hoàn toàn.
+
+Bước 3 (Vùng giá): Giá hiện tại 52.000 đã chạy vượt khá xa khỏi vùng entry gợi ý của hệ thống (50.817 - mức Pivot P) và đang tiến sát/thâm nhập vùng kháng cự lớn hơn hình thành từ vùng tích luỹ tháng 11/2025-tháng 1/2026 và tháng 4-7/2026 (khoảng 52.000-58.000, gần khớp Pivot R2 = 53.467 và MA200 = 52.382). Đây KHÔNG phải là entry gần vùng hỗ trợ trong uptrend, mà là đuổi giá giữa khoảng trống, ngay sát vùng kháng cự lớn hơn.
+
+Bước 4 (Price Action + Volume): Nến gần nhất đóng cửa gần HIGH, thân nến dài, xác nhận bên mua đang chiếm ưu thế ngắn hạn. Khối lượng hôm nay (1.769.500) cao hơn khối lượng TB 10 phiên (1.107.760) khoảng 60%, có xác nhận nhưng chưa phải đột biến cực mạnh, và mã CHƯA thực sự breakout dứt khoát qua vùng kháng cự lớn (mới đang tiệm cận).
+
+Bước 5 (Kịch bản): (A) Nếu giá tiếp tục giữ đà và breakout dứt khoát qua 53.500-55.000 kèm volume lớn và giữ vững sau breakout, đây sẽ là điểm vào tốt theo đúng cấu trúc, cắt lỗ hợp lý quanh MA20 (~47.550) hoặc S2 (48.167), chốt lời hướng tới vùng 58.000+. (B) Nếu giá bị từ chối tại vùng kháng cự 52.000-55.000 (dấu hiệu: nến bấc trên dài, volume giảm dần khi giá cố gắng tăng tiếp) và quay đầu phá lại vùng hỗ trợ gần MA20 (~47.550) hoặc thấp hơn, cấu trúc tăng ngắn hạn coi như bị vô hiệu hoá, đặc biệt rủi ro hơn khi VNINDEX đang yếu.
+
+Checklist: đã trả lời đủ các mục (khung Daily; đỉnh/đáy gần nhất xác định rõ; đang là HH/HL ngắn hạn; xu hướng ngắn hạn tăng nhưng nằm trong downtrend lớn hơn; điểm cấu trúc quan trọng là vùng kháng cự 52.000-58.000; CHƯA breakout dứt khoát qua kháng cự lớn kèm giữ vững; nến đóng cửa gần HIGH, bên mua đang chiếm ưu thế; có kịch bản B rõ ràng).
+
+Kết luận: chưa đủ điều kiện — dù cấu trúc ngắn hạn (từ đáy tháng 8) tích cực và nến/volume ủng hộ phe mua, giá hiện đã chạy vượt khỏi vùng entry hợp lý (gần hỗ trợ) và đang đuổi giá sát 1 vùng kháng cự lớn chưa được breakout xác nhận, trong bối cảnh VNINDEX đang điều chỉnh giảm (rủi ro hệ thống) — chưa đủ điều kiện xác nhận điểm vào rõ ràng ngay lúc này theo đúng nguyên tắc &quot;vào lệnh gần vùng hỗ trợ luôn tốt hơn đuổi giá giữa khoảng trống&quot;.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="pet" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">PET</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result not-reviewed" title="Không tìm được chu kỳ tín hiệu khớp">— chưa rõ lệnh</span>
+          <span class="dtr-time mono">14:47</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bước 1 (Bối cảnh): Tương tự HAH, VNINDEX đang trong nhịp điều chỉnh giảm rõ ràng từ đỉnh gần đây quanh 1.880 điểm xuống còn 1.773,70 điểm, nhiều phiên giảm liên tiếp gần đây, RSI Daily 43,85 và MACD âm mở rộng — tín hiệu rủi ro hệ thống, cần nâng tiêu chuẩn xác nhận cao hơn bình thường. Đáng chú ý: PET tăng ngược dòng rất mạnh trong bối cảnh thị trường chung yếu, đây có thể là dòng tiền đầu cơ ngắn hạn tập trung vào 1 mã cụ thể, càng cần thận trọng hơn vì biến động kiểu này thường không bền và dễ đảo chiều nhanh khi dòng tiền rút.
+
+Bước 2 (Cấu trúc): Trên khung Daily, PET đi ngang (sideway) trong vùng khoảng 34.000-40.000 suốt từ giữa tháng 7 đến giữa tháng 9/2026 — không có HH/HL rõ ràng trong giai đoạn này. Từ khoảng 21/09/2026, giá bứt phá mạnh khỏi vùng tích luỹ này với 1 cây nến tăng lớn kèm volume đột biến rõ rệt, sau đó tiếp tục tăng dốc gần như thẳng đứng thêm 4 phiên liên tiếp (thân nến dài, gần như không có phiên điều chỉnh nào đáng kể), đưa giá từ ~38.000 lên 51.000 — tương đương +34% chỉ trong khoảng 1 tuần giao dịch, riêng hôm nay tăng +6,25%. Đây là 1 dạng vận động cực kỳ dốc (parabol/near-vertical breakout), KHÔNG phải 1 uptrend có nhịp điều chỉnh lành mạnh với HH/HL xen kẽ.
+
+Bước 3 (Vùng giá): Giá hiện tại (51.000) đã cách rất xa MA20 (39,56) và MA50 (38,63) — cao hơn MA20 tới khoảng 29%, không có vùng hỗ trợ gần nào để làm điểm tựa cho entry hợp lý; vùng hỗ trợ gần nhất có ý nghĩa chính là khu vực đã bứt phá (quanh 38.000-40.000), cách xa giá hiện tại. Đây rõ ràng là tình huống đuổi giá ở vùng đỉnh ngắn hạn, hoàn toàn trái nguyên tắc &quot;vào lệnh gần vùng hỗ trợ&quot;.
+
+Bước 4 (Price Action + Volume): Nến các phiên gần đây đều đóng cửa gần HIGH, thân dài, bên mua áp đảo hoàn toàn trong ngắn hạn — về mặt lực mua thuần tuý đây là tín hiệu rất mạnh. Tuy nhiên RSI (14) đã lên tới 85,78 — mức quá mua cực đoan, hiếm khi bền vững, thường đi kèm rủi ro điều chỉnh mạnh hoặc chốt lời ồ ạt bất cứ lúc nào.
+
+Bước 5 (Kịch bản): (A) Nếu dòng tiền tiếp tục mạnh, giá có thể còn tăng thêm, nhưng entry ở vùng đỉnh của 1 nhịp parabol gần như không có cắt lỗ hợp lý gần (khoảng cách tới vùng hỗ trợ thật gần nhất, ~38.000-40.000, lên tới hơn 20% — quá xa để làm mức cắt lỗ khả thi theo bài học về biên độ dao động và trượt giá). (B) Nếu xuất hiện 1 phiên đảo chiều mạnh (nến đỏ thân dài đóng cửa gần LOW, volume lớn), khả năng cao đây là điểm bắt đầu của 1 nhịp điều chỉnh/chốt lời sâu do giá đã tăng quá nóng quá nhanh — kịch bản này có xác suất không thấp với RSI hiện tại.
+
+Checklist: đã trả lời đủ (khung Daily; đáy/đỉnh gần nhất xác định — đáy vùng tích luỹ ~38.000, đỉnh là giá hiện tại 51.000 vừa lập; cấu trúc là breakout parabol chưa có HH/HL xen kẽ điều chỉnh lành mạnh; xu hướng ngắn hạn tăng rất mạnh nhưng quá nóng; điểm cấu trúc quan trọng nhất là vùng breakout 38.000-40.000, cách xa giá hiện tại; đã breakout và giữ được vài phiên nhưng RSI cực đoan là tín hiệu cảnh báo; nến gần nhất đóng cửa gần HIGH, bên mua áp đảo; có kịch bản B rõ ràng: điều chỉnh sâu khi hết đà FOMO).
+
+Kết luận: chưa đủ điều kiện — mặc dù lực mua ngắn hạn cực mạnh, đây là 1 nhịp tăng parabol quá nóng (+34%/1 tuần, RSI 85,78), giá đã cách quá xa mọi vùng hỗ trợ hợp lý để xác định điểm vào có cấu trúc rõ ràng và cắt lỗ hợp lý, trong bối cảnh VNINDEX đang điều chỉnh giảm. Đây là ví dụ điển hình của việc không nên kết luận chỉ vì vài cây nến đẹp — nên chờ giá điều chỉnh về vùng hỗ trợ hợp lý hoặc tích luỹ lại trước khi xem xét xác nhận.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="vjc" data-dtr-verdict="chua_du_dieu_kien">
         <div class="dtr-card-head">
           <span class="dtr-symbol">VJC</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
@@ -4590,7 +4636,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">14:47:58 28/09/2026</span>
+    Sinh trang lúc <span class="mono">14:49:20 28/09/2026</span>
   </footer>
 </div>
 <script>
