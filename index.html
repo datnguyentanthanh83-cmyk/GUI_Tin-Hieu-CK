@@ -591,7 +591,7 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
-    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">237</span></button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">238</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
@@ -2190,19 +2190,42 @@ footer.disclaimer {
 
   <div id="tabDTrader" class="tab-panel">
     <h2 class="section">D-Trader — Lịch sử xem xét</h2>
-    <div class="dtr-summary">Tổng 51 giao dịch đã qua D-Trader xem xét — 13 đã xác nhận, 38 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
+    <div class="dtr-summary">Tổng 52 giao dịch đã qua D-Trader xem xét — 13 đã xác nhận, 39 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
     <div class="hist-status-btns" id="dtrStatusBtns">
-      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">51</span></button>
+      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">52</span></button>
       <button type="button" class="hist-status-btn" data-dtr-filter="da_xac_nhan" onclick="dtrSetFilter('da_xac_nhan', this)">✅ Đã xác nhận <span class="cnt">13</span></button>
-      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">38</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">39</span></button>
     </div>
     <input type="text" id="dtrSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="dtrApplySearch()" autocomplete="off">
     <p class="empty dtr-empty" id="dtrEmpty" hidden>Không có mã nào khớp bộ lọc.</p>
     <div id="dtrList">
     <div class="dtr-day">
-      <div class="dtr-day-head">30/09/2026 <span class="dtr-day-cnt">(14 mã)</span></div>
+      <div class="dtr-day-head">30/09/2026 <span class="dtr-day-cnt">(15 mã)</span></div>
       <div class="dtr-cards">
-      <div class="dtr-card" data-dtr-symbol="gmd" data-dtr-verdict="chua_du_dieu_kien">
+      <div class="dtr-card" data-dtr-symbol="frt" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">FRT</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result not-reviewed" title="Không tìm được chu kỳ tín hiệu khớp">— chưa rõ lệnh</span>
+          <span class="dtr-time mono">14:46</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX trên khung Daily đang trong nhịp điều chỉnh yếu — sau khi tạo đỉnh gần 1.880 điểm (đầu tháng 9) và một đỉnh thấp hơn quanh 1.855-1.860 điểm (giữa tháng 9), chỉ số vừa phá xuống dưới vùng hỗ trợ gần nhất khoảng 1.780-1.790 điểm, đóng cửa hôm nay ở mức thấp mới quanh 1.769 điểm — đây là cấu trúc đỉnh sau thấp hơn đỉnh trước (LH) và đáy mới phá vùng hỗ trợ cũ, tức tín hiệu rủi ro hệ thống theo đúng bài học rút ra trước đây, cần đòi hỏi tiêu chuẩn xác nhận cao hơn bình thường cho từng mã riêng lẻ.
+
+Cấu trúc của FRT trên khung Daily: sau khi tạo đỉnh gần nhất khoảng 150 (giữa tháng 8), giá giảm liên tục xuống đáy quan trọng khoảng 124 (16-18/09), sau đó hồi lên tạo đáy sau cao hơn đáy trước (khoảng 130, ngày 24/09) rồi bứt phá qua đỉnh liền trước (khoảng 141-142, đầu tháng 9) — đây là dấu hiệu phá đỉnh LH quan trọng gần nhất, tức bắt đầu đổi cấu trúc từ downtrend sang khả năng hình thành uptrend mới, nhưng đây mới là đỉnh cao hơn (HH) đầu tiên, chưa có thêm nhịp HL+HH kế tiếp để khẳng định uptrend đã vững.
+
+Vùng giá: giá đóng cửa hôm nay ở 147,3 (nghìn đồng), rất gần vùng kháng cự mạnh 149-150 (đỉnh cũ giữa tháng 8, trùng Pivot R3 = 149 theo dữ liệu market_scan.py) — đây KHÔNG phải vùng giá lý tưởng để vào lệnh mới, vì giá đã vượt qua mức entry gợi ý của hệ thống (146, tại Pivot R2) và đang đuổi giá vào sát kháng cự thay vì chờ mua gần vùng hỗ trợ.
+
+Price Action + Volume: nến hôm nay là nến tăng thân dài, đóng cửa rất gần mức cao nhất phiên (Close 147,3 so với High 148,2, Low 140,3), cho thấy bên mua đang chiếm ưu thế rõ rệt trong phiên. Khối lượng hôm nay khoảng 1.141.900 cổ phiếu, gần gấp 1,8 lần khối lượng trung bình 10 phiên (636.560) — breakout có xác nhận volume tốt, kèm khối ngoại mua ròng dương 3 phiên gần nhất (448.420) và tỷ lệ mua chủ động cao (71%) — đây là dấu hiệu sức mạnh tương đối rõ rệt của FRT so với VNINDEX đang giảm, đáp ứng được tiêu chuẩn cao hơn mà bài học 1 yêu cầu trong bối cảnh thị trường chung yếu.
+
+Kịch bản: (A) nếu giá tiếp tục giữ vững trên vùng phá vỡ 138-141 (kháng cự cũ nay thành hỗ trợ) và vượt được vùng kháng cự 149-150, xu hướng tăng mới có thể được xác lập rõ hơn, cắt lỗ hợp lý quanh MA20 (137,145, cách giá hiện tại khoảng 6,9%, không quá sát); (B) nếu giá không giữ được vùng 138-141 sau khi test kháng cự 149-150, hoặc nếu VNINDEX tiếp tục giảm sâu hơn (đang phá đáy gần đây) kéo theo hiệu ứng tương quan (beta) lên cả thị trường, setup này sẽ bị vô hiệu hoá dù cấu trúc riêng mã hiện đang đẹp.
+
+Đối chiếu bài học rút ra: FRT không có trong lịch sử chạm cắt lỗ gần đây (sl_history_dataset.json), không thuộc trường hợp bài học 2/3/4/5. Riêng bài học 1 (thị trường chung yếu) áp dụng, và FRT tạm đáp ứng nhờ sức mạnh tương đối, nhưng vẫn còn một điểm chưa đạt: giá đã đuổi lên sát kháng cự mạnh nhất (149-150) ngay sau 1 phiên tăng mạnh mở rộng biên độ, thay vì có 1 nhịp lùi về kiểm định lại vùng hỗ trợ mới (138-141) để tạo điểm vào rõ ràng, rủi ro thấp hơn theo đúng nguyên tắc của phương pháp (&quot;vào lệnh gần vùng hỗ trợ trong uptrend luôn tốt hơn đuổi giá giữa khoảng trống&quot;).
+
+Kết luận: cấu trúc và volume ủng hộ khả năng FRT đang bắt đầu 1 nhịp tăng mới, nhưng ĐIỂM VÀO NGAY LÚC NÀY chưa đủ rõ ràng và rủi ro thấp theo đúng checklist (giá đang đuổi vào sát kháng cự mạnh, trong bối cảnh VNINDEX vừa phá đáy gần đây) — vì vậy verdict là CHƯA ĐỦ ĐIỀU KIỆN. Nên tiếp tục theo dõi, ưu tiên xem xét lại nếu có nhịp lùi về kiểm định vùng 138-141 với volume ổn định, hoặc nếu giá bứt phá dứt khoát qua vùng 149-150 kèm volume tiếp tục xác nhận.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="gmd" data-dtr-verdict="chua_du_dieu_kien">
         <div class="dtr-card-head">
           <span class="dtr-symbol">GMD</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
@@ -5119,7 +5142,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">14:46:42 30/09/2026</span>
+    Sinh trang lúc <span class="mono">14:49:19 30/09/2026</span>
   </footer>
 </div>
 <script>
