@@ -591,7 +591,7 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
-    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">235</span></button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">237</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
@@ -2163,19 +2163,41 @@ footer.disclaimer {
 
   <div id="tabDTrader" class="tab-panel">
     <h2 class="section">D-Trader — Lịch sử xem xét</h2>
-    <div class="dtr-summary">Tổng 49 giao dịch đã qua D-Trader xem xét — 13 đã xác nhận, 36 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
+    <div class="dtr-summary">Tổng 51 giao dịch đã qua D-Trader xem xét — 13 đã xác nhận, 38 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
     <div class="hist-status-btns" id="dtrStatusBtns">
-      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">49</span></button>
+      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">51</span></button>
       <button type="button" class="hist-status-btn" data-dtr-filter="da_xac_nhan" onclick="dtrSetFilter('da_xac_nhan', this)">✅ Đã xác nhận <span class="cnt">13</span></button>
-      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">36</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">38</span></button>
     </div>
     <input type="text" id="dtrSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="dtrApplySearch()" autocomplete="off">
     <p class="empty dtr-empty" id="dtrEmpty" hidden>Không có mã nào khớp bộ lọc.</p>
     <div id="dtrList">
     <div class="dtr-day">
-      <div class="dtr-day-head">30/09/2026 <span class="dtr-day-cnt">(12 mã)</span></div>
+      <div class="dtr-day-head">30/09/2026 <span class="dtr-day-cnt">(14 mã)</span></div>
       <div class="dtr-cards">
-      <div class="dtr-card" data-dtr-symbol="bsr" data-dtr-verdict="chua_du_dieu_kien">
+      <div class="dtr-card" data-dtr-symbol="gmd" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">GMD</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result not-reviewed" title="Không tìm được chu kỳ tín hiệu khớp">— chưa rõ lệnh</span>
+          <span class="dtr-time mono">13:44</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bước 1 (Bối cảnh): VNINDEX hiện ở 1.776 điểm, đã điều chỉnh khoảng 5,5% từ đỉnh gần đây quanh 1.880 (đầu tháng 9), hiện đi ngang dưới vùng đỉnh cũ với RSI(14) quanh 44 (dưới 50) và MACD âm — thị trường chung còn yếu, chưa xác nhận uptrend rõ ràng, nên cần tiêu chuẩn xác nhận cao hơn bình thường cho từng mã riêng lẻ. Bước 2 (Cấu trúc): trên khung Daily, GMD tạo đỉnh quan trọng gần nhất quanh 82.000 (giữa tháng 8), sau đó giảm liên tục xuống đáy quan trọng quanh 73.800-74.000 (đầu đến giữa tháng 9) theo cấu trúc LH+LL rõ ràng (downtrend). Từ giữa tháng 9 đến nay, giá phục hồi dần với các đáy sau cao hơn đáy trước, bắt đầu hình thành HH+HL, nhưng CHƯA đủ dữ liệu để khẳng định đã đảo chiều sang uptrend bền vững. Bước 3 (Vùng giá): giá hiện tại 78.300, đang tiến vào đúng vùng tích luỹ/kháng cự cũ (khoảng 78.000-80.500) từng giữ giá trong nửa cuối tháng 8 trước khi bị phá xuống hồi đầu tháng 9 — đây là vùng cung tiềm ẩn, chưa phải vùng đã được kiểm định và giữ vững nhiều lần. Bước 4 (Price Action + Volume): nến hôm nay là nến tăng, đóng cửa 78.300 gần mức cao trong ngày (cao nhất 79.000, thấp nhất 77.600) — bên mua đang chiếm ưu thế trong phiên. Hệ thống market_scan.py có gắn cờ khối lượng đột biến, nhưng đối chiếu trực quan trên chart thì khối lượng những phiên gần đây chỉ ở mức trung bình-khá, KHÔNG có dấu hiệu bùng nổ khối lượng rõ rệt để xác nhận một breakout dứt khoát qua vùng kháng cự 78.000-80.500 — giá mới chạm biên dưới của vùng này (đỉnh phiên 79.000), chưa có nến đóng cửa vượt hẳn và giữ vững trên toàn vùng. Đối chiếu tỷ lệ rủi ro/lợi nhuận theo đề xuất của hệ thống: cắt lỗ 75.200 (-3,9% so với giá hiện tại) trong khi chốt lời chỉ 79.400 (+1,4%) — tỷ lệ không thuận lợi. Bước 5 (Kịch bản): (A) nếu giá tiếp tục giữ trên vùng hỗ trợ gần MA20 (~76.700) và bứt hẳn qua 80.500 kèm volume xác nhận, đây mới là điểm breakout hợp lệ; (B) nếu giá quay đầu trong vùng 78.000-80.500 (không giữ được), cấu trúc hồi phục hiện tại bị vô hiệu hoá và có thể quay lại kiểm định đáy 74.000. Checklist: khung Daily; đỉnh quan trọng gần nhất 82.000, đáy quan trọng gần nhất 73.800-74.000; đang trong giai đoạn hình thành HH+HL (hồi phục sau downtrend), chưa đủ để gọi là uptrend xác lập; điểm cấu trúc cần theo dõi là vùng kháng cự 78.000-80.500; cấu trúc CHƯA bị phá theo đúng nghĩa breakout có volume xác nhận và giữ vững — giá mới tiếp cận biên dưới; nến gần nhất đóng cửa gần HIGH, bên mua đang chiếm ưu thế trong phiên; có kịch bản B. Kết luận: mã đang trong quá trình hồi phục nhưng CHƯA có breakout rõ ràng qua vùng kháng cự quan trọng với khối lượng xác nhận và giữ vững, đồng thời tỷ lệ rủi ro/lợi nhuận theo hệ thống không thuận lợi — thiếu mục bắt buộc về cấu trúc đã bị phá và giữ vững trong checklist, nên CHƯA đủ điều kiện xác nhận điểm vào lúc này.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="pet" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">PET</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result not-reviewed" title="Không tìm được chu kỳ tín hiệu khớp">— chưa rõ lệnh</span>
+          <span class="dtr-time mono">13:44</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bước 1 (Bối cảnh): VNINDEX hiện ở 1.776 điểm, dưới đỉnh gần đây (khoảng 1.880), RSI(14) quanh 44 (dưới 50) và MACD âm — thị trường chung yếu, cần thận trọng hơn với các mã tăng nóng đơn lẻ vì mức độ phân kỳ lớn so với chỉ số chung tiềm ẩn rủi ro đảo chiều mạnh khi tâm lý thị trường đổi chiều. Bước 2 (Cấu trúc): trên khung Daily, PET đi ngang trong vùng 36.000-42.000 suốt từ cuối tháng 7 đến giữa tháng 9 (không có xu hướng rõ ràng). Từ khoảng 22-24/09, giá bứt phá mạnh khỏi vùng tích luỹ này và tăng gần như thẳng đứng, liên tục nhiều phiên tăng mạnh, hiện đạt 55.500-56.000 — tương đương mức tăng khoảng 35-40% chỉ trong khoảng 1 tuần giao dịch. Đây là breakout thật (có HH+HL rõ rệt, khối lượng tăng vọt đi kèm lúc bứt phá), nhưng mức độ mở rộng (extension) khỏi vùng tích luỹ và khỏi các đường MA hiện đã rất lớn. Bước 3 (Vùng giá): giá hiện tại KHÔNG còn ở gần bất kỳ vùng hỗ trợ nào — vùng hỗ trợ gần nhất có ý nghĩa là vùng tích luỹ cũ 36.000-42.000, cách xa khoảng 30-40% phía dưới. Entry gợi ý theo Pivot của hệ thống (51.817, mức Pivot P) đã bị giá bỏ lại phía sau hơn 7%, và mức chốt lời gợi ý (56.183, R1) gần như đã chạm ngay tại giá hiện tại — nghĩa là nếu mua ở đây, dư địa tăng theo tính toán hệ thống gần như không còn, trong khi mức cắt lỗ (45.267, S2) cách xa tới khoảng -19%. Bước 4 (Price Action + Volume): RSI(14) đang ở 89 — vùng quá mua cực đoan hiếm gặp, MACD giãn rất xa khỏi đường tín hiệu. Các phiên gần đây đều là nến tăng thân dài, đóng cửa gần mức cao, thể hiện lực mua áp đảo, nhưng đây là dấu hiệu của một nhịp tăng nóng (parabolic move) nhiều khả năng cần một nhịp điều chỉnh/tích luỹ trước khi có điểm vào an toàn hơn, không phải một điểm vào gần vùng hỗ trợ trong uptrend theo đúng tinh thần phương pháp. Bước 5 (Kịch bản): (A) nếu giá tiếp tục giữ đà tăng và có nhịp điều chỉnh nhẹ về một vùng hỗ trợ gần hơn (ví dụ quanh đường MA ngắn hạn hoặc vùng đỉnh cũ vừa phá) rồi tiếp tục tăng kèm volume, đó mới là điểm vào có cấu trúc hợp lý hơn; (B) nếu xuất hiện nến đảo chiều mạnh hoặc volume phân phối (giá giảm kèm khối lượng lớn) sau chuỗi tăng nóng này, cấu trúc tăng hiện tại có thể kết thúc đột ngột, và mức cắt lỗ theo hệ thống (cách xa khoảng -19%) sẽ không bảo vệ được nhà đầu tư trước một nhịp điều chỉnh bình thường sau sóng tăng nóng. Checklist: khung Daily; đỉnh/đáy quan trọng gần nhất là đỉnh mới 55.500-56.000 vừa tạo ra và đáy vùng tích luỹ cũ 36.000-42.000; đang là HH+HL rõ rệt (uptrend mạnh sau breakout); xu hướng hiện tại là tăng rất mạnh; điểm cấu trúc cần theo dõi là vùng đỉnh cũ vừa phá (khoảng 42.000) và các đường MA ngắn hạn; cấu trúc đã breakout có volume xác nhận lúc bứt phá, nhưng giá hiện đã đi quá xa khỏi điểm breakout để coi là điểm vào an toàn; nến gần nhất đóng cửa gần HIGH, bên mua đang áp đảo; có kịch bản B. Kết luận: giá đã tăng rất mạnh và quá xa khỏi vùng hỗ trợ, RSI quá mua cực đoan, tỷ lệ rủi ro/lợi nhuận tại vùng giá hiện tại rất xấu (mục tiêu theo hệ thống gần như đã đạt trong khi cắt lỗ còn rất xa) — đây là hành vi đuổi giá chứ không phải điểm vào có cấu trúc rõ ràng gần vùng hỗ trợ, nên CHƯA đủ điều kiện xác nhận, dù xu hướng ngắn hạn đang rất mạnh.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="bsr" data-dtr-verdict="chua_du_dieu_kien">
         <div class="dtr-card-head">
           <span class="dtr-symbol">BSR</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
@@ -5070,7 +5092,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">13:43:16 30/09/2026</span>
+    Sinh trang lúc <span class="mono">13:49:20 30/09/2026</span>
   </footer>
 </div>
 <script>
