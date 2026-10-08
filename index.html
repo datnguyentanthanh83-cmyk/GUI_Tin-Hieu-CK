@@ -591,7 +591,7 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
-    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">339</span></button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">345</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
@@ -2514,19 +2514,121 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
 
   <div id="tabDTrader" class="tab-panel">
     <h2 class="section">D-Trader — Lịch sử xem xét</h2>
-    <div class="dtr-summary">Tổng 83 giao dịch đã qua D-Trader xem xét — 23 đã xác nhận, 60 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
+    <div class="dtr-summary">Tổng 85 giao dịch đã qua D-Trader xem xét — 24 đã xác nhận, 61 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
     <div class="hist-status-btns" id="dtrStatusBtns">
-      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">83</span></button>
-      <button type="button" class="hist-status-btn" data-dtr-filter="da_xac_nhan" onclick="dtrSetFilter('da_xac_nhan', this)">✅ Đã xác nhận <span class="cnt">23</span></button>
-      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">60</span></button>
+      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">85</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="da_xac_nhan" onclick="dtrSetFilter('da_xac_nhan', this)">✅ Đã xác nhận <span class="cnt">24</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">61</span></button>
     </div>
     <input type="text" id="dtrSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="dtrApplySearch()" autocomplete="off">
     <p class="empty dtr-empty" id="dtrEmpty" hidden>Không có mã nào khớp bộ lọc.</p>
     <div id="dtrList">
     <div class="dtr-day">
-      <div class="dtr-day-head">08/10/2026 <span class="dtr-day-cnt">(20 mã)</span></div>
+      <div class="dtr-day-head">08/10/2026 <span class="dtr-day-cnt">(26 mã)</span></div>
       <div class="dtr-cards">
-      <div class="dtr-card" data-dtr-symbol="hdb" data-dtr-verdict="chua_du_dieu_kien">
+      <div class="dtr-card" data-dtr-symbol="htn" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">HTN</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result win">✅ Đã chạm TP</span>
+          <span class="dtr-time mono">14:48</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX đang trong nhịp điều chỉnh từ đỉnh tháng Năm (~1.930) xuống còn 1.741,78 hôm nay (giảm 0,66%), RSI 38,67 dưới 50 — thị trường chung yếu, cần tiêu chuẩn xác nhận cao hơn bình thường.
+Cấu trúc: HTN đã có đợt phục hồi mạnh và liên tục từ đáy khoảng 4.000 (sau sự kiện chia tách cổ phiếu cuối tháng Tám, xem Bài học 2) lên đỉnh gần đây quanh 7.500, gần như không có nhịp điều chỉnh đáng kể nào trong suốt hai tháng qua.
+Vùng giá: giá hiện đang ở ngay sát đỉnh của toàn bộ đợt tăng, không nằm gần bất kỳ vùng hỗ trợ nào — đây là tình huống đuổi giá giữa khoảng trống, không phải vào lệnh gần hỗ trợ.
+Price Action và Volume: nến hôm nay có giá mở cửa, giá thấp nhất và giá đóng cửa trùng nhau ở 7.350, trong khi giá cao nhất phiên đạt 7.470 — tức đây là một nến có bóng trên dài, bên bán đã đẩy lui toàn bộ nỗ lực tăng giá trong phiên, cho thấy bên bán đang chiếm ưu thế ngay tại vùng đỉnh.
+Kịch bản: nếu đà tăng tiếp diễn, khó xác định điểm vào hợp lý vì không có vùng hỗ trợ gần để đặt cắt lỗ an toàn; nếu giá đảo chiều, nhịp điều chỉnh từ vùng đỉnh sau một đợt tăng kéo dài và không nghỉ có thể sẽ sâu.
+Checklist: Daily; đỉnh/đáy gần nhất là đáy ~4.000 (sau chia tách) và đỉnh mới 7.500 hôm nay; cấu trúc đang là một nhịp tăng liên tục chưa có HL rõ ràng để xác định hỗ trợ; xu hướng ngắn hạn là tăng nhưng quá extended; vùng theo dõi: không có vùng hỗ trợ gần; nến gần nhất đóng cửa gần LOW trong phiên (bóng trên dài), bên bán chiếm ưu thế tại đỉnh; có kịch bản B nhưng không có điểm cắt lỗ hợp lý gần.
+Kết luận: chưa đủ điều kiện — thiếu mục vùng giá gần hỗ trợ và nến gần nhất cho thấy bên bán đang chiếm ưu thế tại đỉnh, không nên đuổi mua ở vùng này.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="msb" data-dtr-verdict="da_xac_nhan">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">MSB</span>
+          <span class="hist-result confirmed">✅ Đã xác nhận</span>
+          <span class="hist-result win">✅ Đã chạm TP</span>
+          <span class="dtr-time mono">14:48</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX đang yếu (giảm 0,66% hôm nay, RSI dưới 50), nhưng MSB vẫn tăng nhẹ 0,34% trong phiên và vẫn giữ vùng giá cao nhất nhiều tháng — cho thấy sức mạnh tương đối rõ rệt so với thị trường chung, đúng tiêu chuẩn nâng cao theo Bài học 1.
+Cấu trúc: sau giai đoạn tích luỹ đi ngang kéo dài từ tháng Sáu đến đầu tháng Chín trong vùng khoảng 12.500–13.900, MSB đã bứt phá rõ ràng lên vùng đỉnh mới 14.800 trong tháng qua, với chuỗi đáy sau cao hơn đáy trước (HL) và đỉnh sau cao hơn đỉnh trước (HH) — xác nhận uptrend.
+Vùng giá: giá hiện đang giữ vững phía trên vùng breakout cũ (13.900–14.000), vùng này nay đóng vai trò hỗ trợ gần nhất.
+Price Action và Volume: các phiên breakout có khối lượng tăng rõ rệt so với giai đoạn tích luỹ trước đó, giá không bị đẩy lui trở lại vùng tích luỹ sau khi phá vỡ — xác nhận breakout thật, không phải breakout giả. Nến hôm nay đóng cửa ở giữa biên độ phiên (mở 14.700, cao 14.800, thấp 14.500, đóng 14.700), không bán tháo, vẫn giữ được sắc xanh nhẹ.
+Kịch bản: nếu cấu trúc tiếp diễn (A), điểm vào quanh 14.650–14.700, cắt lỗ đặt dưới vùng hỗ trợ breakout khoảng 13.900 (cách khoảng 5-6%, không quá sát để tránh bị quét bởi nhiễu theo Bài học 4); nếu giá rớt lại xuống dưới vùng 13.900 (B), xem như breakout thất bại, cấu trúc bị vô hiệu hoá, nên thoát lệnh.
+Checklist: Daily; đáy/đỉnh gần nhất đã nêu; cấu trúc HH/HL rõ ràng; xu hướng tăng; vùng theo dõi 13.900-14.000; breakout đã xác nhận bằng volume và giữ vững; nến gần nhất không cho thấy bên bán áp đảo; có kịch bản B rõ ràng.
+Kết luận: đã xác nhận — đủ các mục trong checklist, có điểm vào rõ ràng với vùng cắt lỗ hợp lý.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="msn" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">MSN</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result win">✅ Đã chạm TP</span>
+          <span class="dtr-time mono">14:48</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX đang yếu, giảm 0,66% hôm nay.
+Cấu trúc: MSN nằm trong xu hướng giảm dài hạn từ đỉnh khoảng 84.000 (tháng Mười Một năm ngoái) xuống đáy khoảng 63.000 (tháng Tám), hình thành chuỗi đỉnh sau thấp hơn đỉnh trước và đáy sau thấp hơn đáy trước (LH/LL) trong phần lớn giai đoạn này; nhịp hồi gần đây từ đáy tháng Tám lên vùng 74.000-76.000 vẫn chỉ là một nhịp hồi trong downtrend, chưa đủ bằng chứng là đảo chiều thật sự.
+Vùng giá: giá hôm nay chạm vùng kháng cự quan trọng quanh 76.000-77.000 (ứng với đỉnh cũ trước nhịp giảm) nhưng bị từ chối ngay trong phiên.
+Price Action và Volume: nến hôm nay mở 75.500, lên cao nhất 76.100 rồi bị bán mạnh trở lại, đóng cửa tại 74.300 — giảm 1,2%, đóng cửa gần mức thấp của phiên, cho thấy bên bán đã thắng thế ngay tại vùng kháng cự quan trọng; đây đúng là mẫu hình breakout giả bị đẩy lui ngay mà phương pháp yêu cầu phải tránh.
+Kịch bản: nếu giá quay lại kiểm định và bứt phá thành công qua vùng 76.000-77.000 kèm volume xác nhận trong các phiên tới thì có thể xem xét lại; nếu giá tiếp tục giảm và phá vùng hỗ trợ gần nhất, downtrend dài hạn được xác nhận tiếp diễn.
+Checklist: Daily; đỉnh/đáy gần nhất đã nêu; cấu trúc vẫn là LH/LL về tổng thể, nhịp hồi chưa xác nhận đảo chiều; xu hướng chính vẫn là giảm; vùng kháng cự cần theo dõi 76.000-77.000 vừa bị từ chối; chưa có breakout thành công; nến gần nhất đóng cửa gần LOW, bên bán chiếm ưu thế; có kịch bản B.
+Kết luận: chưa đủ điều kiện — cấu trúc chưa xác nhận đảo chiều, nến hôm nay cho thấy bên bán đang chiếm ưu thế ngay tại kháng cự quan trọng, nên chờ thêm xác nhận.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="nt2" data-dtr-verdict="da_xac_nhan">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">NT2</span>
+          <span class="hist-result confirmed">✅ Đã xác nhận</span>
+          <span class="hist-result not-reviewed" title="Không tìm được chu kỳ tín hiệu khớp">— chưa rõ lệnh</span>
+          <span class="dtr-time mono">14:48</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX giảm 0,66% hôm nay, nhưng NT2 tăng mạnh 2% và đóng cửa gần mức cao nhất phiên — thể hiện sức mạnh tương đối rõ rệt so với thị trường chung, đáp ứng tiêu chuẩn nâng cao theo Bài học 1.
+Cấu trúc: sau xu hướng giảm dài từ đỉnh khoảng 29.000 (tháng Hai-Ba) xuống đáy quanh 20.000-20.500 (tháng Chín), NT2 đã hình thành đáy đôi và sau đó là chuỗi đáy sau cao hơn đáy trước, đỉnh sau cao hơn đỉnh trước rõ rệt trong khoảng một tháng gần đây — xác nhận đổi cấu trúc từ downtrend sang uptrend ngắn hạn.
+Vùng giá: giá hiện đang bứt phá lên vùng đỉnh mới quanh 23.000, với vùng hỗ trợ gần nhất là đáy của nhịp tăng gần đây khoảng 21.800-22.200.
+Price Action và Volume: nến hôm nay mở 22.550, đóng cửa 23.000 (gần mức cao nhất phiên 23.150), khối lượng giao dịch tăng rõ rệt so với các phiên trước — xác nhận lực mua mạnh, không phải một phiên tăng đơn lẻ không có khối lượng hỗ trợ.
+Kịch bản: nếu cấu trúc tiếp diễn (A), điểm vào quanh 23.000, cắt lỗ đặt dưới vùng hỗ trợ 21.800-22.000 (cách khoảng 4-5%); nếu giá rớt lại xuống dưới vùng hỗ trợ này (B), xem như nhịp hồi thất bại, downtrend cũ có thể tiếp diễn, nên thoát lệnh.
+Checklist: Daily; đỉnh/đáy gần nhất đã nêu; cấu trúc HH/HL rõ ràng trong nhịp hồi gần đây; xu hướng ngắn hạn là tăng; vùng theo dõi 21.800-22.200; breakout được volume xác nhận; nến gần nhất đóng cửa gần HIGH, bên mua chiếm ưu thế; có kịch bản B rõ ràng.
+Kết luận: đã xác nhận — đủ các mục trong checklist, có điểm vào rõ ràng, cấu trúc đổi chiều được xác nhận bằng volume.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="pvp" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">PVP</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result win">✅ Đã chạm TP</span>
+          <span class="dtr-time mono">14:48</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX đang yếu, giảm 0,66% hôm nay.
+Cấu trúc: PVP đang trong đợt tăng gần như liên tục không nghỉ kể từ đáy tháng Tám (khoảng 17.000) lên đỉnh mới hôm nay 25.200, hầu như không có nhịp điều chỉnh đáng kể nào trong suốt hai tháng — đây là một đợt tăng đã kéo dài quá mức (overextended).
+Vùng giá: giá hiện không nằm gần bất kỳ vùng hỗ trợ nào, hoàn toàn là đuổi giá giữa khoảng trống.
+Price Action và Volume: RSI đang ở mức 78,13 — sâu trong vùng quá mua, một mức hiếm khi duy trì lâu mà không có điều chỉnh. Thêm vào đó, Bài học 5 (D_TRADER_LESSONS_LEARNED.md) đã ghi nhận chính mã PVP từng có trường hợp giá trượt qua ngưỡng cắt lỗ 2,8% trong một đợt biến động mạnh trước đây — cho thấy mã này có thể biến động nhanh và rủi ro trượt giá khi thị trường đảo chiều.
+Kịch bản: nếu đà tăng tiếp diễn, không có điểm vào với tỷ lệ rủi ro/lợi nhuận hợp lý vì không có vùng hỗ trợ gần; nếu xảy ra điều chỉnh sau một đợt tăng nóng và quá mua kéo dài như vậy, mức giảm có thể nhanh và sâu, đúng như rủi ro trượt giá đã ghi nhận trong Bài học 5.
+Checklist: Daily; đỉnh/đáy gần nhất là đáy ~17.000 (tháng Tám) và đỉnh mới 25.200 hôm nay; cấu trúc là một nhịp tăng liên tục chưa có HL rõ ràng gần; xu hướng ngắn hạn tăng nhưng quá extended; không có vùng hỗ trợ gần để theo dõi; chưa có breakout cần xác nhận (đã tăng liên tục từ trước); nến gần nhất vẫn dương nhưng giá đã quá xa vùng hỗ trợ; có kịch bản B nhưng không có điểm cắt lỗ hợp lý gần.
+Kết luận: chưa đủ điều kiện — giá quá extended, RSI quá mua sâu, không có vùng hỗ trợ gần để vào lệnh an toàn, và lịch sử trượt giá của chính mã này càng cho thấy cần thận trọng.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="vgc" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">VGC</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result not-reviewed" title="Không tìm được chu kỳ tín hiệu khớp">— chưa rõ lệnh</span>
+          <span class="dtr-time mono">14:48</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX giảm 0,66% hôm nay, thị trường chung yếu.
+Cấu trúc: VGC đang trong xu hướng giảm dài hạn từ đỉnh khoảng 58.000 (tháng Hai) xuống đáy khoảng 36.500 (tháng Tám), và đang trong giai đoạn phục hồi với các đáy sau có vẻ cao hơn đáy trước trong vài tuần gần đây — một tín hiệu đảo chiều sớm nhưng chưa được xác nhận chắc chắn trên khung thời gian dài.
+Vùng giá: giá vừa đạt đỉnh ngắn hạn mới rồi điều chỉnh nhẹ trong hai phiên gần đây, hiện chưa chạm vùng hỗ trợ rõ ràng nào của nhịp tăng vừa qua — vẫn đang lưng chừng giữa đỉnh và vùng hỗ trợ gần nhất.
+Price Action và Volume: nến hôm nay mở 45.550, đóng cửa 44.900 — giảm 1,43%, đóng cửa gần mức thấp của phiên (thấp nhất 44.650), cho thấy bên bán đang tạm thời chiếm ưu thế trong 1-2 phiên gần đây, chưa có nến đảo chiều tăng rõ ràng (như hammer hay bullish engulfing) tại một vùng hỗ trợ cụ thể để xác nhận lực mua quay lại.
+Kịch bản: nếu giá tìm được hỗ trợ ở nhịp điều chỉnh hiện tại và xuất hiện nến xác nhận lực mua kèm volume trong vài phiên tới, có thể xem xét lại; nếu giá tiếp tục giảm sâu hơn và phá vùng đáy của nhịp tăng gần nhất, cấu trúc đảo chiều sớm này bị vô hiệu hoá, downtrend cũ có thể tiếp diễn.
+Checklist: Daily; đỉnh/đáy gần nhất đã nêu; cấu trúc đang trong giai đoạn hình thành HH/HL sớm, chưa đủ phiên xác nhận; xu hướng dài hạn vẫn là giảm, chỉ mới có dấu hiệu hồi phục; vùng theo dõi là đáy nhịp tăng gần nhất (chưa xác định rõ); chưa có breakout cần xác nhận; nến gần nhất đóng cửa gần LOW, bên bán tạm chiếm ưu thế; có kịch bản B.
+Kết luận: chưa đủ điều kiện — hiện đang trong nhịp điều chỉnh với nến gần nhất cho thấy bên bán tạm chiếm ưu thế, chưa có điểm vào rõ ràng gần vùng hỗ trợ được xác nhận.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="hdb" data-dtr-verdict="chua_du_dieu_kien">
         <div class="dtr-card-head">
           <span class="dtr-symbol">HDB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
@@ -6732,7 +6834,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">14:48:27 08/10/2026</span>
+    Sinh trang lúc <span class="mono">14:49:22 08/10/2026</span>
   </footer>
 </div>
 <script>
