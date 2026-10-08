@@ -870,7 +870,7 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd bad"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-10-08 16:18:55 — Ngoài giờ giao dịch (đang chờ)</span>
+        <span class="v">2026-10-08 16:32:55 — Ngoài giờ giao dịch (đang chờ)</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -1000,7 +1000,7 @@ footer.disclaimer {
         <button type="button" class="hist-status-btn" data-status-filter="da_cham_sl" onclick="setHistStatusFilter('da_cham_sl', this)">SL <span class="cnt" id="histCnt_da_cham_sl">45</span></button>
       </div>
       <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="applyHistFilters()" autocomplete="off">
-      <button type="button" class="hist-dtrader-toggle" id="histDtraderToggle" onclick="toggleHistDtraderOnly(this)" title="Chỉ hiện các mã đang mở (Open) đã được D-Trader xác nhận">✅ D-Trader đã xác nhận <span class="cnt" id="histDtraderCnt">4</span></button>
+      <button type="button" class="hist-dtrader-toggle" id="histDtraderToggle" onclick="toggleHistDtraderOnly(this)" title="Chỉ hiện các mã đã được D-Trader xác nhận (kể cả lệnh đã đóng TP/SL)">✅ D-Trader đã xác nhận <span class="cnt" id="histDtraderCnt">19</span></button>
     </div>
     <div class="hist-scroll-shell" id="histScrollShell">
       <div class="hist-wrap" id="histWrap">
@@ -1162,7 +1162,7 @@ Vùng giá và Price Action/Volume: Giá hiện tại (phiên hôm nay, chưa đ
 Kịch bản: Nếu MWG breakout dứt khoát qua 80.000 kèm volume lớn và giữ vững, đây sẽ là điểm vào tốt cho nhịp tăng tiếp theo, cắt lỗ đặt dưới đáy gần nhất quanh 70.000-72.000. Ngược lại, nếu giá bị từ chối tại kháng cự này lần nữa (giống các lần trước) và quay đầu giảm dưới vùng hỗ trợ 70.000-72.000, cấu trúc tăng ngắn hạn sẽ bị vô hiệu hoá, xác nhận cổ phiếu vẫn còn kẹt trong xu hướng giảm lớn.
 
 Kết luận: Chưa đủ điều kiện xác nhận điểm vào ngay lúc này - đang đuổi giá vào sát một vùng kháng cự lớn, nhiều lần đã từ chối giá, mà chưa có breakout kèm volume xác nhận và giữ vững, trong bối cảnh VNINDEX còn yếu. Nên chờ MWG phá dứt khoát vùng 79.000-80.000 kèm volume tốt và giữ được nền giá sau breakout, hoặc chờ một nhịp hồi về gần vùng hỗ trợ 70.000-72.000 với tín hiệu đảo chiều rõ ràng, trước khi coi đây là điểm vào có cấu trúc rõ ràng.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="MSN" data-date="20261002" data-datecol="202610071326" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+        </tr><tr data-symbol="MSN" data-date="20261002" data-datecol="202610071326" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>MSN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/10/2026 <span class="lv">09:18</span><br><span class="lv">6 ngày trước</span></td>
@@ -1173,7 +1173,7 @@ Kết luận: Chưa đủ điều kiện xác nhận điểm vào ngay lúc này
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>07/10 13:26</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
         </tr><tr data-symbol="VOS" data-date="20261001" data-datecol="202610071326" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>VOS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1198,7 +1198,7 @@ Kết luận: Chưa đủ điều kiện xác nhận điểm vào ngay lúc này
           <td>08/10 15:12</td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="10:25 01/10/2026: Bối cảnh: VNINDEX đang điều chỉnh giảm, thị trường chung yếu. Cấu trúc: PHR tăng lên đỉnh khoảng 34.900 đầu tháng Chín, sau đó giảm khá sâu với đáy sau thấp hơn về vùng 30.200-30.900 giữa tháng Chín, rồi phục hồi ổn định trở lại trong khoảng hai tuần qua lên 34.450 hiện tại — nhịp hồi phục này đang tiến sát lại đỉnh cũ nhưng chưa vượt qua. Vùng giá: cao nhất phiên hôm nay 34.600 vẫn thấp hơn đỉnh cũ 34.900, đóng cửa 34.450 — giá đang ở ngay sát vùng kháng cự quan trọng nhưng CHƯA phá qua. Lưu ý thêm: có nhãn chữ D và S, khả năng liên quan cổ tức hoặc chia tách, xuất hiện trên biểu đồ quanh vùng đáy 19-22/09, nên cần thận trọng khi đánh giá biên độ hồi phục qua giai đoạn đó. Price Action và Volume: phiên hôm nay tăng tốt 2,68%, đóng cửa gần mức cao nhất phiên, cho thấy lực mua khá mạnh, nhưng vẫn chưa tạo được đỉnh mới. Kịch bản: nếu giá đóng cửa vượt rõ ràng trên 34.900 kèm khối lượng xác nhận, đó sẽ là điểm vào tốt cho nhịp tăng tiếp diễn; nếu bị từ chối tại vùng kháng cự này, giá có thể quay lại tích luỹ. Kết luận: đà hồi phục tích cực nhưng chưa phá được vùng kháng cự quan trọng — chưa đủ điều kiện, nên chờ xác nhận breakout rõ ràng.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="MSB" data-date="20261001" data-datecol="202610081046" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+        </tr><tr data-symbol="MSB" data-date="20261001" data-datecol="202610081046" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>MSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>01/10/2026 <span class="lv">09:20</span><br><span class="lv">7 ngày trước</span></td>
@@ -1209,7 +1209,7 @@ Kết luận: Chưa đủ điều kiện xác nhận điểm vào ngay lúc này
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>08/10 10:46</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
         </tr><tr data-symbol="FRT" data-date="20261001" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="confirmed">
           <td><b>FRT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1263,7 +1263,7 @@ Checklist: Daily; đáy gần nhất ~104,000 (T8), đỉnh xa hơn ~167,000 (T2
           <td>02/10 10:11</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BVH" data-date="20260929" data-datecol="202610060928" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+        </tr><tr data-symbol="BVH" data-date="20260929" data-datecol="202610060928" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>BVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>29/09/2026 <span class="lv">09:27</span><br><span class="lv">9 ngày trước</span></td>
@@ -1274,7 +1274,7 @@ Checklist: Daily; đáy gần nhất ~104,000 (T8), đỉnh xa hơn ~167,000 (T2
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>06/10 09:28</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
         </tr><tr data-symbol="BSR" data-date="20260929" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>BSR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1400,7 +1400,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>01/10 09:20</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VOS" data-date="20260922" data-datecol="202609280925" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+        </tr><tr data-symbol="VOS" data-date="20260922" data-datecol="202609280925" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>VOS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>22/09/2026 <span class="lv">09:25</span><br><span class="lv">16 ngày trước</span></td>
@@ -1411,7 +1411,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>28/09 09:25</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
         </tr><tr data-symbol="SSB" data-date="20260922" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1436,7 +1436,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>24/09 13:47</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PVT" data-date="20260922" data-datecol="202609241440" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
+        </tr><tr data-symbol="PVT" data-date="20260922" data-datecol="202609241440" data-signal="MUA" data-status="da_cham_sl" data-dtrader="confirmed">
           <td><b>PVT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>22/09/2026 <span class="lv">09:25</span><br><span class="lv">16 ngày trước</span></td>
@@ -1447,8 +1447,8 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_sl">SL</span></td>
           <td>24/09 14:40</td>
           <td><span class="hist-result lost">LOST</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="DCL" data-date="20260922" data-datecol="202610021020" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
+        </tr><tr data-symbol="DCL" data-date="20260922" data-datecol="202610021020" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>DCL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>22/09/2026 <span class="lv">09:56</span><br><span class="lv">16 ngày trước</span></td>
@@ -1459,8 +1459,8 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>02/10 10:20</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="GAS" data-date="20260921" data-datecol="202610061107" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
+        </tr><tr data-symbol="GAS" data-date="20260921" data-datecol="202610061107" data-signal="MUA" data-status="da_cham_sl" data-dtrader="confirmed">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">11:09</span><br><span class="lv">17 ngày trước</span></td>
@@ -1471,8 +1471,8 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_sl">SL</span></td>
           <td>06/10 11:07</td>
           <td><span class="hist-result lost">LOST</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="DGW" data-date="20260921" data-datecol="202610060945" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
+        </tr><tr data-symbol="DGW" data-date="20260921" data-datecol="202610060945" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>DGW</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">09:26</span><br><span class="lv">17 ngày trước</span></td>
@@ -1483,8 +1483,8 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>06/10 09:45</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BVH" data-date="20260921" data-datecol="202609281308" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
+        </tr><tr data-symbol="BVH" data-date="20260921" data-datecol="202609281308" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>BVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">09:26</span><br><span class="lv">17 ngày trước</span></td>
@@ -1495,8 +1495,8 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>28/09 13:08</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BSR" data-date="20260921" data-datecol="202609290950" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
+        </tr><tr data-symbol="BSR" data-date="20260921" data-datecol="202609290950" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>BSR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">09:26</span><br><span class="lv">17 ngày trước</span></td>
@@ -1507,7 +1507,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>29/09 09:50</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
         </tr><tr data-symbol="APH" data-date="20260921" data-datecol="202609240933" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>APH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1520,7 +1520,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>24/09 09:33</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="AAA" data-date="20260921" data-datecol="202609281317" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
+        </tr><tr data-symbol="AAA" data-date="20260921" data-datecol="202609281317" data-signal="MUA" data-status="da_cham_sl" data-dtrader="confirmed">
           <td><b>AAA</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">10:02</span><br><span class="lv">17 ngày trước</span></td>
@@ -1531,7 +1531,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_sl">SL</span></td>
           <td>28/09 13:17</td>
           <td><span class="hist-result lost">LOST</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
         </tr><tr data-symbol="VOS" data-date="20260918" data-datecol="202609221402" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>VOS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1688,7 +1688,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>25/09 14:44</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HII" data-date="20260916" data-datecol="202610021307" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
+        </tr><tr data-symbol="HII" data-date="20260916" data-datecol="202610021307" data-signal="MUA" data-status="da_cham_sl" data-dtrader="confirmed">
           <td><b>HII</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">09:19</span><br><span class="lv">22 ngày trước</span></td>
@@ -1699,8 +1699,8 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_sl">SL</span></td>
           <td>02/10 13:07</td>
           <td><span class="hist-result lost">LOST</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="DPR" data-date="20260916" data-datecol="202609300958" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
+        </tr><tr data-symbol="DPR" data-date="20260916" data-datecol="202609300958" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>DPR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">10:38</span><br><span class="lv">22 ngày trước</span></td>
@@ -1711,7 +1711,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>30/09 09:58</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
         </tr><tr data-symbol="DPM" data-date="20260916" data-datecol="202610051425" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>DPM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -1760,7 +1760,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>21/09 10:02</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PVT" data-date="20260915" data-datecol="202609221402" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+        </tr><tr data-symbol="PVT" data-date="20260915" data-datecol="202609221402" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>PVT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>15/09/2026 <span class="lv">09:21</span><br><span class="lv">23 ngày trước</span></td>
@@ -1771,7 +1771,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>22/09 14:02</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
         </tr><tr data-symbol="PVP" data-date="20260915" data-datecol="202609171352" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>PVP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -2072,7 +2072,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>14/09 10:00</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HHP" data-date="20260909" data-datecol="202609251444" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
+        </tr><tr data-symbol="HHP" data-date="20260909" data-datecol="202609251444" data-signal="MUA" data-status="da_cham_tp" data-dtrader="confirmed">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -2083,7 +2083,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td><span class="hist-status da_cham_tp">TP</span></td>
           <td>25/09 14:44</td>
           <td><span class="hist-result win">WIN</span></td>
-          <td><span class="hist-result not-reviewed">—</span></td>
+          <td><span class="hist-result confirmed" title="Đã được D-Trader xác nhận trước khi lệnh đóng — xem chi tiết ở tab D-Trader">✅ Đã xác nhận</span></td>
         </tr><tr data-symbol="FPT" data-date="20260909" data-datecol="202609210926" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
@@ -6831,7 +6831,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">16:19:22 08/10/2026</span>
+    Sinh trang lúc <span class="mono">16:34:24 08/10/2026</span>
   </footer>
 </div>
 <script>
