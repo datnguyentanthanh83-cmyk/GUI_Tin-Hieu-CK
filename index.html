@@ -467,6 +467,20 @@ table.hist thead th:nth-child(1), table.hist thead th:nth-child(2) { z-index: 3;
 .hist-status-btn .cnt { font-family: "IBM Plex Mono", monospace; opacity: 0.75; }
 .hist-status-btn.active { color: #fff; background: var(--accent); border-color: var(--accent); }
 .hist-status-btn.active .cnt { opacity: 0.9; }
+/* Nut bat/tat "D-Trader đã xác nhận" (THEM 08/10/2026) - dung lai NGUYEN VEN
+   style cua .hist-status-btn (dong bo giao dien) nhung tach CLASS RIENG vi
+   setHistStatusFilter() xoa active tren MOI phan tu ".hist-status-btn" moi
+   lan doi All/Open/TP/SL - neu dung chung class, nut nay se bi tat active
+   oan moi lan bam nhom nut do (2 bo loc nay doc lap, duoc phep bat CUNG LUC
+   voi nhau). */
+.hist-dtrader-toggle {
+  font-family: "Be Vietnam Pro", sans-serif; font-size: 0.78rem; font-weight: 500;
+  color: var(--ink-dim); background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 6px 12px; cursor: pointer; line-height: 1.25;
+}
+.hist-dtrader-toggle .cnt { font-family: "IBM Plex Mono", monospace; opacity: 0.75; }
+.hist-dtrader-toggle.active { color: #fff; background: var(--accent); border-color: var(--accent); }
+.hist-dtrader-toggle.active .cnt { opacity: 0.9; }
 .hist-date-filter { margin-bottom: 14px; }
 .hist-range-btns { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-bottom: 8px; }
 .hist-range-btn {
@@ -856,7 +870,7 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd bad"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-10-08 15:32:55 — Ngoài giờ giao dịch (đang chờ)</span>
+        <span class="v">2026-10-08 16:18:55 — Ngoài giờ giao dịch (đang chờ)</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -986,10 +1000,11 @@ footer.disclaimer {
         <button type="button" class="hist-status-btn" data-status-filter="da_cham_sl" onclick="setHistStatusFilter('da_cham_sl', this)">SL <span class="cnt" id="histCnt_da_cham_sl">45</span></button>
       </div>
       <input type="text" id="histSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="applyHistFilters()" autocomplete="off">
+      <button type="button" class="hist-dtrader-toggle" id="histDtraderToggle" onclick="toggleHistDtraderOnly(this)" title="Chỉ hiện các mã đang mở (Open) đã được D-Trader xác nhận">✅ D-Trader đã xác nhận <span class="cnt" id="histDtraderCnt">4</span></button>
     </div>
     <div class="hist-scroll-shell" id="histScrollShell">
       <div class="hist-wrap" id="histWrap">
-        <table class="hist" id="histTable"><thead><tr><th><button type="button" class="th-sort" onclick="sortHistByCol(0, 'text', this)">Mã <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(1, 'text', this)">Tín hiệu <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(2, 'date', this)">Ngày khuyến nghị <span class="hist-sort-icon mono">↓</span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(3, 'number', this)">Entry <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(4, 'number', this)">Cắt lỗ <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(5, 'number', this)">Chốt lời <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(6, 'number', this)">Giá gần nhất <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(7, 'text', this)">Trạng thái <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(8, 'date', this)">Ngày <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(9, 'text', this)">Kết quả <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(10, 'text', this)">D-Trader <span class="hist-sort-icon mono"></span></button></th></tr></thead><tbody><tr data-symbol="VGC" data-date="20261008" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        <table class="hist" id="histTable"><thead><tr><th><button type="button" class="th-sort" onclick="sortHistByCol(0, 'text', this)">Mã <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(1, 'text', this)">Tín hiệu <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(2, 'date', this)">Ngày khuyến nghị <span class="hist-sort-icon mono">↓</span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(3, 'number', this)">Entry <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(4, 'number', this)">Cắt lỗ <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(5, 'number', this)">Chốt lời <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(6, 'number', this)">Giá gần nhất <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(7, 'text', this)">Trạng thái <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(8, 'date', this)">Ngày <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(9, 'text', this)">Kết quả <span class="hist-sort-icon mono"></span></button></th><th><button type="button" class="th-sort" onclick="sortHistByCol(10, 'text', this)">D-Trader <span class="hist-sort-icon mono"></span></button></th></tr></thead><tbody><tr data-symbol="VGC" data-date="20261008" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>VGC</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>08/10/2026 <span class="lv">09:17</span><br><span class="lv">hôm nay</span></td>
@@ -1007,7 +1022,7 @@ Price Action và Volume: nến hôm nay mở 45.550, đóng cửa 44.900 — gi�
 Kịch bản: nếu giá tìm được hỗ trợ ở nhịp điều chỉnh hiện tại và xuất hiện nến xác nhận lực mua kèm volume trong vài phiên tới, có thể xem xét lại; nếu giá tiếp tục giảm sâu hơn và phá vùng đáy của nhịp tăng gần nhất, cấu trúc đảo chiều sớm này bị vô hiệu hoá, downtrend cũ có thể tiếp diễn.
 Checklist: Daily; đỉnh/đáy gần nhất đã nêu; cấu trúc đang trong giai đoạn hình thành HH/HL sớm, chưa đủ phiên xác nhận; xu hướng dài hạn vẫn là giảm, chỉ mới có dấu hiệu hồi phục; vùng theo dõi là đáy nhịp tăng gần nhất (chưa xác định rõ); chưa có breakout cần xác nhận; nến gần nhất đóng cửa gần LOW, bên bán tạm chiếm ưu thế; có kịch bản B.
 Kết luận: chưa đủ điều kiện — hiện đang trong nhịp điều chỉnh với nến gần nhất cho thấy bên bán tạm chiếm ưu thế, chưa có điểm vào rõ ràng gần vùng hỗ trợ được xác nhận.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="MSB" data-date="20261008" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="MSB" data-date="20261008" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="confirmed">
           <td><b>MSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>08/10/2026 <span class="lv">09:17</span><br><span class="lv">hôm nay</span></td>
@@ -1025,7 +1040,7 @@ Price Action và Volume: các phiên breakout có khối lượng tăng rõ rệ
 Kịch bản: nếu cấu trúc tiếp diễn (A), điểm vào quanh 14.650–14.700, cắt lỗ đặt dưới vùng hỗ trợ breakout khoảng 13.900 (cách khoảng 5-6%, không quá sát để tránh bị quét bởi nhiễu theo Bài học 4); nếu giá rớt lại xuống dưới vùng 13.900 (B), xem như breakout thất bại, cấu trúc bị vô hiệu hoá, nên thoát lệnh.
 Checklist: Daily; đáy/đỉnh gần nhất đã nêu; cấu trúc HH/HL rõ ràng; xu hướng tăng; vùng theo dõi 13.900-14.000; breakout đã xác nhận bằng volume và giữ vững; nến gần nhất không cho thấy bên bán áp đảo; có kịch bản B rõ ràng.
 Kết luận: đã xác nhận — đủ các mục trong checklist, có điểm vào rõ ràng với vùng cắt lỗ hợp lý.">✅ Đã xác nhận</span></td>
-        </tr><tr data-symbol="NAB" data-date="20261007" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="NAB" data-date="20261007" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>NAB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/10/2026 <span class="lv">09:19</span><br><span class="lv">hôm qua</span></td>
@@ -1042,7 +1057,7 @@ Vùng giá: Giá hiện 12,600 đang trong nhịp điều chỉnh xuống từ �
 Price Action + Volume: Nến hôm nay ĐỎ, giảm -0,79%, là phiên giảm sau khi không vượt được vùng đỉnh cũ - bên bán đang chiếm ưu thế tạm thời.
 Kịch bản: Chưa đủ cơ sở xác nhận điểm vào có lợi thế vì giá đang điều chỉnh giảm, chưa chạm vùng hỗ trợ rõ ràng, và cấu trúc tổng thể vẫn nghiêng về sideway hơn là uptrend đã xác nhận. Cần chờ giá về vùng hỗ trợ (quanh 11,900-12,000, gần mức cắt lỗ đề xuất) và có nến đảo chiều xác nhận, hoặc chờ phá dứt khoát đỉnh 13,300 kèm volume.
 Checklist: Daily; đỉnh gần nhất ~13,200-13,300 (đầu T10, chưa phá); đáy gần nhất của range ~11,000-11,500; cấu trúc hiện là SIDEWAY nhiễu, chưa rõ HH/HL; xu hướng không rõ ràng; vùng theo dõi: hỗ trợ ~11,900-12,000, kháng cự ~13,200-13,300; CHƯA có breakout; nến gần nhất đóng đỏ, bên bán chiếm ưu thế - KHÔNG đạt checklist. KHÔNG xác nhận.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="HAG" data-date="20261007" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="HAG" data-date="20261007" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>HAG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/10/2026 <span class="lv">09:19</span><br><span class="lv">hôm qua</span></td>
@@ -1059,7 +1074,7 @@ Vùng giá: Giá hiện 14,750 nằm giữa vùng dao động, không ở sát b
 Price Action + Volume: Nến hôm nay xanh +1,72%, nhưng đây là biến động bình thường trong 1 range đã dao động nhiều lần tương tự trước đó, chưa phải phá vỡ cấu trúc.
 Kịch bản: Chưa xác định rõ kịch bản A thuyết phục vì chưa có breakout khỏi range; đồng thời khoảng cách entry-&gt;cắt lỗ chỉ ~3,3% (hẹp nhất trong các mã đang xét) trong khi biên độ dao động bình thường của mã này trong vài tháng qua đã lên tới ~25% (12,5k-16k) - theo Bài học 4, mức cắt lỗ hẹp so với biên độ dao động thực tế rất dễ bị quét bởi nhiễu giá thông thường chứ không phải vì cấu trúc thật sự bị phá.
 Checklist: Daily; đỉnh gần nhất của range ~16,000, đáy gần nhất ~12,500-13,000; cấu trúc hiện là SIDEWAY trong downtrend dài hạn, chưa rõ HH/HL của 1 xu hướng tăng mới; xu hướng chưa rõ ràng; vùng cần theo dõi: phá vững trên 16,000 mới đáng tin là đổi cấu trúc; CHƯA có breakout; nến gần nhất tăng nhưng không phải tại điểm phá cấu trúc. KHÔNG đủ điều kiện - thiếu cấu trúc rõ ràng và cắt lỗ quá hẹp so với biên độ dao động thực tế.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="CDC" data-date="20261007" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="CDC" data-date="20261007" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>CDC</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/10/2026 <span class="lv">09:27</span><br><span class="lv">hôm qua</span></td>
@@ -1076,7 +1091,7 @@ Vùng giá: Giá hiện tại 20,950 nằm giữa vùng range (không gần vùn
 Price Action + Volume: Nến hôm nay chỉ +0,24%, thân nến nhỏ, không có tín hiệu bứt phá rõ ràng, khối lượng không nổi bật so với các phiên gần đây.
 Kịch bản: Không xác định được kịch bản vào lệnh có lợi thế rõ ràng vì giá đang ở giữa range, không phải tại vùng hỗ trợ/kháng cự có ý nghĩa; đồng thời Ghi_chu_entry của hệ thống cũng nêu &quot;chưa mức KC nào đủ xa theo ATR&quot; - tỷ lệ reward hạn chế.
 Checklist: Daily; đỉnh gần nhất ~24,000 (T6), đáy gần nhất ~18,000 (T7-8); cấu trúc hiện tại là SIDEWAY, không phải HH/HL hay LH/LL rõ ràng; xu hướng không rõ ràng; vùng cần theo dõi là biên trên ~22,000 (kháng cự range) và biên dưới ~19,000 (hỗ trợ range) - giá cần phá 1 trong 2 biên kèm volume mới có tín hiệu rõ; CHƯA có breakout; nến gần nhất không cho thấy bên nào áp đảo rõ. KHÔNG đủ điều kiện xác nhận điểm vào theo phương pháp - thiếu mục &quot;cấu trúc HH/HL rõ ràng&quot; và &quot;vùng giá có lợi thế (gần hỗ trợ/breakout kháng cự)&quot;.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="BVH" data-date="20261007" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="BVH" data-date="20261007" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="confirmed">
           <td><b>BVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/10/2026 <span class="lv">09:27</span><br><span class="lv">hôm qua</span></td>
@@ -1093,7 +1108,7 @@ Vùng giá: Giá đang ở giữa đường tăng, chưa chạm kháng cự xa; 
 Price Action + Volume: Nến hôm nay +1.46%, đóng cửa gần mức cao nhất phiên, tiếp nối chuỗi nến xanh liên tục, cho thấy lực mua vẫn chiếm ưu thế và ổn định (không phải 1 nến đột biến đơn lẻ).
 Kịch bản: (A) Nếu giá tiếp tục giữ cấu trúc HL/HH, hướng tới target 80,967 rồi thử thách vùng đỉnh cũ 82,000+. (B) Nếu giá phá xuống dưới vùng 71,000-72,000 (cũng gần mức cắt lỗ đề xuất 71,567, cách entry ~6%), cấu trúc tăng bị vô hiệu hoá.
 Checklist: Daily; đáy gần nhất ~65,000 (giữa T9), đỉnh gần nhất là đỉnh ngắn hạn đang tạo ở 76,600 (chưa phải đỉnh lớn); đang là HH/HL rõ ràng; xu hướng tăng ngắn-trung hạn kể từ đáy T9; vùng theo dõi 71-72k (hỗ trợ) và 80-82k (kháng cự xa); không phải breakout khỏi tích luỹ mà là uptrend liên tục có kiểm soát, không cần volume đột biến riêng lẻ; nến gần nhất đóng gần HIGH, bên mua chiếm ưu thế; có kịch bản B rõ (mất vùng 71-72k). Khoảng cách entry-&gt;cắt lỗ ~6% hợp lý.">✅ Đã xác nhận</span></td>
-        </tr><tr data-symbol="VTO" data-date="20261006" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="VTO" data-date="20261006" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>VTO</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>06/10/2026 <span class="lv">09:20</span><br><span class="lv">2 ngày trước</span></td>
@@ -1110,7 +1125,7 @@ Vùng giá: Giá đang ở vùng giữa nhịp hồi phục, chưa chạm kháng
 Price Action + Volume: QUAN TRỌNG - nến hôm nay ĐỎ, giảm -0,84% (O12.100 H12.150 L11.800 C11.850), đóng cửa gần mức THẤP nhất phiên - bên bán đang chiếm ưu thế ngay tại thời điểm xem xét, là nhịp điều chỉnh sau chuỗi tăng, không đáp ứng yêu cầu &quot;đóng cửa gần HIGH&quot; của checklist.
 Kịch bản: Xu hướng nền tảng tích cực nhưng nến gần nhất cho thấy bên bán đang tạm thời thắng thế; nên chờ xác nhận giá giữ vững/bật lại sau nhịp điều chỉnh này trước khi coi là điểm vào có cấu trúc rõ ràng.
 Checklist: Daily; đáy gần nhất ~9,500 (T6-7), đỉnh xa hơn ~13,900 (T3, chưa chạm); cấu trúc HH/HL đang hình thành nhưng nến mới nhất đảo chiều đỏ; xu hướng tăng trung hạn nhưng chững lại ngắn hạn; vùng theo dõi: hỗ trợ gần mức cắt lỗ đề xuất 10,950; nến gần nhất đóng cửa gần LOW, bên bán chiếm ưu thế - KHÔNG đạt checklist. KHÔNG xác nhận.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="DGW" data-date="20261006" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="DGW" data-date="20261006" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="confirmed">
           <td><b>DGW</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>06/10/2026 <span class="lv">09:20</span><br><span class="lv">2 ngày trước</span></td>
@@ -1127,7 +1142,7 @@ Vùng giá: Giá hiện 47,750-47,800 đang tiến gần vùng kháng cự cũ k
 Price Action + Volume: Nến hôm nay +1,17-1,27%, đóng cửa gần mức cao phiên, tiếp nối xu hướng tăng đã hình thành ổn định qua nhiều tuần (không phải tín hiệu đơn lẻ).
 Kịch bản: (A) Nếu giữ được cấu trúc HL, giá tiếp tục hướng tới target 49,133 rồi thử thách vùng 50-52k. (B) Nếu giá phá xuống dưới vùng hỗ trợ gần nhất ~44,800 (gần mức cắt lỗ đề xuất, cách entry ~6,5%), cấu trúc tăng bị vô hiệu hoá, cần thoát.
 Checklist: Daily; đáy gần nhất ~33,000 (đầu T8), đỉnh đang tạo mới ở vùng hiện tại, kháng cự xa hơn ~50-52k; cấu trúc HH/HL rõ ràng đang hình thành ổn định; xu hướng tăng ngắn-trung hạn; vùng theo dõi: hỗ trợ ~44,8k, kháng cự ~50-52k; không phải breakout 1 phiên mà là uptrend liên tục có kiểm soát; nến gần nhất đóng gần HIGH, bên mua chiếm ưu thế; có kịch bản B rõ ràng. Khoảng cách entry-&gt;cắt lỗ ~6,45% hợp lý, không quá hẹp.">✅ Đã xác nhận</span></td>
-        </tr><tr data-symbol="MWG" data-date="20261005" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="MWG" data-date="20261005" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>MWG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>05/10/2026 <span class="lv">09:21</span><br><span class="lv">3 ngày trước</span></td>
@@ -1147,7 +1162,7 @@ Vùng giá và Price Action/Volume: Giá hiện tại (phiên hôm nay, chưa đ
 Kịch bản: Nếu MWG breakout dứt khoát qua 80.000 kèm volume lớn và giữ vững, đây sẽ là điểm vào tốt cho nhịp tăng tiếp theo, cắt lỗ đặt dưới đáy gần nhất quanh 70.000-72.000. Ngược lại, nếu giá bị từ chối tại kháng cự này lần nữa (giống các lần trước) và quay đầu giảm dưới vùng hỗ trợ 70.000-72.000, cấu trúc tăng ngắn hạn sẽ bị vô hiệu hoá, xác nhận cổ phiếu vẫn còn kẹt trong xu hướng giảm lớn.
 
 Kết luận: Chưa đủ điều kiện xác nhận điểm vào ngay lúc này - đang đuổi giá vào sát một vùng kháng cự lớn, nhiều lần đã từ chối giá, mà chưa có breakout kèm volume xác nhận và giữ vững, trong bối cảnh VNINDEX còn yếu. Nên chờ MWG phá dứt khoát vùng 79.000-80.000 kèm volume tốt và giữ được nền giá sau breakout, hoặc chờ một nhịp hồi về gần vùng hỗ trợ 70.000-72.000 với tín hiệu đảo chiều rõ ràng, trước khi coi đây là điểm vào có cấu trúc rõ ràng.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="MSN" data-date="20261002" data-datecol="202610071326" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="MSN" data-date="20261002" data-datecol="202610071326" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>MSN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/10/2026 <span class="lv">09:18</span><br><span class="lv">6 ngày trước</span></td>
@@ -1159,7 +1174,7 @@ Kết luận: Chưa đủ điều kiện xác nhận điểm vào ngay lúc này
           <td>07/10 13:26</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VOS" data-date="20261001" data-datecol="202610071326" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="VOS" data-date="20261001" data-datecol="202610071326" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>VOS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>01/10/2026 <span class="lv">09:20</span><br><span class="lv">7 ngày trước</span></td>
@@ -1171,7 +1186,7 @@ Kết luận: Chưa đủ điều kiện xác nhận điểm vào ngay lúc này
           <td>07/10 13:26</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PHR" data-date="20261001" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="PHR" data-date="20261001" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>PHR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>01/10/2026 <span class="lv">09:52</span><br><span class="lv">7 ngày trước</span></td>
@@ -1183,7 +1198,7 @@ Kết luận: Chưa đủ điều kiện xác nhận điểm vào ngay lúc này
           <td>08/10 15:12</td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="10:25 01/10/2026: Bối cảnh: VNINDEX đang điều chỉnh giảm, thị trường chung yếu. Cấu trúc: PHR tăng lên đỉnh khoảng 34.900 đầu tháng Chín, sau đó giảm khá sâu với đáy sau thấp hơn về vùng 30.200-30.900 giữa tháng Chín, rồi phục hồi ổn định trở lại trong khoảng hai tuần qua lên 34.450 hiện tại — nhịp hồi phục này đang tiến sát lại đỉnh cũ nhưng chưa vượt qua. Vùng giá: cao nhất phiên hôm nay 34.600 vẫn thấp hơn đỉnh cũ 34.900, đóng cửa 34.450 — giá đang ở ngay sát vùng kháng cự quan trọng nhưng CHƯA phá qua. Lưu ý thêm: có nhãn chữ D và S, khả năng liên quan cổ tức hoặc chia tách, xuất hiện trên biểu đồ quanh vùng đáy 19-22/09, nên cần thận trọng khi đánh giá biên độ hồi phục qua giai đoạn đó. Price Action và Volume: phiên hôm nay tăng tốt 2,68%, đóng cửa gần mức cao nhất phiên, cho thấy lực mua khá mạnh, nhưng vẫn chưa tạo được đỉnh mới. Kịch bản: nếu giá đóng cửa vượt rõ ràng trên 34.900 kèm khối lượng xác nhận, đó sẽ là điểm vào tốt cho nhịp tăng tiếp diễn; nếu bị từ chối tại vùng kháng cự này, giá có thể quay lại tích luỹ. Kết luận: đà hồi phục tích cực nhưng chưa phá được vùng kháng cự quan trọng — chưa đủ điều kiện, nên chờ xác nhận breakout rõ ràng.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="MSB" data-date="20261001" data-datecol="202610081046" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="MSB" data-date="20261001" data-datecol="202610081046" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>MSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>01/10/2026 <span class="lv">09:20</span><br><span class="lv">7 ngày trước</span></td>
@@ -1195,7 +1210,7 @@ Kết luận: Chưa đủ điều kiện xác nhận điểm vào ngay lúc này
           <td>08/10 10:46</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="FRT" data-date="20261001" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="FRT" data-date="20261001" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="confirmed">
           <td><b>FRT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>01/10/2026 <span class="lv">09:20</span><br><span class="lv">7 ngày trước</span></td>
@@ -1212,7 +1227,7 @@ Vùng giá: Giá đang ở vùng đỉnh ngắn hạn của nhịp hồi phục,
 Price Action + Volume: Nến hôm nay xanh +0,47-0,53% (O151.0 H152.8 L150.3 C151.3), đóng cửa ở nửa trên thân nến, tiếp nối xu hướng tăng đã được xác lập ổn định qua nhiều tuần với khối lượng khá cao (703K).
 Kịch bản: (A) Nếu giữ cấu trúc HL, giá tiếp tục hướng tới target 160,000. (B) Nếu giá phá xuống dưới vùng hỗ trợ gần nhất quanh 139,000 (gần mức cắt lỗ đề xuất, cách entry ~6,4%), cấu trúc hồi phục bị vô hiệu hoá.
 Checklist: Daily; đáy gần nhất ~104,000 (T8), đỉnh xa hơn ~167,000 (T2, chưa chạm tới); cấu trúc HH/HL rõ ràng; xu hướng tăng trung hạn (hồi phục sau giảm sâu); vùng theo dõi: hỗ trợ ~139k, kháng cự xa ~160-167k; không phải breakout 1 phiên mà là uptrend liên tục nhiều tuần có volume đi kèm; nến gần nhất đóng ở nửa trên, bên mua vẫn chiếm ưu thế; có kịch bản B rõ ràng. Khoảng cách entry-&gt;cắt lỗ ~6,4% hợp lý.">✅ Đã xác nhận</span></td>
-        </tr><tr data-symbol="PET" data-date="20260930" data-datecol="202610021307" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="PET" data-date="20260930" data-datecol="202610021307" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>PET</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>30/09/2026 <span class="lv">09:20</span><br><span class="lv">8 ngày trước</span></td>
@@ -1224,7 +1239,7 @@ Checklist: Daily; đáy gần nhất ~104,000 (T8), đỉnh xa hơn ~167,000 (T2
           <td>02/10 13:07</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="DPR" data-date="20260930" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="DPR" data-date="20260930" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>DPR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>30/09/2026 <span class="lv">09:20</span><br><span class="lv">8 ngày trước</span></td>
@@ -1236,7 +1251,7 @@ Checklist: Daily; đáy gần nhất ~104,000 (T8), đỉnh xa hơn ~167,000 (T2
           <td>08/10 15:12</td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="10:24 02/10/2026: Bối cảnh: VNINDEX đang giảm, cần thận trọng hơn. Cấu trúc: đáy khoảng 33.500 (cuối tháng 7), tăng dần lên đỉnh khoảng 40.000 (quanh ngày 9-11/9), sau đó có một nến giảm mạnh kèm khối lượng đột biến đẩy giá về khoảng 34.500-35.500 (giữa tháng 9), rồi phục hồi đi lên từ từ về mức 38.800 hiện tại — vẫn còn thấp hơn đỉnh 40.000 trước đó, tức chưa xác nhận đỉnh mới (chưa có HH), cấu trúc hiện tại là đang hồi phục tiệm cận vùng kháng cự cũ chứ chưa phá được. Vùng giá: giá hiện đang tiến sát vùng kháng cự quan trọng 39.650-40.000 (đỉnh cũ) nhưng chưa phá qua — đây không phải điểm vào tốt vì đang đuổi giá vào sát kháng cự thay vì mua tại vùng hỗ trợ hoặc sau breakout đã xác nhận. Đáng chú ý là mức chốt lời theo hệ thống cơ học (39.650) gần như trùng với đúng vùng kháng cự này, cho thấy dư địa tăng giá ngắn hạn từ đây khá hạn chế nếu kháng cự chưa bị phá. Price Action + Volume: các nến gần đây thân nhỏ, biên độ hẹp, chưa cho tín hiệu bứt phá dứt khoát. Kịch bản: (A) nếu giá đóng cửa phá rõ ràng trên 40.000 kèm khối lượng xác nhận thì mới có thể coi là điểm vào hợp lệ; (B) nếu giá bị từ chối tại vùng kháng cự này và quay đầu giảm thì coi như chưa đủ điều kiện. CHƯA đủ điều kiện vì cấu trúc chưa phá kháng cự, đang đuổi giá vào vùng cản.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="DCM" data-date="20260929" data-datecol="202610021011" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="DCM" data-date="20260929" data-datecol="202610021011" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>DCM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>29/09/2026 <span class="lv">09:27</span><br><span class="lv">9 ngày trước</span></td>
@@ -1248,7 +1263,7 @@ Checklist: Daily; đáy gần nhất ~104,000 (T8), đỉnh xa hơn ~167,000 (T2
           <td>02/10 10:11</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BVH" data-date="20260929" data-datecol="202610060928" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="BVH" data-date="20260929" data-datecol="202610060928" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>BVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>29/09/2026 <span class="lv">09:27</span><br><span class="lv">9 ngày trước</span></td>
@@ -1260,7 +1275,7 @@ Checklist: Daily; đáy gần nhất ~104,000 (T8), đỉnh xa hơn ~167,000 (T2
           <td>06/10 09:28</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BSR" data-date="20260929" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="BSR" data-date="20260929" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>BSR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>29/09/2026 <span class="lv">09:27</span><br><span class="lv">9 ngày trước</span></td>
@@ -1272,7 +1287,7 @@ Checklist: Daily; đáy gần nhất ~104,000 (T8), đỉnh xa hơn ~167,000 (T2
           <td>08/10 15:12</td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="10:25 01/10/2026: Bối cảnh: VNINDEX đang trong giai đoạn điều chỉnh, tạo đỉnh sau thấp hơn đỉnh trước quanh 1.860 điểm rồi giảm về vùng 1.760 điểm, phá dưới đáy gần nhất khoảng 1.780-1.800 điểm — thị trường chung đang yếu, cần nâng tiêu chuẩn xác nhận theo đúng bài học kinh nghiệm. Cấu trúc: BSR có chuỗi đỉnh sau cao hơn đỉnh trước và đáy sau cao hơn đáy trước rõ ràng kể từ cuối tháng Tám, xác nhận xu hướng tăng, đồng thời cho thấy sức mạnh tương đối tốt hơn thị trường chung vì giá vẫn tăng mạnh trong lúc VNINDEX giảm. Vùng giá: giá đã bứt phá khỏi vùng tích luỹ dài 26.000-28.500 và hiện giao dịch ở vùng đỉnh mới quanh 32.000, khá xa vùng hỗ trợ gần nhất khoảng 29.500-30.000 — nghĩa là đang đuổi giá giữa khoảng trống thay vì vào lệnh gần vùng hỗ trợ. Price Action và Volume: phiên hôm nay tăng 1,75%, đóng cửa tạm thời gần mức cao trong phiên, nhưng khối lượng của nhịp tăng những phiên gần đây không nổi bật hơn đáng kể so với đợt bứt phá giữa tháng Chín trước đó, chưa cho thấy dòng tiền mới thực sự mạnh để xác nhận chắc chắn cho đỉnh mới. Kịch bản: nếu giá tiếp tục giữ trên 30.000 thì xu hướng tăng còn tiếp diễn hướng tới 33.000-34.000; nếu giá đánh mất vùng 29.500-30.000, đây là dấu hiệu đuối sức sau nhịp tăng nóng và nên huỷ bỏ ý định mua. Kết luận: xu hướng tốt nhưng điểm vào hiện tại là đuổi giá, không phải điểm vào có cấu trúc rõ ràng gần vùng hỗ trợ, nên chưa đủ điều kiện xác nhận.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="MSN" data-date="20260928" data-datecol="202610021003" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="MSN" data-date="20260928" data-datecol="202610021003" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>MSN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>28/09/2026 <span class="lv">09:25</span><br><span class="lv">10 ngày trước</span></td>
@@ -1284,7 +1299,7 @@ Checklist: Daily; đáy gần nhất ~104,000 (T8), đỉnh xa hơn ~167,000 (T2
           <td>02/10 10:03</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HAH" data-date="20260928" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="HAH" data-date="20260928" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>HAH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>28/09/2026 <span class="lv">09:25</span><br><span class="lv">10 ngày trước</span></td>
@@ -1301,7 +1316,7 @@ Vùng giá: Giá đang ở giữa nhịp hồi phục, cách kháng cự gần n
 Price Action + Volume: Nến hôm nay gần như trung tính (O52.800 H53.500 L52.300 C52.700, +0,38%) - đóng cửa ở DƯỚI điểm giữa thân nến trong ngày (giữa 52.300-53.500 là 52.900, đóng 52.700 thấp hơn), KHÔNG cho thấy bên mua áp đảo rõ ràng, giống nến giằng co hơn là nến xác nhận xu hướng.
 Kịch bản: Chưa đủ cơ sở xác nhận kịch bản A ngay lúc này do nến gần nhất không cho tín hiệu rõ ràng và giá chưa test/phá vùng kháng cự quan trọng phía trên; cần chờ thêm hành động giá rõ ràng hơn tại vùng 55-56k.
 Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gần nhất ~55,000-56,000 (chưa chạm); cấu trúc HL đang hình thành nhưng chưa có HH mạnh xác nhận; xu hướng đang trong giai đoạn hồi phục, chưa phải uptrend xác nhận; vùng cần theo dõi: kháng cự 55-56k (nếu phá kèm volume mới đáng tin); CHƯA có breakout; nến gần nhất trung tính, không bên nào chiếm ưu thế rõ - KHÔNG đạt checklist. KHÔNG đủ điều kiện, nên chờ thêm.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="AAA" data-date="20260928" data-datecol="202610021003" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="AAA" data-date="20260928" data-datecol="202610021003" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>AAA</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>28/09/2026 <span class="lv">09:25</span><br><span class="lv">10 ngày trước</span></td>
@@ -1313,7 +1328,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>02/10 10:03</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="TLG" data-date="20260925" data-datecol="202610071508" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="TLG" data-date="20260925" data-datecol="202610071508" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>TLG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>25/09/2026 <span class="lv">09:35</span><br><span class="lv">13 ngày trước</span></td>
@@ -1325,7 +1340,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/10 15:08</td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="11:22 28/09/2026: Bối cảnh: VNINDEX điều chỉnh -0,93% hôm nay, cần thận trọng hơn. Cấu trúc: TLG tăng từ khoảng 44.000 (đầu tháng 8) lên đỉnh thứ nhất khoảng 56.000 (quanh 11-14/09), sau đó giảm về đáy khoảng 50.000 (16-18/09), rồi hồi phục lên đỉnh thứ hai khoảng 54.500-55.000 (21-24/09) — THẤP HƠN đỉnh thứ nhất (56.000). Đây là dấu hiệu của 1 Lower High (LH) tiềm năng, theo đúng lưu ý trong D_TRADER_METHOD &#x27;giá tăng ≠ uptrend nếu chưa có đủ HH+HL rõ ràng&#x27; — cấu trúc hiện tại CHƯA rõ ràng là tiếp diễn uptrend hay đang chuyển sang sideway/suy yếu. Vùng giá: giá hiện tại 53.000 nằm giữa 2 đáy/đỉnh gần nhất, gần MA20 (52.363). Price Action + Volume: nến hôm nay gần như đi ngang (0,00%), giá mở cửa = đóng cửa = 53.000, biên độ hẹp (53.000-52.100) — 1 nến trung tính/giằng co, không cho tín hiệu rõ ràng về bên nào đang chiếm ưu thế; MACD gần đây đã chuyển sang vùng âm, cho thấy động lượng đang yếu đi. Kịch bản: nếu giá vượt lại rõ ràng qua đỉnh thứ hai (~55.000) kèm volume thì mới xác nhận lại xu hướng tăng; nếu phá xuống dưới đáy gần nhất (~50.000) thì xác nhận cấu trúc đã chuyển xấu (LH+LL). Checklist: mục &#x27;đang là HH/HL hay LH/LL&#x27; CHƯA xác định rõ ràng (nghiêng về LH); mục &#x27;đóng cửa gần HIGH hay LOW&#x27; — trung tính, không đạt. Kết luận: CHƯA ĐỦ ĐIỀU KIỆN — cấu trúc đang có dấu hiệu tạo đỉnh thấp hơn, nến hôm nay trung tính, chưa đủ cơ sở xác nhận.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="PVP" data-date="20260925" data-datecol="202609291307" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="PVP" data-date="20260925" data-datecol="202609291307" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>PVP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>25/09/2026 <span class="lv">09:35</span><br><span class="lv">13 ngày trước</span></td>
@@ -1337,7 +1352,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>29/09 13:07</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VJC" data-date="20260924" data-datecol="202610061333" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="VJC" data-date="20260924" data-datecol="202610061333" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>VJC</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>24/09/2026 <span class="lv">09:33</span><br><span class="lv">14 ngày trước</span></td>
@@ -1349,7 +1364,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>06/10 13:33</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="APH" data-date="20260924" data-datecol="202610081021" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="APH" data-date="20260924" data-datecol="202610081021" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>APH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>24/09/2026 <span class="lv">09:33</span><br><span class="lv">14 ngày trước</span></td>
@@ -1361,7 +1376,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>08/10 10:21</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PVP" data-date="20260923" data-datecol="202609251444" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="PVP" data-date="20260923" data-datecol="202609251444" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>PVP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>23/09/2026 <span class="lv">09:25</span><br><span class="lv">15 ngày trước</span></td>
@@ -1373,7 +1388,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>25/09 14:44</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HID" data-date="20260923" data-datecol="202610010920" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="HID" data-date="20260923" data-datecol="202610010920" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>HID</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>23/09/2026 <span class="lv">09:25</span><br><span class="lv">15 ngày trước</span></td>
@@ -1385,7 +1400,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>01/10 09:20</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VOS" data-date="20260922" data-datecol="202609280925" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="VOS" data-date="20260922" data-datecol="202609280925" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>VOS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>22/09/2026 <span class="lv">09:25</span><br><span class="lv">16 ngày trước</span></td>
@@ -1397,7 +1412,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>28/09 09:25</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="SSB" data-date="20260922" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi">
+        </tr><tr data-symbol="SSB" data-date="20260922" data-datecol="202610081512" data-signal="MUA" data-status="theo_doi" data-dtrader="">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>22/09/2026 <span class="lv">09:25</span><br><span class="lv">16 ngày trước</span></td>
@@ -1409,7 +1424,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>08/10 15:12</td>
           <td><span class="hist-result pending">—</span></td>
           <td><span class="hist-result pending-review" title="14:48 25/09/2026: Bối cảnh: VNINDEX đang điều chỉnh dưới đỉnh gần đây nên cần tiêu chuẩn xác nhận cao hơn bình thường. Cấu trúc trên khung Daily: SSB vừa trải qua một sóng tăng mạnh theo kiểu parabol (từ khoảng 16.000 đầu tháng 9 lên đỉnh khoảng 24.000 quanh 21-22/09, chỉ số RSI từng đạt khoảng 85, tức vùng quá mua cực đoan), sau đó giảm liên tục bốn phiên (22 đến 25/09) về 19.650 hôm nay (giảm 1,75%), tương đương giảm khoảng 18% chỉ trong vài phiên kể từ đỉnh. Vùng giá: giá vẫn đang trong nhịp giảm, chưa cho thấy dấu hiệu tạo đáy hay hấp thụ lực bán, chưa xác định được vùng hỗ trợ mới đáng tin cậy nào. Price Action và Volume: nến hôm nay tiếp tục giảm, chưa xuất hiện nến đảo chiều kiểu búa hay nhấn chìm tăng để xác nhận bên mua đã quay lại kiểm soát. Cấu trúc tăng trước đó coi như đã bị phá vỡ bởi nhịp giảm sâu này. Kịch bản B: nếu đà giảm tiếp diễn, khả năng giá lùi về vùng 17.000-18.000, tức vùng breakout cũ, là hoàn toàn có thể xảy ra. Kết luận: CHƯA ĐỦ ĐIỀU KIỆN vì giá đang trong nhịp giảm mạnh sau đỉnh parabol, chưa có nến xác nhận đảo chiều, quá sớm và quá rủi ro để xác nhận một điểm vào ở thời điểm này.">⏳ Chưa đủ đk</span></td>
-        </tr><tr data-symbol="SHI" data-date="20260922" data-datecol="202609241347" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="SHI" data-date="20260922" data-datecol="202609241347" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>SHI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>22/09/2026 <span class="lv">09:25</span><br><span class="lv">16 ngày trước</span></td>
@@ -1421,7 +1436,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>24/09 13:47</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PVT" data-date="20260922" data-datecol="202609241440" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="PVT" data-date="20260922" data-datecol="202609241440" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>PVT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>22/09/2026 <span class="lv">09:25</span><br><span class="lv">16 ngày trước</span></td>
@@ -1433,7 +1448,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>24/09 14:40</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="DCL" data-date="20260922" data-datecol="202610021020" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="DCL" data-date="20260922" data-datecol="202610021020" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>DCL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>22/09/2026 <span class="lv">09:56</span><br><span class="lv">16 ngày trước</span></td>
@@ -1445,7 +1460,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>02/10 10:20</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="GAS" data-date="20260921" data-datecol="202610061107" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="GAS" data-date="20260921" data-datecol="202610061107" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">11:09</span><br><span class="lv">17 ngày trước</span></td>
@@ -1457,7 +1472,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>06/10 11:07</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="DGW" data-date="20260921" data-datecol="202610060945" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="DGW" data-date="20260921" data-datecol="202610060945" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>DGW</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">09:26</span><br><span class="lv">17 ngày trước</span></td>
@@ -1469,7 +1484,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>06/10 09:45</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BVH" data-date="20260921" data-datecol="202609281308" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="BVH" data-date="20260921" data-datecol="202609281308" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>BVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">09:26</span><br><span class="lv">17 ngày trước</span></td>
@@ -1481,7 +1496,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>28/09 13:08</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BSR" data-date="20260921" data-datecol="202609290950" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="BSR" data-date="20260921" data-datecol="202609290950" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>BSR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">09:26</span><br><span class="lv">17 ngày trước</span></td>
@@ -1493,7 +1508,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>29/09 09:50</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="APH" data-date="20260921" data-datecol="202609240933" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="APH" data-date="20260921" data-datecol="202609240933" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>APH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">09:26</span><br><span class="lv">17 ngày trước</span></td>
@@ -1505,7 +1520,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>24/09 09:33</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="AAA" data-date="20260921" data-datecol="202609281317" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="AAA" data-date="20260921" data-datecol="202609281317" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>AAA</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>21/09/2026 <span class="lv">10:02</span><br><span class="lv">17 ngày trước</span></td>
@@ -1517,7 +1532,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>28/09 13:17</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VOS" data-date="20260918" data-datecol="202609221402" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="VOS" data-date="20260918" data-datecol="202609221402" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>VOS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>18/09/2026 <span class="lv">09:36</span><br><span class="lv">20 ngày trước</span></td>
@@ -1529,7 +1544,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>22/09 14:02</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VCB" data-date="20260918" data-datecol="202609240933" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="VCB" data-date="20260918" data-datecol="202609240933" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>VCB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>18/09/2026 <span class="lv">10:02</span><br><span class="lv">20 ngày trước</span></td>
@@ -1541,7 +1556,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>24/09 09:33</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="TDP" data-date="20260918" data-datecol="202609221402" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="TDP" data-date="20260918" data-datecol="202609221402" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>18/09/2026 <span class="lv">14:55</span><br><span class="lv">20 ngày trước</span></td>
@@ -1553,7 +1568,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>22/09 14:02</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="SSB" data-date="20260918" data-datecol="202609221309" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="SSB" data-date="20260918" data-datecol="202609221309" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>18/09/2026 <span class="lv">09:36</span><br><span class="lv">20 ngày trước</span></td>
@@ -1565,7 +1580,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>22/09 13:09</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BID" data-date="20260918" data-datecol="202609221309" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="BID" data-date="20260918" data-datecol="202609221309" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>BID</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>18/09/2026 <span class="lv">10:55</span><br><span class="lv">20 ngày trước</span></td>
@@ -1577,7 +1592,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>22/09 13:09</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VPL" data-date="20260917" data-datecol="202609211322" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="VPL" data-date="20260917" data-datecol="202609211322" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>VPL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>17/09/2026 <span class="lv">13:52</span><br><span class="lv">21 ngày trước</span></td>
@@ -1589,7 +1604,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>21/09 13:22</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VPI" data-date="20260917" data-datecol="202609220941" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="VPI" data-date="20260917" data-datecol="202609220941" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>17/09/2026 <span class="lv">09:25</span><br><span class="lv">21 ngày trước</span></td>
@@ -1601,7 +1616,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>22/09 09:41</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VPB" data-date="20260917" data-datecol="202609240933" data-signal="MUA" data-status="can_xac_minh">
+        </tr><tr data-symbol="VPB" data-date="20260917" data-datecol="202609240933" data-signal="MUA" data-status="can_xac_minh" data-dtrader="">
           <td><b>VPB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>17/09/2026 <span class="lv">09:25</span><br><span class="lv">21 ngày trước</span></td>
@@ -1613,7 +1628,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>24/09 09:33</td>
           <td><span class="hist-result pending-review">CẦN XEM LẠI</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="SHI" data-date="20260917" data-datecol="202609220941" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="SHI" data-date="20260917" data-datecol="202609220941" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>SHI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>17/09/2026 <span class="lv">09:25</span><br><span class="lv">21 ngày trước</span></td>
@@ -1625,7 +1640,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>22/09 09:41</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PLX" data-date="20260917" data-datecol="202609241440" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="PLX" data-date="20260917" data-datecol="202609241440" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>PLX</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>17/09/2026 <span class="lv">09:25</span><br><span class="lv">21 ngày trước</span></td>
@@ -1637,7 +1652,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>24/09 14:40</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HID" data-date="20260917" data-datecol="202609231018" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="HID" data-date="20260917" data-datecol="202609231018" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>HID</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>17/09/2026 <span class="lv">09:25</span><br><span class="lv">21 ngày trước</span></td>
@@ -1649,7 +1664,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>23/09 10:18</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="SSB" data-date="20260916" data-datecol="202609181308" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="SSB" data-date="20260916" data-datecol="202609181308" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">09:19</span><br><span class="lv">22 ngày trước</span></td>
@@ -1661,7 +1676,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>18/09 13:08</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PVD" data-date="20260916" data-datecol="202609251444" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="PVD" data-date="20260916" data-datecol="202609251444" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>PVD</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">09:19</span><br><span class="lv">22 ngày trước</span></td>
@@ -1673,7 +1688,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>25/09 14:44</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HII" data-date="20260916" data-datecol="202610021307" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="HII" data-date="20260916" data-datecol="202610021307" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>HII</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">09:19</span><br><span class="lv">22 ngày trước</span></td>
@@ -1685,7 +1700,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>02/10 13:07</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="DPR" data-date="20260916" data-datecol="202609300958" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="DPR" data-date="20260916" data-datecol="202609300958" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>DPR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">10:38</span><br><span class="lv">22 ngày trước</span></td>
@@ -1697,7 +1712,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>30/09 09:58</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="DPM" data-date="20260916" data-datecol="202610051425" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="DPM" data-date="20260916" data-datecol="202610051425" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>DPM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">09:46</span><br><span class="lv">22 ngày trước</span></td>
@@ -1709,7 +1724,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>05/10 14:25</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="DCM" data-date="20260916" data-datecol="202609281456" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="DCM" data-date="20260916" data-datecol="202609281456" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>DCM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">09:46</span><br><span class="lv">22 ngày trước</span></td>
@@ -1721,7 +1736,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>28/09 14:56</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BSR" data-date="20260916" data-datecol="202609211109" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="BSR" data-date="20260916" data-datecol="202609211109" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>BSR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">09:46</span><br><span class="lv">22 ngày trước</span></td>
@@ -1733,7 +1748,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>21/09 11:09</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="APH" data-date="20260916" data-datecol="202609211002" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="APH" data-date="20260916" data-datecol="202609211002" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>APH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>16/09/2026 <span class="lv">09:46</span><br><span class="lv">22 ngày trước</span></td>
@@ -1745,7 +1760,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>21/09 10:02</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PVT" data-date="20260915" data-datecol="202609221402" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="PVT" data-date="20260915" data-datecol="202609221402" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>PVT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>15/09/2026 <span class="lv">09:21</span><br><span class="lv">23 ngày trước</span></td>
@@ -1757,7 +1772,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>22/09 14:02</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PVP" data-date="20260915" data-datecol="202609171352" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="PVP" data-date="20260915" data-datecol="202609171352" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>PVP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>15/09/2026 <span class="lv">09:21</span><br><span class="lv">23 ngày trước</span></td>
@@ -1769,7 +1784,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>17/09 13:52</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BVH" data-date="20260915" data-datecol="202609211135" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="BVH" data-date="20260915" data-datecol="202609211135" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>BVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>15/09/2026 <span class="lv">09:21</span><br><span class="lv">23 ngày trước</span></td>
@@ -1781,7 +1796,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>21/09 11:35</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="AAA" data-date="20260915" data-datecol="202609211348" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="AAA" data-date="20260915" data-datecol="202609211348" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>AAA</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>15/09/2026 <span class="lv">09:21</span><br><span class="lv">23 ngày trước</span></td>
@@ -1793,7 +1808,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>21/09 13:48</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="SSB" data-date="20260914" data-datecol="202609161311" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="SSB" data-date="20260914" data-datecol="202609161311" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>14/09/2026 <span class="lv">09:34</span><br><span class="lv">24 ngày trước</span></td>
@@ -1805,7 +1820,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>16/09 13:11</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="BSR" data-date="20260914" data-datecol="202609161311" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="BSR" data-date="20260914" data-datecol="202609161311" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>BSR</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>14/09/2026 <span class="lv">09:34</span><br><span class="lv">24 ngày trước</span></td>
@@ -1817,7 +1832,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>16/09 13:11</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="APH" data-date="20260914" data-datecol="202609161404" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="APH" data-date="20260914" data-datecol="202609161404" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>APH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>14/09/2026 <span class="lv">09:34</span><br><span class="lv">24 ngày trước</span></td>
@@ -1829,7 +1844,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>16/09 14:04</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VPI" data-date="20260911" data-datecol="202609171352" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="VPI" data-date="20260911" data-datecol="202609171352" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>11/09/2026 <span class="lv">15:03</span><br><span class="lv">27 ngày trước</span></td>
@@ -1841,7 +1856,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>17/09 13:52</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="STB" data-date="20260911" data-datecol="202609301325" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="STB" data-date="20260911" data-datecol="202609301325" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>STB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>11/09/2026 <span class="lv">15:03</span><br><span class="lv">27 ngày trước</span></td>
@@ -1853,7 +1868,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>30/09 13:25</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PVT" data-date="20260911" data-datecol="202609151317" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="PVT" data-date="20260911" data-datecol="202609151317" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>PVT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>11/09/2026 <span class="lv">15:03</span><br><span class="lv">27 ngày trước</span></td>
@@ -1865,7 +1880,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>15/09 13:17</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HTN" data-date="20260911" data-datecol="202609210926" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="HTN" data-date="20260911" data-datecol="202609210926" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>11/09/2026 <span class="lv">15:03</span><br><span class="lv">27 ngày trước</span></td>
@@ -1877,7 +1892,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>21/09 09:26</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HII" data-date="20260911" data-datecol="202609161104" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="HII" data-date="20260911" data-datecol="202609161104" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>HII</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>11/09/2026 <span class="lv">15:03</span><br><span class="lv">27 ngày trước</span></td>
@@ -1889,7 +1904,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>16/09 11:04</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PVP" data-date="20260910" data-datecol="202609151447" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="PVP" data-date="20260910" data-datecol="202609151447" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>PVP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>10/09/2026 <span class="lv">15:12</span><br><span class="lv">28 ngày trước</span></td>
@@ -1901,7 +1916,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>15/09 14:47</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="NLG" data-date="20260910" data-datecol="202609151131" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="NLG" data-date="20260910" data-datecol="202609151131" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>NLG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>10/09/2026 <span class="lv">15:12</span><br><span class="lv">28 ngày trước</span></td>
@@ -1913,7 +1928,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>15/09 11:31</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="GAS" data-date="20260910" data-datecol="202609151326" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="GAS" data-date="20260910" data-datecol="202609151326" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>10/09/2026 <span class="lv">15:12</span><br><span class="lv">28 ngày trước</span></td>
@@ -1925,7 +1940,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>15/09 13:26</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="AAA" data-date="20260910" data-datecol="202609150921" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="AAA" data-date="20260910" data-datecol="202609150921" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>AAA</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>10/09/2026 <span class="lv">15:12</span><br><span class="lv">28 ngày trước</span></td>
@@ -1937,7 +1952,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>15/09 09:21</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VPB" data-date="20260909" data-datecol="202609171446" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="VPB" data-date="20260909" data-datecol="202609171446" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>VPB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -1949,7 +1964,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>17/09 14:46</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VIC" data-date="20260909" data-datecol="202610020918" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="VIC" data-date="20260909" data-datecol="202610020918" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>VIC</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -1961,7 +1976,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>02/10 09:18</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="TDP" data-date="20260909" data-datecol="202609180936" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="TDP" data-date="20260909" data-datecol="202609180936" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -1973,7 +1988,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>18/09 09:36</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="SSB" data-date="20260909" data-datecol="202609140934" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="SSB" data-date="20260909" data-datecol="202609140934" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>SSB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -1985,7 +2000,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>14/09 09:34</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="SBG" data-date="20260909" data-datecol="202609281045" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="SBG" data-date="20260909" data-datecol="202609281045" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -1997,7 +2012,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>28/09 10:45</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="PVT" data-date="20260909" data-datecol="202609111317" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="PVT" data-date="20260909" data-datecol="202609111317" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>PVT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -2009,7 +2024,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>11/09 13:17</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="MCH" data-date="20260909" data-datecol="202609211414" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="MCH" data-date="20260909" data-datecol="202609211414" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>MCH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -2021,7 +2036,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>21/09 14:14</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HVH" data-date="20260909" data-datecol="202609151131" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="HVH" data-date="20260909" data-datecol="202609151131" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>HVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -2033,7 +2048,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>15/09 11:31</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HTN" data-date="20260909" data-datecol="202609111317" data-signal="MUA" data-status="can_xac_minh">
+        </tr><tr data-symbol="HTN" data-date="20260909" data-datecol="202609111317" data-signal="MUA" data-status="can_xac_minh" data-dtrader="">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -2045,7 +2060,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>11/09 13:17</td>
           <td><span class="hist-result pending-review">CẦN XEM LẠI</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HSL" data-date="20260909" data-datecol="202609141000" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="HSL" data-date="20260909" data-datecol="202609141000" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>HSL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -2057,7 +2072,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>14/09 10:00</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HHP" data-date="20260909" data-datecol="202609251444" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="HHP" data-date="20260909" data-datecol="202609251444" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -2069,7 +2084,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>25/09 14:44</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="FPT" data-date="20260909" data-datecol="202609210926" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="FPT" data-date="20260909" data-datecol="202609210926" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -2081,7 +2096,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>21/09 09:26</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="APH" data-date="20260909" data-datecol="202609141000" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="APH" data-date="20260909" data-datecol="202609141000" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>APH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>09/09/2026<br><span class="lv">29 ngày trước</span></td>
@@ -2093,7 +2108,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>14/09 10:00</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VPI" data-date="20260907" data-datecol="202609101315" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="VPI" data-date="20260907" data-datecol="202609101315" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">31 ngày trước</span></td>
@@ -2105,7 +2120,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>10/09 13:15</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VHM" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="VHM" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>VHM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">31 ngày trước</span></td>
@@ -2117,7 +2132,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>09/09 13:23</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="TDP" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="TDP" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">31 ngày trước</span></td>
@@ -2129,7 +2144,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>09/09 13:23</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="STB" data-date="20260907" data-datecol="202609101058" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="STB" data-date="20260907" data-datecol="202609101058" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>STB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">31 ngày trước</span></td>
@@ -2141,7 +2156,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>10/09 10:58</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="SBG" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="SBG" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">31 ngày trước</span></td>
@@ -2153,7 +2168,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>09/09 13:23</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="MCH" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="MCH" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>MCH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">31 ngày trước</span></td>
@@ -2165,7 +2180,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>09/09 13:23</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HTN" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="HTN" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">31 ngày trước</span></td>
@@ -2177,7 +2192,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>09/09 13:23</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HHP" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="HHP" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">31 ngày trước</span></td>
@@ -2189,7 +2204,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>09/09 13:23</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HCM" data-date="20260907" data-datecol="202609101058" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="HCM" data-date="20260907" data-datecol="202609101058" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>HCM</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">31 ngày trước</span></td>
@@ -2201,7 +2216,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>10/09 10:58</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="FPT" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="FPT" data-date="20260907" data-datecol="202609091323" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>07/09/2026<br><span class="lv">31 ngày trước</span></td>
@@ -2213,7 +2228,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>09/09 13:23</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="SSI" data-date="20260904" data-datecol="202609111018" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="SSI" data-date="20260904" data-datecol="202609111018" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>SSI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">34 ngày trước</span></td>
@@ -2225,7 +2240,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>11/09 10:18</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HVH" data-date="20260904" data-datecol="202609081415" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="HVH" data-date="20260904" data-datecol="202609081415" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>HVH</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">34 ngày trước</span></td>
@@ -2237,7 +2252,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>08/09 14:15</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HSL" data-date="20260904" data-datecol="202609091441" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="HSL" data-date="20260904" data-datecol="202609091441" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>HSL</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>04/09/2026<br><span class="lv">34 ngày trước</span></td>
@@ -2249,7 +2264,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>09/09 14:41</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VPI" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="VPI" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2261,7 +2276,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 13:18</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="TDP" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="TDP" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>TDP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2273,7 +2288,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 13:18</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="SBG" data-date="20260903" data-datecol="202609071348" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="SBG" data-date="20260903" data-datecol="202609071348" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>SBG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2285,7 +2300,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 13:48</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="REE" data-date="20260903" data-datecol="202609091441" data-signal="BÁN" data-status="da_cham_tp">
+        </tr><tr data-symbol="REE" data-date="20260903" data-datecol="202609091441" data-signal="BÁN" data-status="da_cham_tp" data-dtrader="">
           <td><b>REE</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2297,7 +2312,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>09/09 14:41</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="NTL" data-date="20260903" data-datecol="202609071318" data-signal="BÁN" data-status="da_cham_sl">
+        </tr><tr data-symbol="NTL" data-date="20260903" data-datecol="202609071318" data-signal="BÁN" data-status="da_cham_sl" data-dtrader="">
           <td><b>NTL</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2309,7 +2324,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 13:18</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="MZG" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="MZG" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>MZG</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2321,7 +2336,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 13:18</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HTN" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="HTN" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>HTN</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2333,7 +2348,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 13:18</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HHP" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="HHP" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2345,7 +2360,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 13:18</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HDB" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="HDB" data-date="20260903" data-datecol="202609071318" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>HDB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2357,7 +2372,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 13:18</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="GAS" data-date="20260903" data-datecol="202609091012" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="GAS" data-date="20260903" data-datecol="202609091012" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2369,7 +2384,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>09/09 10:12</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="FIR" data-date="20260903" data-datecol="202609071318" data-signal="BÁN" data-status="da_cham_tp">
+        </tr><tr data-symbol="FIR" data-date="20260903" data-datecol="202609071318" data-signal="BÁN" data-status="da_cham_tp" data-dtrader="">
           <td><b>FIR</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2381,7 +2396,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 13:18</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="ELC" data-date="20260903" data-datecol="202609071318" data-signal="BÁN" data-status="da_cham_tp">
+        </tr><tr data-symbol="ELC" data-date="20260903" data-datecol="202609071318" data-signal="BÁN" data-status="da_cham_tp" data-dtrader="">
           <td><b>ELC</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2393,7 +2408,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 13:18</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="DHC" data-date="20260903" data-datecol="202609071435" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="DHC" data-date="20260903" data-datecol="202609071435" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>DHC</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2405,7 +2420,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>07/09 14:35</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="ABS" data-date="20260903" data-datecol="202609080939" data-signal="BÁN" data-status="da_cham_sl">
+        </tr><tr data-symbol="ABS" data-date="20260903" data-datecol="202609080939" data-signal="BÁN" data-status="da_cham_sl" data-dtrader="">
           <td><b>ABS</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>03/09/2026<br><span class="lv">35 ngày trước</span></td>
@@ -2417,7 +2432,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>08/09 09:39</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="VPI" data-date="20260902" data-datecol="202609041311" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="VPI" data-date="20260902" data-datecol="202609041311" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>VPI</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">36 ngày trước</span></td>
@@ -2429,7 +2444,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>04/09 13:11</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="OCB" data-date="20260902" data-datecol="202609030936" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="OCB" data-date="20260902" data-datecol="202609030936" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>OCB</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">36 ngày trước</span></td>
@@ -2441,7 +2456,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>03/09 09:36</td>
           <td><span class="hist-result lost">LOST</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="NTL" data-date="20260902" data-datecol="202609030936" data-signal="BÁN" data-status="da_cham_tp">
+        </tr><tr data-symbol="NTL" data-date="20260902" data-datecol="202609030936" data-signal="BÁN" data-status="da_cham_tp" data-dtrader="">
           <td><b>NTL</b></td>
           <td><span class="hist-sig ban">BÁN</span></td>
           <td>02/09/2026<br><span class="lv">36 ngày trước</span></td>
@@ -2453,7 +2468,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>03/09 09:36</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="HHP" data-date="20260902" data-datecol="202609041311" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="HHP" data-date="20260902" data-datecol="202609041311" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>HHP</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">36 ngày trước</span></td>
@@ -2465,7 +2480,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>04/09 13:11</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="GAS" data-date="20260902" data-datecol="202609030936" data-signal="MUA" data-status="da_cham_tp">
+        </tr><tr data-symbol="GAS" data-date="20260902" data-datecol="202609030936" data-signal="MUA" data-status="da_cham_tp" data-dtrader="">
           <td><b>GAS</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">36 ngày trước</span></td>
@@ -2477,7 +2492,7 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
           <td>03/09 09:36</td>
           <td><span class="hist-result win">WIN</span></td>
           <td><span class="hist-result not-reviewed">—</span></td>
-        </tr><tr data-symbol="FPT" data-date="20260902" data-datecol="202609031425" data-signal="MUA" data-status="da_cham_sl">
+        </tr><tr data-symbol="FPT" data-date="20260902" data-datecol="202609031425" data-signal="MUA" data-status="da_cham_sl" data-dtrader="">
           <td><b>FPT</b></td>
           <td><span class="hist-sig mua">MUA</span></td>
           <td>02/09/2026<br><span class="lv">36 ngày trước</span></td>
@@ -6816,7 +6831,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">15:34:20 08/10/2026</span>
+    Sinh trang lúc <span class="mono">16:19:22 08/10/2026</span>
   </footer>
 </div>
 <script>
@@ -7042,6 +7057,19 @@ function updateHistStatusCounts(statusCounts) {
   });
 }
 
+// Bo loc "chi hien ma da duoc D-Trader XAC NHAN" (THEM 08/10/2026, yeu cau
+// anh Dat) - DOC LAP voi bo loc trang thai All/Open/TP/SL o tren (dung bien
+// rieng + class rieng .hist-dtrader-toggle, xem ghi chu o CSS), cho phep bat
+// CUNG LUC voi tim kiem/khoang ngay/trang thai thay vi thay the chung. Dong
+// nghia voi data-dtrader="confirmed" tren <tr> (xem build_history_table()).
+var histDtraderOnly = false;
+
+function toggleHistDtraderOnly(btn) {
+  histDtraderOnly = !histDtraderOnly;
+  if (btn) btn.classList.toggle('active', histDtraderOnly);
+  applyHistFilters();
+}
+
 function applyHistFilters() {
   var input = document.getElementById('histSearch');
   var q = input ? input.value.trim().toUpperCase() : '';
@@ -7052,10 +7080,14 @@ function applyHistFilters() {
   // sym/date dang chon) de so tren nut luon phan anh dung "neu bo loc nay,
   // con lai bao nhieu dong" - dung UX facet-count quen thuoc.
   var statusCounts = { all: 0, theo_doi: 0, da_cham_tp: 0, da_cham_sl: 0 };
+  // Dem so ma D-Trader da xac nhan con lai sau sym/date/trang_thai (CHUA ap
+  // dung chinh bo loc nay) - cung ly do facet-count nhu statusCounts o tren.
+  var dtraderConfirmedCount = 0;
   rows.forEach(function (r) {
     var sym = r.getAttribute('data-symbol') || '';
     var d = r.getAttribute('data-date') || '00000000';
     var st = r.getAttribute('data-status') || 'theo_doi';
+    var dtr = r.getAttribute('data-dtrader') || '';
     var symOk = sym.indexOf(q) !== -1;
     var dateOk = (!histDateFrom || d >= histDateFrom) && (!histDateTo || d <= histDateTo);
     if (symOk && dateOk) {
@@ -7063,7 +7095,9 @@ function applyHistFilters() {
       if (statusCounts.hasOwnProperty(st)) statusCounts[st] += 1;
     }
     var statusOk = (histStatusFilter === 'all') || (st === histStatusFilter);
-    var match = symOk && dateOk && statusOk;
+    if (symOk && dateOk && statusOk && dtr === 'confirmed') dtraderConfirmedCount += 1;
+    var dtraderOk = (!histDtraderOnly) || (dtr === 'confirmed');
+    var match = symOk && dateOk && statusOk && dtraderOk;
     r.style.display = match ? '' : 'none';
     if (match) {
       nVisible += 1;
@@ -7079,6 +7113,8 @@ function applyHistFilters() {
   if (noMatch) noMatch.hidden = nVisible !== 0;
   updateHistStatsCards(counts);
   updateHistStatusCounts(statusCounts);
+  var dtrCntEl = document.getElementById('histDtraderCnt');
+  if (dtrCntEl) dtrCntEl.textContent = dtraderConfirmedCount;
   updateHistScrollShadow();
 }
 
