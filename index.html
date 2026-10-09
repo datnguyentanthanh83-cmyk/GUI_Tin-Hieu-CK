@@ -605,7 +605,7 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
-    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">362</span></button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">363</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
@@ -897,7 +897,7 @@ footer.disclaimer {
       <div class="status-row">
         <span class="sd bad"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-10-09 11:48:55 — Ngoài giờ giao dịch (đang chờ)</span>
+        <span class="v">2026-10-09 12:02:55 — Ngoài giờ giao dịch (đang chờ)</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -2514,19 +2514,42 @@ Checklist: Daily; đáy gần nhất ~42,000 (T8), kháng cự quan trọng gầ
 
   <div id="tabDTrader" class="tab-panel">
     <h2 class="section">D-Trader — Lịch sử xem xét</h2>
-    <div class="dtr-summary">Tổng 89 giao dịch đã qua D-Trader xem xét — 25 đã xác nhận, 64 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
+    <div class="dtr-summary">Tổng 90 giao dịch đã qua D-Trader xem xét — 25 đã xác nhận, 65 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
     <div class="hist-status-btns" id="dtrStatusBtns">
-      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">89</span></button>
+      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">90</span></button>
       <button type="button" class="hist-status-btn" data-dtr-filter="da_xac_nhan" onclick="dtrSetFilter('da_xac_nhan', this)">✅ Đã xác nhận <span class="cnt">25</span></button>
-      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">64</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">65</span></button>
     </div>
     <input type="text" id="dtrSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="dtrApplySearch()" autocomplete="off">
     <p class="empty dtr-empty" id="dtrEmpty" hidden>Không có mã nào khớp bộ lọc.</p>
     <div id="dtrList">
     <div class="dtr-day">
-      <div class="dtr-day-head">09/10/2026 <span class="dtr-day-cnt">(17 mã)</span></div>
+      <div class="dtr-day-head">09/10/2026 <span class="dtr-day-cnt">(18 mã)</span></div>
       <div class="dtr-cards">
-      <div class="dtr-card" data-dtr-symbol="hdb" data-dtr-verdict="chua_du_dieu_kien">
+      <div class="dtr-card" data-dtr-symbol="tdp" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">TDP</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result lost">🔴 Đã chạm SL</span>
+          <span class="dtr-time mono">11:52</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Áp dụng đúng quy trình 5 bước của D_TRADER_METHOD.md:
+
+(1) Bối cảnh: VNINDEX hiện ở 1.732,55 điểm (-0,37% trong phiên), đang trong nhịp điều chỉnh rõ ràng từ đỉnh ngắn hạn quanh 1.830-1.840 điểm (giữa tháng 9) xuống còn khoảng 1.732 điểm hiện tại, tạo chuỗi đỉnh sau thấp hơn đỉnh trước (LH) và đáy sau thấp hơn đáy trước (LL) trên khung Daily, RSI 36,61 và MACD vẫn âm, chưa có dấu hiệu đảo chiều rõ ràng. Đây chính là tình huống &quot;gấu cả thị trường&quot; mà Bài học 1 trong D_TRADER_LESSONS_LEARNED.md đã cảnh báo, đòi hỏi tiêu chuẩn xác nhận cao hơn bình thường cho bất kỳ mã riêng lẻ nào.
+
+(2) Cấu trúc: TDP tạo đỉnh gần đây quanh 31.750 (đóng cửa, giữa tháng 9, +3,10%), ngay sau đó có 1 phiên giảm sốc -6,84% phá vỡ cấu trúc tăng trước đó, rồi đi ngang tích luỹ khoảng 2 tuần quanh vùng 26.300-27.500, và vừa bật tăng mạnh 2 phiên liên tiếp gần nhất (07/10 +4,35% đóng 28.800; 08/10 +1,74% đóng 29.300, có lúc chạm cao 29.800 trong phiên) kèm khối lượng cải thiện rõ rệt (lần lượt 277,8 nghìn và 290,7 nghìn cổ phiếu, cao hơn hẳn phiên giảm sốc chỉ 130,9 nghìn cổ phiếu). Đây là tín hiệu tích cực nhưng mới chỉ có 2 phiên tăng, CHƯA đủ để khẳng định đã hình thành chuỗi đỉnh cao dần - đáy cao dần (HH+HL) ổn định của 1 uptrend mới sau cú sốc giảm giá.
+
+(3) Vùng giá: giá hiện tại 28.700 đang nằm giữa vùng hỗ trợ gần (đáy của 2 phiên tăng vừa qua, khoảng 27.800-28.000) và vùng kháng cự cũ phía trên (29.800-30.800, xa hơn nữa là đỉnh cũ 31.750) - chưa ở sát vùng hỗ trợ đẹp để vào lệnh an toàn, mà đang ở lưng chừng ngay sau 1 nhịp tăng nóng.
+
+(4) Price Action + Volume: phiên hôm nay (09/10/2026, mới kết thúc phiên sáng do thị trường đang trong giờ nghỉ trưa) giảm -2,05% so với giá tham chiếu, dao động trong biên độ hẹp 28.500-28.700, đóng tạm gần mức cao của phiên sáng nhưng vẫn là phiên giảm - cho thấy bên bán đang tạm chiếm ưu thế ngắn hạn ngay sau 2 phiên tăng mạnh liên tiếp của bên mua. Khối lượng phiên sáng mới đạt 36,2 nghìn cổ phiếu (phiên chưa đóng cửa), chưa đủ dữ liệu để đánh giá khối lượng cả ngày. Đây là dấu hiệu nhịp tăng vừa qua CHƯA được kiểm định và giữ vững qua 1 phiên điều chỉnh hoàn chỉnh.
+
+(5) Kịch bản: Kịch bản A (giá tiếp tục theo cấu trúc tăng) - nếu giá giữ vững trên vùng hỗ trợ 27.800-28.000 trong 1-2 phiên tới, sau đó vượt lại vùng kháng cự 29.800-30.800 kèm khối lượng tốt, có thể coi là xác nhận chuỗi HH+HL mới, điểm vào hợp lý sẽ nằm quanh vùng hỗ trợ đó với cắt lỗ dưới 27.800. Kịch bản B (cấu trúc bị vô hiệu hoá) - nếu giá phá xuống dưới 27.800, hoặc nghiêm trọng hơn là phá luôn vùng nền tích luỹ 26.300, nhịp bật tăng này coi như thất bại, đặc biệt rủi ro khi bối cảnh VNINDEX vẫn đang trong nhịp giảm chưa tạo đáy rõ ràng.
+
+Đối chiếu checklist bắt buộc: đã trả lời đầy đủ các mục (khung thời gian Daily, đỉnh/đáy quan trọng gần nhất, cấu trúc HH/HL hay chưa rõ, xu hướng hiện tại, vùng hỗ trợ/kháng cự cần theo dõi, cấu trúc breakout chưa được kiểm định, nến gần nhất đóng gần cao hay thấp, kịch bản B). Tuy nhiên, theo đúng tinh thần Bài học 3 và Bài học 4, TDP có lịch sử riêng cần đặc biệt thận trọng: mã này từng bị cắt lỗ 2 lần trong 11 ngày hồi tháng 9/2026 (lần 1 ngày 09/09 từ tín hiệu 07/09, cắt lỗ đặt quá sát entry chỉ 0,25%; lần 2 ngày 18/09 từ tín hiệu 09/09) - đúng giai đoạn thị trường chung cũng đang điều chỉnh tương tự như bối cảnh VNINDEX hiện tại. Kết hợp với việc nhịp tăng hiện tại của TDP mới chỉ 2 phiên, chưa được kiểm định qua 1 nhịp điều chỉnh hoàn chỉnh, phiên hôm nay đang đảo chiều giảm ngay sau nhịp tăng, và VNINDEX chưa có dấu hiệu tạo đáy rõ ràng, D-Trader đánh giá CHƯA ĐỦ ĐIỀU KIỆN để xác nhận điểm vào ở thời điểm này. Nên chờ thêm diễn biến (giá giữ vững trên vùng hỗ trợ 27.800-28.000 qua thêm 1-2 phiên nữa, hoặc VNINDEX cho tín hiệu tạo đáy rõ ràng hơn) trước khi coi đây là điểm vào có cấu trúc thực sự rõ ràng.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="hdb" data-dtr-verdict="chua_du_dieu_kien">
         <div class="dtr-card-head">
           <span class="dtr-symbol">HDB</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
@@ -7032,7 +7055,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">11:49:20 09/10/2026</span>
+    Sinh trang lúc <span class="mono">12:04:20 09/10/2026</span>
   </footer>
 </div>
 <script>
