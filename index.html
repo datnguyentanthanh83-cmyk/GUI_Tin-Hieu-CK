@@ -605,7 +605,7 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
-    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">393</span></button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">394</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
@@ -2448,9 +2448,32 @@ Checklist: Daily; đỉnh gần nhất của range ~16,000, đáy gần nhất ~
     <p class="empty dtr-empty" id="dtrEmpty" hidden>Không có mã nào khớp bộ lọc.</p>
     <div id="dtrList">
     <div class="dtr-day">
-      <div class="dtr-day-head">14/10/2026 <span class="dtr-day-cnt">(10 mã)</span></div>
+      <div class="dtr-day-head">14/10/2026 <span class="dtr-day-cnt">(11 mã)</span></div>
       <div class="dtr-cards">
       <div class="dtr-card" data-dtr-symbol="pvt" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">PVT</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result lost">🔴 Đã chạm SL</span>
+          <span class="dtr-time mono">14:48</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Bối cảnh: VNINDEX đang trong xu hướng giảm rõ rệt, từ đỉnh gần nhất khoảng 1.920 điểm (giữa tháng 9) giảm liên tục xuống còn khoảng 1.708 điểm hiện tại (giảm hơn 11%), RSI khung Daily ở mức 31, gần vùng quá bán nhưng chưa xác nhận đảo chiều. Theo bài học rút ra trước đây, đây là tín hiệu rủi ro hệ thống, cần đòi hỏi tiêu chuẩn xác nhận cao hơn bình thường, và nên tìm mã có sức mạnh tương đối rõ rệt so với VNINDEX. PVT đang tăng giá trong khi VNINDEX giảm sâu, cho thấy sức mạnh tương đối tốt — đây là điểm tích cực.
+
+Cấu trúc: Trên khung Daily, PVT tạo đáy quan trọng gần nhất quanh vùng 16.700-17.000 (đầu tháng 8), sau đó tăng liên tục với chuỗi đỉnh sau cao hơn đỉnh trước và đáy sau cao hơn đáy trước (HH+HL) qua các nhịp: đỉnh cuối tháng 8 khoảng 22.500, đáy giữa tháng 9 khoảng 21.500-22.300 (HL), đỉnh cuối tháng 9 khoảng 23.500 (HH), rồi bứt phá mạnh đầu tháng 10 lên đỉnh gần nhất khoảng 25.850-26.000 (ngày 08/10). Xu hướng hiện tại là Uptrend rõ ràng, chưa có dấu hiệu bị phá.
+
+Vùng giá: Giá hiện tại 24.900 (phiên 14/10) đang nằm ở vùng giữa của nhịp tăng gần nhất, cách đỉnh gần nhất (khoảng 25.850, ngày 08/10) khoảng 4%, và CHƯA điều chỉnh về một vùng hỗ trợ đã được kiểm chứng rõ ràng trên chart thực (ví dụ vùng tích luỹ cuối tháng 9 quanh 21.500-23.500, hoặc vùng nền của cây nến bứt phá ngày 07/10 quanh 23.900-24.000). Mức Entry gợi ý từ market_scan.py (24,73, tại Pivot S1) chỉ là điểm tính toán cơ học theo công thức pivot, không trùng với 1 vùng hỗ trợ có ý nghĩa cấu trúc thực sự trên chart — do đó vị thế hiện tại giống &quot;đuổi giá giữa khoảng trống&quot; hơn là &quot;vào lệnh gần vùng hỗ trợ&quot; như phương pháp yêu cầu.
+
+Price Action + Volume: 2 phiên bứt phá ngày 07-08/10 có volume tăng mạnh, xác nhận lực mua tốt. Tuy nhiên 4-5 phiên gần nhất (09, 12, 13, 14/10) giá đang điều chỉnh giảm nhẹ với volume giảm dần so với phiên bứt phá — đây là dấu hiệu tương đối lành mạnh (không phải bán tháo mạnh), nhưng cũng chưa có volume đột biến xác nhận lực mua mới xuất hiện tại vùng giá hiện tại. Nến ngày 14/10 (hôm nay): mở 25.000, cao 25.200, thấp 24.700, đóng 24.900, giảm nhẹ -0,4%, đóng cửa ở giữa thân nến — không nghiêng rõ rệt về bên mua hay bên bán, chưa có nến đảo chiều tăng giá rõ ràng xác nhận điểm vào.
+
+Kịch bản: Nếu (A) giá giữ vững trên vùng 23.900-24.000 (nền của cây nến bứt phá 07/10) rồi tiếp tục tăng vượt đỉnh 25.850-26.000 kèm volume xác nhận, đó sẽ là điểm vào có cấu trúc tốt hơn. Nếu (B) giá phá xuống dưới vùng 23.500 (đỉnh cũ tháng 9, nay đóng vai trò hỗ trợ) kèm volume lớn, cấu trúc tăng hiện tại sẽ bị vô hiệu hoá, chuyển sang nghi ngờ đảo chiều.
+
+Checklist: Khung thời gian Daily — có. Đỉnh/đáy quan trọng gần nhất — có (đỉnh 25.850 ngày 08/10, đáy gần nhất khoảng 23.900-24.000 là nền của nến bứt phá 07/10, đáy lớn hơn khoảng 16.700 đầu tháng 8). HH/HL — có, đang Uptrend. Điểm cấu trúc quan trọng cần theo dõi — có (vùng 23.500-24.000). Cấu trúc đã bị phá chưa — chưa bị phá, nhưng đang điều chỉnh, giá chưa test lại vùng hỗ trợ quan trọng để xác nhận giữ vững. Nến gần nhất đóng gần HIGH hay LOW — đóng giữa thân nến, không rõ bên nào chiếm ưu thế — mục này KHÔNG trả lời được rõ ràng theo đúng yêu cầu checklist. Kịch bản B — có, đã xác định rõ.
+
+Kết luận: Thiếu 1 mục bắt buộc trong checklist (nến gần nhất chưa cho thấy bên mua chiếm ưu thế rõ rệt, và giá hiện tại chưa thực sự nằm ở một vùng hỗ trợ đã được kiểm chứng trên chart mà chỉ trùng với 1 điểm pivot tính toán cơ học) — trong bối cảnh VNINDEX đang giảm sâu đòi hỏi tiêu chuẩn cao hơn bình thường, D-Trader chưa đủ cơ sở để xác nhận điểm vào ngay thời điểm này. Khuyến nghị: tiếp tục theo dõi, chờ 1 trong 2 kịch bản ở Bước 5 xảy ra rõ ràng hơn (hoặc bứt phá mới vượt đỉnh kèm volume xác nhận, hoặc điều chỉnh sâu hơn về vùng hỗ trợ 23.500-24.000 kèm nến đảo chiều tăng giá) trước khi xác nhận điểm vào.</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="pvt" data-dtr-verdict="chua_du_dieu_kien">
         <div class="dtr-card-head">
           <span class="dtr-symbol">PVT</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
@@ -7344,7 +7367,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">14:44:41 14/10/2026</span>
+    Sinh trang lúc <span class="mono">14:49:19 14/10/2026</span>
   </footer>
 </div>
 <script>
