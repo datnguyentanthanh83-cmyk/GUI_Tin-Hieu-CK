@@ -605,7 +605,7 @@ footer.disclaimer {
   <div class="tabs">
     <button class="tab-btn active" onclick="showTab('tabTinHieu', this)">Tín hiệu MUA</button>
     <button class="tab-btn" onclick="showTab('tabLichSu', this)">Lịch sử tín hiệu</button>
-    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">444</span></button>
+    <button class="tab-btn" onclick="showTab('tabDTrader', this)">D-Trader <span class="section-tag">445</span></button>
     <button class="tab-btn" onclick="showTab('tabSucKhoe', this)"><span class="dot-mini red"></span>Sức khỏe phương pháp</button>
     <button class="tab-btn" onclick="showTab('tabChampionChallenger', this)">Champion / Challenger</button>
   </div>
@@ -706,14 +706,14 @@ footer.disclaimer {
     <h2 class="section">Tình trạng hệ thống</h2>
     <div class="status-panel">
       <div class="status-row">
-        <span class="sd ok"></span>
+        <span class="sd bad"></span>
         <span class="k">Lần quét gần nhất</span>
-        <span class="v">2026-11-03 11:31:18 — Đã quét</span>
+        <span class="v">2026-11-03 11:39:25 — Ngoài giờ giao dịch (đang chờ)</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
         <span class="k">Mã quét thành công</span>
-        <span class="v">170 OK · 0 lỗi</span>
+        <span class="v">— OK · — lỗi</span>
       </div>
       <div class="status-row">
         <span class="sd ok"></span>
@@ -2673,19 +2673,30 @@ footer.disclaimer {
 
   <div id="tabDTrader" class="tab-panel">
     <h2 class="section">D-Trader — Lịch sử xem xét</h2>
-    <div class="dtr-summary">Tổng 125 giao dịch đã qua D-Trader xem xét — 30 đã xác nhận, 95 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
+    <div class="dtr-summary">Tổng 126 giao dịch đã qua D-Trader xem xét — 30 đã xác nhận, 96 chưa đủ điều kiện (đếm theo lệnh, không theo lượt xem lại).</div>
     <div class="hist-status-btns" id="dtrStatusBtns">
-      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">125</span></button>
+      <button type="button" class="hist-status-btn active" data-dtr-filter="all" onclick="dtrSetFilter('all', this)">Tất cả <span class="cnt">126</span></button>
       <button type="button" class="hist-status-btn" data-dtr-filter="da_xac_nhan" onclick="dtrSetFilter('da_xac_nhan', this)">✅ Đã xác nhận <span class="cnt">30</span></button>
-      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">95</span></button>
+      <button type="button" class="hist-status-btn" data-dtr-filter="chua_du_dieu_kien" onclick="dtrSetFilter('chua_du_dieu_kien', this)">⏳ Chưa đủ điều kiện <span class="cnt">96</span></button>
     </div>
     <input type="text" id="dtrSearch" class="hist-search" placeholder="Tìm mã (VD: HPG)..." oninput="dtrApplySearch()" autocomplete="off">
     <p class="empty dtr-empty" id="dtrEmpty" hidden>Không có mã nào khớp bộ lọc.</p>
     <div id="dtrList">
     <div class="dtr-day">
-      <div class="dtr-day-head">03/11/2026 <span class="dtr-day-cnt">(8 mã)</span></div>
+      <div class="dtr-day-head">03/11/2026 <span class="dtr-day-cnt">(9 mã)</span></div>
       <div class="dtr-cards">
       <div class="dtr-card" data-dtr-symbol="dpg" data-dtr-verdict="chua_du_dieu_kien">
+        <div class="dtr-card-head">
+          <span class="dtr-symbol">DPG</span>
+          <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
+          <span class="hist-result not-reviewed" title="Không tìm được chu kỳ tín hiệu khớp">— chưa rõ lệnh</span>
+          <span class="dtr-time mono">11:33</span>
+        </div>
+        <details class="dtr-reasoning">
+          <summary>Xem chi tiết phân tích</summary>
+          <p>Khung Daily, đọc lúc khoảng 11:32 (nến hôm nay chưa hoàn chỉnh, đây là lần xem lại sau lần 10:32). Bối cảnh: VNINDEX vẫn giữ cấu trúc LH/LL (đỉnh ~1.860 tháng 9 → LH ~1.840 → LH ~1.780 cuối tháng 10); phiên 02/11 là nến đỏ thân dài, hôm nay là nến doji quanh ~1.711 (+0,04%), sát đáy tháng 10 ~1.680–1.685 — rủi ro hệ thống vẫn cao, theo Bài học 1 phải nâng tiêu chuẩn xác nhận. Cấu trúc DPG: sau nhịp giảm dài từ ~45.000 (tháng 5) về đáy ~25.500 (cuối tháng 7), giá đi ngang trong biên 25.700–32.200 (đỉnh nhọn đầu tháng 8 ~32.200, đáy tháng 10 ~25.700 xấp xỉ đáy tháng 7); cuối tháng 10 có nến xanh thân dài kèm volume lớn bứt từ ~28.000 lên ~30.000 nhưng các đỉnh sau chỉ ~31.500–31.700, chưa vượt 32.200 — chưa có chuỗi HH/HL rõ ràng, xu hướng là sideway, cấu trúc CHƯA bị phá. Vùng giá: giá hiện tại ~30.200 nằm ở nửa trên của biên, cách kháng cự 31.700–32.200 khoảng 5–6%, không ở vùng hỗ trợ (hỗ trợ gần 27.800–28.200 là đáy bóng dưới phiên 02/11, rồi ~26.000). Price action + volume: hôm nay nến xanh O 29.450 – H 30.350 – L 29.200 – C 30.200 (+2,55%), đóng gần HIGH, bên mua đang chiếm ưu thế trong phiên và mã có sức mạnh tương đối so với VNINDEX đi ngang; tuy nhiên volume mới ~194 nghìn so với KLTB 10 phiên ~835 nghìn, nhịp tăng chưa được volume xác nhận. Kịch bản A: vượt và giữ vững trên 32.200 với volume lớn hơn trung bình, hoặc lùi về 28.000–28.200 có nến từ chối giá thấp rồi mới cân nhắc vào. Kịch bản B: thủng 27.800 thì setup vô hiệu, có thể về đáy biên 25.700–26.000. Kết luận: dù nến hôm nay tích cực và có sức mạnh tương đối, cấu trúc vẫn là sideway chưa phá kháng cự, giá ở giữa biên chứ không ở vùng hỗ trợ, volume chưa xác nhận và thị trường chung yếu → chưa đủ điều kiện (thiếu mục &quot;break cấu trúc có volume xác nhận&quot; và điểm vào gần vùng hỗ trợ).</p>
+        </details>
+      </div>      <div class="dtr-card" data-dtr-symbol="dpg" data-dtr-verdict="chua_du_dieu_kien">
         <div class="dtr-card-head">
           <span class="dtr-symbol">DPG</span>
           <span class="hist-result pending-review">⏳ Chưa đủ điều kiện</span>
@@ -8188,7 +8199,7 @@ Kết luận checklist: các mục còn lại đều trả lời được rõ r�
   <footer class="disclaimer">
     Trang tự động đồng bộ từ máy chạy hệ thống quét — không phải lời khuyên đầu tư,<br>
     chỉ là kết quả cơ học của phương pháp phân tích kỹ thuật 8 bước. Tự chịu trách nhiệm đối chiếu quyết định.<br>
-    Sinh trang lúc <span class="mono">11:31:18 03/11/2026</span>
+    Sinh trang lúc <span class="mono">11:40:05 03/11/2026</span>
   </footer>
 </div>
 <script>
